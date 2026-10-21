@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>ACM/XCPC 算法竞赛学习资料库</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ===== 门户补充样式（沿用同一视觉体系） ===== */
+.stat{display:flex;flex-direction:column;gap:2px}
+.stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:26px}
+a.repo-card{color:inherit;display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:14px;background:var(--surface);border:1px solid var(--border);transition:border-color .15s,transform .15s,box-shadow .15s}
+a.repo-card:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,118,110,.08)}
+a.repo-card:hover .go{color:var(--teal-deep)}
+.go{margin-top:2px;font-size:13px;font-weight:600;color:var(--teal)}
+.agg{padding:2px 0 8px}
+.grp{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-soft);padding:14px 12px 6px;display:flex;align-items:center;gap:10px}
+.grp .gn{background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;letter-spacing:0;flex:none}
+.grp .gmeta{color:#98A1AC;letter-spacing:0}
+.agg-item{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 16px;margin-bottom:8px;flex-wrap:wrap}
+.agg-item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:180px}
+.agg-item:hover{border-color:var(--teal)}
+.agg-item:hover .nm{color:var(--teal-deep)}
+.agg-item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:55%;text-align:right}
+.agg-item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap;flex:none}
+.agg-item .tag.scan{background:#F5E9D7;color:var(--amber)}
+@media(max-width:640px){.agg-item .mt{max-width:100%;width:100%;text-align:left;padding-left:28px}}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.view{max-width:1240px;margin:0 auto;padding:6px 16px 80px}
+.gsearch input{width:100%;height:38px;border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:0 12px 0 34px;font-size:16px;outline:none;color:var(--ink)}
+.gsearch input:focus{border-color:var(--teal)}
+.gsearch svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--ink-soft)}
+.gsearch{position:relative;flex:1;min-width:0;max-width:340px}
+.lecture-card{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin:14px 0}
+.lecture-card:hover{border-color:var(--teal)}
+.lecture-card .ic{width:44px;height:44px;border-radius:10px;background:var(--teal-soft);color:var(--teal-deep);display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px;flex:none}
+.lecture-card b{display:block;font-size:16px}
+.lecture-card small{color:var(--ink-soft);font-size:12.5px}
+.lecture-card .go{margin-left:auto;flex:none}
+</style>
+</head>
+<body>
+<!-- ===== 头部 ===== -->
+<div class="header">
+  <div class="header-in">
+    <a class="brand" href="#home" onclick="navGo('home');return false"><span class="logo">AC</span>ACM/XCPC 资料库</a>
+    <div class="nav">
+      <a href="#home" class="on" data-nav="home">首页</a>
+      <a href="#notes" data-nav="notes">笔记</a>
+      <a href="#pdfs" data-nav="pdfs">讲义</a>
+      <a href="#code" data-nav="code">代码</a>
+    </div>
+    <div class="gsearch">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="搜索仓库 / 笔记 / 讲义 / 代码…" autocomplete="off">
+    </div>
+    <button class="mbtn" type="button" onclick="openDrawer()" aria-label="菜单"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</div>
+
+<!-- ===== 移动端抽屉 ===== -->
+<div class="drawer" id="drawer">
+  <div class="mask" onclick="closeDrawer()"></div>
+  <div class="panel">
+    <div style="padding:16px 14px;font-family:var(--serif);font-weight:800;font-size:17px;border-bottom:1px solid var(--border)">ACM/XCPC 资料库</div>
+    <div style="padding:8px 6px">
+      <a href="#home" data-nav="home" onclick="navGo('home');closeDrawer();return false" style="display:block;padding:12px 10px;border-radius:9px;font-weight:500">首页</a>
+      <a href="#notes" data-nav="notes" onclick="navGo('notes');closeDrawer();return false" style="display:block;padding:12px 10px;border-radius:9px;font-weight:500">笔记（120 篇）</a>
+      <a href="#pdfs" data-nav="pdfs" onclick="navGo('pdfs');closeDrawer();return false" style="display:block;padding:12px 10px;border-radius:9px;font-weight:500">讲义（281 份 PDF）</a>
+      <a href="#code" data-nav="code" onclick="navGo('code');closeDrawer();return false" style="display:block;padding:12px 10px;border-radius:9px;font-weight:500">代码（304 段）</a>
+    </div>
+  </div>
+</div>
+
+<!-- hash 路由静态锚点（视图由 JS 渲染，锚点保证导航目标存在） -->
+<div style="display:none"><span id="home"></span><span id="notes"></span><span id="pdfs"></span><span id="code"></span></div>
+
+<main class="view on" id="view"></main>
+
+<script src="assets/portal_data.js"></script>
+<script>
+(function(){
+  var DATA = window.PORTAL_DATA;
+  var repos = DATA.repos, codeIdx = DATA.codeIdx;
+  var V = document.getElementById('view');
+  var qInput = document.getElementById('q');
+  var curView = location.hash.replace('#','') || 'home';
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function relOf(r,p){ return p.indexOf(r.id+'/')===0 ? p.slice(r.id.length+1) : p; }
+  function notesLink(r,p){ return 'repos/'+r.id+'/notes/'+relOf(r,p).replace(/\.md$/i,'')+'.html'; }
+  function pdfLink(r,p){ return 'repos/'+r.id+'/pdfs/'+relOf(r,p); }
+  function codeLink(r,p){ return 'repos/'+r.id+'/code/'+relOf(r,p); }
+  function fileLink(r,p){ return 'repos/'+r.id+'/files/'+relOf(r,p); }
+  function fmt(n){ if(n>=1048576)return (n/1048576).toFixed(1)+' MB'; if(n>=1024)return (n/1024).toFixed(1)+' KB'; return n+' B'; }
+
+  function statsHTML(){
+    var n = [ ['11','个开源仓库'], ['120','篇笔记文档'], ['304','段模板代码'], ['281','份PDF讲义'] ];
+    return '<div class="stats">'+n.map(function(s){return '<div class="stat"><span class="n">'+s[0]+'</span><span class="l">'+s[1]+'</span></div>';}).join('')+'</div>';
+  }
+  function quickHTML(){
+    var q = [
+      ['guide','入门指南','NullResot 图文入门','M4'],
+      ['notes','算法笔记','120 篇全文阅读','N5'],
+      ['code','模板代码','304 段站内查看','C7'],
+      ['pdfs','讲义索引','281 份 PDF 预览','F2']
+    ];
+    return '<div class="quick">'+q.map(function(x){
+      if(x[0]==='guide') return '<a href="repos/11_NullResot-XCPC入门指南/index.html"><span class="ic">'+x[3]+'</span>'+x[1]+'<small style="margin-left:auto;color:var(--ink-soft);font-weight:400;font-size:12px">'+x[2]+'</small></a>';
+      return '<a href="#'+x[0]+'" onclick="navGo(\''+x[0]+'\');return false"><span class="ic">'+x[3]+'</span>'+x[1]+'<small style="margin-left:auto;color:var(--ink-soft);font-weight:400;font-size:12px">'+x[2]+'</small></a>';
+    }).join('')+'</div>';
+  }
+
+  /* ---------- 首页 ---------- */
+  function renderHome(q){
+    q = (q||'').toLowerCase();
+    var cards = repos.filter(function(r){
+      if(!q) return true;
+      return (r.title+' '+r.src+' '+r.desc).toLowerCase().indexOf(q)>=0;
+    }).map(function(r){
+      var ncode = r.n_code;
+      return '<a class="repo-card" href="repos/'+r.id+'/index.html">'+
+        '<div class="rt"><span class="rn">'+esc(r.id.slice(0,2))+'</span><h3>'+esc(r.title)+'</h3></div>'+
+        '<div class="rs">'+esc(r.src)+'</div>'+
+        '<div class="rd">'+esc(r.desc)+'</div>'+
+        '<div class="rm"><span>笔记 <b>'+r.n_md+'</b></span><span>代码 <b>'+ncode+'</b></span><span>PDF <b>'+r.n_pdf+'</b></span><span>图片 <b>'+r.n_img+'</b></span></div>'+
+        '<span class="go">进入仓库 →</span>'+
+      '</a>';
+    }).join('');
+    V.innerHTML =
+      '<section class="hero">'+
+        '<div class="deco">{ }</div>'+
+        '<h1><span class="ac">ACM</span>/XCPC 算法竞赛学习资料库</h1>'+
+        '<div class="sub">汇总 11 个开源项目：入门指南、算法笔记、C++ 模板代码、281 份讲义 PDF。全部资料已站内收录，无需外链；电脑与手机自适应浏览。</div>'+
+        statsHTML()+quickHTML()+
+      '</section>'+
+      '<div class="lecture-card"><div class="ic">99</div><div style="flex:1"><b>微凉苏 · ACM区域赛算法与题型精讲（99 页）</b><small>讲义全文已并入站点，可在线预览</small></div>'+
+        '<div class="go"><a href="lectures/ACM区域赛算法与题型精讲.pdf">打开 PDF →</a>&nbsp;<a href="lectures/ACM区域赛算法与题型精讲.html">网页版 →</a></div></div>'+
+      '<h2 class="sec-h"><span class="bar"></span>全部仓库<span class="en">REPOSITORIES</span></h2>'+
+      '<div class="repo-grid">'+cards+'</div>';
+  }
+
+  /* ---------- 笔记 ---------- */
+  function renderNotes(q){
+    q = (q||'').toLowerCase();
+    var groups = repos.map(function(r){
+      var items = r.md.filter(function(m){
+        return !q || m.p.toLowerCase().indexOf(q)>=0 || r.title.toLowerCase().indexOf(q)>=0;
+      });
+      if(!items.length) return '';
+      var lis = items.map(function(m){
+        return '<div class="agg-item"><a href="'+notesLink(r,m.p)+'"><span class="nm">'+esc(m.p.split('/').pop())+'</span></a>'+
+          '<span class="mt">'+esc(m.p)+' · '+fmt(m.s)+'</span></div>';
+      }).join('');
+      return '<div class="grp"><span class="gn">'+esc(r.title)+'</span><span class="gmeta">'+items.length+' 篇</span></div>'+lis;
+    }).join('');
+    V.innerHTML = '<h2 class="sec-h"><span class="bar"></span>算法笔记<span class="en">NOTES · '+repos.reduce(function(a,r){return a+r.n_md},0)+' 篇</span></h2>'+
+      (groups||'<div class="empty">没有匹配的笔记</div>');
+  }
+
+  /* ---------- 讲义 PDF ---------- */
+  function renderPdfs(q){
+    q = (q||'').toLowerCase();
+    var groups = repos.map(function(r){
+      var items = r.pdf.filter(function(p){
+        return !q || p.p.toLowerCase().indexOf(q)>=0 || r.title.toLowerCase().indexOf(q)>=0;
+      });
+      if(!items.length) return '';
+      var lis = items.map(function(p){
+        var tag = p.c>50 ? '<span class="tag">可全文检索</span>' : '<span class="tag scan">扫描版</span>';
+        return '<div class="agg-item"><a href="'+pdfLink(r,p.p)+'"><span class="nm">'+esc(p.p.split('/').pop())+'</span></a>'+
+          '<span class="mt">'+esc(p.p)+' · '+fmt(p.s)+(p.pg?' · '+p.pg+'页':'')+'</span>'+tag+'</div>';
+      }).join('');
+      return '<div class="grp"><span class="gn">'+esc(r.title)+'</span><span class="gmeta">'+items.length+' 份</span></div>'+lis;
+    }).join('');
+    V.innerHTML = '<h2 class="sec-h"><span class="bar"></span>讲义 PDF<span class="en">LECTURES · 281 份 · 点击直接预览</span></h2>'+
+      (groups||'<div class="empty">没有匹配的讲义</div>');
+  }
+
+  /* ---------- 代码 ---------- */
+  function renderCode(q){
+    q = (q||'').toLowerCase();
+    var byRepo = {};
+    codeIdx.forEach(function(c){
+      (byRepo[c.r]=byRepo[c.r]||[]).push(c);
+    });
+    var groups = repos.map(function(r){
+      var items = (byRepo[r.id]||[]).filter(function(c){
+        return !q || c.p.toLowerCase().indexOf(q)>=0 || r.title.toLowerCase().indexOf(q)>=0;
+      });
+      if(!items.length) return '';
+      var lis = items.map(function(c){
+        return '<div class="agg-item"><a href="'+codeLink(r,c.p)+'"><span class="nm">'+esc(c.p.split('/').pop())+'</span></a>'+
+          '<span class="mt">'+esc(c.p)+'</span></div>';
+      }).join('');
+      return '<div class="grp"><span class="gn">'+esc(r.title)+'</span><span class="gmeta">'+items.length+' 段</span></div>'+lis;
+    }).join('');
+    V.innerHTML = '<h2 class="sec-h"><span class="bar"></span>模板与代码<span class="en">CODE · 304 段 · 站内查看</span></h2>'+
+      (groups||'<div class="empty">没有匹配的代码</div>');
+  }
+
+  /* ---------- 路由 ---------- */
+  window.navGo = function(v){
+    location.hash = v;
+  };
+  function render(){
+    curView = location.hash.replace('#','') || 'home';
+    if(['home','notes','pdfs','code'].indexOf(curView)<0) curView='home';
+    document.querySelectorAll('[data-nav]').forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('data-nav')===curView);
+    });
+    var q = qInput.value;
+    if(curView==='home') renderHome(q);
+    else if(curView==='notes') renderNotes(q);
+    else if(curView==='pdfs') renderPdfs(q);
+    else renderCode(q);
+  }
+  window.addEventListener('hashchange', render);
+  qInput.addEventListener('input', render);
+
+  window.openDrawer = function(){ document.getElementById('drawer').classList.add('open'); };
+  window.closeDrawer = function(){ document.getElementById('drawer').classList.remove('open'); };
+
+  render();
+})();
+</script>
+</body>
+</html>
