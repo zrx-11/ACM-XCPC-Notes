@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>06 - 本地编译器编译设置.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>06 - 本地编译器编译设置.md</span></nav>
+  <h1 class="page-title">06 - 本地编译器编译设置.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/06 - 本地编译器编译设置.md · 3.1 KB</div>
+  <div class="prose"><h3>编译命令相关</h3>
+<p>以下是我正在使用的完整编译命令：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">g</span><span class="o">++</span><span class="w"> </span><span class="o">-</span><span class="n">O2</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="n">pipe</span><span class="w"> </span>
+<span class="o">-</span><span class="n">Wall</span><span class="w"> </span><span class="o">-</span><span class="n">Wextra</span><span class="w"> </span><span class="o">-</span><span class="n">Wconversion</span><span class="w"> </span>
+<span class="o">-</span><span class="n">fstack</span><span class="o">-</span><span class="n">protector</span><span class="w"> </span>
+<span class="o">-</span><span class="n">Wl</span><span class="p">,</span><span class="o">--</span><span class="n">stack</span><span class="o">=</span><span class="mi">268435456</span>
+</code></pre></div>
+
+<p>下面是每个选项的解释：</p>
+<ol>
+<li>
+<p><strong>-std=c++20</strong>：使用C++20标准进行编译。这告诉编译器使用C++20版本的语法和特性进行编译。C++20是C++的最新标准，引入了许多新的特性和改进。</p>
+</li>
+<li>
+<p><strong>-O2</strong>：启用 <code>O2</code> 级别的优化（一般戏称为氧气优化）。这个选项告诉编译器进行中等程度的优化，以提高程序的运行速度。</p>
+</li>
+<li>
+<p><strong>-pipe</strong>：与 <code>-O2</code> 类似，进行一定程度的优化提速。</p>
+</li>
+<li>
+<p><strong>-Wall</strong>：启用所有常规的警告信息。这会让编译器提醒你可能会导致问题的代码部分。这是一个推荐的编译选项，因为它帮助你捕捉潜在的错误。</p>
+</li>
+<li>
+<p><strong>-Wextra</strong>：启用额外的警告。类似于 <code>-Wall</code>，但会启用更多的警告，包括一些非常规的警告，帮助你更好地检查代码。</p>
+</li>
+<li>
+<p><strong>-Wconversion</strong>：启用类型转换相关的警告。这个选项会在可能导致数据丢失的类型转换时发出警告。</p>
+</li>
+<li>
+<p><strong>-Wl,--stack=268435456</strong>：设置生成的可执行文件的堆栈大小为268435456字节（256 MB）。这可以确保你的程序有足够的栈空间来处理递归或大量的局部变量。通常OJ题目所给定的内存限制大小即为栈空间大小，但是前提是OJ的编译命令中有这一条，否则，默认模式下的栈空间大小不超过2MB。</p>
+</li>
+</ol>
+<hr />
+<h3>白名单相关</h3>
+<p>了解了下原因，发现是电脑杀毒软件的问题（在运行exe前会先扫描一遍），提供两种解决方案：</p>
+<p>其一是没有安装任何额外的杀毒软件，<a href="https://blog.csdn.net/rb0518/article/details/120553667?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-120553667-blog-104544424.pc_relevant_3mothn_strategy_and_data_recovery&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-120553667-blog-104544424.pc_relevant_3mothn_strategy_and_data_recovery&amp;utm_relevant_index=1">参见该链接</a>；其二是安装了额外的杀毒软件，这里以我装的火绒为例（如图，两步骤完成）：</p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../../images/06 - 个人博客搬运/算法笔记/06 - p01.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">火绒设置界面</div>
+</center></p>
+<p>效果对比：</p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../../images/06 - 个人博客搬运/算法笔记/06 - p02.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">调整前</div>
+</center></p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../../images/06 - 个人博客搬运/算法笔记/06 - p03.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">调整后</div>
+</center></p></div>
+</div>
+</body>
+</html>

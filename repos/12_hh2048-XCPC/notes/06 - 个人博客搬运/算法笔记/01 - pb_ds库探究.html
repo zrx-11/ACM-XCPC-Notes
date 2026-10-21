@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>01 - pb_ds库探究.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>01 - pb_ds库探究.md</span></nav>
+  <h1 class="page-title">01 - pb_ds库探究.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/01 - pb_ds库探究.md · 8.7 KB</div>
+  <div class="prose"><h3>参考文献</h3>
+<p>【于纪平】C++的pb_ds库在OI中的应用.pdf</p>
+<p>CodeForces <a href="https://codeforces.com/blog/entry/60737">C++ STL: Order of magnitude faster hash tables with Policy Based Data Structures</a></p>
+<h3>万能头文件</h3>
+<p>CodeForces在 $\tt C^{20(64)}_{++}$ 版本下无法使用 <code>bits</code>；如果需要使用 <code>priority_queue</code> 则无法使用 <code>using</code>（会和 <code>std</code> 撞名字）。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/extc.h&gt;</span>
+<span class="n">using</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">__gnu_pbds</span><span class="p">;</span>
+</code></pre></div>
+
+<hr />
+<h3>优先队列（不常用）</h3>
+<h4>概述</h4>
+<p>一般使用 <code>pairing_heap_tag</code>，速度最快；<code>binary_heap_tag</code> 也大致能够接受。两者均拥有 <code>std::priority_queue</code> 的性质和函数，默认从大到小排序。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">__gnu_pbds</span><span class="o">::</span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// 标准写法</span>
+<span class="n">__gnu_pbds</span><span class="o">::</span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">__gnu_pbds</span><span class="o">::</span><span class="n">pairing_heap_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="c1">// 转换为小根堆</span>
+</code></pre></div>
+
+<h4>迭代器的使用</h4>
+<p>允许使用迭代器，输出的是在堆里的状态（注意，并不是默认的从小到大）。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">__gnu_pbds</span><span class="o">::</span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="n">p</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出：14 12 14</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>复杂度</h4>
+<p>结论：时间复杂度差于 <code>std::priority_queue</code>。</p>
+<ul>
+<li>CodeForces在 $\tt C^{20(64)}<em>{++}$ 版本下使用 <code>std::priority_queue</code> 优化 djikstra <a href="https://codeforces.com/contest/1433/submission/223590243">耗时124ms</a>，使用 <code>__gnu_pbds::priority_queue</code> 则 <a href="https://codeforces.com/contest/1433/submission/223591776">耗时156ms</a>；使用 $\tt C^{17(64)}</em>{++}$ 版本耗时更长，为 <a href="https://codeforces.com/contest/1433/submission/223591492">171ms</a> 。</li>
+<li>Atcoder在 $\tt C^{20(gcc 12.2)}_{++}$ 版本下基本同上。</li>
+</ul>
+<hr />
+<h3>平衡树（功能最多）</h3>
+<h4>概述</h4>
+<p>一般使用 <code>rb_tree_tag</code>，拥有 <code>std::set</code> 的性质和函数，速度较快。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">null_type</span><span class="p">,</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// 标准写法</span>
+
+<span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出：2 12 19</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>关于第二参数</h4>
+<p>其中第二个参数如果不写内置关键字 <code>null_type</code>，则能够实现 <code>std::map</code> 的功能，该参数即等同于 <code>std::map</code> 的第二参数（但是效率巨低无比）。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+
+<span class="n">p</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 输出：</span>
+<span class="cm">2 1</span>
+<span class="cm">12 2</span>
+<span class="cm">19 1</span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<p>如果第二关键字为 <code>char</code> 等其他类型，则需要手动书写一个哈希，否则输出会出现问题。</p>
+<h4>关于第三参数</h4>
+<p>第三个参数可以使用 <code>_equal</code> 后缀以允许插入重复元素，进而替代 <code>std::multiset</code>。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">null_type</span><span class="p">,</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">null_type</span><span class="p">,</span><span class="w"> </span><span class="n">less_equal</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+
+<span class="n">P</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">P</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">P</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">19</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span>
+<span class="n">P</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 此时：</span>
+<span class="cm">P = [2 12 19]</span>
+<span class="cm">p = [2 12 12 19]</span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<p>在此操作之后，函数的性质发生了一些变化，<code>find</code> 函数不再能正确使用。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">P</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"AC!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"WA!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 输出：</span>
+<span class="cm">AC!</span>
+<span class="cm">WA! </span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<p><code>lower_bound</code> 和 <code>upper_bound</code> 函数的实现将会被翻转：</p>
+<ul>
+<li><code>lower_bound(x)</code>：找到 $&gt; x$ 的第一个迭代器；</li>
+<li><code>upper_bound(x)</code>：找到 $\ge x$ 的第一个迭代器。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="p">.</span><span class="n">upper_bound</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">.</span><span class="n">upper_bound</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="cm">/* 输出：</span>
+<span class="cm">19 12</span>
+<span class="cm">12 19 </span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<h4>关于第五参数</h4>
+<p>其特殊之处在于最后一个可选参数类：内置关键字 <code>tree_order_statistics_node_update</code> 可以同步记录子树大小，使得你可以使用 <code>find_by_order()</code> 和 <code>order_of_key()</code> 函数。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">null_type</span><span class="p">,</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="p">,</span><span class="w"> </span><span class="n">tree_order_statistics_node_update</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+
+<h4>手写可选参数类</h4>
+<p>可以手写函数实现不同的功能，大模板如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">template</span><span class="o">&lt;</span><span class="n">class</span><span class="w"> </span><span class="n">Node_CItr</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Node_Itr</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Cmp_Fn</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">myNodeUpdate</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">virtual</span><span class="w"> </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">node_begin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">virtual</span><span class="w"> </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">node_end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">metadata_type</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>可以重载 <code>operator()</code> 函数，将节点的信息更新为其两个子节点的信息之和。常用函数展示：</p>
+<ul>
+<li><code>get_l_child</code>：获取左儿子；</li>
+<li><code>get_r_child</code>：获取右儿子；</li>
+<li><code>get_metadata</code>：获取节点额外信息。</li>
+</ul>
+<p>下方展示一个计算子节点值之和的例子，可以类比于求解 <code>std::map</code> 前缀和、区间之和：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">template</span><span class="o">&lt;</span><span class="n">class</span><span class="w"> </span><span class="n">Node_CItr</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Node_Itr</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Cmp_Fn</span><span class="p">,</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">myNodeUpdate</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">virtual</span><span class="w"> </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">node_begin</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">virtual</span><span class="w"> </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">node_end</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">metadata_type</span><span class="p">;</span><span class="w"> </span><span class="c1">// 声明节点上记录的额外信息的类型</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">Node_Itr</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">end_it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Node_Itr</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">get_l_child</span><span class="p">(),</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">get_r_child</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">end_it</span><span class="p">)</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">get_metadata</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">end_it</span><span class="p">)</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">get_metadata</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// (*it)-&gt;second 为当前节点 it 的 mapped_value</span>
+<span class="w">        </span><span class="n">const_cast</span><span class="o">&lt;</span><span class="n">metadata_type</span><span class="w"> </span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">get_metadata</span><span class="p">())</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">prefix_sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node_begin</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">node_end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Node_CItr</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">get_l_child</span><span class="p">(),</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="n">get_r_child</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Cmp_Fn</span><span class="p">()(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">node_end</span><span class="p">())</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">get_metadata</span><span class="p">();</span>
+<span class="w">                </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">interval_sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>测试结果如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">tree</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">rb_tree_tag</span><span class="p">,</span><span class="w"> </span><span class="n">myNodeUpdate</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1111</span><span class="p">;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">prefix_sum</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">prefix_sum</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">interval_sum</span><span class="p">(</span><span class="mi">-500</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="cm">/* 输出：</span>
+<span class="cm">0</span>
+<span class="cm">1211</span>
+<span class="cm">1212</span>
+<span class="cm">3</span>
+<span class="cm">*/</span>
+</code></pre></div>
+
+<h4>复杂度</h4>
+<p>个人尚未做过相关测试，引用论文中图表：</p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/9834efe3c8f5.png" width="70%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">论文相关测试结果</div>
+</center></p>
+<hr />
+<h3>哈希表（优化较大）</h3>
+<h4>对应头文件</h4>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ext/pb_ds/assoc_container.hpp&gt;</span>
+<span class="cp">#define mymap __gnu_pbds::gp_hash_table</span>
+</code></pre></div>
+
+<h4>概述</h4>
+<p>一般使用 <code>gp_hash_table</code>，速度较快（使用查探法哈希）；<code>cc_hash_table</code> 速度稍慢（使用拉链法哈希），但均快于 <code>map</code> 和 <code>unordered_map</code>。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">gp_hash_table</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="p">;</span><span class="w"> </span><span class="c1">// 标准写法</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">myhash</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="nf">splitmix64</span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mh">0x9e3779b97f4a7c15</span><span class="p">;</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">30</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0xbf58476d1ce4e5b9</span><span class="p">;</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">27</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mh">0x94d049bb133111eb</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">FIXED_RANDOM</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">().</span><span class="n">count</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">splitmix64</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">FIXED_RANDOM</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="n">gp_hash_table</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">myhash</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="p">;</span><span class="w"> </span><span class="c1">// 支持自定义随机哈希种子</span>
+</code></pre></div>
+
+<h4>复杂度</h4>
+<p>结论：时间复杂度优于 <code>map</code> 和 <code>unordered_map</code> 。</p>
+<ul>
+<li>CodeForces在 $\tt C^{20(64)}_{++}$ 版本下使用 <code>std::map</code> <a href="https://codeforces.com/contest/1225/submission/223593424">耗时920ms</a>，使用自定义随机哈希种子 <code>std::unordered_map</code> <a href="https://codeforces.com/contest/1225/submission/223593693">耗时842ms</a>；使用 <code>gp_hash_table</code> <a href="https://codeforces.com/contest/1225/submission/223594104">耗时764ms</a>；使用自定义随机哈希种子 <code>gp_hash_table</code> <a href="https://codeforces.com/problemset/submission/1225/223594473">耗时780ms</a> 。</li>
+</ul>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/03788ec2f895.png" width="70%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">论文相关测试结果</div>
+</center></p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/c92564e56718.png" width="70%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">CodeForces相关测试结果</div>
+</center></p></div>
+</div>
+</body>
+</html>

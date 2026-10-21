@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>Readme.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>Readme.md</span></nav>
+  <h1 class="page-title">Readme.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/Data Structures/Heap/Readme.md · 1.4 KB</div>
+  <div class="prose"><p><strong><em>*</em></strong><em>Problem Description:</em><strong><em>*</em></strong></p>
+<p><strong><em>*</em>*Task:</strong>****</p>
+<p>You have a program which is parallelized and uses 𝑛 independent threads to process the given list
+of 𝑚 jobs. Threads take jobs in the order they are given in the input. If there is a free thread,
+it immediately takes the next job from the list. If a thread has started processing a job, it doesn’t
+interrupt or stop until it finishes processing the job. If several threads try to take jobs from the list
+simultaneously, the thread with smaller index takes the job. For each job you know exactly how long
+will it take any thread to process this job, and this time is the same for all the threads. You need to
+determine for each job which thread will process it and when will it start processing.</p>
+<p><strong><em>*</em>*Input Format:</strong>**** </p>
+<p>The first line of the input contains integers 𝑛 and 𝑚.
+The second line contains 𝑚 integers 𝑡𝑖 — the times in seconds it takes any thread to process 𝑖-th job.
+The times are given in the same order as they are in the list from which threads take jobs.
+Threads are indexed starting from 0.
+Constraints. 1 ≤ 𝑛 ≤ 105
+; 1 ≤ 𝑚 ≤ 105
+; 0 ≤ 𝑡𝑖 ≤ 109
+.</p>
+<p><strong><em>*</em>*Output Format:</strong>****</p>
+<p>Output exactly 𝑚 lines. 𝑖-th line (0-based index is used) should contain two spaceseparated
+integers — the 0-based index of the thread which will process the 𝑖-th job and the time in
+seconds when it will start processing that job.</p></div>
+</div>
+</body>
+</html>

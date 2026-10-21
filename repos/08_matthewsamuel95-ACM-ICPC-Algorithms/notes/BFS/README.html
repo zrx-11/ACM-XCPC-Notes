@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>README.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../index.html">首页</a><span>/</span><a href="../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>README.md</span></nav>
+  <h1 class="page-title">README.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/BFS/README.md · 2.0 KB</div>
+  <div class="prose"><h1>Breadth First Search (BFS)</h1>
+<p>There are many ways to traverse graphs. BFS is the most commonly used approach.</p>
+<p>BFS is a traversing algorithm where you should start traversing from a selected node (source or starting node) and traverse the graph layerwise thus exploring the neighbour nodes (nodes which are directly connected to source node). You must then move towards the next-level neighbour nodes.</p>
+<p>As the name BFS suggests, you are required to traverse the graph breadthwise as follows:</p>
+<ul>
+<li>First move horizontally and visit all the nodes of the current layer</li>
+<li>Move to the next layer</li>
+</ul>
+<h2>Traversing child nodes</h2>
+<p>A graph can contain cycles, which may bring you to the same node again while traversing the graph. To avoid processing of same node again, use a boolean array which marks the node after it is processed. While visiting the nodes in the layer of a graph, store them in a manner such that you can traverse the corresponding child nodes in a similar order.</p>
+<p>To make this process easy, use a queue to store the node and mark it as 'visited' until all its neighbours (vertices that are directly connected to it) are marked. The queue follows the First In First Out (FIFO) queuing method, and therefore, the neigbors of the node will be visited in the order in which they were inserted in the node i.e. the node that was inserted first will be visited first, and so on.</p>
+<h2>Pseudocode</h2>
+<div class="codehilite"><pre><span></span><code><span class="nv">BFS</span><span class="w"> </span><span class="ss">(</span><span class="nv">G</span>,<span class="w"> </span><span class="nv">s</span><span class="ss">)</span><span class="w"> </span><span class="o">//</span><span class="nv">Where</span><span class="w"> </span><span class="s1">'G'</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">graph</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="s1">'s'</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">source</span><span class="w"> </span><span class="nv">node</span>.
+<span class="w">      </span><span class="nv">let</span><span class="w"> </span><span class="s1">'Q'</span><span class="w"> </span><span class="nv">be</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">queue</span>.
+<span class="w">      </span><span class="nv">Q</span>.<span class="nv">enqueue</span><span class="ss">(</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="ss">)</span><span class="w"> </span><span class="o">//</span><span class="nv">Inserting</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">its</span><span class="w"> </span><span class="nv">neighbouring</span><span class="w"> </span><span class="nv">vertices</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">marked</span>.
+
+<span class="w">      </span><span class="nv">mark</span><span class="w"> </span><span class="s1">'s'</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">visited</span>.
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="ss">(</span><span class="w"> </span><span class="nv">Q</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">empty</span><span class="w"> </span><span class="ss">)</span>
+<span class="w">           </span><span class="o">//</span><span class="nv">Removing</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">vertex</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">queue</span>,<span class="w"> </span><span class="nv">whose</span><span class="w"> </span><span class="nv">neighbour</span><span class="w"> </span><span class="s1">'v'</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">be</span><span class="w"> </span><span class="nv">visited</span><span class="w"> </span><span class="nv">now</span>
+<span class="w">           </span><span class="nv">v</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="nv">Q</span>.<span class="nv">dequeue</span><span class="ss">(</span><span class="w"> </span><span class="ss">)</span>
+
+<span class="w">          </span><span class="o">//</span><span class="nv">processing</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">neighbours</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="s1">'v'</span><span class="w">  </span>
+<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">neighbours</span><span class="w"> </span><span class="s1">'w'</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="s1">'v'</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">Graph</span><span class="w"> </span><span class="s1">'G'</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="s1">'w'</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">visited</span><span class="w"> </span>
+<span class="w">                        </span><span class="nv">Q</span>.<span class="nv">enqueue</span><span class="ss">(</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="ss">)</span><span class="w">             </span><span class="o">//</span><span class="nv">Stores</span><span class="w"> </span><span class="s1">'w'</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="s1">'Q'</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">further</span><span class="w"> </span><span class="nv">visit</span><span class="w"> </span><span class="nv">its</span><span class="w"> </span><span class="nv">neighbour</span>
+<span class="w">                        </span><span class="nv">mark</span><span class="w"> </span><span class="s1">'w'</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">visited</span>.
+</code></pre></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>05 - LLVM（代码自动格式化）探究.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>05 - LLVM（代码自动格式化）探究.md</span></nav>
+  <h1 class="page-title">05 - LLVM（代码自动格式化）探究.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/05 - LLVM（代码自动格式化）探究.md · 2.9 KB</div>
+  <div class="prose"><h3>汇总</h3>
+<p>本章节部分内容参考自<a href="https://blog.csdn.net/weixin_43717839/article/details/129382657">网络文章1</a>、<a href="https://blog.csdn.net/sirkang/article/details/105988953">网络文章2</a>。</p>
+<p>LLVM是一个代码格式化工具，修改一些默认参数使之更好的符合你的代码风格，以下是我个人的调整内容。</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">BasedOnStyle:</span><span class="w"> </span><span class="err">LLVM</span>
+<span class="nl">IndentWidth:</span><span class="w"> </span><span class="m">4</span>
+
+<span class="nl">AllowShortIfStatementsOnASingleLine:</span><span class="w"> </span><span class="k">true</span>
+<span class="nl">AllowShortLoopsOnASingleLine:</span><span class="w"> </span><span class="k">true</span>
+<span class="nl">AllowShortFunctionsOnASingleLine:</span><span class="w"> </span><span class="err">Empty</span>
+
+<span class="nl">NamespaceIndentation:</span><span class="w"> </span><span class="err">All</span>
+<span class="nl">ColumnLimit:</span><span class="w"> </span><span class="m">70</span>
+<span class="nl">IndentPPDirectives:</span><span class="w"> </span><span class="err">BeforeHash</span>
+<span class="nl">SpaceAfterTemplateKeyword:</span><span class="w"> </span><span class="k">false</span>
+<span class="nl">ReflowComments:</span><span class="w"> </span><span class="k">true</span>
+<span class="nl">AlignTrailingComments:</span><span class="w"> </span><span class="k">false</span>
+<span class="nl">MaxEmptyLinesToKeep:</span><span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+
+<hr />
+<h3>参数调节细节</h3>
+<p><code>AllowShortLoopsOnASingleLine: true</code> 允许合并短的循环到单行上：可以让<strong>没有括号</strong>单独一行的短语句合并到上一行的结尾。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 格式化前</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 格式化后</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>AllowShortIfStatementsOnASingleLine : true</code> 允许合并短的if语句到单行上：同上，注意带 <code>else</code> 或 <code>else if</code> 后不生效。</p>
+<p><code>AllowShortFunctionsOnASingleLine: Empty</code> 仅允许合并短的空函数到单行上。</p>
+<p><code>NamespaceIndentation : All</code> 缩进全部的命名空间。</p>
+<p><code>ColumnLimit : 100</code> 列数限制，列数超过这个值的行会被自动换行。</p>
+<p><code>IndentPPDirectives : BeforeHash</code> 对 <code>define</code> 语句缩进。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 设置为None时</span>
+<span class="cp">#ifndef ONLINE_JUDGE</span>
+<span class="cp">#define tout cout</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/wida.h&gt;</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// 设置为AfterHash时</span>
+<span class="cp">#ifndef ONLINE_JUDGE</span>
+<span class="cp">#    define tout cout</span>
+<span class="cp">#</span><span class="w">    </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;bits/wida.h&gt;</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// 设置为BeforeHash时</span>
+<span class="cp">#ifndef ONLINE_JUDGE</span>
+<span class="w">    </span><span class="cp">#define tout cout</span>
+<span class="w">    </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/wida.h&gt;</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+
+<p><code>SpaceAfterTemplateKeyword: false</code> 不在可变模板关键字 <code>template</code> 后插入空格。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 不设置时</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">chk</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">// 设置为false时</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">chk</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+
+<p><code>MaxEmptyLinesToKeep: 2</code> 设置最大持续空行：如果有非常多空行，会被自动删除到剩两行。</p>
+<p><code>ReflowComments : true</code> 会对列数超过 <code>ColumnLimit</code> 设置的注释进行自动换行。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 格式化前</span>
+<span class="c1">// veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information</span>
+<span class="cm">/* second veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information */</span>
+
+<span class="c1">// 格式化后</span>
+<span class="c1">// veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of</span>
+<span class="c1">// information</span>
+<span class="cm">/* second veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of</span>
+<span class="cm"> * information */</span>
+</code></pre></div>
+
+<p><code>AlignTrailingComments : false</code> 不对齐尾部注释。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 设置为true时</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// 初始化a</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化cnt</span>
+
+<span class="c1">// 设置为false时</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化a</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 初始化cnt</span>
+</code></pre></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>README.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>README.md</span></nav>
+  <h1 class="page-title">README.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Collect_Max_Points/README.md · 1.4 KB</div>
+  <div class="prose"><h1>Problem Statement#1</h1>
+<p>You have a friend named Shivam and he is going to school from his house. He finds out that there are coins scattered on the roads and since he is greedy he wants to collect them all but since he doesn't want to be late for school, he decides to collect as many as he can on his way. He is a student and knows math so he figures he could travel the path in the form of a 2-D grid.</p>
+<p>Assume the whole space to be a 2-D block of <strong>MxN</strong> boxes and in each box there are some or no coins, Shivam's house is on the <strong>Top-Left corner</strong> and school is at the <strong>Bottom-Right corner</strong>. Due to his shortage of time he can travel either one step(box) <strong>Right</strong> or <strong>Down</strong> towards the school and collect the coins he find on his way.</p>
+<p>Since there are multiple paths possible, he can't figure out which path will yield him the most coins. Help him figure that out.</p>
+<h2>Input</h2>
+<p>You will be given <strong><em>T</em> Test Cases</strong> and each test case will contain:
+- <strong>First line</strong> will have the size of grid - <strong>M N</strong>
+- Followed by a matrix of <strong>M rows</strong> and <strong>N columns</strong> of integers.</p>
+<p><strong>Constraints</strong></p>
+<ul>
+<li>0 &lt; T &lt;= 10</li>
+<li>0 &lt; M,N &lt;= 10^3</li>
+<li>0 &lt;= Element &lt;= 10^3</li>
+</ul>
+<h2>Output</h2>
+<p>For each test case you will have to output one integer -&gt; <strong>Maximum No. of Coins</strong></p>
+<h2>Example</h2>
+<ul>
+<li>Input</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="m">4</span>
+<span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span>
+<span class="m">3</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span>
+<span class="m">4</span><span class="w"> </span><span class="m">3</span>
+<span class="m">4</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span>
+<span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2</span>
+<span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span>
+<span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">1</span>
+<span class="m">3</span><span class="w"> </span><span class="m">3</span>
+<span class="m">6</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">5</span>
+<span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span>
+<span class="m">4</span><span class="w"> </span><span class="m">6</span>
+<span class="m">2</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
+<span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span>
+<span class="m">6</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2</span>
+<span class="m">7</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">6</span>
+</code></pre></div>
+
+<ul>
+<li>Output</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="m">6</span>
+<span class="m">20</span>
+<span class="m">22</span>
+<span class="m">41</span>
+</code></pre></div></div>
+</div>
+</body>
+</html>

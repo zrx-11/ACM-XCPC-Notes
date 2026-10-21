@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>lychees · 原创讲义与题目 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>07_lychees-awesome-CP-algorithms</span></nav>
+  <div class="rhead">
+    <h1>lychees · 原创讲义与题目</h1>
+    <div class="sub">原创算法讲义（Lectures）与原创题目（Setter）PDF</div>
+    <div class="src">来源：github.com/lychees/awesome-competitive-olympiad-algorithms（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>5</b><span>笔记</span></div>
+    <div class="stat"><b>53</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>49</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>10</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 5 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">07_lychees-awesome-CP-algorithms/README.md · 2.0 KB</div></div>
+<div class="item"><a href="notes/Setter/NOI/noi2020 final version/destiny-README.html"><span class="nm">destiny-README.md</span></a><div class="mt">07_lychees-awesome-CP-algorithms/Setter/NOI/noi2020 final version/destiny-README.md · 418 B</div></div>
+<div class="item"><a href="notes/Setter/NOI/noi2020 final version/problem-README.html"><span class="nm">problem-README.md</span></a><div class="mt">07_lychees-awesome-CP-algorithms/Setter/NOI/noi2020 final version/problem-README.md · 196 B</div></div>
+<div class="item"><a href="notes/Setter/NOI/noi2020 final version/problem-solution.html"><span class="nm">problem-solution.md</span></a><div class="mt">07_lychees-awesome-CP-algorithms/Setter/NOI/noi2020 final version/problem-solution.md · 4.7 KB</div></div>
+<div class="item"><a href="notes/Setter/NOI/noi2020 final version/surreal-README.html"><span class="nm">surreal-README.md</span></a><div class="mt">07_lychees-awesome-CP-algorithms/Setter/NOI/noi2020 final version/surreal-README.md · 434 B</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 53 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/Lectures/Data-Structures.pdf"><span class="nm">Data-Structures.pdf</span></a><div class="mt">Lectures/Data-Structures.pdf · 699.9 KB · 102页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Graph-Fun-Problems.pdf"><span class="nm">Graph-Fun-Problems.pdf</span></a><div class="mt">Lectures/Graph-Fun-Problems.pdf · 76.0 KB · 11页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Graph-Misc-Problems.pdf"><span class="nm">Graph-Misc-Problems.pdf</span></a><div class="mt">Lectures/Graph-Misc-Problems.pdf · 418.3 KB · 71页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Minimum-Spanning-Tree.pdf"><span class="nm">Minimum-Spanning-Tree.pdf</span></a><div class="mt">Lectures/Minimum-Spanning-Tree.pdf · 335.3 KB · 72页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems-Overview.pdf"><span class="nm">Misc-Problems-Overview.pdf</span></a><div class="mt">Lectures/Misc-Problems-Overview.pdf · 296.3 KB · 60页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Convolutions.pdf"><span class="nm">Convolutions.pdf</span></a><div class="mt">Lectures/Misc-Problems/Convolutions.pdf · 824.4 KB · 3页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Dirichlet-Generating-Functions.pdf"><span class="nm">Dirichlet-Generating-Functions.pdf</span></a><div class="mt">Lectures/Misc-Problems/Dirichlet-Generating-Functions.pdf · 513.9 KB · 3页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Exponential-Generating-Functions.pdf"><span class="nm">Exponential-Generating-Functions.pdf</span></a><div class="mt">Lectures/Misc-Problems/Exponential-Generating-Functions.pdf · 155.3 KB · 3页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Misc-Problems-1.pdf"><span class="nm">Misc-Problems-1.pdf</span></a><div class="mt">Lectures/Misc-Problems/Misc-Problems-1.pdf · 432.3 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Misc-Problems-2.pdf"><span class="nm">Misc-Problems-2.pdf</span></a><div class="mt">Lectures/Misc-Problems/Misc-Problems-2.pdf · 382.6 KB · 19页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Misc-Problems-Notes.pdf"><span class="nm">Misc-Problems-Notes.pdf</span></a><div class="mt">Lectures/Misc-Problems/Misc-Problems-Notes.pdf · 490.6 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Misc-Problems/Solving-Recurrences.pdf"><span class="nm">Solving-Recurrences.pdf</span></a><div class="mt">Lectures/Misc-Problems/Solving-Recurrences.pdf · 390.3 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/NOIP-Preparation.pdf"><span class="nm">NOIP-Preparation.pdf</span></a><div class="mt">Lectures/NOIP-Preparation.pdf · 454.3 KB · 59页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Number-Theory.pdf"><span class="nm">Number-Theory.pdf</span></a><div class="mt">Lectures/Number-Theory.pdf · 360.9 KB · 65页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Self-Selected-Problems.pdf"><span class="nm">Self-Selected-Problems.pdf</span></a><div class="mt">Lectures/Self-Selected-Problems.pdf · 889.9 KB · 9页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Lectures/Strategy.pdf"><span class="nm">Strategy.pdf</span></a><div class="mt">Lectures/Strategy.pdf · 324.2 KB · 49页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day1/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/BJTSC/Day1/solutions.pdf · 202.7 KB · 46页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day1/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/Day1/statements.pdf · 320.0 KB · 7页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day2/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/BJTSC/Day2/solutions.pdf · 198.1 KB · 44页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day2/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/Day2/statements.pdf · 226.5 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day3/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/BJTSC/Day3/solutions.pdf · 144.7 KB · 31页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Day3/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/Day3/statements.pdf · 235.6 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/JointProvincialSel2020_Final/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/BJTSC/JointProvincialSel2020_Final/solutions.pdf · 103.2 KB · 9页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/JointProvincialSel2020_Final/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/JointProvincialSel2020_Final/statements.pdf · 168.2 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Mock-1/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/Mock-1/statements.pdf · 188.6 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Mock-2/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/BJTSC/Mock-2/solutions.pdf · 110.3 KB · 21页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/BJTSC/Mock-2/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/BJTSC/Mock-2/statements.pdf · 184.5 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-1/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOI/Mock-1/statements.pdf · 174.8 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-2/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOI/Mock-2/solutions.pdf · 177.3 KB · 27页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-2/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOI/Mock-2/statements.pdf · 136.5 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-3/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOI/Mock-3/statements.pdf · 175.8 KB · 6页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-4/cruise-solution.pdf"><span class="nm">cruise-solution.pdf</span></a><div class="mt">Setter/NOI/Mock-4/cruise-solution.pdf · 156.4 KB · 2页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-4/exploit-solution.pdf"><span class="nm">exploit-solution.pdf</span></a><div class="mt">Setter/NOI/Mock-4/exploit-solution.pdf · 89.0 KB · 1页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-4/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOI/Mock-4/statements.pdf · 152.4 KB · 6页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Mock-4/zoo-solution.pdf"><span class="nm">zoo-solution.pdf</span></a><div class="mt">Setter/NOI/Mock-4/zoo-solution.pdf · 124.6 KB · 1页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Practice-1/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOI/Practice-1/solutions.pdf · 128.0 KB · 28页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Practice-2/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOI/Practice-2/solutions.pdf · 181.7 KB · 38页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/Practice-2/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOI/Practice-2/statements.pdf · 588.8 KB · 6页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/destiny.pdf"><span class="nm">destiny.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/destiny.pdf · 104.7 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/dish-solution-alt.pdf"><span class="nm">dish-solution-alt.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/dish-solution-alt.pdf · 95.6 KB · 11页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/dish-solution.pdf"><span class="nm">dish-solution.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/dish-solution.pdf · 85.9 KB · 7页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/dish.pdf"><span class="nm">dish.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/dish.pdf · 767.1 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/original-0619pro.pdf"><span class="nm">original-0619pro.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/original-0619pro.pdf · 293.6 KB · 8页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/original-problem.pdf"><span class="nm">original-problem.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/original-problem.pdf · 577.7 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/original-solution.pdf"><span class="nm">original-solution.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/original-solution.pdf · 306.3 KB · 9页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/problem.pdf"><span class="nm">problem.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/problem.pdf · 68.1 KB · 3页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOI/noi2020 final version/surreal.pdf"><span class="nm">surreal.pdf</span></a><div class="mt">Setter/NOI/noi2020 final version/surreal.pdf · 188.9 KB · 8页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-1/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOIP/Mock-1/solutions.pdf · 185.9 KB · 32页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-1/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOIP/Mock-1/statements.pdf · 308.5 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-2/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOIP/Mock-2/solutions.pdf · 225.6 KB · 26页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-2/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOIP/Mock-2/statements.pdf · 141.0 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-3/solutions.pdf"><span class="nm">solutions.pdf</span></a><div class="mt">Setter/NOIP/Mock-3/solutions.pdf · 183.3 KB · 30页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Setter/NOIP/Mock-3/statements.pdf"><span class="nm">statements.pdf</span></a><div class="mt">Setter/NOIP/Mock-3/statements.pdf · 164.0 KB · 4页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 49 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/Setter/BJTSC/Day1/arcana.cpp"><span class="nm">arcana.cpp</span></a><div class="mt">Setter/BJTSC/Day1/arcana.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day1/calc.cpp"><span class="nm">calc.cpp</span></a><div class="mt">Setter/BJTSC/Day1/calc.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day1/farewell.cpp"><span class="nm">farewell.cpp</span></a><div class="mt">Setter/BJTSC/Day1/farewell.cpp · 7.7 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day2/battery.cpp"><span class="nm">battery.cpp</span></a><div class="mt">Setter/BJTSC/Day2/battery.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day2/count.cpp"><span class="nm">count.cpp</span></a><div class="mt">Setter/BJTSC/Day2/count.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day2/graph.cpp"><span class="nm">graph.cpp</span></a><div class="mt">Setter/BJTSC/Day2/graph.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day3/arcana.cpp"><span class="nm">arcana.cpp</span></a><div class="mt">Setter/BJTSC/Day3/arcana.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day3/permutation.cpp"><span class="nm">permutation.cpp</span></a><div class="mt">Setter/BJTSC/Day3/permutation.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Day3/stone.cpp"><span class="nm">stone.cpp</span></a><div class="mt">Setter/BJTSC/Day3/stone.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/JointProvincialSel2020_Final/count.cpp"><span class="nm">count.cpp</span></a><div class="mt">Setter/BJTSC/JointProvincialSel2020_Final/count.cpp · 4.0 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/JointProvincialSel2020_Final/tree.cpp"><span class="nm">tree.cpp</span></a><div class="mt">Setter/BJTSC/JointProvincialSel2020_Final/tree.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-1/digit.cpp"><span class="nm">digit.cpp</span></a><div class="mt">Setter/BJTSC/Mock-1/digit.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-1/maze.cpp"><span class="nm">maze.cpp</span></a><div class="mt">Setter/BJTSC/Mock-1/maze.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-1/sequence.cpp"><span class="nm">sequence.cpp</span></a><div class="mt">Setter/BJTSC/Mock-1/sequence.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-2/mission.cpp"><span class="nm">mission.cpp</span></a><div class="mt">Setter/BJTSC/Mock-2/mission.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-2/path.cpp"><span class="nm">path.cpp</span></a><div class="mt">Setter/BJTSC/Mock-2/path.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/Setter/BJTSC/Mock-2/sort.cpp"><span class="nm">sort.cpp</span></a><div class="mt">Setter/BJTSC/Mock-2/sort.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-1/paint.cpp"><span class="nm">paint.cpp</span></a><div class="mt">Setter/NOI/Mock-1/paint.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-1/password.cpp"><span class="nm">password.cpp</span></a><div class="mt">Setter/NOI/Mock-1/password.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-1/route.cpp"><span class="nm">route.cpp</span></a><div class="mt">Setter/NOI/Mock-1/route.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-2/graph.cpp"><span class="nm">graph.cpp</span></a><div class="mt">Setter/NOI/Mock-2/graph.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-2/math.cpp"><span class="nm">math.cpp</span></a><div class="mt">Setter/NOI/Mock-2/math.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-2/sum.cpp"><span class="nm">sum.cpp</span></a><div class="mt">Setter/NOI/Mock-2/sum.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-3/bishop.cpp"><span class="nm">bishop.cpp</span></a><div class="mt">Setter/NOI/Mock-3/bishop.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-3/conference.cpp"><span class="nm">conference.cpp</span></a><div class="mt">Setter/NOI/Mock-3/conference.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-3/decoration.cpp"><span class="nm">decoration.cpp</span></a><div class="mt">Setter/NOI/Mock-3/decoration.cpp · 5.0 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-4/cruise.cpp"><span class="nm">cruise.cpp</span></a><div class="mt">Setter/NOI/Mock-4/cruise.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-4/exploit.cpp"><span class="nm">exploit.cpp</span></a><div class="mt">Setter/NOI/Mock-4/exploit.cpp · 3.5 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Mock-4/zoo.cpp"><span class="nm">zoo.cpp</span></a><div class="mt">Setter/NOI/Mock-4/zoo.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-1/arcana.cpp"><span class="nm">arcana.cpp</span></a><div class="mt">Setter/NOI/Practice-1/arcana.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-1/digit.cpp"><span class="nm">digit.cpp</span></a><div class="mt">Setter/NOI/Practice-1/digit.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-1/stone.cpp"><span class="nm">stone.cpp</span></a><div class="mt">Setter/NOI/Practice-1/stone.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-2/bishop.cpp"><span class="nm">bishop.cpp</span></a><div class="mt">Setter/NOI/Practice-2/bishop.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-2/conference.cpp"><span class="nm">conference.cpp</span></a><div class="mt">Setter/NOI/Practice-2/conference.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/Practice-2/decoration.cpp"><span class="nm">decoration.cpp</span></a><div class="mt">Setter/NOI/Practice-2/decoration.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/noi2020 final version/destiny.cpp"><span class="nm">destiny.cpp</span></a><div class="mt">Setter/NOI/noi2020 final version/destiny.cpp · 3.5 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/noi2020 final version/dish.cpp"><span class="nm">dish.cpp</span></a><div class="mt">Setter/NOI/noi2020 final version/dish.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/noi2020 final version/original-bbf.cpp"><span class="nm">original-bbf.cpp</span></a><div class="mt">Setter/NOI/noi2020 final version/original-bbf.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/noi2020 final version/problem.cpp"><span class="nm">problem.cpp</span></a><div class="mt">Setter/NOI/noi2020 final version/problem.cpp · 5.5 KB</div></div>
+<div class="item"><a href="code/Setter/NOI/noi2020 final version/surreal.cpp"><span class="nm">surreal.cpp</span></a><div class="mt">Setter/NOI/noi2020 final version/surreal.cpp · 4.2 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-1/defile.cpp"><span class="nm">defile.cpp</span></a><div class="mt">Setter/NOIP/Mock-1/defile.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-1/instrument.cpp"><span class="nm">instrument.cpp</span></a><div class="mt">Setter/NOIP/Mock-1/instrument.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-1/treasure.cpp"><span class="nm">treasure.cpp</span></a><div class="mt">Setter/NOIP/Mock-1/treasure.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-2/equation.cpp"><span class="nm">equation.cpp</span></a><div class="mt">Setter/NOIP/Mock-2/equation.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-2/inverse.cpp"><span class="nm">inverse.cpp</span></a><div class="mt">Setter/NOIP/Mock-2/inverse.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-2/robot.cpp"><span class="nm">robot.cpp</span></a><div class="mt">Setter/NOIP/Mock-2/robot.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-3/calculation.cpp"><span class="nm">calculation.cpp</span></a><div class="mt">Setter/NOIP/Mock-3/calculation.cpp · 804 B</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-3/exhibition.cpp"><span class="nm">exhibition.cpp</span></a><div class="mt">Setter/NOIP/Mock-3/exhibition.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Setter/NOIP/Mock-3/treasure.cpp"><span class="nm">treasure.cpp</span></a><div class="mt">Setter/NOIP/Mock-3/treasure.cpp · 2.3 KB</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 10 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.gitignore"><span class="nm">.gitignore</span></a><div class="mt">.gitignore · 49 B</div></div>
+<div class="item"><a href="files/Lectures/Problem-Exchange-1.pptx"><span class="nm">Problem-Exchange-1.pptx</span></a><div class="mt">Lectures/Problem-Exchange-1.pptx · 64.8 KB</div></div>
+<div class="item"><a href="files/Lectures/Problem-Exchange-2.pptx"><span class="nm">Problem-Exchange-2.pptx</span></a><div class="mt">Lectures/Problem-Exchange-2.pptx · 56.1 KB</div></div>
+<div class="item"><a href="files/Lectures/Problem-Exchange-3.pptx"><span class="nm">Problem-Exchange-3.pptx</span></a><div class="mt">Lectures/Problem-Exchange-3.pptx · 383.9 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/Mock-3/bishop-solution.docx"><span class="nm">bishop-solution.docx</span></a><div class="mt">Setter/NOI/Mock-3/bishop-solution.docx · 38.3 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/Mock-3/conference-solution.docx"><span class="nm">conference-solution.docx</span></a><div class="mt">Setter/NOI/Mock-3/conference-solution.docx · 23.1 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/Mock-3/decoration-solution.docx"><span class="nm">decoration-solution.docx</span></a><div class="mt">Setter/NOI/Mock-3/decoration-solution.docx · 33.4 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/Practice-1/statements.docx"><span class="nm">statements.docx</span></a><div class="mt">Setter/NOI/Practice-1/statements.docx · 32.5 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/noi2020 final version/dish.docx"><span class="nm">dish.docx</span></a><div class="mt">Setter/NOI/noi2020 final version/dish.docx · 52.9 KB</div></div>
+<div class="item"><a href="files/Setter/NOI/noi2020 final version/original-solution.docx"><span class="nm">original-solution.docx</span></a><div class="mt">Setter/NOI/noi2020 final version/original-solution.docx · 150.0 KB</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

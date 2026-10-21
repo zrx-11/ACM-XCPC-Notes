@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>10 - 字符串哈希.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>10 - 字符串哈希.md</span></nav>
+  <h1 class="page-title">10 - 字符串哈希.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/10 - 字符串哈希.md · 3.9 KB</div>
+  <div class="prose"><h1>往期浏览</h1>
+<p><a href="https://www.cnblogs.com/WIDA/p/16570498.html">第一期 - 博弈论</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/15504413.html">第二期 - 前缀和</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17615803.html">第三期 - 二分与三分算法</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17610403.html">第四期 - 莫队算法</a></p>
+<p><a href="">第五期 - 线段树（暂时未公开）</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17547678.html">第六期 - 位运算</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17610362.html">第七期 - 树上分治</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17635152.html">第八期 - Tarjan缩点</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17672842.html">第九期 - 网络流</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17766310.html">第十期 - 字符串哈希</a></p>
+<h1>题单</h1>
+<h2>1003F（$\tt *2200$；字符串-哈希、字符串-KMP、暴力）</h2>
+<p>string - hashing List #5 | 比较难受的一题，原先的字符串板子传递变量的时间过慢导致一直超时，但是难度并不是很高。</p>
+<p>首先观察到单个字符串长度极长但是数量很少，于是想到使用字符串哈希将总长度缩小，属于比较典的思路，使用 <code>map</code> 即可轻松做到这一点；随后暴力枚举全部匹配情况后依次统计次数即可，借助 KMP 可以在 $\mathcal O(N^3)$ 完成。注意，如果使用 <code>find</code> 函数规避 KMP ，那么理论最坏复杂度会上升到 $\mathcal O(N^4)$，我一开始是由于读错了题，以为至多可替换两段内容，于是没有使用 KMP，导致超时。</p>
+<p>另外还有一点需要注意的是，上述的复杂度需要简单修改 KMP 函数使之能够对哈希后的数组进行匹配，如果使用 <code>to_string</code> 函数对哈希后的数组再处理回字符串后运行 KMP（没错，我一开始真的这样写了），复杂度会上升到最坏 $\mathcal O(N^2 \cdot \sum_{i=1}^{200})$，这样依旧会超时。</p>
+<p>另外，注意到我们是暴力枚举后进行匹配，未被枚举到的部分其实不需要进行匹配，所以本题有一个修改 KMP 匹配范围进行优化的方法，使得单次只匹配使用到的那部分内容，可以简单学习。根据这一优化方式，抽象了一个“统计原串中某个子串重复出现的次数”的板子。</p>
+<h2>7D（$\tt *2200$；字符串-哈希）</h2>
+<p>string - hashing List #4 | 哈希判回文，较模板。单哈希即可通过，双哈希有超时风险。观察到有较高效的做法 <a href="https://codeforces.com/contest/7/submission/226849687">See</a> 。</p>
+<h2>25E（$\tt *2200$；暴力、字符串-哈希、字符串-KMP）</h2>
+<p>string - hashing List #3 | 暴力枚举后运行两个字符串算法，较模板。写这题的过程中综合了之前做过的字符串哈希的题目形成了一个较为系统的哈希相关封装。</p>
+<h2>1200E（$\tt *2000$；字符串、暴力、哈希）</h2>
+<p>string - hashing List #2 | 字符串后缀哈希，感觉是很典的题目。</p>
+<h2>514C（$\tt *2000$；字符串、数据结构-字典树、搜索、暴力、哈希）</h2>
+<p>注意到串仅由三个字母构成。方法一是很显然的，建立字典树后在树上进行搜索匹配串：针对匹配串的每一位，暴力枚举其三种不同构成，最终以 $\mathcal 3\cdot \sum N$ 的复杂度完成搜索。针对该方案有如下优化：$\tt ^1$ 不使用 <code>auto</code> 进行搜索，而是直接用单独的函数进行，前者在实现上花费的时间更长一些；数组不留余量，使用 $\tt 0-idx$ 法，这一优化可以提速近乎一倍，推测原因是减少了数组跳转的次数，应当引起注意。</p>
+<p>string - hashing List #1 | 下面介绍字符串方面的方法：字符串哈希。本题使用单哈希需要将模数固定在 $10^{10}$ 量级以上，不然会撞；如果是双哈希则没有特别的限制。属于字符串哈希的模板题，但是需要手写一个 $\mathcal O(1)$ 进行某一位修改的函数（本质上是与方法一暴力修改一样的思路），比较考验对哈希过程原理的理解。</p></div>
+</div>
+</body>
+</html>

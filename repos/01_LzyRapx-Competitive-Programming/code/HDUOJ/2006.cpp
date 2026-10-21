@@ -1,0 +1,24 @@
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <string>
+typedef long long LL;
+using namespace std;
+
+int main() {
+  int n;
+  int a[10001] = {0};
+  while (cin >> n) {
+    int sum = 1;
+    for (int i = 0; i < n; i++) {
+      cin >> a[i];
+      if (a[i] % 2 == 1) sum = sum * a[i];
+    }
+    printf("%d\n", sum);
+  }
+
+  return 0;
+}

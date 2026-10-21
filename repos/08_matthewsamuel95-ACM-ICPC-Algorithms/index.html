@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>matthewsamuel95 · 算法实现大全 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>08_matthewsamuel95-ACM-ICPC-Algorithms</span></nav>
+  <div class="rhead">
+    <h1>matthewsamuel95 · 算法实现大全</h1>
+    <div class="sub">按算法分类的多语言实现：BFS/DP/图论/几何/数论/机器学习等</div>
+    <div class="src">来源：github.com/matthewsamuel95/ACM-ICPC-Algorithms（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>61</b><span>笔记</span></div>
+    <div class="stat"><b>2</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>567</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>20</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 61 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/BFS/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/BFS/README.md · 2.0 KB</div></div>
+<div class="item"><a href="notes/BST/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/BST/README.md · 611 B</div></div>
+<div class="item"><a href="notes/BitManipulation/Nth_magic_number/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/BitManipulation/Nth_magic_number/README.md · 193 B</div></div>
+<div class="item"><a href="notes/Branch%20and%20Bound/0_1%20Knapsack/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Branch and Bound/0_1 Knapsack/README.md · 1.6 KB</div></div>
+<div class="item"><a href="notes/Branch%20and%20Bound/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Branch and Bound/README.md · 1.5 KB</div></div>
+<div class="item"><a href="notes/CONTRIBUTING.html"><span class="nm">CONTRIBUTING.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/CONTRIBUTING.md · 2.0 KB</div></div>
+<div class="item"><a href="notes/DFS/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DFS/README.md · 1.8 KB</div></div>
+<div class="item"><a href="notes/DP/Coin%20Change%20Problem/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Coin Change Problem/README.md · 583 B</div></div>
+<div class="item"><a href="notes/DP/Collect_Max_Points/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Collect_Max_Points/README.md · 1.4 KB</div></div>
+<div class="item"><a href="notes/DP/Egg%20Dropping%20Puzzle/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Egg Dropping Puzzle/README.md · 497 B</div></div>
+<div class="item"><a href="notes/DP/Fibonacci/Readme.html"><span class="nm">Readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Fibonacci/Readme.md · 1.8 KB</div></div>
+<div class="item"><a href="notes/DP/Recursive_Staircase_Problem/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Recursive_Staircase_Problem/README.md · 222 B</div></div>
+<div class="item"><a href="notes/DP/Tiling%20Problem/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/Tiling Problem/README.md · 319 B</div></div>
+<div class="item"><a href="notes/DP/WeightedJobScheduling/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/WeightedJobScheduling/README.md · 235 B</div></div>
+<div class="item"><a href="notes/DP/minimized%20cost%20of%20binnary%20search%20tree/Readme.html"><span class="nm">Readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/DP/minimized cost of binnary search tree/Readme.md · 489 B</div></div>
+<div class="item"><a href="notes/Data%20Structures/Heap/Readme.html"><span class="nm">Readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Data Structures/Heap/Readme.md · 1.4 KB</div></div>
+<div class="item"><a href="notes/Data%20Structures/Priority%20Queue/Readme.html"><span class="nm">Readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Data Structures/Priority Queue/Readme.md · 1.4 KB</div></div>
+<div class="item"><a href="notes/Graph/Centroid%20Decomposition/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Graph/Centroid Decomposition/README.md · 65 B</div></div>
+<div class="item"><a href="notes/Graph/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Graph/README.md · 2.1 KB</div></div>
+<div class="item"><a href="notes/Graph/Sack/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Graph/Sack/README.md · 1.0 KB</div></div>
+<div class="item"><a href="notes/Greedy/ActivitySelection/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/ActivitySelection/README.md · 1.7 KB</div></div>
+<div class="item"><a href="notes/Greedy/ContainerShip/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/ContainerShip/README.md · 346 B</div></div>
+<div class="item"><a href="notes/Greedy/EqualizingBitStrings/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/EqualizingBitStrings/README.md · 576 B</div></div>
+<div class="item"><a href="notes/Greedy/Gas%20Station/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/Gas Station/README.md · 1.2 KB</div></div>
+<div class="item"><a href="notes/Greedy/MaximumIncreasingSubarray/ProblemStatement.html"><span class="nm">ProblemStatement.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/MaximumIncreasingSubarray/ProblemStatement.md · 328 B</div></div>
+<div class="item"><a href="notes/Greedy/OddSumSubsequence/ProblemStatement.html"><span class="nm">ProblemStatement.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/OddSumSubsequence/ProblemStatement.md · 532 B</div></div>
+<div class="item"><a href="notes/MachineLearning/Perceptron/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/MachineLearning/Perceptron/README.md · 2.0 KB</div></div>
+<div class="item"><a href="notes/Math/Diophantine%20Eqautions/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/Diophantine Eqautions/README.md · 522 B</div></div>
+<div class="item"><a href="notes/Math/TowerofHanoi/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/TowerofHanoi/README.md · 779 B</div></div>
+<div class="item"><a href="notes/Math/collatz_conjecture/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/collatz_conjecture/README.md · 395 B</div></div>
+<div class="item"><a href="notes/Math/eulers_totient_function/readme.html"><span class="nm">readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/eulers_totient_function/readme.md · 663 B</div></div>
+<div class="item"><a href="notes/Math/largest_number_divisible_by_three/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/largest_number_divisible_by_three/README.md · 417 B</div></div>
+<div class="item"><a href="notes/Math/last_digit_exp/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Math/last_digit_exp/README.md · 1.1 KB</div></div>
+<div class="item"><a href="notes/NetworkFlow/EdmundKarp/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/NetworkFlow/EdmundKarp/README.md · 1.4 KB</div></div>
+<div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/README.md · 10.1 KB</div></div>
+<div class="item"><a href="notes/Search/BinarySearch/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Search/BinarySearch/README.md · 1.1 KB</div></div>
+<div class="item"><a href="notes/Search/JumpSearch/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Search/JumpSearch/README.md · 1.1 KB</div></div>
+<div class="item"><a href="notes/Search/LinearSearch/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Search/LinearSearch/README.md · 609 B</div></div>
+<div class="item"><a href="notes/Sorting/BogoSort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/BogoSort/README.md · 500 B</div></div>
+<div class="item"><a href="notes/Sorting/Bubble%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Bubble Sort/README.md · 886 B</div></div>
+<div class="item"><a href="notes/Sorting/Bucket%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Bucket Sort/README.md · 788 B</div></div>
+<div class="item"><a href="notes/Sorting/Cocktail%20Shaker%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Cocktail Shaker Sort/README.md · 975 B</div></div>
+<div class="item"><a href="notes/Sorting/Comb%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Comb Sort/README.md · 392 B</div></div>
+<div class="item"><a href="notes/Sorting/Counting%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Counting Sort/README.md · 846 B</div></div>
+<div class="item"><a href="notes/Sorting/HeapSort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/HeapSort/README.md · 630 B</div></div>
+<div class="item"><a href="notes/Sorting/Insertion%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Insertion Sort/README.md · 417 B</div></div>
+<div class="item"><a href="notes/Sorting/Merge%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Merge Sort/README.md · 695 B</div></div>
+<div class="item"><a href="notes/Sorting/Pancake%20Sorting/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Pancake Sorting/README.md · 980 B</div></div>
+<div class="item"><a href="notes/Sorting/Patience%20Sorting/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Patience Sorting/README.md · 340 B</div></div>
+<div class="item"><a href="notes/Sorting/Pigeonhole%20Sort/Python/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Pigeonhole Sort/Python/README.md · 322 B</div></div>
+<div class="item"><a href="notes/Sorting/QuickSort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/QuickSort/README.md · 606 B</div></div>
+<div class="item"><a href="notes/Sorting/Radix%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Radix Sort/README.md · 603 B</div></div>
+<div class="item"><a href="notes/Sorting/Selection%20Sort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Selection Sort/README.md · 657 B</div></div>
+<div class="item"><a href="notes/Sorting/ShellSort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/ShellSort/README.md · 907 B</div></div>
+<div class="item"><a href="notes/Sorting/StoogeSort/readme.html"><span class="nm">readme.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/StoogeSort/readme.md · 453 B</div></div>
+<div class="item"><a href="notes/Sorting/TimSort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/TimSort/README.md · 792 B</div></div>
+<div class="item"><a href="notes/Sorting/Topological%20Sorting/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/Topological Sorting/README.md · 872 B</div></div>
+<div class="item"><a href="notes/Sorting/strandsort/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/Sorting/strandsort/README.md · 691 B</div></div>
+<div class="item"><a href="notes/String/Balanced%20Parentheses/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/String/Balanced Parentheses/README.md · 718 B</div></div>
+<div class="item"><a href="notes/String/Top_K_Frequent_Words/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/String/Top_K_Frequent_Words/README.md · 506 B</div></div>
+<div class="item"><a href="notes/String/Uncompressing_Strings/README.html"><span class="nm">README.md</span></a><div class="mt">08_matthewsamuel95-ACM-ICPC-Algorithms/String/Uncompressing_Strings/README.md · 746 B</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 2 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/DP/EditDistance/editDistance.pdf"><span class="nm">editDistance.pdf</span></a><div class="mt">DP/EditDistance/editDistance.pdf · 1.2 MB · 52页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Math/Linear_Recurrences/Linear%20Recurrence.pdf"><span class="nm">Linear Recurrence.pdf</span></a><div class="mt">Math/Linear_Recurrences/Linear Recurrence.pdf · 49.7 KB · 2页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 567 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/BFS/C/bfs.c"><span class="nm">bfs.c</span></a><div class="mt">BFS/C/bfs.c · 2.9 KB</div></div>
+<div class="item"><a href="code/BFS/Java/BFS.java"><span class="nm">BFS.java</span></a><div class="mt">BFS/Java/BFS.java · 3.7 KB</div></div>
+<div class="item"><a href="code/BFS/Java/bfs.java"><span class="nm">bfs.java</span></a><div class="mt">BFS/Java/bfs.java · 1.7 KB</div></div>
+<div class="item"><a href="code/BFS/cpp/bfs.cpp"><span class="nm">bfs.cpp</span></a><div class="mt">BFS/cpp/bfs.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/BFS/python/bfs.py"><span class="nm">bfs.py</span></a><div class="mt">BFS/python/bfs.py · 1.0 KB</div></div>
+<div class="item"><a href="code/BFS/python/breadth_first_search.py"><span class="nm">breadth_first_search.py</span></a><div class="mt">BFS/python/breadth_first_search.py · 592 B</div></div>
+<div class="item"><a href="code/BST/cpp/BST.cpp"><span class="nm">BST.cpp</span></a><div class="mt">BST/cpp/BST.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/BST/cpp/Balancing%20of%20BST.cpp"><span class="nm">Balancing of BST.cpp</span></a><div class="mt">BST/cpp/Balancing of BST.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/BST/cpp/bst.cpp"><span class="nm">bst.cpp</span></a><div class="mt">BST/cpp/bst.cpp · 4.0 KB</div></div>
+<div class="item"><a href="code/BST/cpp/bst_to_minheap.cpp"><span class="nm">bst_to_minheap.cpp</span></a><div class="mt">BST/cpp/bst_to_minheap.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/BST/cpp/tree_delete_node.cpp"><span class="nm">tree_delete_node.cpp</span></a><div class="mt">BST/cpp/tree_delete_node.cpp · 3.8 KB</div></div>
+<div class="item"><a href="code/BST/java/BST.java"><span class="nm">BST.java</span></a><div class="mt">BST/java/BST.java · 4.0 KB</div></div>
+<div class="item"><a href="code/BST/java/Node.java"><span class="nm">Node.java</span></a><div class="mt">BST/java/Node.java · 497 B</div></div>
+<div class="item"><a href="code/BST/python/BinarySearchTree.py"><span class="nm">BinarySearchTree.py</span></a><div class="mt">BST/python/BinarySearchTree.py · 4.1 KB</div></div>
+<div class="item"><a href="code/BackTracking/Hamilton%20Path/Hamilton%20path.cpp"><span class="nm">Hamilton path.cpp</span></a><div class="mt">BackTracking/Hamilton Path/Hamilton path.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/BackTracking/Hamilton%20Path/hamilton.py"><span class="nm">hamilton.py</span></a><div class="mt">BackTracking/Hamilton Path/hamilton.py · 2.5 KB</div></div>
+<div class="item"><a href="code/BackTracking/KnightsTour/KnightsTour.cs"><span class="nm">KnightsTour.cs</span></a><div class="mt">BackTracking/KnightsTour/KnightsTour.cs · 2.0 KB</div></div>
+<div class="item"><a href="code/BackTracking/KnightsTour/knightstour.cpp"><span class="nm">knightstour.cpp</span></a><div class="mt">BackTracking/KnightsTour/knightstour.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/BackTracking/NQueens/NQueens.cs"><span class="nm">NQueens.cs</span></a><div class="mt">BackTracking/NQueens/NQueens.cs · 3.1 KB</div></div>
+<div class="item"><a href="code/BackTracking/NQueens/nqueen.java"><span class="nm">nqueen.java</span></a><div class="mt">BackTracking/NQueens/nqueen.java · 1.8 KB</div></div>
+<div class="item"><a href="code/BackTracking/NQueens/nqueens.c"><span class="nm">nqueens.c</span></a><div class="mt">BackTracking/NQueens/nqueens.c · 3.0 KB</div></div>
+<div class="item"><a href="code/BackTracking/NQueens/nqueens.cpp"><span class="nm">nqueens.cpp</span></a><div class="mt">BackTracking/NQueens/nqueens.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/BackTracking/Permutation/GeneratePermutations.cs"><span class="nm">GeneratePermutations.cs</span></a><div class="mt">BackTracking/Permutation/GeneratePermutations.cs · 848 B</div></div>
+<div class="item"><a href="code/BackTracking/Permutation/permuta.cpp"><span class="nm">permuta.cpp</span></a><div class="mt">BackTracking/Permutation/permuta.cpp · 548 B</div></div>
+<div class="item"><a href="code/BackTracking/RatInAMaze/RatInMaze.cs"><span class="nm">RatInMaze.cs</span></a><div class="mt">BackTracking/RatInAMaze/RatInMaze.cs · 2.6 KB</div></div>
+<div class="item"><a href="code/BackTracking/RatInAMaze/ratmaze.cpp"><span class="nm">ratmaze.cpp</span></a><div class="mt">BackTracking/RatInAMaze/ratmaze.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/BackTracking/RatInAMaze/ratmaze.py"><span class="nm">ratmaze.py</span></a><div class="mt">BackTracking/RatInAMaze/ratmaze.py · 2.0 KB</div></div>
+<div class="item"><a href="code/BackTracking/SudokuAlgorithm/Sudoku.java"><span class="nm">Sudoku.java</span></a><div class="mt">BackTracking/SudokuAlgorithm/Sudoku.java · 3.6 KB</div></div>
+<div class="item"><a href="code/BackTracking/SudokuAlgorithm/SudokuAlgorithm.cpp"><span class="nm">SudokuAlgorithm.cpp</span></a><div class="mt">BackTracking/SudokuAlgorithm/SudokuAlgorithm.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/BackTracking/SudokuAlgorithm/sudoku.cs"><span class="nm">sudoku.cs</span></a><div class="mt">BackTracking/SudokuAlgorithm/sudoku.cs · 3.2 KB</div></div>
+<div class="item"><a href="code/BackTracking/SudokuAlgorithm/sudoku.py"><span class="nm">sudoku.py</span></a><div class="mt">BackTracking/SudokuAlgorithm/sudoku.py · 3.3 KB</div></div>
+<div class="item"><a href="code/BitManipulation/Checking_power_of_2/Checkpowerof2.c"><span class="nm">Checkpowerof2.c</span></a><div class="mt">BitManipulation/Checking_power_of_2/Checkpowerof2.c · 273 B</div></div>
+<div class="item"><a href="code/BitManipulation/Checking_power_of_2/isPowerOf2.cpp"><span class="nm">isPowerOf2.cpp</span></a><div class="mt">BitManipulation/Checking_power_of_2/isPowerOf2.cpp · 424 B</div></div>
+<div class="item"><a href="code/BitManipulation/Checking_power_of_2/isPowerOf4.cpp"><span class="nm">isPowerOf4.cpp</span></a><div class="mt">BitManipulation/Checking_power_of_2/isPowerOf4.cpp · 207 B</div></div>
+<div class="item"><a href="code/BitManipulation/Clear_i-th_bit/clear_ith_bit.cpp"><span class="nm">clear_ith_bit.cpp</span></a><div class="mt">BitManipulation/Clear_i-th_bit/clear_ith_bit.cpp · 214 B</div></div>
+<div class="item"><a href="code/BitManipulation/Fast_Modulo_Using_Bit/Fast_Modulo_Using_Bit.cpp"><span class="nm">Fast_Modulo_Using_Bit.cpp</span></a><div class="mt">BitManipulation/Fast_Modulo_Using_Bit/Fast_Modulo_Using_Bit.cpp · 765 B</div></div>
+<div class="item"><a href="code/BitManipulation/Nth_magic_number/nth_magic_number.cpp"><span class="nm">nth_magic_number.cpp</span></a><div class="mt">BitManipulation/Nth_magic_number/nth_magic_number.cpp · 367 B</div></div>
+<div class="item"><a href="code/BitManipulation/Set_kth_bit/SetKthBit.java"><span class="nm">SetKthBit.java</span></a><div class="mt">BitManipulation/Set_kth_bit/SetKthBit.java · 469 B</div></div>
+<div class="item"><a href="code/BitManipulation/Set_kth_bit/set_kth_bit.cpp"><span class="nm">set_kth_bit.cpp</span></a><div class="mt">BitManipulation/Set_kth_bit/set_kth_bit.cpp · 472 B</div></div>
+<div class="item"><a href="code/BitManipulation/Set_kth_bit/setkthbit.py"><span class="nm">setkthbit.py</span></a><div class="mt">BitManipulation/Set_kth_bit/setkthbit.py · 164 B</div></div>
+<div class="item"><a href="code/BitManipulation/Sparse_number/sparse_number.cpp"><span class="nm">sparse_number.cpp</span></a><div class="mt">BitManipulation/Sparse_number/sparse_number.cpp · 409 B</div></div>
+<div class="item"><a href="code/BitManipulation/Sparse_number/sparse_number.py"><span class="nm">sparse_number.py</span></a><div class="mt">BitManipulation/Sparse_number/sparse_number.py · 374 B</div></div>
+<div class="item"><a href="code/BitManipulation/copy_set_bits_in_a_range/copy_set_bits_in_a_range.cpp"><span class="nm">copy_set_bits_in_a_range.cpp</span></a><div class="mt">BitManipulation/copy_set_bits_in_a_range/copy_set_bits_in_a_range.cpp · 848 B</div></div>
+<div class="item"><a href="code/BitManipulation/count_number_of_bits_to_be_flipped_to_convert_a_to_b/count_number_of_bits_to_be_flipped_to_convert_a_to_b.cpp"><span class="nm">count_number_of_bits_to_be_flipped_to_convert_a_to_b.cpp</span></a><div class="mt">BitManipulation/count_number_of_bits_to_be_flipped_to_convert_a_to_b/count_number_of_bits_to_be_flipped_to_convert_a_to_b.cpp · 452 B</div></div>
+<div class="item"><a href="code/BitManipulation/count_ones/Count_Ones.c"><span class="nm">Count_Ones.c</span></a><div class="mt">BitManipulation/count_ones/Count_Ones.c · 168 B</div></div>
+<div class="item"><a href="code/BitManipulation/count_ones/count_ones.cpp"><span class="nm">count_ones.cpp</span></a><div class="mt">BitManipulation/count_ones/count_ones.cpp · 379 B</div></div>
+<div class="item"><a href="code/BitManipulation/count_ones/count_ones.py"><span class="nm">count_ones.py</span></a><div class="mt">BitManipulation/count_ones/count_ones.py · 248 B</div></div>
+<div class="item"><a href="code/BitManipulation/divide_integers/divide_integers.cpp"><span class="nm">divide_integers.cpp</span></a><div class="mt">BitManipulation/divide_integers/divide_integers.cpp · 645 B</div></div>
+<div class="item"><a href="code/BitManipulation/even_odd/evenOdd.c"><span class="nm">evenOdd.c</span></a><div class="mt">BitManipulation/even_odd/evenOdd.c · 153 B</div></div>
+<div class="item"><a href="code/BitManipulation/even_odd/evenOdd.cpp"><span class="nm">evenOdd.cpp</span></a><div class="mt">BitManipulation/even_odd/evenOdd.cpp · 162 B</div></div>
+<div class="item"><a href="code/BitManipulation/even_odd/evenOdd.js"><span class="nm">evenOdd.js</span></a><div class="mt">BitManipulation/even_odd/evenOdd.js · 112 B</div></div>
+<div class="item"><a href="code/BitManipulation/even_odd/evenOdd.py"><span class="nm">evenOdd.py</span></a><div class="mt">BitManipulation/even_odd/evenOdd.py · 129 B</div></div>
+<div class="item"><a href="code/BitManipulation/integer_palindrome.cpp"><span class="nm">integer_palindrome.cpp</span></a><div class="mt">BitManipulation/integer_palindrome.cpp · 808 B</div></div>
+<div class="item"><a href="code/BitManipulation/multiply_with_7_using_bit_method/multiply_with_7_using_bit_method.c"><span class="nm">multiply_with_7_using_bit_method.c</span></a><div class="mt">BitManipulation/multiply_with_7_using_bit_method/multiply_with_7_using_bit_method.c · 401 B</div></div>
+<div class="item"><a href="code/BitManipulation/print_subsets/subsets_of_set.cpp"><span class="nm">subsets_of_set.cpp</span></a><div class="mt">BitManipulation/print_subsets/subsets_of_set.cpp · 374 B</div></div>
+<div class="item"><a href="code/BitManipulation/reverse_bits/reverseBits.cpp"><span class="nm">reverseBits.cpp</span></a><div class="mt">BitManipulation/reverse_bits/reverseBits.cpp · 430 B</div></div>
+<div class="item"><a href="code/BitManipulation/single_number/singleNumber.cpp"><span class="nm">singleNumber.cpp</span></a><div class="mt">BitManipulation/single_number/singleNumber.cpp · 424 B</div></div>
+<div class="item"><a href="code/BitManipulation/single_number/singleNumberTriplet.cpp"><span class="nm">singleNumberTriplet.cpp</span></a><div class="mt">BitManipulation/single_number/singleNumberTriplet.cpp · 490 B</div></div>
+<div class="item"><a href="code/BitManipulation/single_number/single_number.py"><span class="nm">single_number.py</span></a><div class="mt">BitManipulation/single_number/single_number.py · 350 B</div></div>
+<div class="item"><a href="code/BitManipulation/subsets_of_set/main.cpp"><span class="nm">main.cpp</span></a><div class="mt">BitManipulation/subsets_of_set/main.cpp · 442 B</div></div>
+<div class="item"><a href="code/BitManipulation/swap_bits/Xor_Swapping.cpp"><span class="nm">Xor_Swapping.cpp</span></a><div class="mt">BitManipulation/swap_bits/Xor_Swapping.cpp · 224 B</div></div>
+<div class="item"><a href="code/BitManipulation/swap_bits/shorter_sawp.cpp"><span class="nm">shorter_sawp.cpp</span></a><div class="mt">BitManipulation/swap_bits/shorter_sawp.cpp · 312 B</div></div>
+<div class="item"><a href="code/BitManipulation/swap_bits/swap.cpp"><span class="nm">swap.cpp</span></a><div class="mt">BitManipulation/swap_bits/swap.cpp · 854 B</div></div>
+<div class="item"><a href="code/BitManipulation/swap_bits/swapOddEven.cpp"><span class="nm">swapOddEven.cpp</span></a><div class="mt">BitManipulation/swap_bits/swapOddEven.cpp · 721 B</div></div>
+<div class="item"><a href="code/Branch%20and%20Bound/0_1%20Knapsack/CPP/0_1Knapsack.cpp"><span class="nm">0_1Knapsack.cpp</span></a><div class="mt">Branch and Bound/0_1 Knapsack/CPP/0_1Knapsack.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/DFS/C/dfs.c"><span class="nm">dfs.c</span></a><div class="mt">DFS/C/dfs.c · 2.9 KB</div></div>
+<div class="item"><a href="code/DFS/Java/DFS.java"><span class="nm">DFS.java</span></a><div class="mt">DFS/Java/DFS.java · 2.6 KB</div></div>
+<div class="item"><a href="code/DFS/cpp/DFS-using-STL.cpp"><span class="nm">DFS-using-STL.cpp</span></a><div class="mt">DFS/cpp/DFS-using-STL.cpp · 801 B</div></div>
+<div class="item"><a href="code/DFS/cpp/Depth-First-Search.cpp"><span class="nm">Depth-First-Search.cpp</span></a><div class="mt">DFS/cpp/Depth-First-Search.cpp · 352 B</div></div>
+<div class="item"><a href="code/DFS/cpp/dfs.cpp"><span class="nm">dfs.cpp</span></a><div class="mt">DFS/cpp/dfs.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/DFS/python/DFS.py"><span class="nm">DFS.py</span></a><div class="mt">DFS/python/DFS.py · 1.3 KB</div></div>
+<div class="item"><a href="code/DP/Coin%20Change%20Problem/MinCoins.cpp"><span class="nm">MinCoins.cpp</span></a><div class="mt">DP/Coin Change Problem/MinCoins.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/DP/Coin%20Change%20Problem/NoOfWays.cpp"><span class="nm">NoOfWays.cpp</span></a><div class="mt">DP/Coin Change Problem/NoOfWays.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/DP/Coin%20Change%20Problem/NoOfWays.py"><span class="nm">NoOfWays.py</span></a><div class="mt">DP/Coin Change Problem/NoOfWays.py · 1.2 KB</div></div>
+<div class="item"><a href="code/DP/Coin%20Change%20Problem/ccp.java"><span class="nm">ccp.java</span></a><div class="mt">DP/Coin Change Problem/ccp.java · 1.2 KB</div></div>
+<div class="item"><a href="code/DP/Collect_Max_Points/Collect_Max_Coins.c"><span class="nm">Collect_Max_Coins.c</span></a><div class="mt">DP/Collect_Max_Points/Collect_Max_Coins.c · 598 B</div></div>
+<div class="item"><a href="code/DP/EditDistance/EditDistance.py"><span class="nm">EditDistance.py</span></a><div class="mt">DP/EditDistance/EditDistance.py · 621 B</div></div>
+<div class="item"><a href="code/DP/EditDistance/editdistance.cpp"><span class="nm">editdistance.cpp</span></a><div class="mt">DP/EditDistance/editdistance.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/DP/Egg%20Dropping%20Puzzle/egg_dropping_puzzle.cpp"><span class="nm">egg_dropping_puzzle.cpp</span></a><div class="mt">DP/Egg Dropping Puzzle/egg_dropping_puzzle.cpp · 837 B</div></div>
+<div class="item"><a href="code/DP/Fibonacci/FIbo.cpp"><span class="nm">FIbo.cpp</span></a><div class="mt">DP/Fibonacci/FIbo.cpp · 209 B</div></div>
+<div class="item"><a href="code/DP/Fibonacci/FiboDP.java"><span class="nm">FiboDP.java</span></a><div class="mt">DP/Fibonacci/FiboDP.java · 621 B</div></div>
+<div class="item"><a href="code/DP/Fibonacci/Fibonacci.py"><span class="nm">Fibonacci.py</span></a><div class="mt">DP/Fibonacci/Fibonacci.py · 304 B</div></div>
+<div class="item"><a href="code/DP/Fibonacci/fibonacci.py"><span class="nm">fibonacci.py</span></a><div class="mt">DP/Fibonacci/fibonacci.py · 373 B</div></div>
+<div class="item"><a href="code/DP/Fibonacci/fibonacci_using_dp.c"><span class="nm">fibonacci_using_dp.c</span></a><div class="mt">DP/Fibonacci/fibonacci_using_dp.c · 539 B</div></div>
+<div class="item"><a href="code/DP/Floyd%20Warshall%20Algorithm/Floyd%20Warshall%20Algorithm.cpp"><span class="nm">Floyd Warshall Algorithm.cpp</span></a><div class="mt">DP/Floyd Warshall Algorithm/Floyd Warshall Algorithm.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/DP/Floyd%20Warshall%20Algorithm/floyd_warshall.py"><span class="nm">floyd_warshall.py</span></a><div class="mt">DP/Floyd Warshall Algorithm/floyd_warshall.py · 738 B</div></div>
+<div class="item"><a href="code/DP/Knapsack/0-1Knapsack.py"><span class="nm">0-1Knapsack.py</span></a><div class="mt">DP/Knapsack/0-1Knapsack.py · 721 B</div></div>
+<div class="item"><a href="code/DP/Knapsack/Fractional_knapsack.cpp"><span class="nm">Fractional_knapsack.cpp</span></a><div class="mt">DP/Knapsack/Fractional_knapsack.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/DP/Knapsack/KP.cpp"><span class="nm">KP.cpp</span></a><div class="mt">DP/Knapsack/KP.cpp · 777 B</div></div>
+<div class="item"><a href="code/DP/Knapsack/Knapsack.java"><span class="nm">Knapsack.java</span></a><div class="mt">DP/Knapsack/Knapsack.java · 1022 B</div></div>
+<div class="item"><a href="code/DP/LCIS/lcis.cpp"><span class="nm">lcis.cpp</span></a><div class="mt">DP/LCIS/lcis.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/DP/Longest%20Common%20Prefix/LCPusingTrie.py"><span class="nm">LCPusingTrie.py</span></a><div class="mt">DP/Longest Common Prefix/LCPusingTrie.py · 1014 B</div></div>
+<div class="item"><a href="code/DP/Longest%20Palindrome%20Substring/LPS.cpp"><span class="nm">LPS.cpp</span></a><div class="mt">DP/Longest Palindrome Substring/LPS.cpp · 758 B</div></div>
+<div class="item"><a href="code/DP/Longest%20Palindrome%20Substring/LPS.java"><span class="nm">LPS.java</span></a><div class="mt">DP/Longest Palindrome Substring/LPS.java · 2.0 KB</div></div>
+<div class="item"><a href="code/DP/Longest%20Palindrome%20Substring/LPS.py"><span class="nm">LPS.py</span></a><div class="mt">DP/Longest Palindrome Substring/LPS.py · 882 B</div></div>
+<div class="item"><a href="code/DP/Longest%20Repeated%20Subsequence/LonRep.cpp"><span class="nm">LonRep.cpp</span></a><div class="mt">DP/Longest Repeated Subsequence/LonRep.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/DP/LongestBitonicSubseq/longest_bitonic_subsequence.cpp"><span class="nm">longest_bitonic_subsequence.cpp</span></a><div class="mt">DP/LongestBitonicSubseq/longest_bitonic_subsequence.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/DP/LongestCommonSubsequence/LCS.c"><span class="nm">LCS.c</span></a><div class="mt">DP/LongestCommonSubsequence/LCS.c · 2.2 KB</div></div>
+<div class="item"><a href="code/DP/LongestCommonSubsequence/LCS.cpp"><span class="nm">LCS.cpp</span></a><div class="mt">DP/LongestCommonSubsequence/LCS.cpp · 506 B</div></div>
+<div class="item"><a href="code/DP/LongestCommonSubsequence/LCS.py"><span class="nm">LCS.py</span></a><div class="mt">DP/LongestCommonSubsequence/LCS.py · 685 B</div></div>
+<div class="item"><a href="code/DP/LongestCommonSubsequence/longestcommonsubsequence.java"><span class="nm">longestcommonsubsequence.java</span></a><div class="mt">DP/LongestCommonSubsequence/longestcommonsubsequence.java · 1.0 KB</div></div>
+<div class="item"><a href="code/DP/LongestIncreasingSubsequence/LIC.py"><span class="nm">LIC.py</span></a><div class="mt">DP/LongestIncreasingSubsequence/LIC.py · 1.5 KB</div></div>
+<div class="item"><a href="code/DP/LongestIncreasingSubsequence/LIS.c"><span class="nm">LIS.c</span></a><div class="mt">DP/LongestIncreasingSubsequence/LIS.c · 1.2 KB</div></div>
+<div class="item"><a href="code/DP/LongestIncreasingSubsequence/LIS_%28nlogn%29.cpp"><span class="nm">LIS_(nlogn).cpp</span></a><div class="mt">DP/LongestIncreasingSubsequence/LIS_(nlogn).cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/DP/MatrixChain_multiplication/Matrix_Mutiplication.cpp"><span class="nm">Matrix_Mutiplication.cpp</span></a><div class="mt">DP/MatrixChain_multiplication/Matrix_Mutiplication.cpp · 894 B</div></div>
+<div class="item"><a href="code/DP/MatrixChain_multiplication/matrix_mult.java"><span class="nm">matrix_mult.java</span></a><div class="mt">DP/MatrixChain_multiplication/matrix_mult.java · 2.5 KB</div></div>
+<div class="item"><a href="code/DP/MatrixChain_multiplication/matrixchain_mul.py"><span class="nm">matrixchain_mul.py</span></a><div class="mt">DP/MatrixChain_multiplication/matrixchain_mul.py · 782 B</div></div>
+<div class="item"><a href="code/DP/Maximum%20Subarray%20Sum/MaxSubarraySum.py"><span class="nm">MaxSubarraySum.py</span></a><div class="mt">DP/Maximum Subarray Sum/MaxSubarraySum.py · 352 B</div></div>
+<div class="item"><a href="code/DP/Maximum%20Sum%20Increasing%20Subsequence/MaximumSumIncreasingSubsequence.cpp"><span class="nm">MaximumSumIncreasingSubsequence.cpp</span></a><div class="mt">DP/Maximum Sum Increasing Subsequence/MaximumSumIncreasingSubsequence.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/DP/Maximum%20Sum%20Increasing%20Subsequence/MaximumSumIncreasingSubsequence.java"><span class="nm">MaximumSumIncreasingSubsequence.java</span></a><div class="mt">DP/Maximum Sum Increasing Subsequence/MaximumSumIncreasingSubsequence.java · 996 B</div></div>
+<div class="item"><a href="code/DP/Maximum%20Sum%20Increasing%20Subsequence/MaximumSumIncreasingSubsequence.py"><span class="nm">MaximumSumIncreasingSubsequence.py</span></a><div class="mt">DP/Maximum Sum Increasing Subsequence/MaximumSumIncreasingSubsequence.py · 1.4 KB</div></div>
+<div class="item"><a href="code/DP/Maximum%20Sum%20Without%20Adjacents/maximum_sum_without_adjacents.cpp"><span class="nm">maximum_sum_without_adjacents.cpp</span></a><div class="mt">DP/Maximum Sum Without Adjacents/maximum_sum_without_adjacents.cpp · 470 B</div></div>
+<div class="item"><a href="code/DP/Maximum%20continuous%20subarray%20with%20index/max-continuous-subarrays.c"><span class="nm">max-continuous-subarrays.c</span></a><div class="mt">DP/Maximum continuous subarray with index/max-continuous-subarrays.c · 770 B</div></div>
+<div class="item"><a href="code/DP/MinimumPathSum/MinimumPathSum.cpp"><span class="nm">MinimumPathSum.cpp</span></a><div class="mt">DP/MinimumPathSum/MinimumPathSum.cpp · 924 B</div></div>
+<div class="item"><a href="code/DP/MinimumPathSum/Minimum_Path_Sum.cpp"><span class="nm">Minimum_Path_Sum.cpp</span></a><div class="mt">DP/MinimumPathSum/Minimum_Path_Sum.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/DP/MinimumPathSum/minimumCostPath.java"><span class="nm">minimumCostPath.java</span></a><div class="mt">DP/MinimumPathSum/minimumCostPath.java · 1.1 KB</div></div>
+<div class="item"><a href="code/DP/NumberOfIslands/NumberOfIslands.cpp"><span class="nm">NumberOfIslands.cpp</span></a><div class="mt">DP/NumberOfIslands/NumberOfIslands.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/DP/PartitionProblem/partition.cpp"><span class="nm">partition.cpp</span></a><div class="mt">DP/PartitionProblem/partition.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/DP/PrintNeatly/printneatly.cpp"><span class="nm">printneatly.cpp</span></a><div class="mt">DP/PrintNeatly/printneatly.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/DP/Recursive_Staircase_Problem/recursive_staircase_problem_python_steps_DP.py"><span class="nm">recursive_staircase_problem_python_steps_DP.py</span></a><div class="mt">DP/Recursive_Staircase_Problem/recursive_staircase_problem_python_steps_DP.py · 1.1 KB</div></div>
+<div class="item"><a href="code/DP/Rod%20cutting/rod_cutting.cpp"><span class="nm">rod_cutting.cpp</span></a><div class="mt">DP/Rod cutting/rod_cutting.cpp · 829 B</div></div>
+<div class="item"><a href="code/DP/ShortestUncommonSubsequence/SUS.cpp"><span class="nm">SUS.cpp</span></a><div class="mt">DP/ShortestUncommonSubsequence/SUS.cpp · 887 B</div></div>
+<div class="item"><a href="code/DP/Tiling%20Problem/tiling.cpp"><span class="nm">tiling.cpp</span></a><div class="mt">DP/Tiling Problem/tiling.cpp · 359 B</div></div>
+<div class="item"><a href="code/DP/Vertex%20Cover%20Problem/VertexCover.py"><span class="nm">VertexCover.py</span></a><div class="mt">DP/Vertex Cover Problem/VertexCover.py · 1.1 KB</div></div>
+<div class="item"><a href="code/DP/WeightedJobScheduling/weighted_job_scheduling.cpp"><span class="nm">weighted_job_scheduling.cpp</span></a><div class="mt">DP/WeightedJobScheduling/weighted_job_scheduling.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/DP/game_of_sum/10891.cpp"><span class="nm">10891.cpp</span></a><div class="mt">DP/game_of_sum/10891.cpp · 828 B</div></div>
+<div class="item"><a href="code/DP/minimized%20cost%20of%20binnary%20search%20tree/solution.cpp"><span class="nm">solution.cpp</span></a><div class="mt">DP/minimized cost of binnary search tree/solution.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/DP/subset_sum%20problem/subsetSum.py"><span class="nm">subsetSum.py</span></a><div class="mt">DP/subset_sum problem/subsetSum.py · 1.0 KB</div></div>
+<div class="item"><a href="code/DP/subset_sum%20problem/subset_sum.cpp"><span class="nm">subset_sum.cpp</span></a><div class="mt">DP/subset_sum problem/subset_sum.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/DP/subset_sum%20problem/subsetsum.cpp"><span class="nm">subsetsum.cpp</span></a><div class="mt">DP/subset_sum problem/subsetsum.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/C%2B%2B/DoublyLinkedList.cpp"><span class="nm">DoublyLinkedList.cpp</span></a><div class="mt">Data Structures/DoublyLinkedList/C++/DoublyLinkedList.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/C%2B%2B/DoublyLinkedList.h"><span class="nm">DoublyLinkedList.h</span></a><div class="mt">Data Structures/DoublyLinkedList/C++/DoublyLinkedList.h · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/Deletion.c"><span class="nm">Deletion.c</span></a><div class="mt">Data Structures/DoublyLinkedList/Deletion.c · 2.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/DoublyLinkedList.c"><span class="nm">DoublyLinkedList.c</span></a><div class="mt">Data Structures/DoublyLinkedList/DoublyLinkedList.c · 3.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/Insertion.c"><span class="nm">Insertion.c</span></a><div class="mt">Data Structures/DoublyLinkedList/Insertion.c · 3.9 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/DoublyLinkedList/deque.java"><span class="nm">deque.java</span></a><div class="mt">Data Structures/DoublyLinkedList/deque.java · 2.0 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Fenwick_tree/binary_index_tree.cpp"><span class="nm">binary_index_tree.cpp</span></a><div class="mt">Data Structures/Fenwick_tree/binary_index_tree.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Fenwick_tree/bit.java"><span class="nm">bit.java</span></a><div class="mt">Data Structures/Fenwick_tree/bit.java · 4.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Fenwick_tree/fenwick.py"><span class="nm">fenwick.py</span></a><div class="mt">Data Structures/Fenwick_tree/fenwick.py · 2.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Fenwick_tree/point_update_range_queries.cpp"><span class="nm">point_update_range_queries.cpp</span></a><div class="mt">Data Structures/Fenwick_tree/point_update_range_queries.cpp · 472 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Fenwick_tree/range_update_point_queries.cpp"><span class="nm">range_update_point_queries.cpp</span></a><div class="mt">Data Structures/Fenwick_tree/range_update_point_queries.cpp · 500 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Heap/Building_heap_from_arrays.cpp"><span class="nm">Building_heap_from_arrays.cpp</span></a><div class="mt">Data Structures/Heap/Building_heap_from_arrays.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Heap/RunningMedian/RunningMedian_V1.java"><span class="nm">RunningMedian_V1.java</span></a><div class="mt">Data Structures/Heap/RunningMedian/RunningMedian_V1.java · 2.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Heap/RunningMedian/RunningMedian_V2.java"><span class="nm">RunningMedian_V2.java</span></a><div class="mt">Data Structures/Heap/RunningMedian/RunningMedian_V2.java · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/LCA/lca.cpp"><span class="nm">lca.cpp</span></a><div class="mt">Data Structures/LCA/lca.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/LCA/lca.java"><span class="nm">lca.java</span></a><div class="mt">Data Structures/LCA/lca.java · 3.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/CircularLinkedList.cpp"><span class="nm">CircularLinkedList.cpp</span></a><div class="mt">Data Structures/Linked List/CircularLinkedList.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/Intersection%20point%20of%20two%20Linked%20Lists.cpp"><span class="nm">Intersection point of two Linked Lists.cpp</span></a><div class="mt">Data Structures/Linked List/Intersection point of two Linked Lists.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/ReverseLL.cpp"><span class="nm">ReverseLL.cpp</span></a><div class="mt">Data Structures/Linked List/ReverseLL.cpp · 580 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/SinglyLinkedLIst2.cpp"><span class="nm">SinglyLinkedLIst2.cpp</span></a><div class="mt">Data Structures/Linked List/SinglyLinkedLIst2.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/SinglyLinkedList%28Array%20Implementation%29.c"><span class="nm">SinglyLinkedList(Array Implementation).c</span></a><div class="mt">Data Structures/Linked List/SinglyLinkedList(Array Implementation).c · 2.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/SinglyLinkedList.c"><span class="nm">SinglyLinkedList.c</span></a><div class="mt">Data Structures/Linked List/SinglyLinkedList.c · 3.3 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/SinglyLinkedList.cpp"><span class="nm">SinglyLinkedList.cpp</span></a><div class="mt">Data Structures/Linked List/SinglyLinkedList.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Linked%20List/SinglyLinkedList.py"><span class="nm">SinglyLinkedList.py</span></a><div class="mt">Data Structures/Linked List/SinglyLinkedList.py · 626 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Priority%20Queue/Parallel_processing/job_queue.cpp"><span class="nm">job_queue.cpp</span></a><div class="mt">Data Structures/Priority Queue/Parallel_processing/job_queue.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/CircularQueue.c"><span class="nm">CircularQueue.c</span></a><div class="mt">Data Structures/Queue/CircularQueue.c · 1.7 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/Implement%20queue%20using%20stack/Python/queue_using_stack.py"><span class="nm">queue_using_stack.py</span></a><div class="mt">Data Structures/Queue/Implement queue using stack/Python/queue_using_stack.py · 2.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/Implement%20queue%20using%20stack/queueUsingStack.cpp"><span class="nm">queueUsingStack.cpp</span></a><div class="mt">Data Structures/Queue/Implement queue using stack/queueUsingStack.cpp · 994 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/LINKED_QUEUE.c"><span class="nm">LINKED_QUEUE.c</span></a><div class="mt">Data Structures/Queue/LINKED_QUEUE.c · 1.3 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/QueueReversal.java"><span class="nm">QueueReversal.java</span></a><div class="mt">Data Structures/Queue/QueueReversal.java · 591 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/TruckTour/TruckTour.cs"><span class="nm">TruckTour.cs</span></a><div class="mt">Data Structures/Queue/TruckTour/TruckTour.cs · 1.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/queue_from_stack.cpp"><span class="nm">queue_from_stack.cpp</span></a><div class="mt">Data Structures/Queue/queue_from_stack.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Queue/queue_linkedlist_implementation.java"><span class="nm">queue_linkedlist_implementation.java</span></a><div class="mt">Data Structures/Queue/queue_linkedlist_implementation.java · 760 B</div></div>
+<div class="item"><a href="code/Data%20Structures/QueueFromStack_StackFromQueue/Cpp/queue_from_stack.cpp"><span class="nm">queue_from_stack.cpp</span></a><div class="mt">Data Structures/QueueFromStack_StackFromQueue/Cpp/queue_from_stack.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/QueueFromStack_StackFromQueue/Cpp/stack_from_queue.cpp"><span class="nm">stack_from_queue.cpp</span></a><div class="mt">Data Structures/QueueFromStack_StackFromQueue/Cpp/stack_from_queue.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/QueueFromStack_StackFromQueue/Haskell/QueueStack.hs"><span class="nm">QueueStack.hs</span></a><div class="mt">Data Structures/QueueFromStack_StackFromQueue/Haskell/QueueStack.hs · 2.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Red%20Black%20Tree/red%20black%20tree%20insertion.c"><span class="nm">red black tree insertion.c</span></a><div class="mt">Data Structures/Red Black Tree/red black tree insertion.c · 6.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/ImplicitSegmentTree.cpp"><span class="nm">ImplicitSegmentTree.cpp</span></a><div class="mt">Data Structures/Segment Tree/ImplicitSegmentTree.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/Java/SegmentTree.java"><span class="nm">SegmentTree.java</span></a><div class="mt">Data Structures/Segment Tree/Java/SegmentTree.java · 3.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/Persistent_Segment_Tree.cpp"><span class="nm">Persistent_Segment_Tree.cpp</span></a><div class="mt">Data Structures/Segment Tree/Persistent_Segment_Tree.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/Segment_tree_lazy.cpp"><span class="nm">Segment_tree_lazy.cpp</span></a><div class="mt">Data Structures/Segment Tree/Segment_tree_lazy.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/non-recursive-segment-tree.cpp"><span class="nm">non-recursive-segment-tree.cpp</span></a><div class="mt">Data Structures/Segment Tree/non-recursive-segment-tree.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/range%20min%20query.cpp"><span class="nm">range min query.cpp</span></a><div class="mt">Data Structures/Segment Tree/range min query.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/segment_tree.cpp"><span class="nm">segment_tree.cpp</span></a><div class="mt">Data Structures/Segment Tree/segment_tree.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/segmenttree.cs"><span class="nm">segmenttree.cs</span></a><div class="mt">Data Structures/Segment Tree/segmenttree.cs · 1.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Segment%20Tree/sum%20of%20a%20range.cpp"><span class="nm">sum of a range.cpp</span></a><div class="mt">Data Structures/Segment Tree/sum of a range.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/C/Deletion_By_Key.c"><span class="nm">Deletion_By_Key.c</span></a><div class="mt">Data Structures/SinglyLinkedList/C/Deletion_By_Key.c · 2.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/C/Deletion_By_Position.c"><span class="nm">Deletion_By_Position.c</span></a><div class="mt">Data Structures/SinglyLinkedList/C/Deletion_By_Position.c · 2.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/C/Deletion_Every_Alternate_Node.c"><span class="nm">Deletion_Every_Alternate_Node.c</span></a><div class="mt">Data Structures/SinglyLinkedList/C/Deletion_Every_Alternate_Node.c · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/C/Insertion.c"><span class="nm">Insertion.c</span></a><div class="mt">Data Structures/SinglyLinkedList/C/Insertion.c · 2.9 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/Java/Driver.java"><span class="nm">Driver.java</span></a><div class="mt">Data Structures/SinglyLinkedList/Java/Driver.java · 222 B</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/Java/Node.java"><span class="nm">Node.java</span></a><div class="mt">Data Structures/SinglyLinkedList/Java/Node.java · 449 B</div></div>
+<div class="item"><a href="code/Data%20Structures/SinglyLinkedList/Java/SinglyLinkedList.java"><span class="nm">SinglyLinkedList.java</span></a><div class="mt">Data Structures/SinglyLinkedList/Java/SinglyLinkedList.java · 812 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/BalancedParanthesis/BalancedParanthesis.cs"><span class="nm">BalancedParanthesis.cs</span></a><div class="mt">Data Structures/Stack/BalancedParanthesis/BalancedParanthesis.cs · 819 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Conversion%20Infix%20to%20post%20fix%20-%20User%20Input.cpp"><span class="nm">Conversion Infix to post fix - User Input.cpp</span></a><div class="mt">Data Structures/Stack/Conversion Infix to post fix - User Input.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Implement%20Stack%20Using%20Queues/stackUsingQueues.cpp"><span class="nm">stackUsingQueues.cpp</span></a><div class="mt">Data Structures/Stack/Implement Stack Using Queues/stackUsingQueues.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Implement%20Stack%20Using%20Queues/stack_from_queue.cpp"><span class="nm">stack_from_queue.cpp</span></a><div class="mt">Data Structures/Stack/Implement Stack Using Queues/stack_from_queue.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Implement%20Stack%20Using%20Queues/stack_from_queue_costly_pop.cpp"><span class="nm">stack_from_queue_costly_pop.cpp</span></a><div class="mt">Data Structures/Stack/Implement Stack Using Queues/stack_from_queue_costly_pop.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Infix%20to%20postfix%20conversion%20using%20stack.c"><span class="nm">Infix to postfix conversion using stack.c</span></a><div class="mt">Data Structures/Stack/Infix to postfix conversion using stack.c · 1.7 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Infix%20to%20prefix%20conversion%20using%20stack.c"><span class="nm">Infix to prefix conversion using stack.c</span></a><div class="mt">Data Structures/Stack/Infix to prefix conversion using stack.c · 1.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/Java/stack.java"><span class="nm">stack.java</span></a><div class="mt">Data Structures/Stack/Java/stack.java · 691 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/JavaScript/stack.js"><span class="nm">stack.js</span></a><div class="mt">Data Structures/Stack/JavaScript/stack.js · 587 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/LINKED_STACK.c"><span class="nm">LINKED_STACK.c</span></a><div class="mt">Data Structures/Stack/LINKED_STACK.c · 692 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/MaxHistogramArea/MaxHistogramArea.cs"><span class="nm">MaxHistogramArea.cs</span></a><div class="mt">Data Structures/Stack/MaxHistogramArea/MaxHistogramArea.cs · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/MinStack/MinStack.java"><span class="nm">MinStack.java</span></a><div class="mt">Data Structures/Stack/MinStack/MinStack.java · 937 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/TowerOfHanoi.c"><span class="nm">TowerOfHanoi.c</span></a><div class="mt">Data Structures/Stack/TowerOfHanoi.c · 3.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/stack.py"><span class="nm">stack.py</span></a><div class="mt">Data Structures/Stack/stack.py · 1.0 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/stack_from_queue.cpp"><span class="nm">stack_from_queue.cpp</span></a><div class="mt">Data Structures/Stack/stack_from_queue.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/stack_using_array.c"><span class="nm">stack_using_array.c</span></a><div class="mt">Data Structures/Stack/stack_using_array.c · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Stack/stack_using_linked_list.cpp"><span class="nm">stack_using_linked_list.cpp</span></a><div class="mt">Data Structures/Stack/stack_using_linked_list.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Treap/implicit_treap.cpp"><span class="nm">implicit_treap.cpp</span></a><div class="mt">Data Structures/Treap/implicit_treap.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Treap/treap.cpp"><span class="nm">treap.cpp</span></a><div class="mt">Data Structures/Treap/treap.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Trie/trie.cpp"><span class="nm">trie.cpp</span></a><div class="mt">Data Structures/Trie/trie.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Trie/trie.java"><span class="nm">trie.java</span></a><div class="mt">Data Structures/Trie/trie.java · 1.4 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Trie/trie.py"><span class="nm">trie.py</span></a><div class="mt">Data Structures/Trie/trie.py · 907 B</div></div>
+<div class="item"><a href="code/Data%20Structures/Trie/trie2.cpp"><span class="nm">trie2.cpp</span></a><div class="mt">Data Structures/Trie/trie2.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/Trie/tries_using_map.cpp"><span class="nm">tries_using_map.cpp</span></a><div class="mt">Data Structures/Trie/tries_using_map.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/ConnectedComponent/ConnectedComponent.cpp"><span class="nm">ConnectedComponent.cpp</span></a><div class="mt">Data Structures/disjointset/ConnectedComponent/ConnectedComponent.cpp · 951 B</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/ConnectedComponent/ConnectedComponents.cs"><span class="nm">ConnectedComponents.cs</span></a><div class="mt">Data Structures/disjointset/ConnectedComponent/ConnectedComponents.cs · 2.2 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/ConnectedComponent/Union-Find.cpp"><span class="nm">Union-Find.cpp</span></a><div class="mt">Data Structures/disjointset/ConnectedComponent/Union-Find.cpp · 743 B</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/Disjointset_using_pointers.cpp"><span class="nm">Disjointset_using_pointers.cpp</span></a><div class="mt">Data Structures/disjointset/Disjointset_using_pointers.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/ExampleProblem_TeachersDilemma.cs"><span class="nm">ExampleProblem_TeachersDilemma.cs</span></a><div class="mt">Data Structures/disjointset/ExampleProblem_TeachersDilemma.cs · 2.8 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/disjointset/findunion.cpp"><span class="nm">findunion.cpp</span></a><div class="mt">Data Structures/disjointset/findunion.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Data%20Structures/wavelet_tree/wavelt_tree.cpp"><span class="nm">wavelt_tree.cpp</span></a><div class="mt">Data Structures/wavelet_tree/wavelt_tree.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Geometry%202D/Lines%20Intersection/Rectangle_in_circle.cpp"><span class="nm">Rectangle_in_circle.cpp</span></a><div class="mt">Geometry 2D/Lines Intersection/Rectangle_in_circle.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Geometry%202D/Lines%20Intersection/collinear_check.cpp"><span class="nm">collinear_check.cpp</span></a><div class="mt">Geometry 2D/Lines Intersection/collinear_check.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Geometry%202D/Lines%20Intersection/cpp/line_count.cpp"><span class="nm">line_count.cpp</span></a><div class="mt">Geometry 2D/Lines Intersection/cpp/line_count.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Geometry%202D/Lines%20Intersection/cpp/lines_intersection.cpp"><span class="nm">lines_intersection.cpp</span></a><div class="mt">Geometry 2D/Lines Intersection/cpp/lines_intersection.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/Geometry%202D/Lines%20Intersection/java/lines_intersection.java"><span class="nm">lines_intersection.java</span></a><div class="mt">Geometry 2D/Lines Intersection/java/lines_intersection.java · 1.8 KB</div></div>
+<div class="item"><a href="code/Graph/Articulation_points/ap.cpp"><span class="nm">ap.cpp</span></a><div class="mt">Graph/Articulation_points/ap.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/Graph/BellmanFordSSSP/BellmanFordSSSP.cpp"><span class="nm">BellmanFordSSSP.cpp</span></a><div class="mt">Graph/BellmanFordSSSP/BellmanFordSSSP.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/Graph/BridgeTree/bridge-tree.cpp"><span class="nm">bridge-tree.cpp</span></a><div class="mt">Graph/BridgeTree/bridge-tree.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Graph/Centroid%20Decomposition/centroid_decomposition.cpp"><span class="nm">centroid_decomposition.cpp</span></a><div class="mt">Graph/Centroid Decomposition/centroid_decomposition.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Graph/Detect_Cycle/cpp/detect_cycle_undirected.cpp"><span class="nm">detect_cycle_undirected.cpp</span></a><div class="mt">Graph/Detect_Cycle/cpp/detect_cycle_undirected.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Graph/Detect_Cycle/java/detect_cycle_directed.java"><span class="nm">detect_cycle_directed.java</span></a><div class="mt">Graph/Detect_Cycle/java/detect_cycle_directed.java · 1.7 KB</div></div>
+<div class="item"><a href="code/Graph/DialsAlgorithm/Dial%27sAlgorithm.cpp"><span class="nm">Dial&#x27;sAlgorithm.cpp</span></a><div class="mt">Graph/DialsAlgorithm/Dial&#x27;sAlgorithm.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Graph/Diameter_of_tree/Diameter_of_tree.cpp"><span class="nm">Diameter_of_tree.cpp</span></a><div class="mt">Graph/Diameter_of_tree/Diameter_of_tree.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/Dihkstras-using-STL.cpp"><span class="nm">Dihkstras-using-STL.cpp</span></a><div class="mt">Graph/DijkstrasSPT/Dihkstras-using-STL.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/Dijkstra.cs"><span class="nm">Dijkstra.cs</span></a><div class="mt">Graph/DijkstrasSPT/Dijkstra.cs · 2.6 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/DijkstrasUsingAdjcencyList.cpp"><span class="nm">DijkstrasUsingAdjcencyList.cpp</span></a><div class="mt">Graph/DijkstrasSPT/DijkstrasUsingAdjcencyList.cpp · 8.9 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/DijkstrasUsingMatrix.cpp"><span class="nm">DijkstrasUsingMatrix.cpp</span></a><div class="mt">Graph/DijkstrasSPT/DijkstrasUsingMatrix.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/DijkstrasUsingVectors.cpp"><span class="nm">DijkstrasUsingVectors.cpp</span></a><div class="mt">Graph/DijkstrasSPT/DijkstrasUsingVectors.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/DijkstrasUsingmatrix.c"><span class="nm">DijkstrasUsingmatrix.c</span></a><div class="mt">Graph/DijkstrasSPT/DijkstrasUsingmatrix.c · 2.2 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/python/Dadjacencylist.py"><span class="nm">Dadjacencylist.py</span></a><div class="mt">Graph/DijkstrasSPT/python/Dadjacencylist.py · 3.9 KB</div></div>
+<div class="item"><a href="code/Graph/DijkstrasSPT/python/Dijkastra_algo.py"><span class="nm">Dijkastra_algo.py</span></a><div class="mt">Graph/DijkstrasSPT/python/Dijkastra_algo.py · 1.1 KB</div></div>
+<div class="item"><a href="code/Graph/EulerPath/euler_path.cpp"><span class="nm">euler_path.cpp</span></a><div class="mt">Graph/EulerPath/euler_path.cpp · 789 B</div></div>
+<div class="item"><a href="code/Graph/FenwickTree/Fenwick.java"><span class="nm">Fenwick.java</span></a><div class="mt">Graph/FenwickTree/Fenwick.java · 1.1 KB</div></div>
+<div class="item"><a href="code/Graph/FenwickTree/FenwickTree.cpp"><span class="nm">FenwickTree.cpp</span></a><div class="mt">Graph/FenwickTree/FenwickTree.cpp · 946 B</div></div>
+<div class="item"><a href="code/Graph/FloydWarshall/floydWarshall.cpp"><span class="nm">floydWarshall.cpp</span></a><div class="mt">Graph/FloydWarshall/floydWarshall.cpp · 827 B</div></div>
+<div class="item"><a href="code/Graph/Graph_m_Coloring/m_color.cpp"><span class="nm">m_color.cpp</span></a><div class="mt">Graph/Graph_m_Coloring/m_color.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Graph/Johnson%27sAlgorithm/Johnson%27sAlgorithm.cpp"><span class="nm">Johnson&#x27;sAlgorithm.cpp</span></a><div class="mt">Graph/Johnson&#x27;sAlgorithm/Johnson&#x27;sAlgorithm.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Graph/KruskalsMST/KruskalsMST.cpp"><span class="nm">KruskalsMST.cpp</span></a><div class="mt">Graph/KruskalsMST/KruskalsMST.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/Graph/KruskalsMST/KruskalsMST.java"><span class="nm">KruskalsMST.java</span></a><div class="mt">Graph/KruskalsMST/KruskalsMST.java · 5.3 KB</div></div>
+<div class="item"><a href="code/Graph/PrimsMST/PrimsMST.java"><span class="nm">PrimsMST.java</span></a><div class="mt">Graph/PrimsMST/PrimsMST.java · 2.6 KB</div></div>
+<div class="item"><a href="code/Graph/PrimsMST/PrimsMSTusingAdjacencyList.cpp"><span class="nm">PrimsMSTusingAdjacencyList.cpp</span></a><div class="mt">Graph/PrimsMST/PrimsMSTusingAdjacencyList.cpp · 8.6 KB</div></div>
+<div class="item"><a href="code/Graph/PrimsMST/PrimsMSTusingMatrix.cpp"><span class="nm">PrimsMSTusingMatrix.cpp</span></a><div class="mt">Graph/PrimsMST/PrimsMSTusingMatrix.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/Graph/SPFA%20SSSP/shortest-path-faster-algorithm.cpp"><span class="nm">shortest-path-faster-algorithm.cpp</span></a><div class="mt">Graph/SPFA SSSP/shortest-path-faster-algorithm.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Graph/Sack/HEDWIG.cpp"><span class="nm">HEDWIG.cpp</span></a><div class="mt">Graph/Sack/HEDWIG.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/Graph/Sack/Treediff.cpp"><span class="nm">Treediff.cpp</span></a><div class="mt">Graph/Sack/Treediff.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Graph/Sack/sack%28coloring-tree-hackerrank%29.cpp"><span class="nm">sack(coloring-tree-hackerrank).cpp</span></a><div class="mt">Graph/Sack/sack(coloring-tree-hackerrank).cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Graph/Sack/sack.cpp"><span class="nm">sack.cpp</span></a><div class="mt">Graph/Sack/sack.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Graph/Sack/summing-in-a-tree.cpp"><span class="nm">summing-in-a-tree.cpp</span></a><div class="mt">Graph/Sack/summing-in-a-tree.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Graph/TarganSCC/TarjansAlgorithm.cpp"><span class="nm">TarjansAlgorithm.cpp</span></a><div class="mt">Graph/TarganSCC/TarjansAlgorithm.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/Graph/TopoSort/Python/Kahn_Algorithm.py"><span class="nm">Kahn_Algorithm.py</span></a><div class="mt">Graph/TopoSort/Python/Kahn_Algorithm.py · 1.9 KB</div></div>
+<div class="item"><a href="code/Graph/TopoSort/toposort.c"><span class="nm">toposort.c</span></a><div class="mt">Graph/TopoSort/toposort.c · 1.4 KB</div></div>
+<div class="item"><a href="code/Graph/Trie/Trie.cpp"><span class="nm">Trie.cpp</span></a><div class="mt">Graph/Trie/Trie.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Graph/Weighted_Quick_Union/weighted_quick_union.cpp"><span class="nm">weighted_quick_union.cpp</span></a><div class="mt">Graph/Weighted_Quick_Union/weighted_quick_union.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Graph/bridges/bridges.cpp"><span class="nm">bridges.cpp</span></a><div class="mt">Graph/bridges/bridges.cpp · 4.3 KB</div></div>
+<div class="item"><a href="code/Greedy/ActivitySelection/ActivitySel.cpp"><span class="nm">ActivitySel.cpp</span></a><div class="mt">Greedy/ActivitySelection/ActivitySel.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Greedy/ActivitySelection/ActivitySelection.java"><span class="nm">ActivitySelection.java</span></a><div class="mt">Greedy/ActivitySelection/ActivitySelection.java · 1.9 KB</div></div>
+<div class="item"><a href="code/Greedy/ActivitySelection/Activity_Selection.py"><span class="nm">Activity_Selection.py</span></a><div class="mt">Greedy/ActivitySelection/Activity_Selection.py · 1.4 KB</div></div>
+<div class="item"><a href="code/Greedy/ContainerShip/containerShip.cpp"><span class="nm">containerShip.cpp</span></a><div class="mt">Greedy/ContainerShip/containerShip.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Greedy/EqualizingBitStrings/EqualizeBitStrings.cpp"><span class="nm">EqualizeBitStrings.cpp</span></a><div class="mt">Greedy/EqualizingBitStrings/EqualizeBitStrings.cpp · 614 B</div></div>
+<div class="item"><a href="code/Greedy/Gas%20Station/containerShip.cpp"><span class="nm">containerShip.cpp</span></a><div class="mt">Greedy/Gas Station/containerShip.cpp · 777 B</div></div>
+<div class="item"><a href="code/Greedy/Greedy_Graph_Coloring/GreedyGraphColoring.cpp"><span class="nm">GreedyGraphColoring.cpp</span></a><div class="mt">Greedy/Greedy_Graph_Coloring/GreedyGraphColoring.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Greedy/Huffman%20coding/huffman%20coding.java"><span class="nm">huffman coding.java</span></a><div class="mt">Greedy/Huffman coding/huffman coding.java · 3.6 KB</div></div>
+<div class="item"><a href="code/Greedy/Huffman%20coding/huffman.cpp"><span class="nm">huffman.cpp</span></a><div class="mt">Greedy/Huffman coding/huffman.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/Greedy/Knapsack/0-1_Knapsackproblem.cpp"><span class="nm">0-1_Knapsackproblem.cpp</span></a><div class="mt">Greedy/Knapsack/0-1_Knapsackproblem.cpp · 861 B</div></div>
+<div class="item"><a href="code/Greedy/Knapsack/Fractional_Knapsack.cpp"><span class="nm">Fractional_Knapsack.cpp</span></a><div class="mt">Greedy/Knapsack/Fractional_Knapsack.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Greedy/Knapsack/Greedy01KnapsackSolver.java"><span class="nm">Greedy01KnapsackSolver.java</span></a><div class="mt">Greedy/Knapsack/Greedy01KnapsackSolver.java · 2.8 KB</div></div>
+<div class="item"><a href="code/Greedy/Knapsack/frac_knapsack.java"><span class="nm">frac_knapsack.java</span></a><div class="mt">Greedy/Knapsack/frac_knapsack.java · 1.6 KB</div></div>
+<div class="item"><a href="code/Greedy/Knapsack/newknapsak.java"><span class="nm">newknapsak.java</span></a><div class="mt">Greedy/Knapsack/newknapsak.java · 649 B</div></div>
+<div class="item"><a href="code/Greedy/Kruskal%E2%80%99sMinimumSpanningTree/Kruskal%E2%80%99sMinimumSpanningTree.cpp"><span class="nm">Kruskal’sMinimumSpanningTree.cpp</span></a><div class="mt">Greedy/Kruskal’sMinimumSpanningTree/Kruskal’sMinimumSpanningTree.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/Greedy/Kruskal%E2%80%99sMinimumSpanningTree/Kruskal%E2%80%99sMinimumSpanningTree.java"><span class="nm">Kruskal’sMinimumSpanningTree.java</span></a><div class="mt">Greedy/Kruskal’sMinimumSpanningTree/Kruskal’sMinimumSpanningTree.java · 5.4 KB</div></div>
+<div class="item"><a href="code/Greedy/Kruskal%E2%80%99sMinimumSpanningTree/Kruskal%E2%80%99sMinimumSpanningTree.py"><span class="nm">Kruskal’sMinimumSpanningTree.py</span></a><div class="mt">Greedy/Kruskal’sMinimumSpanningTree/Kruskal’sMinimumSpanningTree.py · 1.3 KB</div></div>
+<div class="item"><a href="code/Greedy/MaximumIncreasingSubarray/MaximumIncreasingSubarray.cpp"><span class="nm">MaximumIncreasingSubarray.cpp</span></a><div class="mt">Greedy/MaximumIncreasingSubarray/MaximumIncreasingSubarray.cpp · 540 B</div></div>
+<div class="item"><a href="code/Greedy/MinNoOfBrackets/MinimumSwapOfBracket.java"><span class="nm">MinimumSwapOfBracket.java</span></a><div class="mt">Greedy/MinNoOfBrackets/MinimumSwapOfBracket.java · 1.2 KB</div></div>
+<div class="item"><a href="code/Greedy/MinimumCoins/MinimumNumOfCoins.java"><span class="nm">MinimumNumOfCoins.java</span></a><div class="mt">Greedy/MinimumCoins/MinimumNumOfCoins.java · 1.4 KB</div></div>
+<div class="item"><a href="code/Greedy/MinimumCoins/mincoins.cpp"><span class="nm">mincoins.cpp</span></a><div class="mt">Greedy/MinimumCoins/mincoins.cpp · 780 B</div></div>
+<div class="item"><a href="code/Greedy/OddSumSubsequence/OddSumSubsequence.cpp"><span class="nm">OddSumSubsequence.cpp</span></a><div class="mt">Greedy/OddSumSubsequence/OddSumSubsequence.cpp · 523 B</div></div>
+<div class="item"><a href="code/Hashing/2_Sum/2_Sum._ashish4321.cpp"><span class="nm">2_Sum._ashish4321.cpp</span></a><div class="mt">Hashing/2_Sum/2_Sum._ashish4321.cpp · 795 B</div></div>
+<div class="item"><a href="code/Hashing/2_Sum/sum_pair.cpp"><span class="nm">sum_pair.cpp</span></a><div class="mt">Hashing/2_Sum/sum_pair.cpp · 693 B</div></div>
+<div class="item"><a href="code/Hashing/3_Sum/3_sum.py"><span class="nm">3_sum.py</span></a><div class="mt">Hashing/3_Sum/3_sum.py · 523 B</div></div>
+<div class="item"><a href="code/Hashing/3_Sum/threeSum.py"><span class="nm">threeSum.py</span></a><div class="mt">Hashing/3_Sum/threeSum.py · 709 B</div></div>
+<div class="item"><a href="code/Hashing/4_Sum/FourSum.java"><span class="nm">FourSum.java</span></a><div class="mt">Hashing/4_Sum/FourSum.java · 1.9 KB</div></div>
+<div class="item"><a href="code/Hashing/Valid_Sudoku/ValidSudoku.cpp"><span class="nm">ValidSudoku.cpp</span></a><div class="mt">Hashing/Valid_Sudoku/ValidSudoku.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/MachineLearning/Perceptron/simple_perceptron.py"><span class="nm">simple_perceptron.py</span></a><div class="mt">MachineLearning/Perceptron/simple_perceptron.py · 2.6 KB</div></div>
+<div class="item"><a href="code/Math/2Sum/2Sum.cpp"><span class="nm">2Sum.cpp</span></a><div class="mt">Math/2Sum/2Sum.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Math/3Sum/3Sum.cpp"><span class="nm">3Sum.cpp</span></a><div class="mt">Math/3Sum/3Sum.cpp · 865 B</div></div>
+<div class="item"><a href="code/Math/3_Sum_square_complexity/3numbers.cpp"><span class="nm">3numbers.cpp</span></a><div class="mt">Math/3_Sum_square_complexity/3numbers.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Math/3_Sum_square_complexity/findtriplets.cpp"><span class="nm">findtriplets.cpp</span></a><div class="mt">Math/3_Sum_square_complexity/findtriplets.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Math/All%20factors%20of%20a%20given%20Number/All%20factors%20of%20a%20given%20Number.cpp"><span class="nm">All factors of a given Number.cpp</span></a><div class="mt">Math/All factors of a given Number/All factors of a given Number.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Math/All%20factors%20of%20a%20given%20Number/Python/All%20factors%20of%20a%20given%20Number.py"><span class="nm">All factors of a given Number.py</span></a><div class="mt">Math/All factors of a given Number/Python/All factors of a given Number.py · 621 B</div></div>
+<div class="item"><a href="code/Math/AllPermutations/Python/AllPermutations.py"><span class="nm">AllPermutations.py</span></a><div class="mt">Math/AllPermutations/Python/AllPermutations.py · 350 B</div></div>
+<div class="item"><a href="code/Math/AllPermutations/permutation.cpp"><span class="nm">permutation.cpp</span></a><div class="mt">Math/AllPermutations/permutation.cpp · 656 B</div></div>
+<div class="item"><a href="code/Math/AllPermutations/permutation_with_k_inversion.cpp"><span class="nm">permutation_with_k_inversion.cpp</span></a><div class="mt">Math/AllPermutations/permutation_with_k_inversion.cpp · 965 B</div></div>
+<div class="item"><a href="code/Math/AllPermutations/permutations.cpp"><span class="nm">permutations.cpp</span></a><div class="mt">Math/AllPermutations/permutations.cpp · 541 B</div></div>
+<div class="item"><a href="code/Math/B%C3%A9zout%27s%20Coefficients/extendedEuclid.cpp"><span class="nm">extendedEuclid.cpp</span></a><div class="mt">Math/Bézout&#x27;s Coefficients/extendedEuclid.cpp · 900 B</div></div>
+<div class="item"><a href="code/Math/Combinations/nCr.cpp"><span class="nm">nCr.cpp</span></a><div class="mt">Math/Combinations/nCr.cpp · 675 B</div></div>
+<div class="item"><a href="code/Math/Combinations/nCr_table.cpp"><span class="nm">nCr_table.cpp</span></a><div class="mt">Math/Combinations/nCr_table.cpp · 722 B</div></div>
+<div class="item"><a href="code/Math/Diophantine%20Eqautions/diophantine.cpp"><span class="nm">diophantine.cpp</span></a><div class="mt">Math/Diophantine Eqautions/diophantine.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Math/FFT/FFT.cpp"><span class="nm">FFT.cpp</span></a><div class="mt">Math/FFT/FFT.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Math/Factorial/go/extra-long-factorial.go"><span class="nm">extra-long-factorial.go</span></a><div class="mt">Math/Factorial/go/extra-long-factorial.go · 146 B</div></div>
+<div class="item"><a href="code/Math/Factorization/findFactors.cpp"><span class="nm">findFactors.cpp</span></a><div class="mt">Math/Factorization/findFactors.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Math/Fast%20Exponentiation%20with%20Mod/fast_expo_with_mod.py"><span class="nm">fast_expo_with_mod.py</span></a><div class="mt">Math/Fast Exponentiation with Mod/fast_expo_with_mod.py · 302 B</div></div>
+<div class="item"><a href="code/Math/Fast%20Exponentiation%20with%20Mod/fast_exponentiation_mod.cpp"><span class="nm">fast_exponentiation_mod.cpp</span></a><div class="mt">Math/Fast Exponentiation with Mod/fast_exponentiation_mod.cpp · 682 B</div></div>
+<div class="item"><a href="code/Math/Fast%20Exponentiation%20with%20Mod/modulo_exponention.java"><span class="nm">modulo_exponention.java</span></a><div class="mt">Math/Fast Exponentiation with Mod/modulo_exponention.java · 621 B</div></div>
+<div class="item"><a href="code/Math/Linear_Recurrences/linear_recurrence.cpp"><span class="nm">linear_recurrence.cpp</span></a><div class="mt">Math/Linear_Recurrences/linear_recurrence.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Math/Matrix_Power/matrix_power.cpp"><span class="nm">matrix_power.cpp</span></a><div class="mt">Math/Matrix_Power/matrix_power.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Math/Max_Sub_Square/MaximumSubSquare.cpp"><span class="nm">MaximumSubSquare.cpp</span></a><div class="mt">Math/Max_Sub_Square/MaximumSubSquare.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Math/Multiplication/multiply_polynomials_fft.cpp"><span class="nm">multiply_polynomials_fft.cpp</span></a><div class="mt">Math/Multiplication/multiply_polynomials_fft.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/Math/Multiplication/multiply_strings.cpp"><span class="nm">multiply_strings.cpp</span></a><div class="mt">Math/Multiplication/multiply_strings.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Math/NextPow2/nextpow2.cpp"><span class="nm">nextpow2.cpp</span></a><div class="mt">Math/NextPow2/nextpow2.cpp · 330 B</div></div>
+<div class="item"><a href="code/Math/Palindrome/Palindrome.py"><span class="nm">Palindrome.py</span></a><div class="mt">Math/Palindrome/Palindrome.py · 451 B</div></div>
+<div class="item"><a href="code/Math/Power/Power.java"><span class="nm">Power.java</span></a><div class="mt">Math/Power/Power.java · 667 B</div></div>
+<div class="item"><a href="code/Math/Power/power.cpp"><span class="nm">power.cpp</span></a><div class="mt">Math/Power/power.cpp · 484 B</div></div>
+<div class="item"><a href="code/Math/Power/power.go"><span class="nm">power.go</span></a><div class="mt">Math/Power/power.go · 247 B</div></div>
+<div class="item"><a href="code/Math/Power/power.py"><span class="nm">power.py</span></a><div class="mt">Math/Power/power.py · 357 B</div></div>
+<div class="item"><a href="code/Math/Power_For_Huge_Num/Power_Huge.cpp"><span class="nm">Power_Huge.cpp</span></a><div class="mt">Math/Power_For_Huge_Num/Power_Huge.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Math/Power_For_Huge_Num/Power_Huge.java"><span class="nm">Power_Huge.java</span></a><div class="mt">Math/Power_For_Huge_Num/Power_Huge.java · 2.2 KB</div></div>
+<div class="item"><a href="code/Math/Prime/C/isPrime.c"><span class="nm">isPrime.c</span></a><div class="mt">Math/Prime/C/isPrime.c · 379 B</div></div>
+<div class="item"><a href="code/Math/Prime/Kotlin/is_prime.kt"><span class="nm">is_prime.kt</span></a><div class="mt">Math/Prime/Kotlin/is_prime.kt · 449 B</div></div>
+<div class="item"><a href="code/Math/Prime/PrimeNumbers.c"><span class="nm">PrimeNumbers.c</span></a><div class="mt">Math/Prime/PrimeNumbers.c · 670 B</div></div>
+<div class="item"><a href="code/Math/Prime/python/prime.py"><span class="nm">prime.py</span></a><div class="mt">Math/Prime/python/prime.py · 486 B</div></div>
+<div class="item"><a href="code/Math/Prime/ruby/prime.rb"><span class="nm">prime.rb</span></a><div class="mt">Math/Prime/ruby/prime.rb · 384 B</div></div>
+<div class="item"><a href="code/Math/Randomized%20algorithms/Random_Number_Selection_from_Array.cpp"><span class="nm">Random_Number_Selection_from_Array.cpp</span></a><div class="mt">Math/Randomized algorithms/Random_Number_Selection_from_Array.cpp · 981 B</div></div>
+<div class="item"><a href="code/Math/Russain%20Peasants%20Algorithm/C%2B%2B/RussianPeasantsAlgorithm.cpp"><span class="nm">RussianPeasantsAlgorithm.cpp</span></a><div class="mt">Math/Russain Peasants Algorithm/C++/RussianPeasantsAlgorithm.cpp · 313 B</div></div>
+<div class="item"><a href="code/Math/Russain%20Peasants%20Algorithm/python/russian-peasants-algorithm.py"><span class="nm">russian-peasants-algorithm.py</span></a><div class="mt">Math/Russain Peasants Algorithm/python/russian-peasants-algorithm.py · 506 B</div></div>
+<div class="item"><a href="code/Math/Set/DisjointSetUnion.cpp"><span class="nm">DisjointSetUnion.cpp</span></a><div class="mt">Math/Set/DisjointSetUnion.cpp · 487 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/TowerOfHanoi.c"><span class="nm">TowerOfHanoi.c</span></a><div class="mt">Math/TowerofHanoi/TowerOfHanoi.c · 379 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/t-hanoi.py"><span class="nm">t-hanoi.py</span></a><div class="mt">Math/TowerofHanoi/t-hanoi.py · 340 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/toh.java"><span class="nm">toh.java</span></a><div class="mt">Math/TowerofHanoi/toh.java · 797 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/towerhanoi.c"><span class="nm">towerhanoi.c</span></a><div class="mt">Math/TowerofHanoi/towerhanoi.c · 350 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/towerofhanoi.cpp"><span class="nm">towerofhanoi.cpp</span></a><div class="mt">Math/TowerofHanoi/towerofhanoi.cpp · 444 B</div></div>
+<div class="item"><a href="code/Math/TowerofHanoi/towers-of-hanoi.js"><span class="nm">towers-of-hanoi.js</span></a><div class="mt">Math/TowerofHanoi/towers-of-hanoi.js · 540 B</div></div>
+<div class="item"><a href="code/Math/UsefulFunctions/Math.cpp"><span class="nm">Math.cpp</span></a><div class="mt">Math/UsefulFunctions/Math.cpp · 4.6 KB</div></div>
+<div class="item"><a href="code/Math/Wilson%27s%20Theorem/Wilson%27s%20Theorem.cpp"><span class="nm">Wilson&#x27;s Theorem.cpp</span></a><div class="mt">Math/Wilson&#x27;s Theorem/Wilson&#x27;s Theorem.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Math/binomial_coefficients/binomial.cpp"><span class="nm">binomial.cpp</span></a><div class="mt">Math/binomial_coefficients/binomial.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Math/binomial_coefficients/binomial_coefficients.py"><span class="nm">binomial_coefficients.py</span></a><div class="mt">Math/binomial_coefficients/binomial_coefficients.py · 808 B</div></div>
+<div class="item"><a href="code/Math/collatz_conjecture/C%2B%2B/collatz_conjecture.cpp"><span class="nm">collatz_conjecture.cpp</span></a><div class="mt">Math/collatz_conjecture/C++/collatz_conjecture.cpp · 1021 B</div></div>
+<div class="item"><a href="code/Math/collatz_conjecture/Python/collatz_conjecture.py"><span class="nm">collatz_conjecture.py</span></a><div class="mt">Math/collatz_conjecture/Python/collatz_conjecture.py · 336 B</div></div>
+<div class="item"><a href="code/Math/convexhull/convexhull.cpp"><span class="nm">convexhull.cpp</span></a><div class="mt">Math/convexhull/convexhull.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/Math/convexhull/grahamscan.cpp"><span class="nm">grahamscan.cpp</span></a><div class="mt">Math/convexhull/grahamscan.cpp · 4.0 KB</div></div>
+<div class="item"><a href="code/Math/eulers_totient_function/C/eulers_totient_func.c"><span class="nm">eulers_totient_func.c</span></a><div class="mt">Math/eulers_totient_function/C/eulers_totient_func.c · 566 B</div></div>
+<div class="item"><a href="code/Math/eulers_totient_function/Java/etf.java"><span class="nm">etf.java</span></a><div class="mt">Math/eulers_totient_function/Java/etf.java · 729 B</div></div>
+<div class="item"><a href="code/Math/eulers_totient_function/python/eulers_totient.py"><span class="nm">eulers_totient.py</span></a><div class="mt">Math/eulers_totient_function/python/eulers_totient.py · 152 B</div></div>
+<div class="item"><a href="code/Math/eulers_totient_function/python/test.py"><span class="nm">test.py</span></a><div class="mt">Math/eulers_totient_function/python/test.py · 126 B</div></div>
+<div class="item"><a href="code/Math/factors/factor.cpp"><span class="nm">factor.cpp</span></a><div class="mt">Math/factors/factor.cpp · 680 B</div></div>
+<div class="item"><a href="code/Math/floor_sqrt/C%2B%2B/sqrt.cpp"><span class="nm">sqrt.cpp</span></a><div class="mt">Math/floor_sqrt/C++/sqrt.cpp · 577 B</div></div>
+<div class="item"><a href="code/Math/floor_sqrt/sqrt.py"><span class="nm">sqrt.py</span></a><div class="mt">Math/floor_sqrt/sqrt.py · 631 B</div></div>
+<div class="item"><a href="code/Math/gcd/GCD.c"><span class="nm">GCD.c</span></a><div class="mt">Math/gcd/GCD.c · 165 B</div></div>
+<div class="item"><a href="code/Math/gcd/gcd.cpp"><span class="nm">gcd.cpp</span></a><div class="mt">Math/gcd/gcd.cpp · 861 B</div></div>
+<div class="item"><a href="code/Math/gcd/gcd.java"><span class="nm">gcd.java</span></a><div class="mt">Math/gcd/gcd.java · 517 B</div></div>
+<div class="item"><a href="code/Math/gcd/gcd.py"><span class="nm">gcd.py</span></a><div class="mt">Math/gcd/gcd.py · 105 B</div></div>
+<div class="item"><a href="code/Math/gcd/gcd_big_number.cpp"><span class="nm">gcd_big_number.cpp</span></a><div class="mt">Math/gcd/gcd_big_number.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Math/gcd/gcd_sum.cpp"><span class="nm">gcd_sum.cpp</span></a><div class="mt">Math/gcd/gcd_sum.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Math/histogram_area/histogram_area.cpp"><span class="nm">histogram_area.cpp</span></a><div class="mt">Math/histogram_area/histogram_area.cpp · 969 B</div></div>
+<div class="item"><a href="code/Math/isPalindrome/isPalindrome.c"><span class="nm">isPalindrome.c</span></a><div class="mt">Math/isPalindrome/isPalindrome.c · 357 B</div></div>
+<div class="item"><a href="code/Math/isPalindrome/palindrome.c"><span class="nm">palindrome.c</span></a><div class="mt">Math/isPalindrome/palindrome.c · 426 B</div></div>
+<div class="item"><a href="code/Math/largest_number_divisible_by_three/C%2B%2B/LargestNumberDivisibleByThree.cpp"><span class="nm">LargestNumberDivisibleByThree.cpp</span></a><div class="mt">Math/largest_number_divisible_by_three/C++/LargestNumberDivisibleByThree.cpp · 829 B</div></div>
+<div class="item"><a href="code/Math/largest_number_divisible_by_three/python/largest_div_by_three.py"><span class="nm">largest_div_by_three.py</span></a><div class="mt">Math/largest_number_divisible_by_three/python/largest_div_by_three.py · 1.8 KB</div></div>
+<div class="item"><a href="code/Math/last_digit_exp/JavaScript/LastDigitOfExp.js"><span class="nm">LastDigitOfExp.js</span></a><div class="mt">Math/last_digit_exp/JavaScript/LastDigitOfExp.js · 597 B</div></div>
+<div class="item"><a href="code/Math/last_digit_exp/LastDigitOfExp.cpp"><span class="nm">LastDigitOfExp.cpp</span></a><div class="mt">Math/last_digit_exp/LastDigitOfExp.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Math/last_digit_exp/Python/LastDigitOfExp.py"><span class="nm">LastDigitOfExp.py</span></a><div class="mt">Math/last_digit_exp/Python/LastDigitOfExp.py · 396 B</div></div>
+<div class="item"><a href="code/Math/log/calc-log-base-2.cpp"><span class="nm">calc-log-base-2.cpp</span></a><div class="mt">Math/log/calc-log-base-2.cpp · 276 B</div></div>
+<div class="item"><a href="code/Math/lowest_common_multiple/lcm.cpp"><span class="nm">lcm.cpp</span></a><div class="mt">Math/lowest_common_multiple/lcm.cpp · 298 B</div></div>
+<div class="item"><a href="code/Math/lowest_common_multiple/lcm.py"><span class="nm">lcm.py</span></a><div class="mt">Math/lowest_common_multiple/lcm.py · 337 B</div></div>
+<div class="item"><a href="code/Math/lowest_common_multiple/lcm_using_gcd_in_Ologn.cpp"><span class="nm">lcm_using_gcd_in_Ologn.cpp</span></a><div class="mt">Math/lowest_common_multiple/lcm_using_gcd_in_Ologn.cpp · 448 B</div></div>
+<div class="item"><a href="code/Math/max_divisible_num/max_divisible_num.cpp"><span class="nm">max_divisible_num.cpp</span></a><div class="mt">Math/max_divisible_num/max_divisible_num.cpp · 370 B</div></div>
+<div class="item"><a href="code/Math/max_sub_rectangle/maxSubRectangle.cpp"><span class="nm">maxSubRectangle.cpp</span></a><div class="mt">Math/max_sub_rectangle/maxSubRectangle.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Math/miller_rabin_primality_test/miller_rabin.cpp"><span class="nm">miller_rabin.cpp</span></a><div class="mt">Math/miller_rabin_primality_test/miller_rabin.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Math/miller_rabin_primality_test/mrp.java"><span class="nm">mrp.java</span></a><div class="mt">Math/miller_rabin_primality_test/mrp.java · 2.2 KB</div></div>
+<div class="item"><a href="code/Math/modular_multiplicative_inverse/mmi.cpp"><span class="nm">mmi.cpp</span></a><div class="mt">Math/modular_multiplicative_inverse/mmi.cpp · 973 B</div></div>
+<div class="item"><a href="code/Math/modular_multiplicative_inverse/mmi.java"><span class="nm">mmi.java</span></a><div class="mt">Math/modular_multiplicative_inverse/mmi.java · 473 B</div></div>
+<div class="item"><a href="code/Math/modular_multiplicative_inverse/mmi.py"><span class="nm">mmi.py</span></a><div class="mt">Math/modular_multiplicative_inverse/mmi.py · 324 B</div></div>
+<div class="item"><a href="code/Math/nthRoot/cpp/nthroot.cpp"><span class="nm">nthroot.cpp</span></a><div class="mt">Math/nthRoot/cpp/nthroot.cpp · 385 B</div></div>
+<div class="item"><a href="code/Math/nthRoot/nthRoot.c"><span class="nm">nthRoot.c</span></a><div class="mt">Math/nthRoot/nthRoot.c · 642 B</div></div>
+<div class="item"><a href="code/Math/pascal_row/pascal_row.c"><span class="nm">pascal_row.c</span></a><div class="mt">Math/pascal_row/pascal_row.c · 427 B</div></div>
+<div class="item"><a href="code/Math/sieve_of_eratosthenes/SegmentedSieve.cpp"><span class="nm">SegmentedSieve.cpp</span></a><div class="mt">Math/sieve_of_eratosthenes/SegmentedSieve.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/Math/sieve_of_eratosthenes/SieveOfEratosthenes.java"><span class="nm">SieveOfEratosthenes.java</span></a><div class="mt">Math/sieve_of_eratosthenes/SieveOfEratosthenes.java · 744 B</div></div>
+<div class="item"><a href="code/Math/sieve_of_eratosthenes/eratosthenes.py"><span class="nm">eratosthenes.py</span></a><div class="mt">Math/sieve_of_eratosthenes/eratosthenes.py · 789 B</div></div>
+<div class="item"><a href="code/Math/sieve_of_eratosthenes/implementation%20of%20sieve_algorithm.cpp"><span class="nm">implementation of sieve_algorithm.cpp</span></a><div class="mt">Math/sieve_of_eratosthenes/implementation of sieve_algorithm.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Math/squareroot/C%2B%2B/square_root.cpp"><span class="nm">square_root.cpp</span></a><div class="mt">Math/squareroot/C++/square_root.cpp · 328 B</div></div>
+<div class="item"><a href="code/Math/squareroot/C/square_root.c"><span class="nm">square_root.c</span></a><div class="mt">Math/squareroot/C/square_root.c · 341 B</div></div>
+<div class="item"><a href="code/Math/squareroot/Python/square_root.py"><span class="nm">square_root.py</span></a><div class="mt">Math/squareroot/Python/square_root.py · 245 B</div></div>
+<div class="item"><a href="code/Math/subset_sum/subset_sum.cc"><span class="nm">subset_sum.cc</span></a><div class="mt">Math/subset_sum/subset_sum.cc · 504 B</div></div>
+<div class="item"><a href="code/Math/sum_of_digits/digit_sum.cpp"><span class="nm">digit_sum.cpp</span></a><div class="mt">Math/sum_of_digits/digit_sum.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Math/sum_of_digits/digit_sum.py"><span class="nm">digit_sum.py</span></a><div class="mt">Math/sum_of_digits/digit_sum.py · 65 B</div></div>
+<div class="item"><a href="code/Math/sum_of_digits/sum_of_digits.c"><span class="nm">sum_of_digits.c</span></a><div class="mt">Math/sum_of_digits/sum_of_digits.c · 418 B</div></div>
+<div class="item"><a href="code/Math/sum_of_digits/sum_of_digits_python.py"><span class="nm">sum_of_digits_python.py</span></a><div class="mt">Math/sum_of_digits/sum_of_digits_python.py · 107 B</div></div>
+<div class="item"><a href="code/Math/truncated_square_root/truncated_square_root.cpp"><span class="nm">truncated_square_root.cpp</span></a><div class="mt">Math/truncated_square_root/truncated_square_root.cpp · 671 B</div></div>
+<div class="item"><a href="code/NetworkFlow/Dinic/Dinic.cpp"><span class="nm">Dinic.cpp</span></a><div class="mt">NetworkFlow/Dinic/Dinic.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/Dinic/Dinic.java"><span class="nm">Dinic.java</span></a><div class="mt">NetworkFlow/Dinic/Dinic.java · 3.8 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/EdmundKarp/EdmondsKarp.java"><span class="nm">EdmondsKarp.java</span></a><div class="mt">NetworkFlow/EdmundKarp/EdmondsKarp.java · 2.6 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/EdmundKarp/edmund_karp.py"><span class="nm">edmund_karp.py</span></a><div class="mt">NetworkFlow/EdmundKarp/edmund_karp.py · 1.4 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/FordFulkerson/FordFulkerson.cpp"><span class="nm">FordFulkerson.cpp</span></a><div class="mt">NetworkFlow/FordFulkerson/FordFulkerson.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/FordFulkerson/FordFulkerson.java"><span class="nm">FordFulkerson.java</span></a><div class="mt">NetworkFlow/FordFulkerson/FordFulkerson.java · 2.4 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/GoldbergTarjan/GoldbergTarjan.cc"><span class="nm">GoldbergTarjan.cc</span></a><div class="mt">NetworkFlow/GoldbergTarjan/GoldbergTarjan.cc · 1.8 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/GomoryHu/GomoryHu.cpp"><span class="nm">GomoryHu.cpp</span></a><div class="mt">NetworkFlow/GomoryHu/GomoryHu.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/Hopkraft%20Karp/Hopkraft%20Karp.cpp"><span class="nm">Hopkraft Karp.cpp</span></a><div class="mt">NetworkFlow/Hopkraft Karp/Hopkraft Karp.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/NetworkFlow/SPFA_MinCostMaxFLow/SPFA_MinCostMaxFLow.cpp"><span class="nm">SPFA_MinCostMaxFLow.cpp</span></a><div class="mt">NetworkFlow/SPFA_MinCostMaxFLow/SPFA_MinCostMaxFLow.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/Kotlin/binarySearch.kt"><span class="nm">binarySearch.kt</span></a><div class="mt">Search/BinarySearch/Kotlin/binarySearch.kt · 143 B</div></div>
+<div class="item"><a href="code/Search/BinarySearch/c%2B%2B/bsearch.cpp"><span class="nm">bsearch.cpp</span></a><div class="mt">Search/BinarySearch/c++/bsearch.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/c/BS.c"><span class="nm">BS.c</span></a><div class="mt">Search/BinarySearch/c/BS.c · 1.8 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/c/BinarySearch.c"><span class="nm">BinarySearch.c</span></a><div class="mt">Search/BinarySearch/c/BinarySearch.c · 513 B</div></div>
+<div class="item"><a href="code/Search/BinarySearch/c/binary%20search.c"><span class="nm">binary search.c</span></a><div class="mt">Search/BinarySearch/c/binary search.c · 1.2 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/c/c%20binarysearch.c"><span class="nm">c binarysearch.c</span></a><div class="mt">Search/BinarySearch/c/c binarysearch.c · 784 B</div></div>
+<div class="item"><a href="code/Search/BinarySearch/java/BinarySearch.java"><span class="nm">BinarySearch.java</span></a><div class="mt">Search/BinarySearch/java/BinarySearch.java · 1.1 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/java/BinarySearchrec.java"><span class="nm">BinarySearchrec.java</span></a><div class="mt">Search/BinarySearch/java/BinarySearchrec.java · 1.1 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/java/binarysearch_lightning.java"><span class="nm">binarysearch_lightning.java</span></a><div class="mt">Search/BinarySearch/java/binarysearch_lightning.java · 1.1 KB</div></div>
+<div class="item"><a href="code/Search/BinarySearch/javascript/binary_search_javascript.js"><span class="nm">binary_search_javascript.js</span></a><div class="mt">Search/BinarySearch/javascript/binary_search_javascript.js · 570 B</div></div>
+<div class="item"><a href="code/Search/BinarySearch/python/BinarySearch.py"><span class="nm">BinarySearch.py</span></a><div class="mt">Search/BinarySearch/python/BinarySearch.py · 668 B</div></div>
+<div class="item"><a href="code/Search/BinarySearch/python/binary_search_iterative.py"><span class="nm">binary_search_iterative.py</span></a><div class="mt">Search/BinarySearch/python/binary_search_iterative.py · 549 B</div></div>
+<div class="item"><a href="code/Search/ExponentialSearch/exponentialsearch.cpp"><span class="nm">exponentialsearch.cpp</span></a><div class="mt">Search/ExponentialSearch/exponentialsearch.cpp · 962 B</div></div>
+<div class="item"><a href="code/Search/FibonacciSearch/fibonacci_search.cpp"><span class="nm">fibonacci_search.cpp</span></a><div class="mt">Search/FibonacciSearch/fibonacci_search.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Search/FibonacciSearch/fibonacci_search.py"><span class="nm">fibonacci_search.py</span></a><div class="mt">Search/FibonacciSearch/fibonacci_search.py · 1.2 KB</div></div>
+<div class="item"><a href="code/Search/InterpolationSearch/InterpolationSearch.py"><span class="nm">InterpolationSearch.py</span></a><div class="mt">Search/InterpolationSearch/InterpolationSearch.py · 1.1 KB</div></div>
+<div class="item"><a href="code/Search/JumpSearch/jumpSearch.cpp"><span class="nm">jumpSearch.cpp</span></a><div class="mt">Search/JumpSearch/jumpSearch.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Search/JumpSearch/jumpSearch.py"><span class="nm">jumpSearch.py</span></a><div class="mt">Search/JumpSearch/jumpSearch.py · 615 B</div></div>
+<div class="item"><a href="code/Search/LinearSearch/C/linear_search.c"><span class="nm">linear_search.c</span></a><div class="mt">Search/LinearSearch/C/linear_search.c · 466 B</div></div>
+<div class="item"><a href="code/Search/LinearSearch/LinearSearch.java"><span class="nm">LinearSearch.java</span></a><div class="mt">Search/LinearSearch/LinearSearch.java · 801 B</div></div>
+<div class="item"><a href="code/Search/LinearSearch/linear_search.js"><span class="nm">linear_search.js</span></a><div class="mt">Search/LinearSearch/linear_search.js · 503 B</div></div>
+<div class="item"><a href="code/Search/LinearSearch/linear_search.py"><span class="nm">linear_search.py</span></a><div class="mt">Search/LinearSearch/linear_search.py · 464 B</div></div>
+<div class="item"><a href="code/Search/LinearSearch/lsearch.cpp"><span class="nm">lsearch.cpp</span></a><div class="mt">Search/LinearSearch/lsearch.cpp · 654 B</div></div>
+<div class="item"><a href="code/Search/TernarySearch/TernarySearch.cpp"><span class="nm">TernarySearch.cpp</span></a><div class="mt">Search/TernarySearch/TernarySearch.cpp · 1012 B</div></div>
+<div class="item"><a href="code/Search/TernarySearch/TernarySearch.py"><span class="nm">TernarySearch.py</span></a><div class="mt">Search/TernarySearch/TernarySearch.py · 1.0 KB</div></div>
+<div class="item"><a href="code/Search/hashing/2_Sum/sum_pair.cpp"><span class="nm">sum_pair.cpp</span></a><div class="mt">Search/hashing/2_Sum/sum_pair.cpp · 693 B</div></div>
+<div class="item"><a href="code/Search/hashing/2_Sum/sum_pair.py"><span class="nm">sum_pair.py</span></a><div class="mt">Search/hashing/2_Sum/sum_pair.py · 297 B</div></div>
+<div class="item"><a href="code/Sorting/BogoSort/JAVA/Bogosort.java"><span class="nm">Bogosort.java</span></a><div class="mt">Sorting/BogoSort/JAVA/Bogosort.java · 1.4 KB</div></div>
+<div class="item"><a href="code/Sorting/BogoSort/Python/BogoSort.py"><span class="nm">BogoSort.py</span></a><div class="mt">Sorting/BogoSort/Python/BogoSort.py · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/C%2B%2B/Bubble_Sort_1.cpp"><span class="nm">Bubble_Sort_1.cpp</span></a><div class="mt">Sorting/Bubble Sort/C++/Bubble_Sort_1.cpp · 883 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/C%2B%2B/Bubble_Sort_2.cpp"><span class="nm">Bubble_Sort_2.cpp</span></a><div class="mt">Sorting/Bubble Sort/C++/Bubble_Sort_2.cpp · 505 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/C%2B%2B/Bubble_Sort_3.cpp"><span class="nm">Bubble_Sort_3.cpp</span></a><div class="mt">Sorting/Bubble Sort/C++/Bubble_Sort_3.cpp · 663 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/C/Bubble_Sort_1.c"><span class="nm">Bubble_Sort_1.c</span></a><div class="mt">Sorting/Bubble Sort/C/Bubble_Sort_1.c · 835 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/C/Bubble_Sort_2.c"><span class="nm">Bubble_Sort_2.c</span></a><div class="mt">Sorting/Bubble Sort/C/Bubble_Sort_2.c · 609 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Go/Bubble_Sort.go"><span class="nm">Bubble_Sort.go</span></a><div class="mt">Sorting/Bubble Sort/Go/Bubble_Sort.go · 641 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Java/Bubble_Sort_1.java"><span class="nm">Bubble_Sort_1.java</span></a><div class="mt">Sorting/Bubble Sort/Java/Bubble_Sort_1.java · 749 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Java/Bubble_Sort_2.java"><span class="nm">Bubble_Sort_2.java</span></a><div class="mt">Sorting/Bubble Sort/Java/Bubble_Sort_2.java · 2.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Java/Bubble_Sort_Optimized.java"><span class="nm">Bubble_Sort_Optimized.java</span></a><div class="mt">Sorting/Bubble Sort/Java/Bubble_Sort_Optimized.java · 1.2 KB</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Java/Bubble_Sort_Recursive.java"><span class="nm">Bubble_Sort_Recursive.java</span></a><div class="mt">Sorting/Bubble Sort/Java/Bubble_Sort_Recursive.java · 839 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/JavaScript/Bubble_Sort.js"><span class="nm">Bubble_Sort.js</span></a><div class="mt">Sorting/Bubble Sort/JavaScript/Bubble_Sort.js · 1018 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Lua/Bubble_Sort.lua"><span class="nm">Bubble_Sort.lua</span></a><div class="mt">Sorting/Bubble Sort/Lua/Bubble_Sort.lua · 646 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/PHP/Bubble_Sort.php"><span class="nm">Bubble_Sort.php</span></a><div class="mt">Sorting/Bubble Sort/PHP/Bubble_Sort.php · 449 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Perl/Bubble_Sort.pl"><span class="nm">Bubble_Sort.pl</span></a><div class="mt">Sorting/Bubble Sort/Perl/Bubble_Sort.pl · 241 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Python/Bubble_Sort.py"><span class="nm">Bubble_Sort.py</span></a><div class="mt">Sorting/Bubble Sort/Python/Bubble_Sort.py · 378 B</div></div>
+<div class="item"><a href="code/Sorting/Bubble%20Sort/Ruby/Bubble_Sort.rb"><span class="nm">Bubble_Sort.rb</span></a><div class="mt">Sorting/Bubble Sort/Ruby/Bubble_Sort.rb · 509 B</div></div>
+<div class="item"><a href="code/Sorting/Bucket%20Sort/C%2B%2B/Bucket_Sort.cpp"><span class="nm">Bucket_Sort.cpp</span></a><div class="mt">Sorting/Bucket Sort/C++/Bucket_Sort.cpp · 786 B</div></div>
+<div class="item"><a href="code/Sorting/Bucket%20Sort/Java/Bucket_Sort.java"><span class="nm">Bucket_Sort.java</span></a><div class="mt">Sorting/Bucket Sort/Java/Bucket_Sort.java · 850 B</div></div>
+<div class="item"><a href="code/Sorting/Cocktail%20Shaker%20Sort/JavaScript/Cocktail_Shaker_Sort.js"><span class="nm">Cocktail_Shaker_Sort.js</span></a><div class="mt">Sorting/Cocktail Shaker Sort/JavaScript/Cocktail_Shaker_Sort.js · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Cocktail%20Shaker%20Sort/Python/Cocktail_Shaker_Sort.py"><span class="nm">Cocktail_Shaker_Sort.py</span></a><div class="mt">Sorting/Cocktail Shaker Sort/Python/Cocktail_Shaker_Sort.py · 897 B</div></div>
+<div class="item"><a href="code/Sorting/Comb%20Sort/Ruby/Comb_Sort.rb"><span class="nm">Comb_Sort.rb</span></a><div class="mt">Sorting/Comb Sort/Ruby/Comb_Sort.rb · 1.2 KB</div></div>
+<div class="item"><a href="code/Sorting/Counting%20Sort/C%2B%2B/Couting_Sort.cpp"><span class="nm">Couting_Sort.cpp</span></a><div class="mt">Sorting/Counting Sort/C++/Couting_Sort.cpp · 590 B</div></div>
+<div class="item"><a href="code/Sorting/Counting%20Sort/C/Couting_Sort.c"><span class="nm">Couting_Sort.c</span></a><div class="mt">Sorting/Counting Sort/C/Couting_Sort.c · 1.0 KB</div></div>
+<div class="item"><a href="code/Sorting/Counting%20Sort/Java/Couting_Sort.java"><span class="nm">Couting_Sort.java</span></a><div class="mt">Sorting/Counting Sort/Java/Couting_Sort.java · 908 B</div></div>
+<div class="item"><a href="code/Sorting/Counting%20Sort/JavaScript/Couting_Sort.js"><span class="nm">Couting_Sort.js</span></a><div class="mt">Sorting/Counting Sort/JavaScript/Couting_Sort.js · 332 B</div></div>
+<div class="item"><a href="code/Sorting/Counting%20Sort/Python/Couting_Sort.py"><span class="nm">Couting_Sort.py</span></a><div class="mt">Sorting/Counting Sort/Python/Couting_Sort.py · 406 B</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/C%20Sharp/HeapSort.cs"><span class="nm">HeapSort.cs</span></a><div class="mt">Sorting/HeapSort/C Sharp/HeapSort.cs · 2.3 KB</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/C%2B%2B/HeapSort.cpp"><span class="nm">HeapSort.cpp</span></a><div class="mt">Sorting/HeapSort/C++/HeapSort.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/JavaScript/HeapSort.js"><span class="nm">HeapSort.js</span></a><div class="mt">Sorting/HeapSort/JavaScript/HeapSort.js · 1.2 KB</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/NodeJS/heapSort.js"><span class="nm">heapSort.js</span></a><div class="mt">Sorting/HeapSort/NodeJS/heapSort.js · 1.6 KB</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/go/HeapSort.go"><span class="nm">HeapSort.go</span></a><div class="mt">Sorting/HeapSort/go/HeapSort.go · 768 B</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/java/HeapSort.java"><span class="nm">HeapSort.java</span></a><div class="mt">Sorting/HeapSort/java/HeapSort.java · 1.9 KB</div></div>
+<div class="item"><a href="code/Sorting/HeapSort/python/Heapsort.py"><span class="nm">Heapsort.py</span></a><div class="mt">Sorting/HeapSort/python/Heapsort.py · 893 B</div></div>
+<div class="item"><a href="code/Sorting/Index%20Sort/C%2B%2B/Index_Sort.cpp"><span class="nm">Index_Sort.cpp</span></a><div class="mt">Sorting/Index Sort/C++/Index_Sort.cpp · 933 B</div></div>
+<div class="item"><a href="code/Sorting/Index%20Sort/Java/Index_Sort.java"><span class="nm">Index_Sort.java</span></a><div class="mt">Sorting/Index Sort/Java/Index_Sort.java · 677 B</div></div>
+<div class="item"><a href="code/Sorting/Index%20Sort/Python/Index_Sort.py"><span class="nm">Index_Sort.py</span></a><div class="mt">Sorting/Index Sort/Python/Index_Sort.py · 501 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/C%2B%2B/Insertion_Sort_with_Binary_Search.cpp"><span class="nm">Insertion_Sort_with_Binary_Search.cpp</span></a><div class="mt">Sorting/Insertion Sort/C++/Insertion_Sort_with_Binary_Search.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/C%2B%2B/Insertion_sort.cpp"><span class="nm">Insertion_sort.cpp</span></a><div class="mt">Sorting/Insertion Sort/C++/Insertion_sort.cpp · 469 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/C/Insertion_Sort.c"><span class="nm">Insertion_Sort.c</span></a><div class="mt">Sorting/Insertion Sort/C/Insertion_Sort.c · 530 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/Go/Insertion_Sort.go"><span class="nm">Insertion_Sort.go</span></a><div class="mt">Sorting/Insertion Sort/Go/Insertion_Sort.go · 857 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/Java/Insertion_Sort.java"><span class="nm">Insertion_Sort.java</span></a><div class="mt">Sorting/Insertion Sort/Java/Insertion_Sort.java · 960 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/JavaScript/Insertion_Sort.js"><span class="nm">Insertion_Sort.js</span></a><div class="mt">Sorting/Insertion Sort/JavaScript/Insertion_Sort.js · 255 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/Python/Insertion_Sort.py"><span class="nm">Insertion_Sort.py</span></a><div class="mt">Sorting/Insertion Sort/Python/Insertion_Sort.py · 488 B</div></div>
+<div class="item"><a href="code/Sorting/Insertion%20Sort/Ruby/Insertion_Sort.rb"><span class="nm">Insertion_Sort.rb</span></a><div class="mt">Sorting/Insertion Sort/Ruby/Insertion_Sort.rb · 518 B</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/C%2B%2B/Count_Inversions.cpp"><span class="nm">Count_Inversions.cpp</span></a><div class="mt">Sorting/Merge Sort/C++/Count_Inversions.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/C%2B%2B/Merge_Sort.cpp"><span class="nm">Merge_Sort.cpp</span></a><div class="mt">Sorting/Merge Sort/C++/Merge_Sort.cpp · 844 B</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/C%2B%2B/Merge_sort.cpp"><span class="nm">Merge_sort.cpp</span></a><div class="mt">Sorting/Merge Sort/C++/Merge_sort.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/Haskell/Merge_Sort.hs"><span class="nm">Merge_Sort.hs</span></a><div class="mt">Sorting/Merge Sort/Haskell/Merge_Sort.hs · 444 B</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/Java/MergeSort.java"><span class="nm">MergeSort.java</span></a><div class="mt">Sorting/Merge Sort/Java/MergeSort.java · 1.9 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/Java/Merge_Sort.java"><span class="nm">Merge_Sort.java</span></a><div class="mt">Sorting/Merge Sort/Java/Merge_Sort.java · 1.8 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/JavaScript/Merge_Sort.js"><span class="nm">Merge_Sort.js</span></a><div class="mt">Sorting/Merge Sort/JavaScript/Merge_Sort.js · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/Python/Merge_Sort.py"><span class="nm">Merge_Sort.py</span></a><div class="mt">Sorting/Merge Sort/Python/Merge_Sort.py · 1.3 KB</div></div>
+<div class="item"><a href="code/Sorting/Merge%20Sort/Ruby/Merge_Sort.rb"><span class="nm">Merge_Sort.rb</span></a><div class="mt">Sorting/Merge Sort/Ruby/Merge_Sort.rb · 695 B</div></div>
+<div class="item"><a href="code/Sorting/Pancake%20Sorting/C/Pancake_Sorting.c"><span class="nm">Pancake_Sorting.c</span></a><div class="mt">Sorting/Pancake Sorting/C/Pancake_Sorting.c · 915 B</div></div>
+<div class="item"><a href="code/Sorting/Pancake%20Sorting/Java/Pancake_Sorting.java"><span class="nm">Pancake_Sorting.java</span></a><div class="mt">Sorting/Pancake Sorting/Java/Pancake_Sorting.java · 2.2 KB</div></div>
+<div class="item"><a href="code/Sorting/Pancake%20Sorting/Python/Pancake_Sorting.py"><span class="nm">Pancake_Sorting.py</span></a><div class="mt">Sorting/Pancake Sorting/Python/Pancake_Sorting.py · 544 B</div></div>
+<div class="item"><a href="code/Sorting/Patience%20Sorting/C%2B%2B/Patience_Sorting.cpp"><span class="nm">Patience_Sorting.cpp</span></a><div class="mt">Sorting/Patience Sorting/C++/Patience_Sorting.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Sorting/Patience%20Sorting/Java/Patience_Sorting.java"><span class="nm">Patience_Sorting.java</span></a><div class="mt">Sorting/Patience Sorting/Java/Patience_Sorting.java · 1.3 KB</div></div>
+<div class="item"><a href="code/Sorting/Pigeonhole%20Sort/Python/pigeonhole_sorting.py"><span class="nm">pigeonhole_sorting.py</span></a><div class="mt">Sorting/Pigeonhole Sort/Python/pigeonhole_sorting.py · 992 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/C%2B%2B/QuickSort.cpp"><span class="nm">QuickSort.cpp</span></a><div class="mt">Sorting/QuickSort/C++/QuickSort.cpp · 640 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/C/quicksort.c"><span class="nm">quicksort.c</span></a><div class="mt">Sorting/QuickSort/C/quicksort.c · 984 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/Go/QuickSort.go"><span class="nm">QuickSort.go</span></a><div class="mt">Sorting/QuickSort/Go/QuickSort.go · 590 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/Java/QuickSort.java"><span class="nm">QuickSort.java</span></a><div class="mt">Sorting/QuickSort/Java/QuickSort.java · 1.7 KB</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/Javascript/QuickSort.js"><span class="nm">QuickSort.js</span></a><div class="mt">Sorting/QuickSort/Javascript/QuickSort.js · 699 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/Kotlin/QuickSort.kt"><span class="nm">QuickSort.kt</span></a><div class="mt">Sorting/QuickSort/Kotlin/QuickSort.kt · 1.5 KB</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/PHP/Quicksort.php"><span class="nm">Quicksort.php</span></a><div class="mt">Sorting/QuickSort/PHP/Quicksort.php · 898 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/Ruby/QuickSort.rb"><span class="nm">QuickSort.rb</span></a><div class="mt">Sorting/QuickSort/Ruby/QuickSort.rb · 908 B</div></div>
+<div class="item"><a href="code/Sorting/QuickSort/python/QuickSort.py"><span class="nm">QuickSort.py</span></a><div class="mt">Sorting/QuickSort/python/QuickSort.py · 836 B</div></div>
+<div class="item"><a href="code/Sorting/Radix%20Sort/C%2B%2B/Radix_Sort.cpp"><span class="nm">Radix_Sort.cpp</span></a><div class="mt">Sorting/Radix Sort/C++/Radix_Sort.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Sorting/Radix%20Sort/Go/Radix_Sort.go"><span class="nm">Radix_Sort.go</span></a><div class="mt">Sorting/Radix Sort/Go/Radix_Sort.go · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/Radix%20Sort/Java/Radix_Sort.java"><span class="nm">Radix_Sort.java</span></a><div class="mt">Sorting/Radix Sort/Java/Radix_Sort.java · 1.0 KB</div></div>
+<div class="item"><a href="code/Sorting/Radix%20Sort/Python/Radix_Sort.py"><span class="nm">Radix_Sort.py</span></a><div class="mt">Sorting/Radix Sort/Python/Radix_Sort.py · 594 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/C%23/Program.cs"><span class="nm">Program.cs</span></a><div class="mt">Sorting/Selection Sort/C#/Program.cs · 1.0 KB</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/C%2B%2B/SelectionSort.cpp"><span class="nm">SelectionSort.cpp</span></a><div class="mt">Sorting/Selection Sort/C++/SelectionSort.cpp · 679 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/C%2B%2B/Selection_Sort.cpp"><span class="nm">Selection_Sort.cpp</span></a><div class="mt">Sorting/Selection Sort/C++/Selection_Sort.cpp · 472 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/C/Selection_Sort_1.c"><span class="nm">Selection_Sort_1.c</span></a><div class="mt">Sorting/Selection Sort/C/Selection_Sort_1.c · 455 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/C/Selection_Sort_2.c"><span class="nm">Selection_Sort_2.c</span></a><div class="mt">Sorting/Selection Sort/C/Selection_Sort_2.c · 656 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/Go/Selection_Sort.go"><span class="nm">Selection_Sort.go</span></a><div class="mt">Sorting/Selection Sort/Go/Selection_Sort.go · 858 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/Java%20Script/selection_sort.js"><span class="nm">selection_sort.js</span></a><div class="mt">Sorting/Selection Sort/Java Script/selection_sort.js · 930 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/Java/Selection_Sort.java"><span class="nm">Selection_Sort.java</span></a><div class="mt">Sorting/Selection Sort/Java/Selection_Sort.java · 853 B</div></div>
+<div class="item"><a href="code/Sorting/Selection%20Sort/Python/Selection_Sort.py"><span class="nm">Selection_Sort.py</span></a><div class="mt">Sorting/Selection Sort/Python/Selection_Sort.py · 473 B</div></div>
+<div class="item"><a href="code/Sorting/ShellSort/C%2B%2B/ShellSort.cpp"><span class="nm">ShellSort.cpp</span></a><div class="mt">Sorting/ShellSort/C++/ShellSort.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Sorting/ShellSort/c/ShellSort.c"><span class="nm">ShellSort.c</span></a><div class="mt">Sorting/ShellSort/c/ShellSort.c · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/ShellSort/java/ShellSort.java"><span class="nm">ShellSort.java</span></a><div class="mt">Sorting/ShellSort/java/ShellSort.java · 1.2 KB</div></div>
+<div class="item"><a href="code/Sorting/ShellSort/python/shellsort.py"><span class="nm">shellsort.py</span></a><div class="mt">Sorting/ShellSort/python/shellsort.py · 359 B</div></div>
+<div class="item"><a href="code/Sorting/StoogeSort/stooge.java"><span class="nm">stooge.java</span></a><div class="mt">Sorting/StoogeSort/stooge.java · 881 B</div></div>
+<div class="item"><a href="code/Sorting/TimSort/C/TimSort.c"><span class="nm">TimSort.c</span></a><div class="mt">Sorting/TimSort/C/TimSort.c · 1.6 KB</div></div>
+<div class="item"><a href="code/Sorting/Topological%20Sorting/C/Topological_Sorting.c"><span class="nm">Topological_Sorting.c</span></a><div class="mt">Sorting/Topological Sorting/C/Topological_Sorting.c · 1.4 KB</div></div>
+<div class="item"><a href="code/Sorting/Topological%20Sorting/toposort.cpp"><span class="nm">toposort.cpp</span></a><div class="mt">Sorting/Topological Sorting/toposort.cpp · 747 B</div></div>
+<div class="item"><a href="code/Sorting/TreeSort/C%2B%2B/TreeSort.cpp"><span class="nm">TreeSort.cpp</span></a><div class="mt">Sorting/TreeSort/C++/TreeSort.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/Sorting/TreeSort/Java/TreeSort.java"><span class="nm">TreeSort.java</span></a><div class="mt">Sorting/TreeSort/Java/TreeSort.java · 1.4 KB</div></div>
+<div class="item"><a href="code/Sorting/TreeSort/JavaScript/TreeSort.js"><span class="nm">TreeSort.js</span></a><div class="mt">Sorting/TreeSort/JavaScript/TreeSort.js · 1.1 KB</div></div>
+<div class="item"><a href="code/Sorting/TreeSort/Python/TreeSort.py"><span class="nm">TreeSort.py</span></a><div class="mt">Sorting/TreeSort/Python/TreeSort.py · 2.0 KB</div></div>
+<div class="item"><a href="code/Sorting/strandsort/C%2B%2B/strand_sort.cpp"><span class="nm">strand_sort.cpp</span></a><div class="mt">Sorting/strandsort/C++/strand_sort.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/String/Anagram/Group_Anagrams/group_anagram.py"><span class="nm">group_anagram.py</span></a><div class="mt">String/Anagram/Group_Anagrams/group_anagram.py · 725 B</div></div>
+<div class="item"><a href="code/String/Anagram/Group_Anagrams/is_anagram.py"><span class="nm">is_anagram.py</span></a><div class="mt">String/Anagram/Group_Anagrams/is_anagram.py · 821 B</div></div>
+<div class="item"><a href="code/String/Anagram/is-anagram.js"><span class="nm">is-anagram.js</span></a><div class="mt">String/Anagram/is-anagram.js · 301 B</div></div>
+<div class="item"><a href="code/String/Anagram/is-anagram.kt"><span class="nm">is-anagram.kt</span></a><div class="mt">String/Anagram/is-anagram.kt · 1.5 KB</div></div>
+<div class="item"><a href="code/String/Anagram/is_anagram.cpp"><span class="nm">is_anagram.cpp</span></a><div class="mt">String/Anagram/is_anagram.cpp · 565 B</div></div>
+<div class="item"><a href="code/String/Anagram/is_anagram.py"><span class="nm">is_anagram.py</span></a><div class="mt">String/Anagram/is_anagram.py · 752 B</div></div>
+<div class="item"><a href="code/String/Balanced%20Parentheses/BalancedParentheses.kt"><span class="nm">BalancedParentheses.kt</span></a><div class="mt">String/Balanced Parentheses/BalancedParentheses.kt · 633 B</div></div>
+<div class="item"><a href="code/String/Balanced%20Parentheses/JavaScript/balanced_parantheses.js"><span class="nm">balanced_parantheses.js</span></a><div class="mt">String/Balanced Parentheses/JavaScript/balanced_parantheses.js · 913 B</div></div>
+<div class="item"><a href="code/String/Balanced%20Parentheses/balanced_parantheses.cpp"><span class="nm">balanced_parantheses.cpp</span></a><div class="mt">String/Balanced Parentheses/balanced_parantheses.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/String/Balanced%20Parentheses/balanced_parantheses.py"><span class="nm">balanced_parantheses.py</span></a><div class="mt">String/Balanced Parentheses/balanced_parantheses.py · 1.1 KB</div></div>
+<div class="item"><a href="code/String/Balanced/balanced_parantheses.py"><span class="nm">balanced_parantheses.py</span></a><div class="mt">String/Balanced/balanced_parantheses.py · 1.2 KB</div></div>
+<div class="item"><a href="code/String/Hamming%20distance/HammingDistance.java"><span class="nm">HammingDistance.java</span></a><div class="mt">String/Hamming distance/HammingDistance.java · 1008 B</div></div>
+<div class="item"><a href="code/String/Hamming%20distance/HammingDistance.kt"><span class="nm">HammingDistance.kt</span></a><div class="mt">String/Hamming distance/HammingDistance.kt · 518 B</div></div>
+<div class="item"><a href="code/String/Hamming%20distance/hamming_distance.py"><span class="nm">hamming_distance.py</span></a><div class="mt">String/Hamming distance/hamming_distance.py · 595 B</div></div>
+<div class="item"><a href="code/String/KMP/KMP.cpp"><span class="nm">KMP.cpp</span></a><div class="mt">String/KMP/KMP.cpp · 790 B</div></div>
+<div class="item"><a href="code/String/KMP/KMP.java"><span class="nm">KMP.java</span></a><div class="mt">String/KMP/KMP.java · 881 B</div></div>
+<div class="item"><a href="code/String/KMP/kmp.cpp"><span class="nm">kmp.cpp</span></a><div class="mt">String/KMP/kmp.cpp · 845 B</div></div>
+<div class="item"><a href="code/String/KMP/kmp.py"><span class="nm">kmp.py</span></a><div class="mt">String/KMP/kmp.py · 623 B</div></div>
+<div class="item"><a href="code/String/Palindrome/C/isPalindrome.c"><span class="nm">isPalindrome.c</span></a><div class="mt">String/Palindrome/C/isPalindrome.c · 526 B</div></div>
+<div class="item"><a href="code/String/Palindrome/Javascript/isPalindrome.js"><span class="nm">isPalindrome.js</span></a><div class="mt">String/Palindrome/Javascript/isPalindrome.js · 246 B</div></div>
+<div class="item"><a href="code/String/Palindrome/Python/Palindrome.py"><span class="nm">Palindrome.py</span></a><div class="mt">String/Palindrome/Python/Palindrome.py · 229 B</div></div>
+<div class="item"><a href="code/String/Palindrome/is_palindrome.py"><span class="nm">is_palindrome.py</span></a><div class="mt">String/Palindrome/is_palindrome.py · 614 B</div></div>
+<div class="item"><a href="code/String/Palindrome/manacher.cpp"><span class="nm">manacher.cpp</span></a><div class="mt">String/Palindrome/manacher.cpp · 708 B</div></div>
+<div class="item"><a href="code/String/Palindrome/palindrome.cpp"><span class="nm">palindrome.cpp</span></a><div class="mt">String/Palindrome/palindrome.cpp · 205 B</div></div>
+<div class="item"><a href="code/String/ParsingArithmetic/ShuntingYard.cpp"><span class="nm">ShuntingYard.cpp</span></a><div class="mt">String/ParsingArithmetic/ShuntingYard.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/String/Reverse%20String/reverse_string.py"><span class="nm">reverse_string.py</span></a><div class="mt">String/Reverse String/reverse_string.py · 320 B</div></div>
+<div class="item"><a href="code/String/String%20Automaton/suffix_automaton.cpp"><span class="nm">suffix_automaton.cpp</span></a><div class="mt">String/String Automaton/suffix_automaton.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/String/String%20Matching/AhoCorasickStringMatching.cpp"><span class="nm">AhoCorasickStringMatching.cpp</span></a><div class="mt">String/String Matching/AhoCorasickStringMatching.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/String/String%20Matching/KMP_ALGO_stringMatching.cpp"><span class="nm">KMP_ALGO_stringMatching.cpp</span></a><div class="mt">String/String Matching/KMP_ALGO_stringMatching.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/String/String%20Matching/ahocorasick.py"><span class="nm">ahocorasick.py</span></a><div class="mt">String/String Matching/ahocorasick.py · 4.6 KB</div></div>
+<div class="item"><a href="code/String/String%20Matching/rabin_karp.c"><span class="nm">rabin_karp.c</span></a><div class="mt">String/String Matching/rabin_karp.c · 1.9 KB</div></div>
+<div class="item"><a href="code/String/String%20Matching/rabin_karp_matcher.py"><span class="nm">rabin_karp_matcher.py</span></a><div class="mt">String/String Matching/rabin_karp_matcher.py · 1.2 KB</div></div>
+<div class="item"><a href="code/String/Substring/Check_Substring.c"><span class="nm">Check_Substring.c</span></a><div class="mt">String/Substring/Check_Substring.c · 792 B</div></div>
+<div class="item"><a href="code/String/Substring/DistinctSubsequenceOccurrenceCount.java"><span class="nm">DistinctSubsequenceOccurrenceCount.java</span></a><div class="mt">String/Substring/DistinctSubsequenceOccurrenceCount.java · 1.9 KB</div></div>
+<div class="item"><a href="code/String/Substring/check_substring.cpp"><span class="nm">check_substring.cpp</span></a><div class="mt">String/Substring/check_substring.cpp · 425 B</div></div>
+<div class="item"><a href="code/String/Top_K_Frequent_Words/Top_K_Frequent_Words.cpp"><span class="nm">Top_K_Frequent_Words.cpp</span></a><div class="mt">String/Top_K_Frequent_Words/Top_K_Frequent_Words.cpp · 720 B</div></div>
+<div class="item"><a href="code/String/Top_K_Frequent_Words/top_k_frequent_words.py"><span class="nm">top_k_frequent_words.py</span></a><div class="mt">String/Top_K_Frequent_Words/top_k_frequent_words.py · 433 B</div></div>
+<div class="item"><a href="code/String/Uncompressing_Strings/Uncompressing_Strings.cpp"><span class="nm">Uncompressing_Strings.cpp</span></a><div class="mt">String/Uncompressing_Strings/Uncompressing_Strings.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/String/Z-Algo/z_algo.cpp"><span class="nm">z_algo.cpp</span></a><div class="mt">String/Z-Algo/z_algo.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/String/manachers%20algorithm/manacher%20algorithm.cpp"><span class="nm">manacher algorithm.cpp</span></a><div class="mt">String/manachers algorithm/manacher algorithm.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/String/suffix_array/suffix_array.cpp"><span class="nm">suffix_array.cpp</span></a><div class="mt">String/suffix_array/suffix_array.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/String/top_k_frequent_words_in_java/Analyzer.java"><span class="nm">Analyzer.java</span></a><div class="mt">String/top_k_frequent_words_in_java/Analyzer.java · 1.2 KB</div></div>
+<div class="item"><a href="code/String/top_k_frequent_words_in_java/Main.java"><span class="nm">Main.java</span></a><div class="mt">String/top_k_frequent_words_in_java/Main.java · 735 B</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 20 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.editorconfig"><span class="nm">.editorconfig</span></a><div class="mt">.editorconfig · 240 B</div></div>
+<div class="item"><a href="files/.gitignore"><span class="nm">.gitignore</span></a><div class="mt">.gitignore · 1.5 KB</div></div>
+<div class="item"><a href="files/BFS/CLisp/bfs.lisp"><span class="nm">bfs.lisp</span></a><div class="mt">BFS/CLisp/bfs.lisp · 2.2 KB</div></div>
+<div class="item"><a href="files/BackTracking/NQueens/nqueen.lisp"><span class="nm">nqueen.lisp</span></a><div class="mt">BackTracking/NQueens/nqueen.lisp · 929 B</div></div>
+<div class="item"><a href="files/DFS/CLisp/dfs.lisp"><span class="nm">dfs.lisp</span></a><div class="mt">DFS/CLisp/dfs.lisp · 2.1 KB</div></div>
+<div class="item"><a href="files/Math/Prime/javaPrime/PrimeNum"><span class="nm">PrimeNum</span></a><div class="mt">Math/Prime/javaPrime/PrimeNum · 729 B</div></div>
+<div class="item"><a href="files/Math/max_divisible_num/javaMaxdivisibleNumber/max_div_num"><span class="nm">max_div_num</span></a><div class="mt">Math/max_divisible_num/javaMaxdivisibleNumber/max_div_num · 408 B</div></div>
+<div class="item"><a href="files/Math/truncated_square_root/a.out"><span class="nm">a.out</span></a><div class="mt">Math/truncated_square_root/a.out · 13.0 KB</div></div>
+<div class="item"><a href="files/Search/BinarySearch/erlang/bsearch.erl"><span class="nm">bsearch.erl</span></a><div class="mt">Search/BinarySearch/erlang/bsearch.erl · 565 B</div></div>
+<div class="item"><a href="files/Search/BinarySearch/scala/BinarySearch.scala"><span class="nm">BinarySearch.scala</span></a><div class="mt">Search/BinarySearch/scala/BinarySearch.scala · 876 B</div></div>
+<div class="item"><a href="files/Sorting/Bubble%20Sort/Brainfuck/Bubble_Sort.bf"><span class="nm">Bubble_Sort.bf</span></a><div class="mt">Sorting/Bubble Sort/Brainfuck/Bubble_Sort.bf · 124 B</div></div>
+<div class="item"><a href="files/Sorting/Bubble%20Sort/Swift/Bubble_Sort.swift"><span class="nm">Bubble_Sort.swift</span></a><div class="mt">Sorting/Bubble Sort/Swift/Bubble_Sort.swift · 536 B</div></div>
+<div class="item"><a href="files/Sorting/Bubble%20Sort/desktop.ini"><span class="nm">desktop.ini</span></a><div class="mt">Sorting/Bubble Sort/desktop.ini · 42 B</div></div>
+<div class="item"><a href="files/Sorting/HeapSort/C%2B%2B/HeapSort"><span class="nm">HeapSort</span></a><div class="mt">Sorting/HeapSort/C++/HeapSort · 925 B</div></div>
+<div class="item"><a href="files/Sorting/Insertion%20Sort/Ada/Insertion_Sort.adb"><span class="nm">Insertion_Sort.adb</span></a><div class="mt">Sorting/Insertion Sort/Ada/Insertion_Sort.adb · 2.1 KB</div></div>
+<div class="item"><a href="files/Sorting/Merge%20Sort/Ada/Merge_Sort.adb"><span class="nm">Merge_Sort.adb</span></a><div class="mt">Sorting/Merge Sort/Ada/Merge_Sort.adb · 3.4 KB</div></div>
+<div class="item"><a href="files/Sorting/Merge%20Sort/Scala/Merge_Sort.scala"><span class="nm">Merge_Sort.scala</span></a><div class="mt">Sorting/Merge Sort/Scala/Merge_Sort.scala · 756 B</div></div>
+<div class="item"><a href="files/Sorting/Merge%20Sort/Swift/Merge_Sort.swift"><span class="nm">Merge_Sort.swift</span></a><div class="mt">Sorting/Merge Sort/Swift/Merge_Sort.swift · 1.2 KB</div></div>
+<div class="item"><a href="files/Sorting/QuickSort/Ada/QuickSort.adb"><span class="nm">QuickSort.adb</span></a><div class="mt">Sorting/QuickSort/Ada/QuickSort.adb · 3.0 KB</div></div>
+<div class="item"><a href="files/String/Palindrome/palindrome.erl"><span class="nm">palindrome.erl</span></a><div class="mt">String/Palindrome/palindrome.erl · 730 B</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

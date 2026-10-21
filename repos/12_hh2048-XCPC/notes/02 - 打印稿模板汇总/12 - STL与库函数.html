@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>12 - STL与库函数.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../index.html">首页</a><span>/</span><a href="../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>12 - STL与库函数.md</span></nav>
+  <h1 class="page-title">12 - STL与库函数.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/02 - 打印稿模板汇总/12 - STL与库函数.md · 17.8 KB</div>
+  <div class="prose"><h2>第十二章：STL与库函数</h2>
+<h3>库函数</h3>
+<h4>pb_ds 库</h4>
+<p>其中 <code>gp_hash_table</code> 使用的最多，其等价于 <code>unordered_map</code> ，内部是无序的。</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/extc++.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ext/pb_ds/assoc_container.hpp&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">omap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__gnu_pbds</span><span class="o">::</span><span class="n">gp_hash_table</span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">myhash</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+
+<h4>查找后继 lower_bound、upper_bound</h4>
+<p><code>lower</code> 表示 $\ge$ ，<code>upper</code> 表示 $&gt;$ 。使用前记得<strong>先进行排序</strong>。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//返回a数组[start,end)区间中第一个&gt;=x的地址【地址！！！】</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//在a数组中查找第一个&gt;=x的元素下标</span>
+<span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="c1">//查找k在a中出现了几次</span>
+</code></pre></div>
+
+<h4>数组打乱 shuffle</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">mt19937</span><span class="w"> </span><span class="nf">rnd</span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">().</span><span class="n">count</span><span class="p">());</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">ver</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">ver</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">rnd</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>二分搜索 binary_search</h4>
+<p>用于查找某一元素是否在容器中，相当于 find 函数。在使用前需要<strong>先进行排序</strong>。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//在a数组[start,end)区间中查找x是否存在，返回bool型</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">binary_search</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>批量递增赋值函数 iota</h4>
+<p>对容器递增初始化。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//将a数组[start,end)区间复制成“x，x+1，x+2，…”</span>
+<span class="n">iota</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>数组去重函数 unique</h4>
+<p>在使用前需要<strong>先进行排序</strong>。</p>
+<p>其作用是，对于区间 <code>[开始位置, 结束位置)</code> ，<strong>不停的把后面不重复的元素移到前面来</strong>，也可以说是<strong>用不重复的元素占领重复元素的位置</strong>。并且返回<strong>去重后容器中不重复序列的最后一个元素的下一个元素</strong>。所以在进行操作后，数组、容器的大小并<strong>没有发生改变</strong>。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//将a数组[start,end)区间去重，返回迭代器</span>
+<span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+
+<span class="c1">//与earse函数结合，达到去重+删除的目的</span>
+<span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">ALL</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</code></pre></div>
+
+<h4>bit 库与位运算函数 __builtin_</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">__builtin_popcount</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// 返回x二进制下含1的数量，例如x=15=(1111)时答案为4</span>
+
+<span class="n">__builtin_ffs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// 返回x右数第一个1的位置(1-idx)，1(1) 返回 1，8(1000) 返回 4，26(11010) 返回 2</span>
+
+<span class="n">__builtin_ctz</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// 返回x二进制下后导0的个数，1(1) 返回 0，8(1000) 返回 3</span>
+
+<span class="n">bit_width</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// 返回x二进制下的位数，9(1001) 返回 4，26(11010) 返回 5</span>
+</code></pre></div>
+
+<p>注：以上函数的 $\tt{}long\ long$ 版本只需要在函数后面加上 <code>ll</code> 即可（例如 <code>__builtin_popcountll(x)</code> )， $\tt{}unsigned\ long\ long$ 加上 <code>ull</code> 。</p>
+<h4>数字转字符串函数</h4>
+<p><code>itoa</code> 虽然能将整数转换成任意进制的字符串，但是其不是标准的C函数，且为Windows独有，且不支持 <code>long long</code> ，建议手写。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// to_string函数会直接将你的各种类型的数字转换为字符串。</span>
+<span class="c1">// string to_string(T val);</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.12</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// 【不建议使用】itoa允许你将整数转换成任意进制的字符串，参数为待转换整数、目标字符数组、进制。</span>
+<span class="c1">// char* itoa(int value, char* string, int radix);</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">ans</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">itoa</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*1100*/</span>
+
+<span class="c1">// 长整型函数名ltoa，最高支持到int型上限2^31。ultoa同理。</span>
+</code></pre></div>
+
+<h4>字符串转数字</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">// stoi直接使用</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">"12"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+
+<span class="c1">// 【不建议使用】stoi转换进制，参数为待转换字符串、起始位置、进制。</span>
+<span class="c1">// int stoi(string value, int st, int radix);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">"1010"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*10*/</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">"c"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*12*/</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">stoi</span><span class="p">(</span><span class="s">"0x3f3f3f3f"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*1061109567*/</span>
+
+<span class="c1">// 长整型函数名stoll，最高支持到long long型上限2^63。stoull、stod、stold同理。</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">// atoi直接使用，空字符返回0，允许正负符号，数字字符前有其他字符返回0，数字字符前有空白字符自动去除</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="s">"12"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="s">"   12"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*12*/</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="s">"-12abc"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*-12*/</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="s">"abc12"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="cm">/*0*/</span>
+
+<span class="c1">// 长整型函数名atoll，最高支持到long long型上限2^63。</span>
+</code></pre></div>
+
+<h4>全排列算法 next_permutation、prev_permutation</h4>
+<p>在提及这个函数时，我们先需要补充几点字典序相关的知识。</p>
+<blockquote>
+<p>对于三个字符所组成的序列<code>{a,b,c}</code>，其按照字典序的6种排列分别为：
+<code>{abc}</code>，<code>{acb}</code>，<code>{bac}</code>，<code>{bca}</code>，<code>{cab}</code>，<code>{cba}</code>
+其排序原理是：先固定 <code>a</code> (序列内最小元素)，再对之后的元素排列。而 <code>b</code> &lt; <code>c</code> ，所以 <code>abc</code> &lt; <code>acb</code> 。同理，先固定 <code>b</code> (序列内次小元素)，再对之后的元素排列。即可得出以上序列。</p>
+</blockquote>
+<p>$\tt{}next_permutation$ 算法，即是按照<strong>字典序顺序</strong>输出的全排列；相对应的， $\tt{}prev_permutation$ 则是按照<strong>逆字典序顺序</strong>输出的全排列。可以是数字，亦可以是其他类型元素。其直接在序列上进行更新，故直接输出序列即可。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="c1">// iota(a.begin(), a.end(), 1);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+<span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">next_permutation</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">()));</span>
+</code></pre></div>
+
+<h4>字符串转换为数值函数 sto</h4>
+<p>可以快捷的将<strong>一串字符串</strong>转换为<strong>指定进制的数字</strong>。</p>
+<p>使用方法</p>
+<ul>
+<li><code>stoi(字符串, 0, x进制)</code> ：将一串 $\tt{}x$ 进制的字符串转换为 $\tt{}int$ 型数字。</li>
+</ul>
+<p><img alt="" src="../../images/external/5ff689c61abb.png" /></p>
+<ul>
+<li><code>stoll(字符串, 0, x进制)</code> ：将一串 $\tt{}x$ 进制的字符串转换为 $\tt{}long\ long$ 型数字。</li>
+<li>$\tt{}stoull，stod，stold$ 同理。</li>
+</ul>
+<h4>数值转换为字符串函数 to_string</h4>
+<p>允许将<strong>各种数值类型</strong>转换为字符串类型。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//将数值num转换为字符串s</span>
+<span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_string</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>判断非递减 is_sorted</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//a数组[start,end)区间是否是非递减的，返回bool型</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">is_sorted</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>累加 accumulate</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//将a数组[start,end)区间的元素进行累加，并输出累加和+x的值</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>迭代器 iterator</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//构建一个UUU容器的正向迭代器，名字叫it</span>
+<span class="n">UUU</span><span class="o">::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"> </span><span class="c1">//创建一个正向迭代器，++ 操作时指向下一个</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"> </span><span class="c1">//创建一个反向迭代器，++ 操作时指向上一个</span>
+</code></pre></div>
+
+<h4>其他函数</h4>
+<p><code>exp2(x)</code> ：返回 $2^x$ </p>
+<p><code>log2(x)</code> ：返回 $\log_2(x)$</p>
+<p><code>gcd(x, y) / lcm(x, y)</code> ：以 $\log$ 的复杂度返回 $\gcd(|x|, |y|)$ 与 ${\tt lcm}(|x|, |y|)$ ，且返回值符号也为正数。</p>
+<h3>容器与成员函数</h3>
+<h4>元组 tuple</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//获取obj对象中的第index个元素——get&lt;index&gt;(obj)</span>
+<span class="c1">//需要注意的是这里的index只能手动输入，使用for循环这样的自动输入是不可以的</span>
+<span class="n">tuple</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"Wida"</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">45000</span><span class="p">);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//获取Student对象中的第一个元素，这里的输出结果应为“Wida”</span>
+</code></pre></div>
+
+<h4>数组 array</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// 建立一个包含三个元素的数组x</span>
+
+<span class="p">[]</span><span class="w"> </span><span class="c1">// 跟正常数组一样，可以使用随机访问</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="c1">// 获取数组重的第一个元素</span>
+</code></pre></div>
+
+<h4>变长数组 vector</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="c1">// 重设容器大小，但是不改变已有元素的值</span>
+<span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// 重设容器大小为n，且替换容器内的内容为0</span>
+
+<span class="c1">// 尽量不要使用[]的形式声明多维变长数组，而是使用嵌套的方式替代</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ver</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 不好的声明方式</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ver</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// 嵌套时只需要在最后一个注明变量类型</span>
+<span class="n">vector</span><span class="w"> </span><span class="nf">dis</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="n">vector</span><span class="w"> </span><span class="nf">dis</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)));</span>
+</code></pre></div>
+
+<h4>栈  stack</h4>
+<p>栈顶入，栈顶出。先进后出。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//没有clear函数</span>
+<span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span>
+<span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">//向栈顶插入x</span>
+<span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="c1">//获取栈顶元素</span>
+<span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="c1">//弹出栈顶元素</span>
+</code></pre></div>
+
+<h4>队列 queue</h4>
+<p>队尾进，队头出。先进先出。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//没有clear函数</span>
+<span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span>
+<span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">//向队尾插入x</span>
+<span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="c1">//获取队头、队尾元素</span>
+<span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="c1">//弹出队头元素</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">//没有clear函数，但是可以用重新构造替代</span>
+<span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div>
+
+<h4>双向队列 deque</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
+<span class="n">push_front</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">pop_front</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pop_back</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">back</span><span class="p">()</span>
+<span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">end</span><span class="p">()</span>
+<span class="p">[]</span>
+</code></pre></div>
+
+<h4>优先队列 priority_queue</h4>
+<p>默认升序（大根堆），自定义排序需要重载 <code>&lt;</code> 。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//没有clear函数</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//重定义为降序（小根堆）</span>
+<span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//向栈顶插入x</span>
+<span class="n">top</span><span class="p">();</span><span class="w"> </span><span class="c1">//获取栈顶元素</span>
+<span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">//弹出栈顶元素</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">//重载运算符【注意，符号相反！！！】</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">s</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<h4>字符串 string</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">//从字符串S的S[start]开始，取出长度为len的子串——S.substr(start, len)</span>
+<span class="c1">//len省略时默认取到结尾，超过字符串长度时也默认取到结尾</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+
+<span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//顺序、逆序查找x，返回下标，没找到时返回一个极大值【！建议与 size() 比较，而不要和 -1 比较，后者可能出错】</span>
+<span class="c1">//注意，没有count函数</span>
+</code></pre></div>
+
+<h4>有序、多重有序集合 set、multiset</h4>
+<p>默认升序（大根堆），$\tt set$ 去重，$\tt multiset$ 不去重，$\mathcal O(\log N)$ 。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//重定义为降序（小根堆）</span>
+<span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
+<span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">end</span><span class="p">()</span>
+<span class="o">++</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="c1">//返回前驱、后继</span>
+
+<span class="n">insert</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//插入x</span>
+<span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//顺序、逆序查找x，返回迭代器【迭代器！！！】，没找到时返回end()</span>
+<span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回x的个数</span>
+<span class="n">lower_cound</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回第一个&gt;=x的迭代器【迭代器！！！】</span>
+<span class="n">upper_cound</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回第一个&gt;x的迭代器【迭代器！！！】</span>
+</code></pre></div>
+
+<p>特殊函数 <code>next</code> 和 <code>prev</code> 详解：</p>
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// 建立一个迭代器</span>
+<span class="n">prev</span><span class="p">(</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">it</span><span class="p">);</span><span class="w"> </span><span class="c1">// 默认返回迭代器it的前/后一个迭代器</span>
+<span class="n">prev</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 可选参数可以控制返回前/后任意个迭代器</span>
+
+<span class="cm">/* 以下是一些应用 */</span>
+<span class="k">auto</span><span class="w"> </span><span class="k">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prev</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">x</span><span class="p">));</span><span class="w"> </span><span class="c1">// 返回第一个&lt;x的迭代器</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">ed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 返回最后一个元素</span>
+</code></pre></div>
+
+<p><code>erase(x);</code> 有两种删除方式：</p>
+<ul>
+<li>当x为某一元素时，删除<strong>所有</strong>这个数，复杂度为 $\mathcal O (num_x+logN)$ ；</li>
+<li>当x为迭代器时，删除这个迭代器。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1">//连续头部删除</span>
+<span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w"> </span><span class="mi">1087</span><span class="p">,</span><span class="w"> </span><span class="mi">894</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="mi">756</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">500</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span><span class="w"> </span><span class="c1">//删除所有小于500的元素</span>
+<span class="p">}</span>
+<span class="c1">//错误用法如下【千万不能这样用！！！】</span>
+<span class="c1">//for (auto it : S) {</span>
+<span class="c1">//    if (it &gt;= 500) continue;</span>
+<span class="c1">//    S.erase(it); //删除所有小于500的元素</span>
+<span class="c1">//}</span>
+</code></pre></div>
+
+<h4>map、multimap</h4>
+<p>默认升序（大根堆），$\tt map$ 去重，$\tt mulitmap$ 不去重，$\mathcal O(logS)$ ，其中 $S$ 为元素数量。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mp</span><span class="p">;</span><span class="w"> </span><span class="c1">//重定义为降序（小根堆）</span>
+<span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
+<span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">end</span><span class="p">()</span>
+<span class="o">++</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="c1">//返回前驱、后继</span>
+
+<span class="n">insert</span><span class="p">({</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">});</span><span class="w"> </span><span class="c1">//插入二元组</span>
+<span class="p">[]</span><span class="w"> </span><span class="c1">//随机访问，multimap不支持</span>
+<span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回x为下标的个数</span>
+<span class="n">lower_cound</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回第一个下标&gt;=x的迭代器</span>
+<span class="n">upper_cound</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">//返回第一个下标&gt;x的迭代器</span>
+</code></pre></div>
+
+<p><code>erase(x);</code> 有两种删除方式：</p>
+<ul>
+<li>当x为某一元素时，删除所有<strong>以这个元素为下标的二元组</strong>，复杂度为 $\mathcal O (num_x+logN)$ ；</li>
+<li>当x为迭代器时，删除这个迭代器。</li>
+</ul>
+<p><strong>慎用随机访问！</strong>——当不确定某次查询是否存在于容器中时，不要直接使用下标查询，而是先使用 <code>count()</code> 或者 <code>find()</code> 方法检查key值，防止不必要的零值二元组被构造。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mp</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</code></pre></div>
+
+<p>慎用自带的 pair、tuple 作为key值类型！使用自定义结构体！</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">fff</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">fff</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">fff</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="n">fff</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mp</span><span class="p">;</span>
+</code></pre></div>
+
+<h4>bitset</h4>
+<p>将数据转换为二进制，从高位到低位排序，以 $0$ 为最低位。当位数相同时支持全部的位运算。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 如果输入的是01字符串，可以直接使用"&gt;&gt;"读入</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+
+<span class="c1">//使用只含01的字符串构造——bitset&lt;容器长度&gt;B (字符串)</span>
+<span class="n">string</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+
+<span class="c1">//使用整数构造（两种方式）</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">B1</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+
+<span class="c1">// 构造时，尖括号里的数字不能是变量</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="n">bitset</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w"> </span><span class="c1">// 错误构造</span>
+
+<span class="p">[]</span><span class="w"> </span><span class="c1">//随机访问</span>
+<span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">//将第x位置1，x省略时默认全部位置1</span>
+<span class="n">reset</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">//将第x位置0，x省略时默认全部位置0</span>
+<span class="n">flip</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">//将第x位取反，x省略时默认全部位取反</span>
+<span class="n">to_ullong</span><span class="p">()</span><span class="w"> </span><span class="c1">//重转换为ULL类型</span>
+<span class="n">to_string</span><span class="p">()</span><span class="w"> </span><span class="c1">//重转换为ULL类型</span>
+<span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="c1">//返回1的个数</span>
+<span class="n">any</span><span class="p">()</span><span class="w"> </span><span class="c1">//判断是否至少有一个1</span>
+<span class="n">none</span><span class="p">()</span><span class="w"> </span><span class="c1">//判断是否全为0</span>
+
+<span class="n">_Find_fisrt</span><span class="p">()</span><span class="w"> </span><span class="c1">// 找到从低位到高位第一个1的位置</span>
+<span class="n">_Find_next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1">// 找到当前位置x的下一个1的位置，复杂度 O(n/w + count)</span>
+
+<span class="n">bitset</span><span class="o">&lt;</span><span class="mi">23</span><span class="o">&gt;</span><span class="w"> </span><span class="n">B1</span><span class="p">(</span><span class="s">"11101001"</span><span class="p">),</span><span class="w"> </span><span class="n">B2</span><span class="p">(</span><span class="s">"11101000"</span><span class="p">);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">B1</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">B2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w">  </span><span class="c1">//按位异或</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">B1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">B2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w">  </span><span class="c1">//按位或</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">B1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">B2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w">  </span><span class="c1">//按位与</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">B1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">B2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">//比较是否相等</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">B1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">//你可以直接使用cout输出</span>
+</code></pre></div>
+
+<h4>哈希系列 unordered</h4>
+<p>通常指代 unordered_map、unordered_set、unordered_multimap、unordered_multiset，与原版相比不进行排序。</p>
+<p>如果将不支持哈希的类型作为 <code>key</code> 值代入，编译器就无法正常运行，这时需要我们为其手写哈希函数。而我们写的这个哈希函数的正确性其实并不是特别重要（但是不可以没有），当发生冲突时编译器会调用 <code>key</code> 的 <code>operator ==</code> 函数进行进一步判断。<a href="https://finixlei.blog.csdn.net/article/details/110267430?spm=1001.2101.3001.6650.3&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-3-110267430-blog-101406104.topnsimilarv1&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-3-110267430-blog-101406104.topnsimilarv1&amp;utm_relevant_index=4">参考</a></p>
+<h4>对 pair、tuple 定义哈希</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">hash_pair</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n">pair</span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">T1</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">fi</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">T2</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">se</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">};</span>
+<span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">hash_pair</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+<span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">hash_pair</span><span class="o">&gt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span>
+</code></pre></div>
+
+<h4>对结构体定义哈希</h4>
+<p>需要两个条件，一个是在结构体中重载等于号（区别于非哈希容器需要重载小于号，如上所述，当冲突时编译器需要根据重载的等于号判断），第二是写一个哈希函数。注意 <code>hash&lt;&gt;()</code> 的尖括号中的类型匹配。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">fff</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">fff</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">fff</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">z</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hash_fff</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n">fff</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">z</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">};</span>
+<span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">fff</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">hash_fff</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mp</span><span class="p">;</span>
+</code></pre></div>
+
+<h4>对 vector 定义哈希</h4>
+<p>以下两个方法均可。注意 <code>hash&lt;&gt;()</code> 的尖括号中的类型匹配。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">hash_vector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">seed</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">seed</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">};</span>
+<span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">hash_vector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mp</span><span class="p">;</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">hash</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">size_t</span><span class="w"> </span><span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">seed</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0x9e3779b9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">seed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">seed</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">seed</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+<span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+</code></pre></div>
+
+<h3>程序标准化</h3>
+<h4>使用 Lambda 函数</h4>
+<ul>
+<li><code>function</code> 统一写法</li>
+</ul>
+<p>需要注意的是，虽然 <code>function</code> 定义时已经声明了返回值类型了，但是有的时候会出错（例如，声明返回 <code>long long</code> 但是返回 <code>int</code> ，原因没去了解），所以推荐在后面使用 <code>-&gt;</code> 再行声明一遍。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="p">};</span>
+<span class="n">clac</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+
+<ul>
+<li><code>auto</code> 非递归写法</li>
+</ul>
+<p>不需要使用递归函数时，直接用 <code>auto</code> 替换 <code>function</code> 即可。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">clac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<ul>
+<li><code>auto</code> 递归写法</li>
+</ul>
+<p>相较于 <code>function</code> 写法，需要额外引用一遍自身。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+
+<h4>使用构造函数</h4>
+<p>可以将一些必要的声明和预处理放在构造函数，在编译时，无论放置在程序的哪个位置，都会先于主函数进行。下方是我将输入流控制声明的过程。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">__FAST_IO__</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 函数名称可以随意修改</span>
+<span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<span class="w">    </span><span class="n">freopen</span><span class="p">(</span><span class="s">"out.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="w">    </span><span class="n">freopen</span><span class="p">(</span><span class="s">"in.txt"</span><span class="p">,</span><span class="w"> </span><span class="s">"w"</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}();</span>
+</code></pre></div>
+
+<div style="page-break-after:always">/END/</div></div>
+</div>
+</body>
+</html>

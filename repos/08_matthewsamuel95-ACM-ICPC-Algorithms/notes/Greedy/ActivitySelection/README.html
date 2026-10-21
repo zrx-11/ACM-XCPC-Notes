@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>README.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>README.md</span></nav>
+  <h1 class="page-title">README.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/Greedy/ActivitySelection/README.md · 1.7 KB</div>
+  <div class="prose"><p>Following is the problem statement.
+You are given n activities with their start and finish times. Select the maximum number of activities that can be performed by a single person, assuming that a person can only work on a single activity at a time.
+Example:</p>
+<p>Example 1 : Consider the following 3 activities sorted by
+by finish time.
+     start[]  =  {10, 12, 20};
+     finish[] =  {20, 25, 30};
+A person can perform at most two activities. The 
+maximum set of activities that can be executed 
+is {0, 2} [ These are indexes in start[] and 
+finish[] ]</p>
+<p>Example 2 : Consider the following 6 activities 
+sorted by by finish time.
+     start[]  =  {1, 3, 0, 5, 8, 5};
+     finish[] =  {2, 4, 6, 7, 9, 9};
+A person can perform at most four activities. The 
+maximum set of activities that can be executed 
+is {0, 1, 3, 4} [ These are indexes in start[] and 
+finish[] ]</p>
+<p>The greedy choice is to always pick the next activity whose finish time is least among the remaining activities and the start time is more than or equal to the finish time of previously selected activity. We can sort the activities according to their finishing time so that we always consider the next activity as minimum finishing time activity.</p>
+<p>1) Sort the activities according to their finishing time
+2) Select the first activity from the sorted array and print it.
+3) Do following for remaining activities in the sorted array.
+…….a) If the start time of this activity is greater than or equal to the finish time of previously selected activity then select this activity and print it.</p>
+<p>In the following C implementation, it is assumed that the activities are already sorted according to their finish time</p></div>
+</div>
+</body>
+</html>

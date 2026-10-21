@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>llleixx · XCPC 模板 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>10_llleixx-XCPC-Templates</span></nav>
+  <div class="rhead">
+    <h1>llleixx · XCPC 模板</h1>
+    <div class="sub">XCPC 竞赛模板（tex/cpp）</div>
+    <div class="src">来源：github.com/llleixx/XCPC-Templates（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>笔记</span></div>
+    <div class="stat"><b>0</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>10</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>20</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 1 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">10_llleixx-XCPC-Templates/README.md · 7.4 KB</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 0 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="empty">该仓库暂无 PDF 讲义</div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 10 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/gen.sh"><span class="nm">gen.sh</span></a><div class="mt">gen.sh · 3.2 KB</div></div>
+<div class="item"><a href="code/main.py"><span class="nm">main.py</span></a><div class="mt">main.py · 6.3 KB</div></div>
+<div class="item"><a href="code/script.sh"><span class="nm">script.sh</span></a><div class="mt">script.sh · 345 B</div></div>
+<div class="item"><a href="code/templates/qsort.cpp"><span class="nm">qsort.cpp</span></a><div class="mt">templates/qsort.cpp · 562 B</div></div>
+<div class="item"><a href="code/templates/qsort.java"><span class="nm">qsort.java</span></a><div class="mt">templates/qsort.java · 601 B</div></div>
+<div class="item"><a href="code/templates/qsort.py"><span class="nm">qsort.py</span></a><div class="mt">templates/qsort.py · 372 B</div></div>
+<div class="item"><a href="code/templates/图论/lca.cpp"><span class="nm">lca.cpp</span></a><div class="mt">templates/图论/lca.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/templates/图论/流/maxFlow.cpp"><span class="nm">maxFlow.cpp</span></a><div class="mt">templates/图论/流/maxFlow.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/templates/数据结构/disjoint_set_union.cpp"><span class="nm">disjoint_set_union.cpp</span></a><div class="mt">templates/数据结构/disjoint_set_union.cpp · 542 B</div></div>
+<div class="item"><a href="code/templates/数据结构/fenwick-tree.cpp"><span class="nm">fenwick-tree.cpp</span></a><div class="mt">templates/数据结构/fenwick-tree.cpp · 928 B</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 20 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.github/workflows/release.yml"><span class="nm">release.yml</span></a><div class="mt">.github/workflows/release.yml · 1.3 KB</div></div>
+<div class="item"><a href="files/.github/workflows/template-sync.yml"><span class="nm">template-sync.yml</span></a><div class="mt">.github/workflows/template-sync.yml · 664 B</div></div>
+<div class="item"><a href="files/.gitignore"><span class="nm">.gitignore</span></a><div class="mt">.gitignore · 39 B</div></div>
+<div class="item"><a href="files/LICENSE"><span class="nm">LICENSE</span></a><div class="mt">LICENSE · 1.0 KB</div></div>
+<div class="item"><a href="files/config-compact.yml"><span class="nm">config-compact.yml</span></a><div class="mt">config-compact.yml · 137 B</div></div>
+<div class="item"><a href="files/config.yml"><span class="nm">config.yml</span></a><div class="mt">config.yml · 129 B</div></div>
+<div class="item"><a href="files/gen.ps1"><span class="nm">gen.ps1</span></a><div class="mt">gen.ps1 · 3.5 KB</div></div>
+<div class="item"><a href="files/latex-compact-pre.tex"><span class="nm">latex-compact-pre.tex</span></a><div class="mt">latex-compact-pre.tex · 4.1 KB</div></div>
+<div class="item"><a href="files/latex-post.tex"><span class="nm">latex-post.tex</span></a><div class="mt">latex-post.tex · 14 B</div></div>
+<div class="item"><a href="files/latex-pre.tex"><span class="nm">latex-pre.tex</span></a><div class="mt">latex-pre.tex · 4.0 KB</div></div>
+<div class="item"><a href="files/requirements.txt"><span class="nm">requirements.txt</span></a><div class="mt">requirements.txt · 6 B</div></div>
+<div class="item"><a href="files/templates/config.yml"><span class="nm">config.yml</span></a><div class="mt">templates/config.yml · 223 B</div></div>
+<div class="item"><a href="files/templates/图论/config.yml"><span class="nm">config.yml</span></a><div class="mt">templates/图论/config.yml · 141 B</div></div>
+<div class="item"><a href="files/templates/图论/lca-post.tex"><span class="nm">lca-post.tex</span></a><div class="mt">templates/图论/lca-post.tex · 26 B</div></div>
+<div class="item"><a href="files/templates/图论/lca-pre.tex"><span class="nm">lca-pre.tex</span></a><div class="mt">templates/图论/lca-pre.tex · 74 B</div></div>
+<div class="item"><a href="files/templates/图论/流/config.yml"><span class="nm">config.yml</span></a><div class="mt">templates/图论/流/config.yml · 62 B</div></div>
+<div class="item"><a href="files/templates/数学/config.yml"><span class="nm">config.yml</span></a><div class="mt">templates/数学/config.yml · 163 B</div></div>
+<div class="item"><a href="files/templates/数学/排列组合-pre.tex"><span class="nm">排列组合-pre.tex</span></a><div class="mt">templates/数学/排列组合-pre.tex · 2.3 KB</div></div>
+<div class="item"><a href="files/templates/数学/斐波那契数列-pre.tex"><span class="nm">斐波那契数列-pre.tex</span></a><div class="mt">templates/数学/斐波那契数列-pre.tex · 512 B</div></div>
+<div class="item"><a href="files/templates/数据结构/config.yml"><span class="nm">config.yml</span></a><div class="mt">templates/数据结构/config.yml · 135 B</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

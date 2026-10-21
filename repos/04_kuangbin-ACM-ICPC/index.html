@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>kuangbin · ACM模板与代码 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>04_kuangbin-ACM-ICPC</span></nav>
+  <div class="rhead">
+    <h1>kuangbin · ACM模板与代码</h1>
+    <div class="sub">国内最经典竞赛模板，含《kuangbin的ACM模板（新）.pdf》267页</div>
+    <div class="src">来源：github.com/kuangbin/ACM-ICPC（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>0</b><span>笔记</span></div>
+    <div class="stat"><b>1</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>22</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>1</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 0 篇笔记，点击打开站内阅读页。</div>
+    <div class="empty">该仓库暂无笔记</div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 1 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/kuangbin的ACM模板（新）.pdf"><span class="nm">kuangbin的ACM模板（新）.pdf</span></a><div class="mt">kuangbin的ACM模板（新）.pdf · 2.7 MB · 267页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 22 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/BestCoder/BC18/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">BestCoder/BC18/B.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/BestCoder/BC18/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">BestCoder/BC18/C.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/BestCoder/BC26/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">BestCoder/BC26/A.cpp · 602 B</div></div>
+<div class="item"><a href="code/BestCoder/BC26/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">BestCoder/BC26/B.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/BestCoder/BC26/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">BestCoder/BC26/C.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/SGU/SGU191.cpp"><span class="nm">SGU191.cpp</span></a><div class="mt">SGU/SGU191.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/SGU/SGU192.cpp"><span class="nm">SGU192.cpp</span></a><div class="mt">SGU/SGU192.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/SGU/SGU193.java"><span class="nm">SGU193.java</span></a><div class="mt">SGU/SGU193.java · 537 B</div></div>
+<div class="item"><a href="code/SGU/SGU194.cpp"><span class="nm">SGU194.cpp</span></a><div class="mt">SGU/SGU194.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/SGU/SGU195.cpp"><span class="nm">SGU195.cpp</span></a><div class="mt">SGU/SGU195.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/SGU/SGU196.cpp"><span class="nm">SGU196.cpp</span></a><div class="mt">SGU/SGU196.cpp · 803 B</div></div>
+<div class="item"><a href="code/SGU/SGU197.java"><span class="nm">SGU197.java</span></a><div class="mt">SGU/SGU197.java · 1.8 KB</div></div>
+<div class="item"><a href="code/SGU/SGU198.cpp"><span class="nm">SGU198.cpp</span></a><div class="mt">SGU/SGU198.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/SGU/SGU199.cpp"><span class="nm">SGU199.cpp</span></a><div class="mt">SGU/SGU199.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/ZOJ/ZOJ_Monthly_January_2015/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">ZOJ/ZOJ_Monthly_January_2015/B.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/ZOJ/ZOJ_Monthly_January_2015/E.cpp"><span class="nm">E.cpp</span></a><div class="mt">ZOJ/ZOJ_Monthly_January_2015/E.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ZOJ/ZOJ_Monthly_January_2015/F.cpp"><span class="nm">F.cpp</span></a><div class="mt">ZOJ/ZOJ_Monthly_January_2015/F.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/ZOJ/ZOJ_Monthly_January_2015/G.cpp"><span class="nm">G.cpp</span></a><div class="mt">ZOJ/ZOJ_Monthly_January_2015/G.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/ZOJ/ZOJ_Monthly_January_2015/H.cpp"><span class="nm">H.cpp</span></a><div class="mt">ZOJ/ZOJ_Monthly_January_2015/H.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/hihoCoder/hihoCoder6/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">hihoCoder/hihoCoder6/A.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/hihoCoder/hihoCoder6/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">hihoCoder/hihoCoder6/B.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/hihoCoder/hihoCoder6/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">hihoCoder/hihoCoder6/C.cpp · 4.1 KB</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 1 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.gitattributes"><span class="nm">.gitattributes</span></a><div class="mt">.gitattributes · 483 B</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>06 - 位运算.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>06 - 位运算.md</span></nav>
+  <h1 class="page-title">06 - 位运算.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/06 - 位运算.md · 9.6 KB</div>
+  <div class="prose"><h1>往期浏览</h1>
+<p><a href="https://www.cnblogs.com/WIDA/p/16570498.html">第一期 - 博弈论</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/15504413.html">第二期 - 前缀和</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17615803.html">第三期 - 二分与三分算法</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17610403.html">第四期 - 莫队算法</a></p>
+<p><a href="">第五期 - 线段树（暂时未公开）</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17547678.html">第六期 - 位运算 (Bitmasks)</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17610362.html">第七期 - 树上分治</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17635152.html">第八期 - Tarjan缩点</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17672842.html">第九期 - 网络流</a></p>
+<p><a href="https://www.cnblogs.com/WIDA/p/17766310.html">第十期 - 字符串哈希</a></p>
+<h1>位运算</h1>
+<h3>讲解</h3>
+<p>常见的位运算为：与、或、异或这三种。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">运算</th>
+<th style="text-align: center;">运算符、数学符号表示</th>
+<th style="text-align: center;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">与</td>
+<td style="text-align: center;"><code>&amp;</code>、<code>and</code></td>
+<td style="text-align: center;">同1出1</td>
+</tr>
+<tr>
+<td style="text-align: center;">或</td>
+<td style="text-align: center;"><code>\|</code>、<code>or</code></td>
+<td style="text-align: center;">有1出1</td>
+</tr>
+<tr>
+<td style="text-align: center;">异或</td>
+<td style="text-align: center;"><code>^</code>、$\bigoplus$、<code>xor</code></td>
+<td style="text-align: center;">不同出1</td>
+</tr>
+</tbody>
+</table>
+<p>这一块的内容比较散乱，以海量刷题为首要学习方向，同时需要收集一些常用结论。</p>
+<h3>常用结论</h3>
+<ol>
+<li>对于给定的 $X$ 和序列 $[a_1,a_2,\dots,a_n]$ ，有：${X=(X {\rm and} a_1) {\rm or} (X {\rm and} a_2) {\rm or} \dots  {\rm or} (X {\rm and} a_n)}$ 。
+原理是 $ {\rm and} $ 意味着取交集，$ {\rm or} $ 意味着取子集。</li>
+</ol>
+<h3>题单</h3>
+<h2><a href="https://ac.nowcoder.com/acm/contest/11226/C">牛客小白月赛49C - 圣</a>：考察了常用结论；</h2>
+<h2><a href="https://atcoder.jp/contests/abc147/tasks/abc147_d">abc147_d - Xor Sum 4</a>：基础拆位操作；</h2>
+<p>题意：给定长度为 $N$ 的序列 $A$ ，计算 $\displaystyle \sum_{i=1}^{N-1}\sum_{j=i+1}^{N}(A_i \oplus A_j)$ 。</p>
+<p>单纯位运算。拆位，对于每一位而言，只有 $0$ 和 $1$ 相互组合才能产生贡献，所以每一位的贡献即为 $0$ 和 $1$ 的乘积： $cnt_0 \cdot cnt_1 \cdot 2^i$ 。</p>
+<blockquote>
+<p>坑：别忘了取模。</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bit</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bit</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">val</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Z</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Z</span><span class="p">)(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Z</span><span class="p">)(</span><span class="mf">1L</span><span class="n">L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2><a href="https://atcoder.jp/contests/abc117/tasks/abc117_d">abc117_d - XXOR</a>：基础拆位操作，与上一题几乎一致；</h2>
+<p>题意：给定长度为 $N$ 的序列 $A$ ，在 $[1,K]$ 范围内取一个 $X$ ，使得 $\displaystyle \sum_{i=1}^{N}(A_i \oplus X)$ 最大。</p>
+<p>单纯位运算。和上一题差不多的思路，略难一点。首先每一位的贡献还是 $0$ 和 $1$ 的乘积，从高位到低位遍历，判断 $X$ 的这一位为 $0$ 合适还是为 $1$ 合适（即判断 $cnt_1$ 是否大于 $cnt_0$ ）；若为 $1$ 合适，判断是否会超过 $K$ 的限制。</p>
+<blockquote>
+<p>坑：数据比较弱，一开始多加了个排序的贪心，结果就WA了一个点。</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bit</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">40</span><span class="o">&gt;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bit</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">val</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">39</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">1L</span><span class="n">L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">X</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="mf">1L</span><span class="n">L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1L</span><span class="n">L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1L</span><span class="n">L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2><a href="https://atcoder.jp/contests/abc098/tasks/arc098_b">arc098_b - Xor Sum 2</a>：考察了异或的常用性质。</h2>
+<p>题意：给定长度为 $N$ 的序列 $A$ ，求解区间 $[l,r]$ 的数量，使得 $a_l,a_{l+1},\dots a_{r-1},a_r$ 的异或和等于和。</p>
+<p>位运算+尺取+暴力，也有双指针、二分解。由于位运算满足 $x\oplus x\oplus x=0$ ，符合尺取性质，所以直接暴力即可。</p>
+<p>如果用二分或者双指针解，可能需要用到：如果两个元素的某一位均为 $1$ ，那么其异或和一定小于和，所以我们需要寻找这样的一个区间，对于每一位均满足这一位为 $1$ 的元素数量不超过一个。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">r</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="n">val</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2>1879D（$\tt *1700$；位运算、拆位技巧）</h2>
+<h2>1777D（$\tt *1900$；数学、树-搜索、位运算、概率）</h2>
+<p>相当不错的题目，强思维轻代码。首先很显然一点是这棵树中为 $1$ 的节点数量会越来越少，其实推广下可以发现第 $i$ 轮根节点的值就是深度为 $i$ 的节点的初始值的异或和，整棵树的操作过程可以抽象的看成海浪上岸的过程。</p>
+<p>随后理性认知，对于 $2^n$ 种情况，其实就是等概率全随机的情况，每个位置均有 $2^{n-1}$ 种情况为 $1$，该值一定会被计入总答案；随后，对于每一个非叶子节点 $i$，其子节点又会至多对其进行 $h_i$ 次更新操作（这里的 $h_i$ 为 $i$ 到其子树中最深的叶子节点的距离），我们尝试计算这一部分的贡献——由于等概率全随机，这些点就会有 $(h_i-1)\cdot 2^{n-1}$ 种情况为 $1$。</p>
+<p>综合上述情况，总结答案即为 $2^{n-1}\cdot \sum h_i$，所以只需要跑一遍树上搜索即可得到答案。</p>
+<h2>16E（$\tt *1900$；概率、状压dp、位运算）</h2>
+<h2><a href="https://codeforces.com/gym/104468/problem/J">104468J</a>：位运算、暴力、数学</h2>
+<p><code>__builtin_clz</code> 模板。</p>
+<h2>1634B - Fortune Telling（$\tt *1400$；位运算、数学）</h2>
+<p>典题。由于 $x$ 和 $x+3$ 的初始奇偶性不相同，而按照结论，操作后奇偶性依旧不变，故只需要判断操作后 $x$ 和 $y$ 的奇偶性即可。</p>
+<blockquote>
+<p>一个正整数 $x$ 异或、加上另一个正整数 $y$ 后奇偶性不发生变化：$a+b\equiv a\oplus b(\bmod2)$ 。</p>
+</blockquote>
+<h2>1095C - Powers Of Two（$\tt *1400$；位运算、数学）</h2>
+<p>~~典题不会，原地坠毁！~~</p>
+<blockquote>
+<p>结论1：$k$ 合法当且仅当 <code>__builtin_popcountll(n) &lt;= k &amp;&amp; k &lt;= n</code> ，显然。</p>
+<p>结论2：$2^{k+1}=2\cdot2^{k}$ ，所以我们可以将二进制位看作是数组，然后从高位向低位推，一个高位等于两个低位，直到数组之和恰好等于 $k$ ，随后依次输出即可。举例说明，${ 1,0,0,1} \rightarrow { 0,2,0,1} \rightarrow { 0,1,2,1}$ ，即答案为 $0$ 个 $2^3$ 、$1$ 个 $2^2$ 、……。</p>
+<p>代码：</p>
+<p>```c
+signed main() {
+    int n, k;
+    cin &gt;&gt; n &gt;&gt; k;</p>
+<div class="codehilite"><pre><span></span><code><span class="nc">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__builtin_popcountll</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="ss">"NO\n"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="err">}</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="ss">"YES\n"</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="nc">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="n">num</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="err">}</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="k">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="c1">--) {</span>
+<span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="w">    </span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">num</span><span class="o">[</span><span class="n">i - 1</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="err">}</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="k">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="n">LL</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="ss">" "</span><span class="p">;</span>
+<span class="w">    </span><span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<p>}
+```</p>
+</blockquote>
+<h2>1829H - Don't Blame Me $^{*1700\text{；dp、位运算}}$</h2>
+<h2>1368D - AND, OR and square sum</h2>
+<p>个人感觉这题有两个解题思路。</p>
+<p><strong>其一</strong>是，我们需要发现题目中给定的操作只会将 $x$ 二进制模式下的全部 $1$ 移动到 $y$ 的对应位置上。这个规律可以打表得到，如下图：</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">Solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="w">    </span><span class="n">_</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">_</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="n">_</span><span class="p">(</span><span class="n">x</span><span class="o">|</span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="n">_</span><span class="p">(</span><span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><img alt="" src="../../images/external/51bcb1511c40.png" /></p>
+<p>这有什么用呢？这说明 $1$ 是可以无损移动的，那么我们尽可能让 $a_i$ 的大小差距拉开（大的尽可能大、小的尽可能小），就可以使得所求最大。</p>
+<p><strong>第二个做法</strong>更不容易想到，如下。首先，位运算有个公式：$x+y=x|y+x\&amp;y$ 。根据这个公式我们可以知道，题目中定义的操作不会影响 $\displaystyle\sum_{i=1}^n a_i$ 的值。</p>
+<p>那么，问题在于 $\displaystyle\sum_{i=1}^n a_i$ 和我们要求解的式子有什么关系呢……显然，根据高中数学，我们有公式 $\displaystyle\sum_{i=1}^n a_i^2 =(\sum_{i=1}^n a_i)^2-2\cdot \sum_{i=1}^{n}\sum_{j=i+1}^{n}a_ia_j$ ，此时已知操作不会改变 $\displaystyle(\sum_{i=1}^n a_i)^2$ 的值，所以要使得 $\displaystyle\sum_{i=1}^n a_i^2$ 最大，即要让 $\displaystyle\sum_{i=1}^{n}\sum_{j=i+1}^{n}a_ia_j$ 最小。</p>
+<p>现在的问题变成了怎样分配 $a_i$ ，使得 $\displaystyle\sum_{i=1}^{n}\sum_{j=i+1}^{n}a_ia_j$ 最小，我们发现，当 $0$ 的数量最多时，乘积也有最多的 $0$ 。所以，我们需要让 $a_i$ 的大小差距拉开。</p>
+<h2>1721D - Maximum AND</h2>
+<p>超级好题</p>
+<h2>1554C - Mikasa $^{*1800\text{；位运算}}$</h2>
+<p>巧妙的使用了异或“半加”的性质解题。</p>
+<h2>1365E - Maximum Subsequence Value</h2>
+<p>有意思的位运算题。</p>
+<h2>484A - Bits（*1700 + 构造 + 位运算）</h2>
+<p>非常考验位运算思维的一题，不难，分数比较虚高。</p></div>
+</div>
+</body>
+</html>

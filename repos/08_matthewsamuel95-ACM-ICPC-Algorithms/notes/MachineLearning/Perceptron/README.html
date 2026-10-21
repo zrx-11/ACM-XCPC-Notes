@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>README.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>README.md</span></nav>
+  <h1 class="page-title">README.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/MachineLearning/Perceptron/README.md · 2.0 KB</div>
+  <div class="prose"><p>A perceptron is an algorithm that acts as a simple model of our brain to recognise and discriminate against data to obtain a single identifying function for a set of data.</p>
+<p>In other words, it is a function that takes in a set of sample data with valid output values (eg: various features of houses and the price the house sold for) and then outputs a function that returns an accurate prediction for other data (eg: estimate a houses cost based on its features.)</p>
+<p>Here is an example of what values can be inputted for the perceptron to return a valid function</p>
+<div class="codehilite"><pre><span></span><code><span class="n">max_epochs</span> <span class="o">=</span> <span class="n">Maximum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="n">before</span> <span class="n">the</span> <span class="n">function</span> <span class="n">gives</span> <span class="n">up</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">perceptron</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># The initial weight assigned to each data point</span>
+
+<span class="n">bias</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># The bias for each weight (a positive value means to favour one value whilst negative means to oppose it)</span>
+
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># The rate at which the perceptron learns and adapts is model. Too low value can cause the perceptron to constantly undervalue the data and not adapt within the max_epochs. However, too high a value can cause the perceptron to overvalue the data and never adapt to an accurate model.</span>
+
+<span class="n">examples</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># The data specified as a list of tuples. The first item in each tuple is the data which itself is another tuple of values and the second item in the tuple is the output value of this data. In this case, the value is either 0 or 1.</span>
+<span class="n">examples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">examples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">examples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">examples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">max_epochs</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># The maximum number of attempts before the function gives up</span>
+</code></pre></div>
+
+<p>Here is an example of the code performing against the following data</p>
+<div class="codehilite"><pre><span></span><code><span class="n">classifier</span> <span class="o">=</span> <span class="n">learn_perceptron</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="n">examples</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">classifier</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"No model could be learnt."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">classifier</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+</code></pre></div>
+
+<p>This code is already contained in the python file so just run it to see how it performs</p></div>
+</div>
+</body>
+</html>

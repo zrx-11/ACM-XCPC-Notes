@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>hzwer · OI/ACM 讲义合集 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>02_hzwer-shareOI</span></nav>
+  <div class="rhead">
+    <h1>hzwer · OI/ACM 讲义合集</h1>
+    <div class="sub">黄哲威整理的数学/图论/数据结构/DP/字符串/计算几何专题讲义（PDF）</div>
+    <div class="src">来源：github.com/hzwer/shareOI（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>笔记</span></div>
+    <div class="stat"><b>78</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>0</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>103</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 1 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">02_hzwer-shareOI/README.md · 11.8 KB</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 78 份讲义 PDF，浏览器直接预览（移动端可下载）。（其中 3 份为扫描版，无文字层，建议下载后阅读）</div>
+    <div class="item"><a href="pdfs/其它/WC2022 OI 中的精度近似算法_许庭强.pdf"><span class="nm">WC2022 OI 中的精度近似算法_许庭强.pdf</span></a><div class="mt">其它/WC2022 OI 中的精度近似算法_许庭强.pdf · 479.5 KB · 71页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/其它/WC2022 营员交流 一类常见交互、构造题的常用解题方式_huhao.pdf"><span class="nm">WC2022 营员交流 一类常见交互、构造题的常用解题方式_huhao.pdf</span></a><div class="mt">其它/WC2022 营员交流 一类常见交互、构造题的常用解题方式_huhao.pdf · 203.9 KB · 18页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/其它/几道构造相关的题目_吉如一.pdf"><span class="nm">几道构造相关的题目_吉如一.pdf</span></a><div class="mt">其它/几道构造相关的题目_吉如一.pdf · 336.2 KB · 67页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/其它/多重时空下的算法竞赛_罗哲正.pdf"><span class="nm">多重时空下的算法竞赛_罗哲正.pdf</span></a><div class="mt">其它/多重时空下的算法竞赛_罗哲正.pdf · 3.3 MB · 71页</div><span class="tag">扫描版</span></div>
+<div class="item"><a href="pdfs/动态规划/DP总结_翁家翌.pdf"><span class="nm">DP总结_翁家翌.pdf</span></a><div class="mt">动态规划/DP总结_翁家翌.pdf · 514.7 KB · 52页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/决策单调性与四边形不等式_彭思进.pdf"><span class="nm">决策单调性与四边形不等式_彭思进.pdf</span></a><div class="mt">动态规划/决策单调性与四边形不等式_彭思进.pdf · 586.1 KB · 77页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划_方泓杰.pdf"><span class="nm">动态规划_方泓杰.pdf</span></a><div class="mt">动态规划/动态规划_方泓杰.pdf · 2.3 MB · 79页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划优化_方泓杰.pdf"><span class="nm">动态规划优化_方泓杰.pdf</span></a><div class="mt">动态规划/动态规划优化_方泓杰.pdf · 2.1 MB · 77页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划优化_翁家翌 & 黄哲威.pdf"><span class="nm">动态规划优化_翁家翌 &amp; 黄哲威.pdf</span></a><div class="mt">动态规划/动态规划优化_翁家翌 &amp; 黄哲威.pdf · 516.8 KB · 79页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划入门_谢兴宇.pdf"><span class="nm">动态规划入门_谢兴宇.pdf</span></a><div class="mt">动态规划/动态规划入门_谢兴宇.pdf · 447.8 KB · 83页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划入门_黄哲威.pdf"><span class="nm">动态规划入门_黄哲威.pdf</span></a><div class="mt">动态规划/动态规划入门_黄哲威.pdf · 670.0 KB · 68页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划引论_阮行止.pdf"><span class="nm">动态规划引论_阮行止.pdf</span></a><div class="mt">动态规划/动态规划引论_阮行止.pdf · 585.4 KB · 68页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划的优化_谢兴宇.pdf"><span class="nm">动态规划的优化_谢兴宇.pdf</span></a><div class="mt">动态规划/动态规划的优化_谢兴宇.pdf · 256.2 KB · 16页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/动态规划的拓扑延拓_谢兴宇.pdf"><span class="nm">动态规划的拓扑延拓_谢兴宇.pdf</span></a><div class="mt">动态规划/动态规划的拓扑延拓_谢兴宇.pdf · 403.9 KB · 47页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/单位蒙日矩阵相关算法的介绍_张景行.pdf"><span class="nm">单位蒙日矩阵相关算法的介绍_张景行.pdf</span></a><div class="mt">动态规划/单位蒙日矩阵相关算法的介绍_张景行.pdf · 422.2 KB · 32页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/树形数位动态规划_黄哲威.pdf"><span class="nm">树形数位动态规划_黄哲威.pdf</span></a><div class="mt">动态规划/树形数位动态规划_黄哲威.pdf · 493.5 KB · 39页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/状压与区间_黄哲威.pdf"><span class="nm">状压与区间_黄哲威.pdf</span></a><div class="mt">动态规划/状压与区间_黄哲威.pdf · 586.7 KB · 31页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/背包与树形_黄哲威.pdf"><span class="nm">背包与树形_黄哲威.pdf</span></a><div class="mt">动态规划/背包与树形_黄哲威.pdf · 794.6 KB · 66页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/动态规划/背包问题九讲_崔添翼.pdf"><span class="nm">背包问题九讲_崔添翼.pdf</span></a><div class="mt">动态规划/背包问题九讲_崔添翼.pdf · 274.6 KB · 17页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/NOIP知识点串讲-图论(一)_Colin.pdf"><span class="nm">NOIP知识点串讲-图论(一)_Colin.pdf</span></a><div class="mt">图论/NOIP知识点串讲-图论(一)_Colin.pdf · 4.1 MB · 86页</div><span class="tag">扫描版</span></div>
+<div class="item"><a href="pdfs/图论/WC2022 模拟费用流_杨珖 & 陈扩文.pdf"><span class="nm">WC2022 模拟费用流_杨珖 &amp; 陈扩文.pdf</span></a><div class="mt">图论/WC2022 模拟费用流_杨珖 &amp; 陈扩文.pdf · 1.0 MB · 93页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/二分图与匹配_黄哲威.pdf"><span class="nm">二分图与匹配_黄哲威.pdf</span></a><div class="mt">图论/二分图与匹配_黄哲威.pdf · 1.8 MB · 23页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/图的连通_黄哲威.pdf"><span class="nm">图的连通_黄哲威.pdf</span></a><div class="mt">图论/图的连通_黄哲威.pdf · 983.6 KB · 29页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/图论入门_谢兴宇.pdf"><span class="nm">图论入门_谢兴宇.pdf</span></a><div class="mt">图论/图论入门_谢兴宇.pdf · 1.0 MB · 90页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/图论入门与最短路_黄哲威.pdf"><span class="nm">图论入门与最短路_黄哲威.pdf</span></a><div class="mt">图论/图论入门与最短路_黄哲威.pdf · 1.9 MB · 53页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/拟阵选讲_董宏华.pdf"><span class="nm">拟阵选讲_董宏华.pdf</span></a><div class="mt">图论/拟阵选讲_董宏华.pdf · 826.7 KB · 60页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/树上倍增_黄哲威.pdf"><span class="nm">树上倍增_黄哲威.pdf</span></a><div class="mt">图论/树上倍增_黄哲威.pdf · 849.4 KB · 26页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/树上问题选讲_XLightGod.pdf"><span class="nm">树上问题选讲_XLightGod.pdf</span></a><div class="mt">图论/树上问题选讲_XLightGod.pdf · 468.9 KB · 44页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/树分治_黄哲威.pdf"><span class="nm">树分治_黄哲威.pdf</span></a><div class="mt">图论/树分治_黄哲威.pdf · 560.8 KB · 70页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/生成树和拓扑排序_黄哲威.pdf"><span class="nm">生成树和拓扑排序_黄哲威.pdf</span></a><div class="mt">图论/生成树和拓扑排序_黄哲威.pdf · 3.7 MB · 45页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/网络流_周聿浩 & 黄哲威.pdf"><span class="nm">网络流_周聿浩 &amp; 黄哲威.pdf</span></a><div class="mt">图论/网络流_周聿浩 &amp; 黄哲威.pdf · 705.7 KB · 142页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/图论/网络流建模_周尚彦.pdf"><span class="nm">网络流建模_周尚彦.pdf</span></a><div class="mt">图论/网络流建模_周尚彦.pdf · 623.3 KB · 118页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/C++的pb_ds库在OI中的应用_于纪平.pdf"><span class="nm">C++的pb_ds库在OI中的应用_于纪平.pdf</span></a><div class="mt">基础算法/C++的pb_ds库在OI中的应用_于纪平.pdf · 1.8 MB · 186页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/分治算法初探_方泓杰.pdf"><span class="nm">分治算法初探_方泓杰.pdf</span></a><div class="mt">基础算法/分治算法初探_方泓杰.pdf · 732.4 KB · 48页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/复杂度理论、排序、模拟_阮行止.pdf"><span class="nm">复杂度理论、排序、模拟_阮行止.pdf</span></a><div class="mt">基础算法/复杂度理论、排序、模拟_阮行止.pdf · 980.3 KB · 81页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/搜索分治贪⼼暴⼒和构造_黄哲威.pdf"><span class="nm">搜索分治贪⼼暴⼒和构造_黄哲威.pdf</span></a><div class="mt">基础算法/搜索分治贪⼼暴⼒和构造_黄哲威.pdf · 801.3 KB · 54页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/暴力出奇迹_翁家翌.pdf"><span class="nm">暴力出奇迹_翁家翌.pdf</span></a><div class="mt">基础算法/暴力出奇迹_翁家翌.pdf · 1.3 MB · 66页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/浅析一类二分方法_王钦石.pdf"><span class="nm">浅析一类二分方法_王钦石.pdf</span></a><div class="mt">基础算法/浅析一类二分方法_王钦石.pdf · 439.8 KB · 6页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/贪心数学普及_黄哲威.pdf"><span class="nm">贪心数学普及_黄哲威.pdf</span></a><div class="mt">基础算法/贪心数学普及_黄哲威.pdf · 382.4 KB · 46页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/基础算法/贪心杂题选讲_黄哲威.pdf"><span class="nm">贪心杂题选讲_黄哲威.pdf</span></a><div class="mt">基础算法/贪心杂题选讲_黄哲威.pdf · 222.1 KB · 57页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/字符串/哈希的应用_张超.pdf"><span class="nm">哈希的应用_张超.pdf</span></a><div class="mt">字符串/哈希的应用_张超.pdf · 1009.4 KB · 80页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/字符串/字符串算法选讲_金策.pdf"><span class="nm">字符串算法选讲_金策.pdf</span></a><div class="mt">字符串/字符串算法选讲_金策.pdf · 156.6 KB · 51页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/字符串/有限状态自动机_乔明达.pdf"><span class="nm">有限状态自动机_乔明达.pdf</span></a><div class="mt">字符串/有限状态自动机_乔明达.pdf · 723.9 KB · 76页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/Fourier transform_郭晓旭.pdf"><span class="nm">Fourier transform_郭晓旭.pdf</span></a><div class="mt">数学/Fourier transform_郭晓旭.pdf · 550.2 KB · 66页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/OI 中的超现实数和不平等博弈问题_杜瑜皓.pdf"><span class="nm">OI 中的超现实数和不平等博弈问题_杜瑜皓.pdf</span></a><div class="mt">数学/OI 中的超现实数和不平等博弈问题_杜瑜皓.pdf · 1.8 MB · 31页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/博弈论和SG函数_方泓杰.pdf"><span class="nm">博弈论和SG函数_方泓杰.pdf</span></a><div class="mt">数学/博弈论和SG函数_方泓杰.pdf · 779.0 KB · 78页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/对拟阵的初步研究_刘雨辰.pdf"><span class="nm">对拟阵的初步研究_刘雨辰.pdf</span></a><div class="mt">数学/对拟阵的初步研究_刘雨辰.pdf · 3.8 MB · 32页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数学_易健驰.pdf"><span class="nm">数学_易健驰.pdf</span></a><div class="mt">数学/数学_易健驰.pdf · 2.1 MB · 135页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数学_翁家翌 & 黄哲威.pdf"><span class="nm">数学_翁家翌 &amp; 黄哲威.pdf</span></a><div class="mt">数学/数学_翁家翌 &amp; 黄哲威.pdf · 662.6 KB · 69页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数学杂题选讲_黄哲威.pdf"><span class="nm">数学杂题选讲_黄哲威.pdf</span></a><div class="mt">数学/数学杂题选讲_黄哲威.pdf · 523.7 KB · 60页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数论_杨定澄.pdf"><span class="nm">数论_杨定澄.pdf</span></a><div class="mt">数学/数论_杨定澄.pdf · 156.9 KB · 34页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数论初窥_谢兴宇.pdf"><span class="nm">数论初窥_谢兴宇.pdf</span></a><div class="mt">数学/数论初窥_谢兴宇.pdf · 632.9 KB · 33页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数论及其应用_周聿浩 & 黄哲威.pdf"><span class="nm">数论及其应用_周聿浩 &amp; 黄哲威.pdf</span></a><div class="mt">数学/数论及其应用_周聿浩 &amp; 黄哲威.pdf · 531.2 KB · 132页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/数论水题_XLightGod.pdf"><span class="nm">数论水题_XLightGod.pdf</span></a><div class="mt">数学/数论水题_XLightGod.pdf · 200.8 KB · 25页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/最近一年 THU 命题组出过的数学题选讲_翁家翌.pdf"><span class="nm">最近一年 THU 命题组出过的数学题选讲_翁家翌.pdf</span></a><div class="mt">数学/最近一年 THU 命题组出过的数学题选讲_翁家翌.pdf · 726.0 KB · 68页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/概率和期望_方泓杰.pdf"><span class="nm">概率和期望_方泓杰.pdf</span></a><div class="mt">数学/概率和期望_方泓杰.pdf · 830.1 KB · 82页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/简单易懂的质数筛法_陈牧歌.pdf"><span class="nm">简单易懂的质数筛法_陈牧歌.pdf</span></a><div class="mt">数学/简单易懂的质数筛法_陈牧歌.pdf · 221.4 KB · 63页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/类欧几里得算法_洪华敦.pdf"><span class="nm">类欧几里得算法_洪华敦.pdf</span></a><div class="mt">数学/类欧几里得算法_洪华敦.pdf · 792.0 KB · 21页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/组合计数问题_方泓杰.pdf"><span class="nm">组合计数问题_方泓杰.pdf</span></a><div class="mt">数学/组合计数问题_方泓杰.pdf · 877.0 KB · 83页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/莫比乌斯反演_方泓杰.pdf"><span class="nm">莫比乌斯反演_方泓杰.pdf</span></a><div class="mt">数学/莫比乌斯反演_方泓杰.pdf · 749.6 KB · 90页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/计数与期望问题选讲_陈立杰.pdf"><span class="nm">计数与期望问题选讲_陈立杰.pdf</span></a><div class="mt">数学/计数与期望问题选讲_陈立杰.pdf · 171.8 KB · 35页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数学/计数问题选讲_陈立杰.pdf"><span class="nm">计数问题选讲_陈立杰.pdf</span></a><div class="mt">数学/计数问题选讲_陈立杰.pdf · 286.9 KB · 67页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/K-D Tree_翁家翌.pdf"><span class="nm">K-D Tree_翁家翌.pdf</span></a><div class="mt">数据结构/K-D Tree_翁家翌.pdf · 702.7 KB · 55页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/k-d tree在传统OI数据结构题中的应用_任之洲.pdf"><span class="nm">k-d tree在传统OI数据结构题中的应用_任之洲.pdf</span></a><div class="mt">数据结构/k-d tree在传统OI数据结构题中的应用_任之洲.pdf · 3.2 MB · 137页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/分块算法及简单扩展_黄哲威.pdf"><span class="nm">分块算法及简单扩展_黄哲威.pdf</span></a><div class="mt">数据结构/分块算法及简单扩展_黄哲威.pdf · 542.8 KB · 122页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/动态序列与动态树问题——浅谈几种常用数据结构_莫凡.pdf"><span class="nm">动态序列与动态树问题——浅谈几种常用数据结构_莫凡.pdf</span></a><div class="mt">数据结构/动态序列与动态树问题——浅谈几种常用数据结构_莫凡.pdf · 360.9 KB · 33页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/提高组数据结构_吉如一.pdf"><span class="nm">提高组数据结构_吉如一.pdf</span></a><div class="mt">数据结构/提高组数据结构_吉如一.pdf · 1.2 MB · 88页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/数据结构_黄哲威.pdf"><span class="nm">数据结构_黄哲威.pdf</span></a><div class="mt">数据结构/数据结构_黄哲威.pdf · 1.5 MB · 109页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/数据结构入门_许昊然.pdf"><span class="nm">数据结构入门_许昊然.pdf</span></a><div class="mt">数据结构/数据结构入门_许昊然.pdf · 1.8 MB · 250页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/线段树_方泓杰.pdf"><span class="nm">线段树_方泓杰.pdf</span></a><div class="mt">数据结构/线段树_方泓杰.pdf · 713.2 KB · 83页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/线段树_翁家翌 & 黄哲威.pdf"><span class="nm">线段树_翁家翌 &amp; 黄哲威.pdf</span></a><div class="mt">数据结构/线段树_翁家翌 &amp; 黄哲威.pdf · 2.8 MB · 61页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/数据结构/范围修改查询问题_李欣隆.pdf"><span class="nm">范围修改查询问题_李欣隆.pdf</span></a><div class="mt">数据结构/范围修改查询问题_李欣隆.pdf · 4.7 MB · 102页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/计算几何/叉积的应用_卓亮.pdf"><span class="nm">叉积的应用_卓亮.pdf</span></a><div class="mt">计算几何/叉积的应用_卓亮.pdf · 757.0 KB · 44页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/计算几何/计算几何_翁家翌 & 黄哲威.pdf"><span class="nm">计算几何_翁家翌 &amp; 黄哲威.pdf</span></a><div class="mt">计算几何/计算几何_翁家翌 &amp; 黄哲威.pdf · 700.0 KB · 89页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/计算几何/计算几何初步_屈运华.pdf"><span class="nm">计算几何初步_屈运华.pdf</span></a><div class="mt">计算几何/计算几何初步_屈运华.pdf · 1.9 MB · 71页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/计算几何/计算几何基础知识_陈胤伯.pdf"><span class="nm">计算几何基础知识_陈胤伯.pdf</span></a><div class="mt">计算几何/计算几何基础知识_陈胤伯.pdf · 279.0 KB · 18页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/计算几何/随机增量算法_解轶伦.pdf"><span class="nm">随机增量算法_解轶伦.pdf</span></a><div class="mt">计算几何/随机增量算法_解轶伦.pdf · 1.3 MB · 9页</div><span class="tag">扫描版</span></div>
+<div class="item"><a href="pdfs/题解/FOI2021 算法高级在线 1-2 详解_周成 & 陈亮舟.pdf"><span class="nm">FOI2021 算法高级在线 1-2 详解_周成 &amp; 陈亮舟.pdf</span></a><div class="mt">题解/FOI2021 算法高级在线 1-2 详解_周成 &amp; 陈亮舟.pdf · 806.5 KB · 7页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 0 段代码，点击查看原文。</div>
+    <div class="empty">该仓库暂无代码文件</div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 103 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/其它/提交答案型题目解题方法_赵金昊.pptx"><span class="nm">提交答案型题目解题方法_赵金昊.pptx</span></a><div class="mt">其它/提交答案型题目解题方法_赵金昊.pptx · 863.3 KB</div></div>
+<div class="item"><a href="files/其它/构造_沈洋.pptx"><span class="nm">构造_沈洋.pptx</span></a><div class="mt">其它/构造_沈洋.pptx · 2.1 MB</div></div>
+<div class="item"><a href="files/其它/浅析非完美算法在信息学竞赛中的应用_胡伟栋.ppt"><span class="nm">浅析非完美算法在信息学竞赛中的应用_胡伟栋.ppt</span></a><div class="mt">其它/浅析非完美算法在信息学竞赛中的应用_胡伟栋.ppt · 530.5 KB</div></div>
+<div class="item"><a href="files/其它/随机算法选讲_张恒捷.pptx"><span class="nm">随机算法选讲_张恒捷.pptx</span></a><div class="mt">其它/随机算法选讲_张恒捷.pptx · 294.6 KB</div></div>
+<div class="item"><a href="files/动态规划/DP入门_阮行止.pptx"><span class="nm">DP入门_阮行止.pptx</span></a><div class="mt">动态规划/DP入门_阮行止.pptx · 1.8 MB</div></div>
+<div class="item"><a href="files/动态规划/动态规划_叶国平.ppt"><span class="nm">动态规划_叶国平.ppt</span></a><div class="mt">动态规划/动态规划_叶国平.ppt · 805.0 KB</div></div>
+<div class="item"><a href="files/动态规划/动态规划_李远韬.ppt"><span class="nm">动态规划_李远韬.ppt</span></a><div class="mt">动态规划/动态规划_李远韬.ppt · 124.0 KB</div></div>
+<div class="item"><a href="files/动态规划/动态规划_钱雨杰.pptx"><span class="nm">动态规划_钱雨杰.pptx</span></a><div class="mt">动态规划/动态规划_钱雨杰.pptx · 221.0 KB</div></div>
+<div class="item"><a href="files/动态规划/动态规划中的一些优化_孟泽楠.ppt"><span class="nm">动态规划中的一些优化_孟泽楠.ppt</span></a><div class="mt">动态规划/动态规划中的一些优化_孟泽楠.ppt · 1.7 MB</div></div>
+<div class="item"><a href="files/动态规划/动态规划及其应用(一)_杨志灿.ppt"><span class="nm">动态规划及其应用(一)_杨志灿.ppt</span></a><div class="mt">动态规划/动态规划及其应用(一)_杨志灿.ppt · 1.8 MB</div></div>
+<div class="item"><a href="files/动态规划/动态规划及其应用(二)_杨志灿.pptx"><span class="nm">动态规划及其应用(二)_杨志灿.pptx</span></a><div class="mt">动态规划/动态规划及其应用(二)_杨志灿.pptx · 144.3 KB</div></div>
+<div class="item"><a href="files/动态规划/动态规划问题优化模式2_杨志灿.pptx"><span class="nm">动态规划问题优化模式2_杨志灿.pptx</span></a><div class="mt">动态规划/动态规划问题优化模式2_杨志灿.pptx · 150.3 KB</div></div>
+<div class="item"><a href="files/动态规划/基于连通性状态压缩的动态规划问题_陈丹琦.ppt"><span class="nm">基于连通性状态压缩的动态规划问题_陈丹琦.ppt</span></a><div class="mt">动态规划/基于连通性状态压缩的动态规划问题_陈丹琦.ppt · 850.0 KB</div></div>
+<div class="item"><a href="files/动态规划/树形动态规划_未知作者.ppt"><span class="nm">树形动态规划_未知作者.ppt</span></a><div class="mt">动态规划/树形动态规划_未知作者.ppt · 199.0 KB</div></div>
+<div class="item"><a href="files/动态规划/树形动态规划_朱全民.ppt"><span class="nm">树形动态规划_朱全民.ppt</span></a><div class="mt">动态规划/树形动态规划_朱全民.ppt · 431.0 KB</div></div>
+<div class="item"><a href="files/动态规划/状态压缩类型动态规划_朱全民..ppt"><span class="nm">状态压缩类型动态规划_朱全民..ppt</span></a><div class="mt">动态规划/状态压缩类型动态规划_朱全民..ppt · 267.0 KB</div></div>
+<div class="item"><a href="files/动态规划/组合计数与动态规划_曹钦翔.ppt"><span class="nm">组合计数与动态规划_曹钦翔.ppt</span></a><div class="mt">动态规划/组合计数与动态规划_曹钦翔.ppt · 178.5 KB</div></div>
+<div class="item"><a href="files/图论/两极相通——浅析最大最小定理在信息学竞赛中的应用_周冬.ppt"><span class="nm">两极相通——浅析最大最小定理在信息学竞赛中的应用_周冬.ppt</span></a><div class="mt">图论/两极相通——浅析最大最小定理在信息学竞赛中的应用_周冬.ppt · 558.0 KB</div></div>
+<div class="item"><a href="files/图论/倍增算法及其应用_未知作者.pptx"><span class="nm">倍增算法及其应用_未知作者.pptx</span></a><div class="mt">图论/倍增算法及其应用_未知作者.pptx · 521.5 KB</div></div>
+<div class="item"><a href="files/图论/分层图思想及其在信息学竞赛中的应用_肖天.ppt"><span class="nm">分层图思想及其在信息学竞赛中的应用_肖天.ppt</span></a><div class="mt">图论/分层图思想及其在信息学竞赛中的应用_肖天.ppt · 172.5 KB</div></div>
+<div class="item"><a href="files/图论/图论_李煜东.pptx"><span class="nm">图论_李煜东.pptx</span></a><div class="mt">图论/图论_李煜东.pptx · 646.4 KB</div></div>
+<div class="item"><a href="files/图论/图论专题之生成树_唐文斌.ppt"><span class="nm">图论专题之生成树_唐文斌.ppt</span></a><div class="mt">图论/图论专题之生成树_唐文斌.ppt · 1.1 MB</div></div>
+<div class="item"><a href="files/图论/图论基础与网络流习题集锦_朱睿.pptx"><span class="nm">图论基础与网络流习题集锦_朱睿.pptx</span></a><div class="mt">图论/图论基础与网络流习题集锦_朱睿.pptx · 416.2 KB</div></div>
+<div class="item"><a href="files/图论/图论复习_未知作者.ppt"><span class="nm">图论复习_未知作者.ppt</span></a><div class="mt">图论/图论复习_未知作者.ppt · 1.3 MB</div></div>
+<div class="item"><a href="files/图论/图论知识及其应用_刘弈.ppt"><span class="nm">图论知识及其应用_刘弈.ppt</span></a><div class="mt">图论/图论知识及其应用_刘弈.ppt · 240.0 KB</div></div>
+<div class="item"><a href="files/图论/图连通性若干拓展问题探讨_李煜东.pptx"><span class="nm">图连通性若干拓展问题探讨_李煜东.pptx</span></a><div class="mt">图论/图连通性若干拓展问题探讨_李煜东.pptx · 6.0 MB</div></div>
+<div class="item"><a href="files/图论/弦图与区间图_陈丹琦.pptx"><span class="nm">弦图与区间图_陈丹琦.pptx</span></a><div class="mt">图论/弦图与区间图_陈丹琦.pptx · 947.6 KB</div></div>
+<div class="item"><a href="files/图论/最短路专题选讲_杨景钦.pptx"><span class="nm">最短路专题选讲_杨景钦.pptx</span></a><div class="mt">图论/最短路专题选讲_杨景钦.pptx · 169.1 KB</div></div>
+<div class="item"><a href="files/图论/某静态的超仙人掌_吴作凡 & 倪星宇.pptx"><span class="nm">某静态的超仙人掌_吴作凡 &amp; 倪星宇.pptx</span></a><div class="mt">图论/某静态的超仙人掌_吴作凡 &amp; 倪星宇.pptx · 808.9 KB</div></div>
+<div class="item"><a href="files/图论/树链剖分及其应用_蒋一瑶.pptx"><span class="nm">树链剖分及其应用_蒋一瑶.pptx</span></a><div class="mt">图论/树链剖分及其应用_蒋一瑶.pptx · 156.7 KB</div></div>
+<div class="item"><a href="files/图论/浅析二分图匹配在信息学竞赛中的应用_王俊.ppt"><span class="nm">浅析二分图匹配在信息学竞赛中的应用_王俊.ppt</span></a><div class="mt">图论/浅析二分图匹配在信息学竞赛中的应用_王俊.ppt · 730.0 KB</div></div>
+<div class="item"><a href="files/图论/浅谈一些树形问题_高胜寒.ppt"><span class="nm">浅谈一些树形问题_高胜寒.ppt</span></a><div class="mt">图论/浅谈一些树形问题_高胜寒.ppt · 235.5 KB</div></div>
+<div class="item"><a href="files/图论/浅谈信息学竞赛中的线性规划——简洁高效的单纯形法实现与应用_李宇骞.ppt"><span class="nm">浅谈信息学竞赛中的线性规划——简洁高效的单纯形法实现与应用_李宇骞.ppt</span></a><div class="mt">图论/浅谈信息学竞赛中的线性规划——简洁高效的单纯形法实现与应用_李宇骞.ppt · 607.5 KB</div></div>
+<div class="item"><a href="files/图论/由对称性解2-SAT问题_未知作者.ppt"><span class="nm">由对称性解2-SAT问题_未知作者.ppt</span></a><div class="mt">图论/由对称性解2-SAT问题_未知作者.ppt · 263.0 KB</div></div>
+<div class="item"><a href="files/图论/线性规划与网络流_曹钦翔.pptx"><span class="nm">线性规划与网络流_曹钦翔.pptx</span></a><div class="mt">图论/线性规划与网络流_曹钦翔.pptx · 2.5 MB</div></div>
+<div class="item"><a href="files/图论/网络流_未知作者.ppt"><span class="nm">网络流_未知作者.ppt</span></a><div class="mt">图论/网络流_未知作者.ppt · 1.4 MB</div></div>
+<div class="item"><a href="files/图论/网络流_魏越闽.ppt"><span class="nm">网络流_魏越闽.ppt</span></a><div class="mt">图论/网络流_魏越闽.ppt · 356.0 KB</div></div>
+<div class="item"><a href="files/基础算法/C++模板与STL库介绍.ppt"><span class="nm">C++模板与STL库介绍.ppt</span></a><div class="mt">基础算法/C++模板与STL库介绍.ppt · 282.0 KB</div></div>
+<div class="item"><a href="files/基础算法/NOIP归纳、贪心、二分、数论_未知作者.pptx"><span class="nm">NOIP归纳、贪心、二分、数论_未知作者.pptx</span></a><div class="mt">基础算法/NOIP归纳、贪心、二分、数论_未知作者.pptx · 1.2 MB</div></div>
+<div class="item"><a href="files/基础算法/Sorting and Sequence_刘承奥.pptx"><span class="nm">Sorting and Sequence_刘承奥.pptx</span></a><div class="mt">基础算法/Sorting and Sequence_刘承奥.pptx · 5.1 MB</div></div>
+<div class="item"><a href="files/基础算法/万能的解题金钥匙——搜索_未知作者.ppt"><span class="nm">万能的解题金钥匙——搜索_未知作者.ppt</span></a><div class="mt">基础算法/万能的解题金钥匙——搜索_未知作者.ppt · 1.4 MB</div></div>
+<div class="item"><a href="files/基础算法/人工智能中的搜索问题_丁铭.pptx"><span class="nm">人工智能中的搜索问题_丁铭.pptx</span></a><div class="mt">基础算法/人工智能中的搜索问题_丁铭.pptx · 1.8 MB</div></div>
+<div class="item"><a href="files/基础算法/分治_lyy.pptx"><span class="nm">分治_lyy.pptx</span></a><div class="mt">基础算法/分治_lyy.pptx · 832.8 KB</div></div>
+<div class="item"><a href="files/基础算法/匹配算法在搜索问题中的巧用_楼天城.ppt"><span class="nm">匹配算法在搜索问题中的巧用_楼天城.ppt</span></a><div class="mt">基础算法/匹配算法在搜索问题中的巧用_楼天城.ppt · 169.0 KB</div></div>
+<div class="item"><a href="files/基础算法/搜索及其优化_杨志灿.pptx"><span class="nm">搜索及其优化_杨志灿.pptx</span></a><div class="mt">基础算法/搜索及其优化_杨志灿.pptx · 245.0 KB</div></div>
+<div class="item"><a href="files/基础算法/时间复杂度经典解说_未知作者.ppt"><span class="nm">时间复杂度经典解说_未知作者.ppt</span></a><div class="mt">基础算法/时间复杂度经典解说_未知作者.ppt · 409.0 KB</div></div>
+<div class="item"><a href="files/基础算法/稍微进阶一点的套路_阮行止.pptx"><span class="nm">稍微进阶一点的套路_阮行止.pptx</span></a><div class="mt">基础算法/稍微进阶一点的套路_阮行止.pptx · 1.9 MB</div></div>
+<div class="item"><a href="files/基础算法/贪心问题选讲_王天懿.ppt"><span class="nm">贪心问题选讲_王天懿.ppt</span></a><div class="mt">基础算法/贪心问题选讲_王天懿.ppt · 260.0 KB</div></div>
+<div class="item"><a href="files/字符串/HASH函数及其应用_朱全民.ppt"><span class="nm">HASH函数及其应用_朱全民.ppt</span></a><div class="mt">字符串/HASH函数及其应用_朱全民.ppt · 137.0 KB</div></div>
+<div class="item"><a href="files/字符串/WC2012 后缀自动机_陈立杰.ppt"><span class="nm">WC2012 后缀自动机_陈立杰.ppt</span></a><div class="mt">字符串/WC2012 后缀自动机_陈立杰.ppt · 3.0 MB</div></div>
+<div class="item"><a href="files/字符串/“h”函数_未知作者.pptx"><span class="nm">“h”函数_未知作者.pptx</span></a><div class="mt">字符串/“h”函数_未知作者.pptx · 1.4 MB</div></div>
+<div class="item"><a href="files/字符串/后缀数组——处理字符串的有力工具_罗穗骞.ppt"><span class="nm">后缀数组——处理字符串的有力工具_罗穗骞.ppt</span></a><div class="mt">字符串/后缀数组——处理字符串的有力工具_罗穗骞.ppt · 493.5 KB</div></div>
+<div class="item"><a href="files/字符串/后缀自动机_陈立杰.pptx"><span class="nm">后缀自动机_陈立杰.pptx</span></a><div class="mt">字符串/后缀自动机_陈立杰.pptx · 2.3 MB</div></div>
+<div class="item"><a href="files/字符串/多串匹配算法及其启示_朱泽园.ppt"><span class="nm">多串匹配算法及其启示_朱泽园.ppt</span></a><div class="mt">字符串/多串匹配算法及其启示_朱泽园.ppt · 917.0 KB</div></div>
+<div class="item"><a href="files/字符串/形式语言与自动机_茹逸中.pptx"><span class="nm">形式语言与自动机_茹逸中.pptx</span></a><div class="mt">字符串/形式语言与自动机_茹逸中.pptx · 2.9 MB</div></div>
+<div class="item"><a href="files/字符串/自然语言处理与词向量_黎才华.pptx"><span class="nm">自然语言处理与词向量_黎才华.pptx</span></a><div class="mt">字符串/自然语言处理与词向量_黎才华.pptx · 798.1 KB</div></div>
+<div class="item"><a href="files/数学/ACM中的数学问题_林舒.ppt"><span class="nm">ACM中的数学问题_林舒.ppt</span></a><div class="mt">数学/ACM中的数学问题_林舒.ppt · 1.4 MB</div></div>
+<div class="item"><a href="files/数学/IOI2013与博弈论_王康宁.pptx"><span class="nm">IOI2013与博弈论_王康宁.pptx</span></a><div class="mt">数学/IOI2013与博弈论_王康宁.pptx · 477.9 KB</div></div>
+<div class="item"><a href="files/数学/OI中的数学_金靖.pptx"><span class="nm">OI中的数学_金靖.pptx</span></a><div class="mt">数学/OI中的数学_金靖.pptx · 13.2 MB</div></div>
+<div class="item"><a href="files/数学/OI中的概率_黄涛岸.ppt"><span class="nm">OI中的概率_黄涛岸.ppt</span></a><div class="mt">数学/OI中的概率_黄涛岸.ppt · 443.0 KB</div></div>
+<div class="item"><a href="files/数学/Primality Test_吴争锴.pptx"><span class="nm">Primality Test_吴争锴.pptx</span></a><div class="mt">数学/Primality Test_吴争锴.pptx · 2.9 MB</div></div>
+<div class="item"><a href="files/数学/一些数学知识_王若松.ppt"><span class="nm">一些数学知识_王若松.ppt</span></a><div class="mt">数学/一些数学知识_王若松.ppt · 3.1 MB</div></div>
+<div class="item"><a href="files/数学/具体数学(part 1)_赵启阳.ppt"><span class="nm">具体数学(part 1)_赵启阳.ppt</span></a><div class="mt">数学/具体数学(part 1)_赵启阳.ppt · 642.5 KB</div></div>
+<div class="item"><a href="files/数学/具体数学(part 2)_赵启阳.ppt"><span class="nm">具体数学(part 2)_赵启阳.ppt</span></a><div class="mt">数学/具体数学(part 2)_赵启阳.ppt · 535.0 KB</div></div>
+<div class="item"><a href="files/数学/多项式及求和_杜瑜皓.pptx"><span class="nm">多项式及求和_杜瑜皓.pptx</span></a><div class="mt">数学/多项式及求和_杜瑜皓.pptx · 738.5 KB</div></div>
+<div class="item"><a href="files/数学/形形色色的“数学题”_刘汝佳.pptx"><span class="nm">形形色色的“数学题”_刘汝佳.pptx</span></a><div class="mt">数学/形形色色的“数学题”_刘汝佳.pptx · 932.3 KB</div></div>
+<div class="item"><a href="files/数学/数论入门_阮行止.pptx"><span class="nm">数论入门_阮行止.pptx</span></a><div class="mt">数学/数论入门_阮行止.pptx · 2.4 MB</div></div>
+<div class="item"><a href="files/数学/概率与随机化算法_钟诚.pptx"><span class="nm">概率与随机化算法_钟诚.pptx</span></a><div class="mt">数学/概率与随机化算法_钟诚.pptx · 2.7 MB</div></div>
+<div class="item"><a href="files/数学/浅谈一些概率期望问题_钟皓曦.pptx"><span class="nm">浅谈一些概率期望问题_钟皓曦.pptx</span></a><div class="mt">数学/浅谈一些概率期望问题_钟皓曦.pptx · 741.6 KB</div></div>
+<div class="item"><a href="files/数学/离散数学在信息学竞赛中的运用_未知作者.ppt"><span class="nm">离散数学在信息学竞赛中的运用_未知作者.ppt</span></a><div class="mt">数学/离散数学在信息学竞赛中的运用_未知作者.ppt · 498.5 KB</div></div>
+<div class="item"><a href="files/数学/线性筛法与积性函数_贾志鹏.pptx"><span class="nm">线性筛法与积性函数_贾志鹏.pptx</span></a><div class="mt">数学/线性筛法与积性函数_贾志鹏.pptx · 2.9 MB</div></div>
+<div class="item"><a href="files/数学/组合数学——母函数与递推_朱全民.ppt"><span class="nm">组合数学——母函数与递推_朱全民.ppt</span></a><div class="mt">数学/组合数学——母函数与递推_朱全民.ppt · 671.0 KB</div></div>
+<div class="item"><a href="files/数学/组合游戏略述——浅谈SG游戏的若干拓展及变形_贾志豪.ppt"><span class="nm">组合游戏略述——浅谈SG游戏的若干拓展及变形_贾志豪.ppt</span></a><div class="mt">数学/组合游戏略述——浅谈SG游戏的若干拓展及变形_贾志豪.ppt · 944.0 KB</div></div>
+<div class="item"><a href="files/数学/莫比乌斯反演_王天懿.ppt"><span class="nm">莫比乌斯反演_王天懿.ppt</span></a><div class="mt">数学/莫比乌斯反演_王天懿.ppt · 593.0 KB</div></div>
+<div class="item"><a href="files/数学/高斯消元解XOR方程组_莫涛.ppt"><span class="nm">高斯消元解XOR方程组_莫涛.ppt</span></a><div class="mt">数学/高斯消元解XOR方程组_莫涛.ppt · 132.0 KB</div></div>
+<div class="item"><a href="files/数据结构/Splay树及其应用_朱全民.ppt"><span class="nm">Splay树及其应用_朱全民.ppt</span></a><div class="mt">数据结构/Splay树及其应用_朱全民.ppt · 621.0 KB</div></div>
+<div class="item"><a href="files/数据结构/二叉树与其应用_朱全民.ppt"><span class="nm">二叉树与其应用_朱全民.ppt</span></a><div class="mt">数据结构/二叉树与其应用_朱全民.ppt · 1.5 MB</div></div>
+<div class="item"><a href="files/数据结构/分块算法_未知作者.pptx"><span class="nm">分块算法_未知作者.pptx</span></a><div class="mt">数据结构/分块算法_未知作者.pptx · 3.1 MB</div></div>
+<div class="item"><a href="files/数据结构/可并堆_王天懿.ppt"><span class="nm">可并堆_王天懿.ppt</span></a><div class="mt">数据结构/可并堆_王天懿.ppt · 544.0 KB</div></div>
+<div class="item"><a href="files/数据结构/基本数据结构在信息学竞赛中的应用_朱晨光.ppt"><span class="nm">基本数据结构在信息学竞赛中的应用_朱晨光.ppt</span></a><div class="mt">数据结构/基本数据结构在信息学竞赛中的应用_朱晨光.ppt · 340.5 KB</div></div>
+<div class="item"><a href="files/数据结构/基础数据结构_阮行止.pptx"><span class="nm">基础数据结构_阮行止.pptx</span></a><div class="mt">数据结构/基础数据结构_阮行止.pptx · 992.1 KB</div></div>
+<div class="item"><a href="files/数据结构/左偏树的特点及其应用_黄源河.ppt"><span class="nm">左偏树的特点及其应用_黄源河.ppt</span></a><div class="mt">数据结构/左偏树的特点及其应用_黄源河.ppt · 667.5 KB</div></div>
+<div class="item"><a href="files/数据结构/平衡树_王天懿.pptx"><span class="nm">平衡树_王天懿.pptx</span></a><div class="mt">数据结构/平衡树_王天懿.pptx · 917.0 KB</div></div>
+<div class="item"><a href="files/数据结构/替罪羊树_未知作者.ppt"><span class="nm">替罪羊树_未知作者.ppt</span></a><div class="mt">数据结构/替罪羊树_未知作者.ppt · 955.5 KB</div></div>
+<div class="item"><a href="files/数据结构/树链剖分_王天懿.ppt"><span class="nm">树链剖分_王天懿.ppt</span></a><div class="mt">数据结构/树链剖分_王天懿.ppt · 275.0 KB</div></div>
+<div class="item"><a href="files/数据结构/根号算法杂谈_杨志灿.ppt"><span class="nm">根号算法杂谈_杨志灿.ppt</span></a><div class="mt">数据结构/根号算法杂谈_杨志灿.ppt · 676.5 KB</div></div>
+<div class="item"><a href="files/数据结构/线段树_浙大ACM.ppt"><span class="nm">线段树_浙大ACM.ppt</span></a><div class="mt">数据结构/线段树_浙大ACM.ppt · 386.5 KB</div></div>
+<div class="item"><a href="files/数据结构/线段树的合并_黄嘉泰.pptx"><span class="nm">线段树的合并_黄嘉泰.pptx</span></a><div class="mt">数据结构/线段树的合并_黄嘉泰.pptx · 177.4 KB</div></div>
+<div class="item"><a href="files/数据结构/统计的力量——线段树全接触_张昆玮.pptx"><span class="nm">统计的力量——线段树全接触_张昆玮.pptx</span></a><div class="mt">数据结构/统计的力量——线段树全接触_张昆玮.pptx · 451.4 KB</div></div>
+<div class="item"><a href="files/数据结构/莫队算法_刘孟博.pptx"><span class="nm">莫队算法_刘孟博.pptx</span></a><div class="mt">数据结构/莫队算法_刘孟博.pptx · 3.1 MB</div></div>
+<div class="item"><a href="files/数据结构/解决动态统计问题的两把利刃——剖析线段树与矩形切割_薛矛.ppt"><span class="nm">解决动态统计问题的两把利刃——剖析线段树与矩形切割_薛矛.ppt</span></a><div class="mt">数据结构/解决动态统计问题的两把利刃——剖析线段树与矩形切割_薛矛.ppt · 462.5 KB</div></div>
+<div class="item"><a href="files/计算几何/二维计算几何相关算法与实战应用_徐明宽.pptx"><span class="nm">二维计算几何相关算法与实战应用_徐明宽.pptx</span></a><div class="mt">计算几何/二维计算几何相关算法与实战应用_徐明宽.pptx · 1.4 MB</div></div>
+<div class="item"><a href="files/计算几何/半平面交的新算法及其实用价值_朱泽园.ppt"><span class="nm">半平面交的新算法及其实用价值_朱泽园.ppt</span></a><div class="mt">计算几何/半平面交的新算法及其实用价值_朱泽园.ppt · 959.5 KB</div></div>
+<div class="item"><a href="files/计算几何/计算几何_未知作者 2.ppt"><span class="nm">计算几何_未知作者 2.ppt</span></a><div class="mt">计算几何/计算几何_未知作者 2.ppt · 258.0 KB</div></div>
+<div class="item"><a href="files/计算几何/计算几何_未知作者.ppt"><span class="nm">计算几何_未知作者.ppt</span></a><div class="mt">计算几何/计算几何_未知作者.ppt · 1.2 MB</div></div>
+<div class="item"><a href="files/计算几何/计算几何_邓东.ppt"><span class="nm">计算几何_邓东.ppt</span></a><div class="mt">计算几何/计算几何_邓东.ppt · 1.0 MB</div></div>
+<div class="item"><a href="files/计算几何/计算几何_钟思思.ppt"><span class="nm">计算几何_钟思思.ppt</span></a><div class="mt">计算几何/计算几何_钟思思.ppt · 2.7 MB</div></div>
+<div class="item"><a href="files/计算几何/计算几何_黄涛岸.ppt"><span class="nm">计算几何_黄涛岸.ppt</span></a><div class="mt">计算几何/计算几何_黄涛岸.ppt · 1.8 MB</div></div>
+<div class="item"><a href="files/计算几何/计算几何及其应用_林厚从.ppt"><span class="nm">计算几何及其应用_林厚从.ppt</span></a><div class="mt">计算几何/计算几何及其应用_林厚从.ppt · 852.5 KB</div></div>
+<div class="item"><a href="files/计算几何/计算几何教程_北大ACM.pptx"><span class="nm">计算几何教程_北大ACM.pptx</span></a><div class="mt">计算几何/计算几何教程_北大ACM.pptx · 6.2 MB</div></div>
+<div class="item"><a href="files/计算几何/计算几何讨论_胡伟栋.pptx"><span class="nm">计算几何讨论_胡伟栋.pptx</span></a><div class="mt">计算几何/计算几何讨论_胡伟栋.pptx · 284.6 KB</div></div>
+<div class="item"><a href="files/题解/普及组近5年NOIP试题分析_叶国平.ppt"><span class="nm">普及组近5年NOIP试题分析_叶国平.ppt</span></a><div class="mt">题解/普及组近5年NOIP试题分析_叶国平.ppt · 934.0 KB</div></div>
+<div class="item"><a href="files/题解/题目推荐_刘汝佳.pptx"><span class="nm">题目推荐_刘汝佳.pptx</span></a><div class="mt">题解/题目推荐_刘汝佳.pptx · 641.9 KB</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

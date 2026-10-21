@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>sunkafei · XCPC算法模板 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>09_sunkafei-XCPC算法模板</span></nav>
+  <div class="rhead">
+    <h1>sunkafei · XCPC算法模板</h1>
+    <div class="sub">XCPC算法模板库（cpp）与《XCPC算法模板》PDF 307页</div>
+    <div class="src">来源：github.com/sunkafei/xcpc-algorithm-templates（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>1</b><span>笔记</span></div>
+    <div class="stat"><b>1</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>135</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>1</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 1 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">09_sunkafei-XCPC算法模板/README.md · 5.3 KB</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 1 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/XCPC算法模板(2024-12-26).pdf"><span class="nm">XCPC算法模板(2024-12-26).pdf</span></a><div class="mt">XCPC算法模板(2024-12-26).pdf · 763.3 KB · 307页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 135 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/算法/人工智能/Adam算法.cpp"><span class="nm">Adam算法.cpp</span></a><div class="mt">算法/人工智能/Adam算法.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/人工智能/Dyna-Q.cpp"><span class="nm">Dyna-Q.cpp</span></a><div class="mt">算法/人工智能/Dyna-Q.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/算法/人工智能/kmeans聚类.cpp"><span class="nm">kmeans聚类.cpp</span></a><div class="mt">算法/人工智能/kmeans聚类.cpp · 4.5 KB</div></div>
+<div class="item"><a href="code/算法/人工智能/主成分分析.cpp"><span class="nm">主成分分析.cpp</span></a><div class="mt">算法/人工智能/主成分分析.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/算法/人工智能/对抗搜索（Alpha-Beta剪枝）.cpp"><span class="nm">对抗搜索（Alpha-Beta剪枝）.cpp</span></a><div class="mt">算法/人工智能/对抗搜索（Alpha-Beta剪枝）.cpp · 547 B</div></div>
+<div class="item"><a href="code/算法/动态规划/插头DP.cpp"><span class="nm">插头DP.cpp</span></a><div class="mt">算法/动态规划/插头DP.cpp · 4.7 KB</div></div>
+<div class="item"><a href="code/算法/动态规划/斯坦纳树（点权）.cpp"><span class="nm">斯坦纳树（点权）.cpp</span></a><div class="mt">算法/动态规划/斯坦纳树（点权）.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/算法/动态规划/斯坦纳树（边权）.cpp"><span class="nm">斯坦纳树（边权）.cpp</span></a><div class="mt">算法/动态规划/斯坦纳树（边权）.cpp · 3.9 KB</div></div>
+<div class="item"><a href="code/算法/动态规划/最长上升子序列.cpp"><span class="nm">最长上升子序列.cpp</span></a><div class="mt">算法/动态规划/最长上升子序列.cpp · 581 B</div></div>
+<div class="item"><a href="code/算法/匹配算法/KM算法.cpp"><span class="nm">KM算法.cpp</span></a><div class="mt">算法/匹配算法/KM算法.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/算法/匹配算法/匈牙利算法.cpp"><span class="nm">匈牙利算法.cpp</span></a><div class="mt">算法/匹配算法/匈牙利算法.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/匹配算法/带花树算法.cpp"><span class="nm">带花树算法.cpp</span></a><div class="mt">算法/匹配算法/带花树算法.cpp · 3.8 KB</div></div>
+<div class="item"><a href="code/算法/图论/Dijkstra算法.cpp"><span class="nm">Dijkstra算法.cpp</span></a><div class="mt">算法/图论/Dijkstra算法.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/算法/图论/SPFA算法.cpp"><span class="nm">SPFA算法.cpp</span></a><div class="mt">算法/图论/SPFA算法.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/算法/图论/一般图最大权匹配.cpp"><span class="nm">一般图最大权匹配.cpp</span></a><div class="mt">算法/图论/一般图最大权匹配.cpp · 5.7 KB</div></div>
+<div class="item"><a href="code/算法/图论/强连通分量.cpp"><span class="nm">强连通分量.cpp</span></a><div class="mt">算法/图论/强连通分量.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/算法/图论/拓扑排序.cpp"><span class="nm">拓扑排序.cpp</span></a><div class="mt">算法/图论/拓扑排序.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/算法/图论/支配树.cpp"><span class="nm">支配树.cpp</span></a><div class="mt">算法/图论/支配树.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/算法/图论/无向图的割顶和桥.cpp"><span class="nm">无向图的割顶和桥.cpp</span></a><div class="mt">算法/图论/无向图的割顶和桥.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/图论/无向图的点双连通分量.cpp"><span class="nm">无向图的点双连通分量.cpp</span></a><div class="mt">算法/图论/无向图的点双连通分量.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/算法/图论/无向图的边双连通分量.cpp"><span class="nm">无向图的边双连通分量.cpp</span></a><div class="mt">算法/图论/无向图的边双连通分量.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/图论/最小树形图.cpp"><span class="nm">最小树形图.cpp</span></a><div class="mt">算法/图论/最小树形图.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/算法/图论/最小生成树.cpp"><span class="nm">最小生成树.cpp</span></a><div class="mt">算法/图论/最小生成树.cpp · 971 B</div></div>
+<div class="item"><a href="code/算法/图论/有向图的传递闭包.cpp"><span class="nm">有向图的传递闭包.cpp</span></a><div class="mt">算法/图论/有向图的传递闭包.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/图论/欧拉回路.cpp"><span class="nm">欧拉回路.cpp</span></a><div class="mt">算法/图论/欧拉回路.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/算法/图论/确定有限状态自动机最小化.cpp"><span class="nm">确定有限状态自动机最小化.cpp</span></a><div class="mt">算法/图论/确定有限状态自动机最小化.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/C++17 万能输出.cpp"><span class="nm">C++17 万能输出.cpp</span></a><div class="mt">算法/基础算法/C++17 万能输出.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/C++20 万能输出.cpp"><span class="nm">C++20 万能输出.cpp</span></a><div class="mt">算法/基础算法/C++20 万能输出.cpp · 5.1 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/C++光速读入（交互版）.cpp"><span class="nm">C++光速读入（交互版）.cpp</span></a><div class="mt">算法/基础算法/C++光速读入（交互版）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/C++快速读入.cpp"><span class="nm">C++快速读入.cpp</span></a><div class="mt">算法/基础算法/C++快速读入.cpp · 544 B</div></div>
+<div class="item"><a href="code/算法/基础算法/Java快速读入.java"><span class="nm">Java快速读入.java</span></a><div class="mt">算法/基础算法/Java快速读入.java · 669 B</div></div>
+<div class="item"><a href="code/算法/基础算法/RMQ算法.cpp"><span class="nm">RMQ算法.cpp</span></a><div class="mt">算法/基础算法/RMQ算法.cpp · 691 B</div></div>
+<div class="item"><a href="code/算法/基础算法/二分查找.cpp"><span class="nm">二分查找.cpp</span></a><div class="mt">算法/基础算法/二分查找.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/动态数组.cpp"><span class="nm">动态数组.cpp</span></a><div class="mt">算法/基础算法/动态数组.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/动态维护连续相同数字区间.cpp"><span class="nm">动态维护连续相同数字区间.cpp</span></a><div class="mt">算法/基础算法/动态维护连续相同数字区间.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/哈希值组合.cpp"><span class="nm">哈希值组合.cpp</span></a><div class="mt">算法/基础算法/哈希值组合.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/哈希表.cpp"><span class="nm">哈希表.cpp</span></a><div class="mt">算法/基础算法/哈希表.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/基数排序.cpp"><span class="nm">基数排序.cpp</span></a><div class="mt">算法/基础算法/基数排序.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/带删除的优先队列.cpp"><span class="nm">带删除的优先队列.cpp</span></a><div class="mt">算法/基础算法/带删除的优先队列.cpp · 961 B</div></div>
+<div class="item"><a href="code/算法/基础算法/快速离散化.cpp"><span class="nm">快速离散化.cpp</span></a><div class="mt">算法/基础算法/快速离散化.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/算法/基础算法/排列组合枚举.cpp"><span class="nm">排列组合枚举.cpp</span></a><div class="mt">算法/基础算法/排列组合枚举.cpp · 942 B</div></div>
+<div class="item"><a href="code/算法/基础算法/计时器.cpp"><span class="nm">计时器.cpp</span></a><div class="mt">算法/基础算法/计时器.cpp · 493 B</div></div>
+<div class="item"><a href="code/算法/字符串算法/AC自动机.cpp"><span class="nm">AC自动机.cpp</span></a><div class="mt">算法/字符串算法/AC自动机.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/KMP算法.cpp"><span class="nm">KMP算法.cpp</span></a><div class="mt">算法/字符串算法/KMP算法.cpp · 879 B</div></div>
+<div class="item"><a href="code/算法/字符串算法/LCT维护隐式后缀树.cpp"><span class="nm">LCT维护隐式后缀树.cpp</span></a><div class="mt">算法/字符串算法/LCT维护隐式后缀树.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/Lyndon分解.cpp"><span class="nm">Lyndon分解.cpp</span></a><div class="mt">算法/字符串算法/Lyndon分解.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/Manacher算法.cpp"><span class="nm">Manacher算法.cpp</span></a><div class="mt">算法/字符串算法/Manacher算法.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/hash.cpp"><span class="nm">hash.cpp</span></a><div class="mt">算法/字符串算法/hash.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/区间本质不同子串个数.cpp"><span class="nm">区间本质不同子串个数.cpp</span></a><div class="mt">算法/字符串算法/区间本质不同子串个数.cpp · 4.5 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/双端回文自动机.cpp"><span class="nm">双端回文自动机.cpp</span></a><div class="mt">算法/字符串算法/双端回文自动机.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/后缀平衡树.cpp"><span class="nm">后缀平衡树.cpp</span></a><div class="mt">算法/字符串算法/后缀平衡树.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/后缀数组.cpp"><span class="nm">后缀数组.cpp</span></a><div class="mt">算法/字符串算法/后缀数组.cpp · 6.4 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/后缀树.cpp"><span class="nm">后缀树.cpp</span></a><div class="mt">算法/字符串算法/后缀树.cpp · 7.3 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/后缀自动机.cpp"><span class="nm">后缀自动机.cpp</span></a><div class="mt">算法/字符串算法/后缀自动机.cpp · 13.1 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/回文串Border.cpp"><span class="nm">回文串Border.cpp</span></a><div class="mt">算法/字符串算法/回文串Border.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/回文自动机.cpp"><span class="nm">回文自动机.cpp</span></a><div class="mt">算法/字符串算法/回文自动机.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/基于后缀自动机构建后缀树.cpp"><span class="nm">基于后缀自动机构建后缀树.cpp</span></a><div class="mt">算法/字符串算法/基于后缀自动机构建后缀树.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/序列自动机.cpp"><span class="nm">序列自动机.cpp</span></a><div class="mt">算法/字符串算法/序列自动机.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/扩展KMP.cpp"><span class="nm">扩展KMP.cpp</span></a><div class="mt">算法/字符串算法/扩展KMP.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/模糊匹配.cpp"><span class="nm">模糊匹配.cpp</span></a><div class="mt">算法/字符串算法/模糊匹配.cpp · 4.6 KB</div></div>
+<div class="item"><a href="code/算法/字符串算法/非势能分析回文自动机.cpp"><span class="nm">非势能分析回文自动机.cpp</span></a><div class="mt">算法/字符串算法/非势能分析回文自动机.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/QR迭代.cpp"><span class="nm">QR迭代.cpp</span></a><div class="mt">算法/数学算法/QR迭代.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/SG函数.cpp"><span class="nm">SG函数.cpp</span></a><div class="mt">算法/数学算法/SG函数.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/三分求极值.cpp"><span class="nm">三分求极值.cpp</span></a><div class="mt">算法/数学算法/三分求极值.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/二元一次不定方程.cpp"><span class="nm">二元一次不定方程.cpp</span></a><div class="mt">算法/数学算法/二元一次不定方程.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/多项式拟合（泰勒展开）.py"><span class="nm">多项式拟合（泰勒展开）.py</span></a><div class="mt">算法/数学算法/多项式拟合（泰勒展开）.py · 2.0 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/多项式拟合（辛普森积分）.cpp"><span class="nm">多项式拟合（辛普森积分）.cpp</span></a><div class="mt">算法/数学算法/多项式拟合（辛普森积分）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/快速傅里叶变换.cpp"><span class="nm">快速傅里叶变换.cpp</span></a><div class="mt">算法/数学算法/快速傅里叶变换.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/快速幂运算.cpp"><span class="nm">快速幂运算.cpp</span></a><div class="mt">算法/数学算法/快速幂运算.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/欧拉函数.cpp"><span class="nm">欧拉函数.cpp</span></a><div class="mt">算法/数学算法/欧拉函数.cpp · 981 B</div></div>
+<div class="item"><a href="code/算法/数学算法/求解异或方程组.cpp"><span class="nm">求解异或方程组.cpp</span></a><div class="mt">算法/数学算法/求解异或方程组.cpp · 551 B</div></div>
+<div class="item"><a href="code/算法/数学算法/牛顿迭代求非线性方程组.cpp"><span class="nm">牛顿迭代求非线性方程组.cpp</span></a><div class="mt">算法/数学算法/牛顿迭代求非线性方程组.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/矩阵与状态转移.cpp"><span class="nm">矩阵与状态转移.cpp</span></a><div class="mt">算法/数学算法/矩阵与状态转移.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/矩阵求逆.cpp"><span class="nm">矩阵求逆.cpp</span></a><div class="mt">算法/数学算法/矩阵求逆.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/稀疏矩阵的高斯消元.cpp"><span class="nm">稀疏矩阵的高斯消元.cpp</span></a><div class="mt">算法/数学算法/稀疏矩阵的高斯消元.cpp · 6.5 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/线性筛素数.cpp"><span class="nm">线性筛素数.cpp</span></a><div class="mt">算法/数学算法/线性筛素数.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/线性规划.cpp"><span class="nm">线性规划.cpp</span></a><div class="mt">算法/数学算法/线性规划.cpp · 4.4 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/自适应辛普森积分.cpp"><span class="nm">自适应辛普森积分.cpp</span></a><div class="mt">算法/数学算法/自适应辛普森积分.cpp · 895 B</div></div>
+<div class="item"><a href="code/算法/数学算法/莫比乌斯反演.cpp"><span class="nm">莫比乌斯反演.cpp</span></a><div class="mt">算法/数学算法/莫比乌斯反演.cpp · 677 B</div></div>
+<div class="item"><a href="code/算法/数学算法/行列式计算.cpp"><span class="nm">行列式计算.cpp</span></a><div class="mt">算法/数学算法/行列式计算.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/逆元.cpp"><span class="nm">逆元.cpp</span></a><div class="mt">算法/数学算法/逆元.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/递推式求解.cpp"><span class="nm">递推式求解.cpp</span></a><div class="mt">算法/数学算法/递推式求解.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/雅可比方法.cpp"><span class="nm">雅可比方法.cpp</span></a><div class="mt">算法/数学算法/雅可比方法.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/算法/数学算法/高斯消元.cpp"><span class="nm">高斯消元.cpp</span></a><div class="mt">算法/数学算法/高斯消元.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/AVL Tree.cpp"><span class="nm">AVL Tree.cpp</span></a><div class="mt">算法/数据结构/AVL Tree.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/Euler-Tour-Tree.cpp"><span class="nm">Euler-Tour-Tree.cpp</span></a><div class="mt">算法/数据结构/Euler-Tour-Tree.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/KD-Tree.cpp"><span class="nm">KD-Tree.cpp</span></a><div class="mt">算法/数据结构/KD-Tree.cpp · 8.9 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/SplayTree.cpp"><span class="nm">SplayTree.cpp</span></a><div class="mt">算法/数据结构/SplayTree.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/TopTree.cpp"><span class="nm">TopTree.cpp</span></a><div class="mt">算法/数据结构/TopTree.cpp · 8.2 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/Treap.cpp"><span class="nm">Treap.cpp</span></a><div class="mt">算法/数据结构/Treap.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/link-cut-tree.cpp"><span class="nm">link-cut-tree.cpp</span></a><div class="mt">算法/数据结构/link-cut-tree.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/link-cut-tree（指针）.cpp"><span class="nm">link-cut-tree（指针）.cpp</span></a><div class="mt">算法/数据结构/link-cut-tree（指针）.cpp · 4.0 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/link-cut-tree（维护子树）.cpp"><span class="nm">link-cut-tree（维护子树）.cpp</span></a><div class="mt">算法/数据结构/link-cut-tree（维护子树）.cpp · 3.8 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/link-cut-tree（边权）.cpp"><span class="nm">link-cut-tree（边权）.cpp</span></a><div class="mt">算法/数据结构/link-cut-tree（边权）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/pb-ds平衡树.cpp"><span class="nm">pb-ds平衡树.cpp</span></a><div class="mt">算法/数据结构/pb-ds平衡树.cpp · 1001 B</div></div>
+<div class="item"><a href="code/算法/数据结构/rope.cpp"><span class="nm">rope.cpp</span></a><div class="mt">算法/数据结构/rope.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/zkw线段树（单点加-区间加-单点查询-区间求和）.cpp"><span class="nm">zkw线段树（单点加-区间加-单点查询-区间求和）.cpp</span></a><div class="mt">算法/数据结构/zkw线段树（单点加-区间加-单点查询-区间求和）.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/主席树.cpp"><span class="nm">主席树.cpp</span></a><div class="mt">算法/数据结构/主席树.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/动态主席树.cpp"><span class="nm">动态主席树.cpp</span></a><div class="mt">算法/数据结构/动态主席树.cpp · 4.6 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/动态开点线段树.cpp"><span class="nm">动态开点线段树.cpp</span></a><div class="mt">算法/数据结构/动态开点线段树.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/动态开点线段树（单点加-区间求和-合并）.cpp"><span class="nm">动态开点线段树（单点加-区间求和-合并）.cpp</span></a><div class="mt">算法/数据结构/动态开点线段树（单点加-区间求和-合并）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可修改优先队列.cpp"><span class="nm">可修改优先队列.cpp</span></a><div class="mt">算法/数据结构/可修改优先队列.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可持久化Treap.cpp"><span class="nm">可持久化Treap.cpp</span></a><div class="mt">算法/数据结构/可持久化Treap.cpp · 14.6 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可持久化并查集.cpp"><span class="nm">可持久化并查集.cpp</span></a><div class="mt">算法/数据结构/可持久化并查集.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可持久化数组.cpp"><span class="nm">可持久化数组.cpp</span></a><div class="mt">算法/数据结构/可持久化数组.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可持久化整数集合.cpp"><span class="nm">可持久化整数集合.cpp</span></a><div class="mt">算法/数据结构/可持久化整数集合.cpp · 10.3 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/可持久化线段树.cpp"><span class="nm">可持久化线段树.cpp</span></a><div class="mt">算法/数据结构/可持久化线段树.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/四分树.cpp"><span class="nm">四分树.cpp</span></a><div class="mt">算法/数据结构/四分树.cpp · 4.7 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/整数集合.cpp"><span class="nm">整数集合.cpp</span></a><div class="mt">算法/数据结构/整数集合.cpp · 10.1 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/李超线段树.cpp"><span class="nm">李超线段树.cpp</span></a><div class="mt">算法/数据结构/李超线段树.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/树状数组.cpp"><span class="nm">树状数组.cpp</span></a><div class="mt">算法/数据结构/树状数组.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/树链剖分.cpp"><span class="nm">树链剖分.cpp</span></a><div class="mt">算法/数据结构/树链剖分.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/树链剖分求LCA和距离.cpp"><span class="nm">树链剖分求LCA和距离.cpp</span></a><div class="mt">算法/数据结构/树链剖分求LCA和距离.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/线段树.cpp"><span class="nm">线段树.cpp</span></a><div class="mt">算法/数据结构/线段树.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/算法/数据结构/线段树（历史最大值）.cpp"><span class="nm">线段树（历史最大值）.cpp</span></a><div class="mt">算法/数据结构/线段树（历史最大值）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/算法/树算法/O(1)-LCA.cpp"><span class="nm">O(1)-LCA.cpp</span></a><div class="mt">算法/树算法/O(1)-LCA.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/算法/树算法/倍增求LCA.cpp"><span class="nm">倍增求LCA.cpp</span></a><div class="mt">算法/树算法/倍增求LCA.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/算法/树算法/动态点分治.cpp"><span class="nm">动态点分治.cpp</span></a><div class="mt">算法/树算法/动态点分治.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/算法/树算法/动态维护树中白色结点的最长距离.cpp"><span class="nm">动态维护树中白色结点的最长距离.cpp</span></a><div class="mt">算法/树算法/动态维护树中白色结点的最长距离.cpp · 4.8 KB</div></div>
+<div class="item"><a href="code/算法/树算法/快速求树中与结点x距离不超过k的点权和.cpp"><span class="nm">快速求树中与结点x距离不超过k的点权和.cpp</span></a><div class="mt">算法/树算法/快速求树中与结点x距离不超过k的点权和.cpp · 4.6 KB</div></div>
+<div class="item"><a href="code/算法/树算法/树的欧拉序.cpp"><span class="nm">树的欧拉序.cpp</span></a><div class="mt">算法/树算法/树的欧拉序.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/算法/树算法/点分治.cpp"><span class="nm">点分治.cpp</span></a><div class="mt">算法/树算法/点分治.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/算法/树算法/虚树.cpp"><span class="nm">虚树.cpp</span></a><div class="mt">算法/树算法/虚树.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/算法/树算法/限定距离的子树问题.cpp"><span class="nm">限定距离的子树问题.cpp</span></a><div class="mt">算法/树算法/限定距离的子树问题.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/算法/网络流/Dinic.cpp"><span class="nm">Dinic.cpp</span></a><div class="mt">算法/网络流/Dinic.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/算法/网络流/HLPP.cpp"><span class="nm">HLPP.cpp</span></a><div class="mt">算法/网络流/HLPP.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/算法/网络流/ISAP.cpp"><span class="nm">ISAP.cpp</span></a><div class="mt">算法/网络流/ISAP.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/算法/网络流/MCMF-dijkstra.cpp"><span class="nm">MCMF-dijkstra.cpp</span></a><div class="mt">算法/网络流/MCMF-dijkstra.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/算法/网络流/MCMF-spfa.cpp"><span class="nm">MCMF-spfa.cpp</span></a><div class="mt">算法/网络流/MCMF-spfa.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/算法/莫队算法/回滚莫队.cpp"><span class="nm">回滚莫队.cpp</span></a><div class="mt">算法/莫队算法/回滚莫队.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/算法/莫队算法/带修改莫队.cpp"><span class="nm">带修改莫队.cpp</span></a><div class="mt">算法/莫队算法/带修改莫队.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/算法/莫队算法/莫队算法.cpp"><span class="nm">莫队算法.cpp</span></a><div class="mt">算法/莫队算法/莫队算法.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/算法/高精度/分数类.cpp"><span class="nm">分数类.cpp</span></a><div class="mt">算法/高精度/分数类.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/算法/高精度/大整数类.cpp"><span class="nm">大整数类.cpp</span></a><div class="mt">算法/高精度/大整数类.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/算法/高精度/高精度定点数.cpp"><span class="nm">高精度定点数.cpp</span></a><div class="mt">算法/高精度/高精度定点数.cpp · 3.2 KB</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 1 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/LICENSE"><span class="nm">LICENSE</span></a><div class="mt">LICENSE · 1.0 KB</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>LzyRapx · 算法竞赛资料大全 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>01_LzyRapx-Competitive-Programming</span></nav>
+  <div class="rhead">
+    <h1>LzyRapx · 算法竞赛资料大全</h1>
+    <div class="sub">模板、书籍、教程、OJ资料汇总；IOI/区域赛题目与代码</div>
+    <div class="src">来源：github.com/LzyRapx/Competitive-Programming（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>8</b><span>笔记</span></div>
+    <div class="stat"><b>9</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>823</b><span>代码</span></div>
+    <div class="stat"><b>0</b><span>图片</span></div>
+    <div class="stat"><b>12</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 8 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/51Nod/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/51Nod/README.md · 7 B</div></div>
+<div class="item"><a href="notes/ACdream/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/ACdream/README.md · 7 B</div></div>
+<div class="item"><a href="notes/HDUOJ/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/HDUOJ/README.md · 7 B</div></div>
+<div class="item"><a href="notes/LibreOJ/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/LibreOJ/README.md · 12 B</div></div>
+<div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/README.md · 193 B</div></div>
+<div class="item"><a href="notes/Retired_code/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/Retired_code/README.md · 33 B</div></div>
+<div class="item"><a href="notes/Retired_code/Simplex/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/Retired_code/Simplex/README.md · 14 B</div></div>
+<div class="item"><a href="notes/hihocoder/README.html"><span class="nm">README.md</span></a><div class="mt">01_LzyRapx-Competitive-Programming/hihocoder/README.md · 7 B</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 9 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/IOI/IOI2025/day1/problem/souvenirs-online.en.pdf"><span class="nm">souvenirs-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day1/problem/souvenirs-online.en.pdf · 151.5 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/IOI/IOI2025/day1/problem/triples-online.en.pdf"><span class="nm">triples-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day1/problem/triples-online.en.pdf · 164.4 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/IOI/IOI2025/day1/problem/worldmap-online.en.pdf"><span class="nm">worldmap-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day1/problem/worldmap-online.en.pdf · 162.9 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/IOI/IOI2025/day2/problem/festival-online.en.pdf"><span class="nm">festival-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day2/problem/festival-online.en.pdf · 140.9 KB · 3页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/IOI/IOI2025/day2/problem/migrations-online.en.pdf"><span class="nm">migrations-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day2/problem/migrations-online.en.pdf · 215.1 KB · 5页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/IOI/IOI2025/day2/problem/obstacles-online.en.pdf"><span class="nm">obstacles-online.en.pdf</span></a><div class="mt">IOI/IOI2025/day2/problem/obstacles-online.en.pdf · 166.2 KB · 4页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Retired_code/Simplex/Simplex%20Algorithm.pdf"><span class="nm">Simplex Algorithm.pdf</span></a><div class="mt">Retired_code/Simplex/Simplex Algorithm.pdf · 299.4 KB · 16页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Xiangtan%20Invitation%20Contest%202017/xiangtan-2017-solution.pdf"><span class="nm">xiangtan-2017-solution.pdf</span></a><div class="mt">Xiangtan Invitation Contest 2017/xiangtan-2017-solution.pdf · 74.7 KB · 10页</div><span class="tag">可全文检索</span></div>
+<div class="item"><a href="pdfs/Xiangtan%20Invitation%20Contest%202017/xiangtan-2017.pdf"><span class="nm">xiangtan-2017.pdf</span></a><div class="mt">Xiangtan Invitation Contest 2017/xiangtan-2017.pdf · 52.1 KB · 11页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 823 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/51Nod/1000%EF%BC%88A%2BB%EF%BC%89.cpp"><span class="nm">1000（A+B）.cpp</span></a><div class="mt">51Nod/1000（A+B）.cpp · 146 B</div></div>
+<div class="item"><a href="code/51Nod/1005%EF%BC%88%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95%EF%BC%89.py"><span class="nm">1005（大数加法）.py</span></a><div class="mt">51Nod/1005（大数加法）.py · 47 B</div></div>
+<div class="item"><a href="code/51Nod/1006%EF%BC%88LCS%2Bdp%EF%BC%89.cpp"><span class="nm">1006（LCS+dp）.cpp</span></a><div class="mt">51Nod/1006（LCS+dp）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/51Nod/1008%EF%BC%88%E6%A8%A1%E4%B9%98%EF%BC%89.cpp"><span class="nm">1008（模乘）.cpp</span></a><div class="mt">51Nod/1008（模乘）.cpp · 228 B</div></div>
+<div class="item"><a href="code/51Nod/1011%EF%BC%88GCD%EF%BC%89.cpp"><span class="nm">1011（GCD）.cpp</span></a><div class="mt">51Nod/1011（GCD）.cpp · 143 B</div></div>
+<div class="item"><a href="code/51Nod/1012%EF%BC%88LCM%EF%BC%89.cpp"><span class="nm">1012（LCM）.cpp</span></a><div class="mt">51Nod/1012（LCM）.cpp · 159 B</div></div>
+<div class="item"><a href="code/51Nod/1018%EF%BC%88%E6%8E%92%E5%BA%8F%EF%BC%89.cpp"><span class="nm">1018（排序）.cpp</span></a><div class="mt">51Nod/1018（排序）.cpp · 268 B</div></div>
+<div class="item"><a href="code/51Nod/1019%EF%BC%88%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9%EF%BC%89.cpp"><span class="nm">1019（归并排序求逆序对）.cpp</span></a><div class="mt">51Nod/1019（归并排序求逆序对）.cpp · 822 B</div></div>
+<div class="item"><a href="code/51Nod/1019%EF%BC%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9%EF%BC%89.cpp"><span class="nm">1019（树状数组求逆序对）.cpp</span></a><div class="mt">51Nod/1019（树状数组求逆序对）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/51Nod/1027%EF%BC%88%E5%A4%A7%E6%95%B0%E4%B9%98%E6%B3%95%EF%BC%89.py"><span class="nm">1027（大数乘法）.py</span></a><div class="mt">51Nod/1027（大数乘法）.py · 52 B</div></div>
+<div class="item"><a href="code/51Nod/1046%EF%BC%88%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1046（快速幂）.cpp</span></a><div class="mt">51Nod/1046（快速幂）.cpp · 352 B</div></div>
+<div class="item"><a href="code/51Nod/1049%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%EF%BC%89.cpp"><span class="nm">1049（最大子段和）.cpp</span></a><div class="mt">51Nod/1049（最大子段和）.cpp · 341 B</div></div>
+<div class="item"><a href="code/51Nod/1057%EF%BC%88%E5%A4%A7%E6%95%B0%E9%98%B6%E4%B9%98%EF%BC%89.cpp"><span class="nm">1057（大数阶乘）.cpp</span></a><div class="mt">51Nod/1057（大数阶乘）.cpp · 365 B</div></div>
+<div class="item"><a href="code/51Nod/1058%EF%BC%88%E6%96%AF%E7%89%B9%E6%9E%97%E5%85%AC%E5%BC%8F%EF%BC%89.cpp"><span class="nm">1058（斯特林公式）.cpp</span></a><div class="mt">51Nod/1058（斯特林公式）.cpp · 257 B</div></div>
+<div class="item"><a href="code/51Nod/1066%EF%BC%88Bash%E5%8D%9A%E5%BC%88%EF%BC%89.cpp"><span class="nm">1066（Bash博弈）.cpp</span></a><div class="mt">51Nod/1066（Bash博弈）.cpp · 256 B</div></div>
+<div class="item"><a href="code/51Nod/1069%EF%BC%88Nim%E5%8D%9A%E5%BC%88%EF%BC%89.cpp"><span class="nm">1069（Nim博弈）.cpp</span></a><div class="mt">51Nod/1069（Nim博弈）.cpp · 266 B</div></div>
+<div class="item"><a href="code/51Nod/1072%EF%BC%88%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88%EF%BC%89.cpp"><span class="nm">1072（威佐夫博弈）.cpp</span></a><div class="mt">51Nod/1072（威佐夫博弈）.cpp · 287 B</div></div>
+<div class="item"><a href="code/51Nod/1073%EF%BC%88%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%EF%BC%89%EF%BC%88%E5%BE%AA%E7%8E%AF%E8%8A%82%EF%BC%89.cpp"><span class="nm">1073（约瑟夫环）（循环节）.cpp</span></a><div class="mt">51Nod/1073（约瑟夫环）（循环节）.cpp · 239 B</div></div>
+<div class="item"><a href="code/51Nod/1079%EF%BC%88%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%EF%BC%89.cpp"><span class="nm">1079（中国剩余定理）.cpp</span></a><div class="mt">51Nod/1079（中国剩余定理）.cpp · 907 B</div></div>
+<div class="item"><a href="code/51Nod/1081%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%EF%BC%89.cpp"><span class="nm">1081（前缀和）.cpp</span></a><div class="mt">51Nod/1081（前缀和）.cpp · 372 B</div></div>
+<div class="item"><a href="code/51Nod/1085%EF%BC%8801%E8%83%8C%E5%8C%85%EF%BC%89.cpp"><span class="nm">1085（01背包）.cpp</span></a><div class="mt">51Nod/1085（01背包）.cpp · 482 B</div></div>
+<div class="item"><a href="code/51Nod/1088%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89.cpp"><span class="nm">1088（最长回文子串）.cpp</span></a><div class="mt">51Nod/1088（最长回文子串）.cpp · 777 B</div></div>
+<div class="item"><a href="code/51Nod/1089%EF%BC%88manacher%EF%BC%89.cpp"><span class="nm">1089（manacher）.cpp</span></a><div class="mt">51Nod/1089（manacher）.cpp · 736 B</div></div>
+<div class="item"><a href="code/51Nod/1106%EF%BC%88%E8%B4%A8%E6%95%B0%E7%AD%9B%EF%BC%89.cpp"><span class="nm">1106（质数筛）.cpp</span></a><div class="mt">51Nod/1106（质数筛）.cpp · 451 B</div></div>
+<div class="item"><a href="code/51Nod/1118%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1118（dp）.cpp</span></a><div class="mt">51Nod/1118（dp）.cpp · 324 B</div></div>
+<div class="item"><a href="code/51Nod/1130%EF%BC%88%E6%96%AF%E7%89%B9%E6%9E%97%E5%85%AC%E5%BC%8F%EF%BC%89.cpp"><span class="nm">1130（斯特林公式）.cpp</span></a><div class="mt">51Nod/1130（斯特林公式）.cpp · 320 B</div></div>
+<div class="item"><a href="code/51Nod/1134%EF%BC%88LIS%EF%BC%89%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1134（LIS）（dp）.cpp</span></a><div class="mt">51Nod/1134（LIS）（dp）.cpp · 476 B</div></div>
+<div class="item"><a href="code/51Nod/1135%EF%BC%88%E5%8E%9F%E6%A0%B9%EF%BC%89.cpp"><span class="nm">1135（原根）.cpp</span></a><div class="mt">51Nod/1135（原根）.cpp · 886 B</div></div>
+<div class="item"><a href="code/51Nod/1136%EF%BC%88%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%EF%BC%89.cpp"><span class="nm">1136（欧拉函数）.cpp</span></a><div class="mt">51Nod/1136（欧拉函数）.cpp · 393 B</div></div>
+<div class="item"><a href="code/51Nod/1137%EF%BC%88%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%EF%BC%89.cpp"><span class="nm">1137（矩阵乘法）.cpp</span></a><div class="mt">51Nod/1137（矩阵乘法）.cpp · 755 B</div></div>
+<div class="item"><a href="code/51Nod/1174%EF%BC%88RMQ%EF%BC%89.cpp"><span class="nm">1174（RMQ）.cpp</span></a><div class="mt">51Nod/1174（RMQ）.cpp · 891 B</div></div>
+<div class="item"><a href="code/51Nod/1174%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1174（水题）.cpp</span></a><div class="mt">51Nod/1174（水题）.cpp · 338 B</div></div>
+<div class="item"><a href="code/51Nod/1174%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89.cpp"><span class="nm">1174（线段树）.cpp</span></a><div class="mt">51Nod/1174（线段树）.cpp · 942 B</div></div>
+<div class="item"><a href="code/51Nod/1181%EF%BC%88%E7%B4%A0%E6%95%B0%E7%AD%9B%EF%BC%89.cpp"><span class="nm">1181（素数筛）.cpp</span></a><div class="mt">51Nod/1181（素数筛）.cpp · 628 B</div></div>
+<div class="item"><a href="code/51Nod/1183%EF%BC%88%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB%EF%BC%89%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1183（编辑距离）（dp）.cpp</span></a><div class="mt">51Nod/1183（编辑距离）（dp）.cpp · 606 B</div></div>
+<div class="item"><a href="code/51Nod/1185%EF%BC%88%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88%2B%E5%A4%A7%E6%95%B0%E4%B9%98%E6%B3%95%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">1185（威佐夫博弈+大数乘法模拟）.cpp</span></a><div class="mt">51Nod/1185（威佐夫博弈+大数乘法模拟）.cpp · 838 B</div></div>
+<div class="item"><a href="code/51Nod/1212%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%EF%BC%89%EF%BC%88Kruskal%EF%BC%89.cpp"><span class="nm">1212（最小生成树）（Kruskal）.cpp</span></a><div class="mt">51Nod/1212（最小生成树）（Kruskal）.cpp · 834 B</div></div>
+<div class="item"><a href="code/51Nod/1240%EF%BC%88Mobius%E5%87%BD%E6%95%B0%EF%BC%89.cpp"><span class="nm">1240（Mobius函数）.cpp</span></a><div class="mt">51Nod/1240（Mobius函数）.cpp · 473 B</div></div>
+<div class="item"><a href="code/51Nod/1242%EF%BC%88%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%89%EF%BC%88%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1242（斐波那契数列）（矩阵快速幂）.cpp</span></a><div class="mt">51Nod/1242（斐波那契数列）（矩阵快速幂）.cpp · 996 B</div></div>
+<div class="item"><a href="code/51Nod/1256%EF%BC%88%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%EF%BC%89%EF%BC%88exgcd%EF%BC%89.cpp"><span class="nm">1256（乘法逆元）（exgcd）.cpp</span></a><div class="mt">51Nod/1256（乘法逆元）（exgcd）.cpp · 407 B</div></div>
+<div class="item"><a href="code/51Nod/1264%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%EF%BC%89%EF%BC%88%E7%BA%BF%E6%AE%B5%E7%9B%B8%E4%BA%A4%EF%BC%89.cpp"><span class="nm">1264（计算几何）（线段相交）.cpp</span></a><div class="mt">51Nod/1264（计算几何）（线段相交）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/51Nod/1265%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%EF%BC%89%EF%BC%88%E5%9B%9B%E7%82%B9%E5%85%B1%E9%9D%A2%EF%BC%89.cpp"><span class="nm">1265（计算几何）（四点共面）.cpp</span></a><div class="mt">51Nod/1265（计算几何）（四点共面）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/51Nod/1298%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%EF%BC%89%EF%BC%88%E7%BA%BF%E6%AE%B5%E4%B8%8E%E5%9C%86%E7%9A%84%E4%BA%A4%E7%82%B9%EF%BC%89.cpp"><span class="nm">1298（计算几何）（线段与圆的交点）.cpp</span></a><div class="mt">51Nod/1298（计算几何）（线段与圆的交点）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/51Nod/1384%EF%BC%88%E5%85%A8%E6%8E%92%E5%88%97%EF%BC%89.cpp"><span class="nm">1384（全排列）.cpp</span></a><div class="mt">51Nod/1384（全排列）.cpp · 239 B</div></div>
+<div class="item"><a href="code/51Nod/1459%EF%BC%88%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%89%EF%BC%88Dij%EF%BC%89.cpp"><span class="nm">1459（最短路径）（Dij）.cpp</span></a><div class="mt">51Nod/1459（最短路径）（Dij）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/51Nod/1459%EF%BC%88%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%89%EF%BC%88spfa%EF%BC%89.cpp"><span class="nm">1459（最短路径）（spfa）.cpp</span></a><div class="mt">51Nod/1459（最短路径）（spfa）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1000%EF%BC%88A%2BB%EF%BC%89.cpp"><span class="nm">1000（A+B）.cpp</span></a><div class="mt">ACdream/1000（A+B）.cpp · 151 B</div></div>
+<div class="item"><a href="code/ACdream/1001%EF%BC%88%E5%A4%A7%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1001（大水题）.cpp</span></a><div class="mt">ACdream/1001（大水题）.cpp · 224 B</div></div>
+<div class="item"><a href="code/ACdream/1003%EF%BC%88DFS%EF%BC%89.cpp"><span class="nm">1003（DFS）.cpp</span></a><div class="mt">ACdream/1003（DFS）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1006%EF%BC%88%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%89.cpp"><span class="nm">1006（数学推导）.cpp</span></a><div class="mt">ACdream/1006（数学推导）.cpp · 546 B</div></div>
+<div class="item"><a href="code/ACdream/1007%EF%BC%88%E6%95%B0%E5%AD%A6%2B%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1007（数学+快速幂）.cpp</span></a><div class="mt">ACdream/1007（数学+快速幂）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1008%EF%BC%88%E5%87%A0%E4%BD%95%E8%AE%A1%E6%95%B0%2B%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%89.cpp"><span class="nm">1008（几何计数+数学推导）.cpp</span></a><div class="mt">ACdream/1008（几何计数+数学推导）.cpp · 817 B</div></div>
+<div class="item"><a href="code/ACdream/1012%EF%BC%88%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86%EF%BC%89.cpp"><span class="nm">1012（正弦定理）.cpp</span></a><div class="mt">ACdream/1012（正弦定理）.cpp · 483 B</div></div>
+<div class="item"><a href="code/ACdream/1013%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1013（水题）.cpp</span></a><div class="mt">ACdream/1013（水题）.cpp · 533 B</div></div>
+<div class="item"><a href="code/ACdream/1014%EF%BC%88dp%EF%BC%89%28PE240%29.cpp"><span class="nm">1014（dp）(PE240).cpp</span></a><div class="mt">ACdream/1014（dp）(PE240).cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1017%EF%BC%88%E7%BD%91%E7%BB%9C%E6%B5%81sap%EF%BC%89.cpp"><span class="nm">1017（网络流sap）.cpp</span></a><div class="mt">ACdream/1017（网络流sap）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1019%EF%BC%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%2BHash%EF%BC%89.cpp"><span class="nm">1019（树状数组+Hash）.cpp</span></a><div class="mt">ACdream/1019（树状数组+Hash）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1023%EF%BC%88%E5%BC%82%E6%88%96%2B%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1023（异或+数学）.cpp</span></a><div class="mt">ACdream/1023（异或+数学）.cpp · 702 B</div></div>
+<div class="item"><a href="code/ACdream/1025%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1025（dp）.cpp</span></a><div class="mt">ACdream/1025（dp）.cpp · 457 B</div></div>
+<div class="item"><a href="code/ACdream/1029%EF%BC%88%E5%89%8D%E7%BC%80%E5%92%8C%2B%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1029（前缀和+数学）.cpp</span></a><div class="mt">ACdream/1029（前缀和+数学）.cpp · 807 B</div></div>
+<div class="item"><a href="code/ACdream/1038%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">1038（模拟）.cpp</span></a><div class="mt">ACdream/1038（模拟）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1044%EF%BC%88%E8%84%91%E6%B4%9E%E9%A2%98%EF%BC%89.cpp"><span class="nm">1044（脑洞题）.cpp</span></a><div class="mt">ACdream/1044（脑洞题）.cpp · 1008 B</div></div>
+<div class="item"><a href="code/ACdream/1055%EF%BC%88%E7%A6%BB%E6%95%A3%E5%8C%96%2B%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%89.cpp"><span class="nm">1055（离散化+树状数组）.cpp</span></a><div class="mt">ACdream/1055（离散化+树状数组）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/ACdream/1056%EF%BC%88%E5%88%A4%E6%96%AD%E4%BA%8C%E5%88%86%E5%9B%BE%EF%BC%89%EF%BC%88BFS%EF%BC%89.cpp"><span class="nm">1056（判断二分图）（BFS）.cpp</span></a><div class="mt">ACdream/1056（判断二分图）（BFS）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1056%EF%BC%88%E5%88%A4%E6%96%AD%E4%BA%8C%E5%88%86%E5%9B%BE%EF%BC%89%EF%BC%88%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%89.cpp"><span class="nm">1056（判断二分图）（并查集）.cpp</span></a><div class="mt">ACdream/1056（判断二分图）（并查集）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1060%EF%BC%88%E6%89%BE%E5%BE%AA%E7%8E%AF%E8%8A%82%E4%BB%A3%E7%A0%81%EF%BC%89.cpp"><span class="nm">1060（找循环节代码）.cpp</span></a><div class="mt">ACdream/1060（找循环节代码）.cpp · 777 B</div></div>
+<div class="item"><a href="code/ACdream/1060%EF%BC%88%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%2B%E6%89%BE%E5%BE%AA%E7%8E%AF%E8%8A%82%EF%BC%89.cpp"><span class="nm">1060（矩阵快速幂+找循环节）.cpp</span></a><div class="mt">ACdream/1060（矩阵快速幂+找循环节）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/ACdream/1061%EF%BC%88%E5%9D%91%E4%BA%BA%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1061（坑人水题）.cpp</span></a><div class="mt">ACdream/1061（坑人水题）.cpp · 412 B</div></div>
+<div class="item"><a href="code/ACdream/1062%EF%BC%88%E9%80%92%E6%8E%A8%E6%8E%A8%E7%BB%93%E8%AE%BA%EF%BC%89.cpp"><span class="nm">1062（递推推结论）.cpp</span></a><div class="mt">ACdream/1062（递推推结论）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1063%EF%BC%88%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%89.cpp"><span class="nm">1063（字典树）.cpp</span></a><div class="mt">ACdream/1063（字典树）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1064%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">1064（数位dp）.cpp</span></a><div class="mt">ACdream/1064（数位dp）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1065%EF%BC%88%E5%87%A0%E4%BD%95%2B%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1065（几何+数学）.cpp</span></a><div class="mt">ACdream/1065（几何+数学）.cpp · 624 B</div></div>
+<div class="item"><a href="code/ACdream/1066%20%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1066 （数学）.cpp</span></a><div class="mt">ACdream/1066 （数学）.cpp · 521 B</div></div>
+<div class="item"><a href="code/ACdream/1067%EF%BC%88%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%89.cpp"><span class="nm">1067（数学推导）.cpp</span></a><div class="mt">ACdream/1067（数学推导）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1068%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1068（水题）.cpp</span></a><div class="mt">ACdream/1068（水题）.cpp · 566 B</div></div>
+<div class="item"><a href="code/ACdream/1069%20%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1069 （水题）.cpp</span></a><div class="mt">ACdream/1069 （水题）.cpp · 269 B</div></div>
+<div class="item"><a href="code/ACdream/1070%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1070（数学）.cpp</span></a><div class="mt">ACdream/1070（数学）.cpp · 1008 B</div></div>
+<div class="item"><a href="code/ACdream/1071%EF%BC%88%E6%95%B0%E5%AD%A6%E8%AE%A1%E6%95%B0%2B%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%EF%BC%89.cpp"><span class="nm">1071（数学计数+容斥原理）.cpp</span></a><div class="mt">ACdream/1071（数学计数+容斥原理）.cpp · 783 B</div></div>
+<div class="item"><a href="code/ACdream/1072%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1072（dp）.cpp</span></a><div class="mt">ACdream/1072（dp）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/ACdream/1073%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">1073（贪心）.cpp</span></a><div class="mt">ACdream/1073（贪心）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1075%EF%BC%88%E5%B9%BF%E4%B9%89%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E6%B1%82%E5%BE%AA%E7%8E%AF%E8%8A%82%EF%BC%89.cpp"><span class="nm">1075（广义斐波那契数列求循环节）.cpp</span></a><div class="mt">ACdream/1075（广义斐波那契数列求循环节）.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1076%EF%BC%88dp%2B%E7%BD%AE%E6%8D%A2%2B%E5%BA%B7%E6%8B%93%E5%B1%95%E5%BC%80%EF%BC%89.cpp"><span class="nm">1076（dp+置换+康拓展开）.cpp</span></a><div class="mt">ACdream/1076（dp+置换+康拓展开）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1077%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89%EF%BC%88LCM%EF%BC%89.cpp"><span class="nm">1077（数学）（LCM）.cpp</span></a><div class="mt">ACdream/1077（数学）（LCM）.cpp · 761 B</div></div>
+<div class="item"><a href="code/ACdream/1079%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1079（dp）.cpp</span></a><div class="mt">ACdream/1079（dp）.cpp · 507 B</div></div>
+<div class="item"><a href="code/ACdream/1080%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1080（水题）.cpp</span></a><div class="mt">ACdream/1080（水题）.cpp · 514 B</div></div>
+<div class="item"><a href="code/ACdream/1081%EF%BC%88%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1081（组合数学）.cpp</span></a><div class="mt">ACdream/1081（组合数学）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1082%EF%BC%88%E6%A8%A1%E6%8B%9F%2Bmake_pair%EF%BC%89.cpp"><span class="nm">1082（模拟+make_pair）.cpp</span></a><div class="mt">ACdream/1082（模拟+make_pair）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1083%EF%BC%88%E5%8D%9A%E5%BC%88%2B%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BEdp%EF%BC%89.cpp"><span class="nm">1083（博弈+有向无环图dp）.cpp</span></a><div class="mt">ACdream/1083（博弈+有向无环图dp）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1084%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89%EF%BC%88%E9%98%B6%E4%B9%98K%E8%BF%9B%E5%88%B6%E4%B8%8B0%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%89.cpp"><span class="nm">1084（数学）（阶乘K进制下0的个数）.cpp</span></a><div class="mt">ACdream/1084（数学）（阶乘K进制下0的个数）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1086%EF%BC%88%E8%83%8C%E5%8C%85%2Bdp%EF%BC%89.cpp"><span class="nm">1086（背包+dp）.cpp</span></a><div class="mt">ACdream/1086（背包+dp）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1088%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89.cpp"><span class="nm">1088（构造）.cpp</span></a><div class="mt">ACdream/1088（构造）.cpp · 693 B</div></div>
+<div class="item"><a href="code/ACdream/1089%EF%BC%88%E4%BA%8C%E5%88%86%EF%BC%89.cpp"><span class="nm">1089（二分）.cpp</span></a><div class="mt">ACdream/1089（二分）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/ACdream/1090%EF%BC%88%E5%8D%9A%E5%BC%88%EF%BC%89.cpp"><span class="nm">1090（博弈）.cpp</span></a><div class="mt">ACdream/1090（博弈）.cpp · 377 B</div></div>
+<div class="item"><a href="code/ACdream/1092%EF%BC%88%E6%A6%82%E7%8E%87dp%EF%BC%89.cpp"><span class="nm">1092（概率dp）.cpp</span></a><div class="mt">ACdream/1092（概率dp）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1093%EF%BC%88%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%2B%E9%87%8D%E8%BD%BD%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97%EF%BC%89.cpp"><span class="nm">1093（矩阵快速幂+重载矩阵运算）.cpp</span></a><div class="mt">ACdream/1093（矩阵快速幂+重载矩阵运算）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1094%EF%BC%88%E5%87%A0%E4%BD%95%2B%E6%B1%82%E5%A4%96%E5%BF%83%EF%BC%89.cpp"><span class="nm">1094（几何+求外心）.cpp</span></a><div class="mt">ACdream/1094（几何+求外心）.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1095%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">1095（模拟）.cpp</span></a><div class="mt">ACdream/1095（模拟）.cpp · 746 B</div></div>
+<div class="item"><a href="code/ACdream/1096%EF%BC%88%E5%BC%82%E6%88%96%EF%BC%89.cpp"><span class="nm">1096（异或）.cpp</span></a><div class="mt">ACdream/1096（异或）.cpp · 531 B</div></div>
+<div class="item"><a href="code/ACdream/1097%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%2B%E7%9B%B4%E7%BA%BF%E4%B8%8E%E7%BA%BF%E6%AE%B5%E7%9B%B8%E4%BA%A4%EF%BC%89.cpp"><span class="nm">1097（计算几何+直线与线段相交）.cpp</span></a><div class="mt">ACdream/1097（计算几何+直线与线段相交）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/ACdream/1098%EF%BC%88%E7%AE%80%E5%8D%95%E5%87%A0%E4%BD%95%EF%BC%89.cpp"><span class="nm">1098（简单几何）.cpp</span></a><div class="mt">ACdream/1098（简单几何）.cpp · 675 B</div></div>
+<div class="item"><a href="code/ACdream/1099%EF%BC%88nth_element%EF%BC%89.cpp"><span class="nm">1099（nth_element）.cpp</span></a><div class="mt">ACdream/1099（nth_element）.cpp · 492 B</div></div>
+<div class="item"><a href="code/ACdream/1100%EF%BC%88Flody%2B%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%EF%BC%89.cpp"><span class="nm">1100（Flody+完全背包）.cpp</span></a><div class="mt">ACdream/1100（Flody+完全背包）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1100%EF%BC%88SpFa%2Bdp%EF%BC%89.cpp"><span class="nm">1100（SpFa+dp）.cpp</span></a><div class="mt">ACdream/1100（SpFa+dp）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1101%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%EF%BC%88%E5%8C%BA%E9%97%B4%E6%9B%BF%E6%8D%A2%2B%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2LCIS%EF%BC%89.cpp"><span class="nm">1101（线段树）（区间替换+区间查询LCIS）.cpp</span></a><div class="mt">ACdream/1101（线段树）（区间替换+区间查询LCIS）.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/ACdream/1102%EF%BC%88%E6%A0%91%E5%BD%A2dp%EF%BC%89.cpp"><span class="nm">1102（树形dp）.cpp</span></a><div class="mt">ACdream/1102（树形dp）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/ACdream/1102%EF%BC%88%E6%A0%91%E5%BD%A2dp%EF%BC%89%EF%BC%88%E8%83%8C%E5%8C%85dp%EF%BC%89.cpp"><span class="nm">1102（树形dp）（背包dp）.cpp</span></a><div class="mt">ACdream/1102（树形dp）（背包dp）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1103%EF%BC%88%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%2B%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%EF%BC%89.cpp"><span class="nm">1103（树链剖分+最小费用最大流）.cpp</span></a><div class="mt">ACdream/1103（树链剖分+最小费用最大流）.cpp · 6.9 KB</div></div>
+<div class="item"><a href="code/ACdream/1104%EF%BC%88Splay%2BHash%2B%E4%BA%8C%E5%88%86%EF%BC%89.cpp"><span class="nm">1104（Splay+Hash+二分）.cpp</span></a><div class="mt">ACdream/1104（Splay+Hash+二分）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/ACdream/1105%20%EF%BC%88DFS%EF%BC%89.cpp"><span class="nm">1105 （DFS）.cpp</span></a><div class="mt">ACdream/1105 （DFS）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/ACdream/1106%20%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%EF%BC%89.cpp"><span class="nm">1106 （计算几何）.cpp</span></a><div class="mt">ACdream/1106 （计算几何）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1107%EF%BC%88%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%2B%E7%A1%AE%E8%AE%A4%E6%8A%9B%E7%89%A9%E7%BA%BF%EF%BC%89.cpp"><span class="nm">1107（计算几何+确认抛物线）.cpp</span></a><div class="mt">ACdream/1107（计算几何+确认抛物线）.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/ACdream/1108%EF%BC%88%E8%8E%AB%E9%98%9F%E7%AE%97%E6%B3%95%EF%BC%89.cpp"><span class="nm">1108（莫队算法）.cpp</span></a><div class="mt">ACdream/1108（莫队算法）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/ACdream/1109%EF%BC%88%E9%9A%BE%E9%A2%98%EF%BC%89.cpp"><span class="nm">1109（难题）.cpp</span></a><div class="mt">ACdream/1109（难题）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/ACdream/1110%EF%BC%88dp%2B%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%EF%BC%89.cpp"><span class="nm">1110（dp+多重背包）.cpp</span></a><div class="mt">ACdream/1110（dp+多重背包）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/ACdream/1111%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1111（水题）.cpp</span></a><div class="mt">ACdream/1111（水题）.cpp · 450 B</div></div>
+<div class="item"><a href="code/ACdream/1112%EF%BC%88SG%E5%87%BD%E6%95%B0%EF%BC%89.cpp"><span class="nm">1112（SG函数）.cpp</span></a><div class="mt">ACdream/1112（SG函数）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/ACdream/1113%EF%BC%88%E6%A6%82%E7%8E%87dp%EF%BC%89.cpp"><span class="nm">1113（概率dp）.cpp</span></a><div class="mt">ACdream/1113（概率dp）.cpp · 798 B</div></div>
+<div class="item"><a href="code/ACdream/1114%EF%BC%88%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%EF%BC%89.cpp"><span class="nm">1114（莫比乌斯反演）.cpp</span></a><div class="mt">ACdream/1114（莫比乌斯反演）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/ACdream/1115%EF%BC%88dfs%E6%89%93%E8%A1%A8%EF%BC%89.cpp"><span class="nm">1115（dfs打表）.cpp</span></a><div class="mt">ACdream/1115（dfs打表）.cpp · 811 B</div></div>
+<div class="item"><a href="code/ACdream/1115%EF%BC%88%E6%89%93%E8%A1%A8%26%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%89.cpp"><span class="nm">1115（打表&amp;数学推导）.cpp</span></a><div class="mt">ACdream/1115（打表&amp;数学推导）.cpp · 579 B</div></div>
+<div class="item"><a href="code/ACdream/1116%EF%BC%88%E6%89%A9%E5%B1%95KMP%2B%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1116（扩展KMP+矩阵快速幂）.cpp</span></a><div class="mt">ACdream/1116（扩展KMP+矩阵快速幂）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/AtCoder/abc139/A%20-%20Tenki.cpp"><span class="nm">A - Tenki.cpp</span></a><div class="mt">AtCoder/abc139/A - Tenki.cpp · 240 B</div></div>
+<div class="item"><a href="code/AtCoder/abc139/B%20-%20Power%20Socket.cpp"><span class="nm">B - Power Socket.cpp</span></a><div class="mt">AtCoder/abc139/B - Power Socket.cpp · 278 B</div></div>
+<div class="item"><a href="code/AtCoder/abc139/C%20-%20Lower.cpp"><span class="nm">C - Lower.cpp</span></a><div class="mt">AtCoder/abc139/C - Lower.cpp · 352 B</div></div>
+<div class="item"><a href="code/AtCoder/abc139/D%20-%20ModSum.cpp"><span class="nm">D - ModSum.cpp</span></a><div class="mt">AtCoder/abc139/D - ModSum.cpp · 205 B</div></div>
+<div class="item"><a href="code/AtCoder/abc139/E%20-%20League.cpp"><span class="nm">E - League.cpp</span></a><div class="mt">AtCoder/abc139/E - League.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/AtCoder/abc139/F%20-%20Engines.cpp"><span class="nm">F - Engines.cpp</span></a><div class="mt">AtCoder/abc139/F - Engines.cpp · 714 B</div></div>
+<div class="item"><a href="code/BZOJ/1000%EF%BC%88A%2BB%EF%BC%89.cpp"><span class="nm">1000（A+B）.cpp</span></a><div class="mt">BZOJ/1000（A+B）.cpp · 135 B</div></div>
+<div class="item"><a href="code/BZOJ/1001%EF%BC%88%E5%AF%B9%E5%81%B6%E5%9B%BE%E6%B1%82%E6%9C%80%E5%B0%8F%E5%89%B2%EF%BC%89.cpp"><span class="nm">1001（对偶图求最小割）.cpp</span></a><div class="mt">BZOJ/1001（对偶图求最小割）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/BZOJ/1026%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">1026（数位dp）.cpp</span></a><div class="mt">BZOJ/1026（数位dp）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/BZOJ/2301%EF%BC%88%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%EF%BC%89.cpp"><span class="nm">2301（莫比乌斯反演）.cpp</span></a><div class="mt">BZOJ/2301（莫比乌斯反演）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/BZOJ/2820%EF%BC%88%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%EF%BC%89.cpp"><span class="nm">2820（莫比乌斯反演）.cpp</span></a><div class="mt">BZOJ/2820（莫比乌斯反演）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/BZOJ/3209%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">3209（数位dp）.cpp</span></a><div class="mt">BZOJ/3209（数位dp）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/BZOJ/3224%EF%BC%88splay%E6%A8%A1%E6%9D%BF%EF%BC%89.cpp"><span class="nm">3224（splay模板）.cpp</span></a><div class="mt">BZOJ/3224（splay模板）.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/BZOJ/3944%EF%BC%88%E6%9D%9C%E6%95%99%E7%AD%9B%EF%BC%89.cpp"><span class="nm">3944（杜教筛）.cpp</span></a><div class="mt">BZOJ/3944（杜教筛）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ%201013%20%EF%BC%88%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">BZOJ 1013 （高斯消元）.cpp</span></a><div class="mt">BZOJ/BZOJ 1013 （高斯消元）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ%203456%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86%2BNTT%EF%BC%89.cpp"><span class="nm">BZOJ 3456（多项式求逆+NTT）.cpp</span></a><div class="mt">BZOJ/BZOJ 3456（多项式求逆+NTT）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ%204555%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86%EF%BC%89.cpp"><span class="nm">BZOJ 4555（多项式求逆）.cpp</span></a><div class="mt">BZOJ/BZOJ 4555（多项式求逆）.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ1061%EF%BC%88%E5%AF%B9%E5%81%B6%E5%8E%9F%E5%88%99%2B%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89.cpp"><span class="nm">BZOJ1061（对偶原则+单纯形）.cpp</span></a><div class="mt">BZOJ/BZOJ1061（对偶原则+单纯形）.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ3112%EF%BC%88%E5%AF%B9%E5%81%B6%E5%8E%9F%E5%88%99%2B%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89.cpp"><span class="nm">BZOJ3112（对偶原则+单纯形）.cpp</span></a><div class="mt">BZOJ/BZOJ3112（对偶原则+单纯形）.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ3265%EF%BC%881061%E5%8A%A0%E5%BC%BA%E7%89%88%EF%BC%89.cpp"><span class="nm">BZOJ3265（1061加强版）.cpp</span></a><div class="mt">BZOJ/BZOJ3265（1061加强版）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/BZOJ/BZOJ3550%EF%BC%88%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89%EF%BC%88%E6%9D%83%E9%99%90%E9%A2%98%EF%BC%89.cpp"><span class="nm">BZOJ3550（单纯形）（权限题）.cpp</span></a><div class="mt">BZOJ/BZOJ3550（单纯形）（权限题）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1225A.cpp"><span class="nm">1225A.cpp</span></a><div class="mt">Codeforces/Math/1225A.cpp · 696 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1227A.cpp"><span class="nm">1227A.cpp</span></a><div class="mt">Codeforces/Math/1227A.cpp · 493 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1227F1.cpp"><span class="nm">1227F1.cpp</span></a><div class="mt">Codeforces/Math/1227F1.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1227F2.cpp"><span class="nm">1227F2.cpp</span></a><div class="mt">Codeforces/Math/1227F2.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1242A.cpp"><span class="nm">1242A.cpp</span></a><div class="mt">Codeforces/Math/1242A.cpp · 666 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1245A.cpp"><span class="nm">1245A.cpp</span></a><div class="mt">Codeforces/Math/1245A.cpp · 582 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1253C.cpp"><span class="nm">1253C.cpp</span></a><div class="mt">Codeforces/Math/1253C.cpp · 503 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1254B1.cpp"><span class="nm">1254B1.cpp</span></a><div class="mt">Codeforces/Math/1254B1.cpp · 965 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1255A.cpp"><span class="nm">1255A.cpp</span></a><div class="mt">Codeforces/Math/1255A.cpp · 446 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1256A.cpp"><span class="nm">1256A.cpp</span></a><div class="mt">Codeforces/Math/1256A.cpp · 618 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1257A.cpp"><span class="nm">1257A.cpp</span></a><div class="mt">Codeforces/Math/1257A.cpp · 370 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1257B.cpp"><span class="nm">1257B.cpp</span></a><div class="mt">Codeforces/Math/1257B.cpp · 525 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1257G.cpp"><span class="nm">1257G.cpp</span></a><div class="mt">Codeforces/Math/1257G.cpp · 7.1 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1260A.cpp"><span class="nm">1260A.cpp</span></a><div class="mt">Codeforces/Math/1260A.cpp · 325 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1260B.cpp"><span class="nm">1260B.cpp</span></a><div class="mt">Codeforces/Math/1260B.cpp · 315 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1260C.cpp"><span class="nm">1260C.cpp</span></a><div class="mt">Codeforces/Math/1260C.cpp · 709 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1261F.cpp"><span class="nm">1261F.cpp</span></a><div class="mt">Codeforces/Math/1261F.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1263A.cpp"><span class="nm">1263A.cpp</span></a><div class="mt">Codeforces/Math/1263A.cpp · 263 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1263C.cpp"><span class="nm">1263C.cpp</span></a><div class="mt">Codeforces/Math/1263C.cpp · 369 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1265B.cpp"><span class="nm">1265B.cpp</span></a><div class="mt">Codeforces/Math/1265B.cpp · 723 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1265E%28%E6%9C%9F%E6%9C%9Bdp%29.cpp"><span class="nm">1265E(期望dp).cpp</span></a><div class="mt">Codeforces/Math/1265E(期望dp).cpp · 982 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1266A.cpp"><span class="nm">1266A.cpp</span></a><div class="mt">Codeforces/Math/1266A.cpp · 864 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1266B.cpp"><span class="nm">1266B.cpp</span></a><div class="mt">Codeforces/Math/1266B.cpp · 873 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1267G.cpp"><span class="nm">1267G.cpp</span></a><div class="mt">Codeforces/Math/1267G.cpp · 976 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1267J.cpp"><span class="nm">1267J.cpp</span></a><div class="mt">Codeforces/Math/1267J.cpp · 1017 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1267K.cpp"><span class="nm">1267K.cpp</span></a><div class="mt">Codeforces/Math/1267K.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1269A.cpp"><span class="nm">1269A.cpp</span></a><div class="mt">Codeforces/Math/1269A.cpp · 694 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1271A.cpp"><span class="nm">1271A.cpp</span></a><div class="mt">Codeforces/Math/1271A.cpp · 579 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1271B.cpp"><span class="nm">1271B.cpp</span></a><div class="mt">Codeforces/Math/1271B.cpp · 772 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1271E.cpp"><span class="nm">1271E.cpp</span></a><div class="mt">Codeforces/Math/1271E.cpp · 713 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1272A.cpp"><span class="nm">1272A.cpp</span></a><div class="mt">Codeforces/Math/1272A.cpp · 684 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1276C.cpp"><span class="nm">1276C.cpp</span></a><div class="mt">Codeforces/Math/1276C.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1277D.cpp"><span class="nm">1277D.cpp</span></a><div class="mt">Codeforces/Math/1277D.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/1278B.cpp"><span class="nm">1278B.cpp</span></a><div class="mt">Codeforces/Math/1278B.cpp · 700 B</div></div>
+<div class="item"><a href="code/Codeforces/Math/1280A%28modnum%29.cpp"><span class="nm">1280A(modnum).cpp</span></a><div class="mt">Codeforces/Math/1280A(modnum).cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/Codeforces/Math/run.sh"><span class="nm">run.sh</span></a><div class="mt">Codeforces/Math/run.sh · 116 B</div></div>
+<div class="item"><a href="code/FZU/1001%EF%BC%88A%2BB%EF%BC%89.cpp"><span class="nm">1001（A+B）.cpp</span></a><div class="mt">FZU/1001（A+B）.cpp · 268 B</div></div>
+<div class="item"><a href="code/FZU/1013%EF%BC%88%E9%9A%8F%E6%9C%BA%E8%BE%93%E5%87%BA%EF%BC%89%EF%BC%88%E4%BA%BA%E5%93%81%E9%A2%98%EF%BC%89.cpp"><span class="nm">1013（随机输出）（人品题）.cpp</span></a><div class="mt">FZU/1013（随机输出）（人品题）.cpp · 278 B</div></div>
+<div class="item"><a href="code/FZU/2203%EF%BC%88%E4%BA%8C%E5%88%86%EF%BC%89.cpp"><span class="nm">2203（二分）.cpp</span></a><div class="mt">FZU/2203（二分）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/FZU/2229%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">2229（水题）.cpp</span></a><div class="mt">FZU/2229（水题）.cpp · 413 B</div></div>
+<div class="item"><a href="code/FZU/2230%EF%BC%88%E5%8D%9A%E5%BC%88%EF%BC%89.cpp"><span class="nm">2230（博弈）.cpp</span></a><div class="mt">FZU/2230（博弈）.cpp · 721 B</div></div>
+<div class="item"><a href="code/FZU/2252%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">2252（贪心）.cpp</span></a><div class="mt">FZU/2252（贪心）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1000%28A%2BB%29.cpp"><span class="nm">1000(A+B).cpp</span></a><div class="mt">HDUOJ/1000(A+B).cpp · 123 B</div></div>
+<div class="item"><a href="code/HDUOJ/1001%28%E6%B0%B4%E9%A2%98%29.cpp"><span class="nm">1001(水题).cpp</span></a><div class="mt">HDUOJ/1001(水题).cpp · 236 B</div></div>
+<div class="item"><a href="code/HDUOJ/1002%EF%BC%88%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95%EF%BC%89.cpp"><span class="nm">1002（大数加法）.cpp</span></a><div class="mt">HDUOJ/1002（大数加法）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1003%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1003（dp）.cpp</span></a><div class="mt">HDUOJ/1003（dp）.cpp · 678 B</div></div>
+<div class="item"><a href="code/HDUOJ/1004%28%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BB%9F%E8%AE%A1%29.cpp"><span class="nm">1004(字符串统计).cpp</span></a><div class="mt">HDUOJ/1004(字符串统计).cpp · 604 B</div></div>
+<div class="item"><a href="code/HDUOJ/1005%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1005（dp）.cpp</span></a><div class="mt">HDUOJ/1005（dp）.cpp · 339 B</div></div>
+<div class="item"><a href="code/HDUOJ/1006%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">1006（模拟）.cpp</span></a><div class="mt">HDUOJ/1006（模拟）.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1007.cpp"><span class="nm">1007.cpp</span></a><div class="mt">HDUOJ/1007.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1008%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">1008（模拟）.cpp</span></a><div class="mt">HDUOJ/1008（模拟）.cpp · 447 B</div></div>
+<div class="item"><a href="code/HDUOJ/1010.cpp"><span class="nm">1010.cpp</span></a><div class="mt">HDUOJ/1010.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1012%EF%BC%88%E6%95%B0%E5%AD%A6%E9%A2%98%EF%BC%89.cpp"><span class="nm">1012（数学题）.cpp</span></a><div class="mt">HDUOJ/1012（数学题）.cpp · 524 B</div></div>
+<div class="item"><a href="code/HDUOJ/1013%EF%BC%88%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%EF%BC%89.cpp"><span class="nm">1013（数值计算）.cpp</span></a><div class="mt">HDUOJ/1013（数值计算）.cpp · 414 B</div></div>
+<div class="item"><a href="code/HDUOJ/1014%EF%BC%88GCD%EF%BC%89.cpp"><span class="nm">1014（GCD）.cpp</span></a><div class="mt">HDUOJ/1014（GCD）.cpp · 403 B</div></div>
+<div class="item"><a href="code/HDUOJ/1015.cpp"><span class="nm">1015.cpp</span></a><div class="mt">HDUOJ/1015.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1016.cpp"><span class="nm">1016.cpp</span></a><div class="mt">HDUOJ/1016.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1017%28%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%29.cpp"><span class="nm">1017(暴力枚举).cpp</span></a><div class="mt">HDUOJ/1017(暴力枚举).cpp · 622 B</div></div>
+<div class="item"><a href="code/HDUOJ/1018.cpp"><span class="nm">1018.cpp</span></a><div class="mt">HDUOJ/1018.cpp · 284 B</div></div>
+<div class="item"><a href="code/HDUOJ/1019%EF%BC%88LCM%EF%BC%89.cpp"><span class="nm">1019（LCM）.cpp</span></a><div class="mt">HDUOJ/1019（LCM）.cpp · 425 B</div></div>
+<div class="item"><a href="code/HDUOJ/1021%EF%BC%88%E6%89%BE%E8%A7%84%E5%BE%8B%EF%BC%89.cpp"><span class="nm">1021（找规律）.cpp</span></a><div class="mt">HDUOJ/1021（找规律）.cpp · 322 B</div></div>
+<div class="item"><a href="code/HDUOJ/1022.cpp"><span class="nm">1022.cpp</span></a><div class="mt">HDUOJ/1022.cpp · 982 B</div></div>
+<div class="item"><a href="code/HDUOJ/1026.cpp"><span class="nm">1026.cpp</span></a><div class="mt">HDUOJ/1026.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1027.cpp"><span class="nm">1027.cpp</span></a><div class="mt">HDUOJ/1027.cpp · 388 B</div></div>
+<div class="item"><a href="code/HDUOJ/1028%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1028（dp）.cpp</span></a><div class="mt">HDUOJ/1028（dp）.cpp · 492 B</div></div>
+<div class="item"><a href="code/HDUOJ/1029%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1029（水题）.cpp</span></a><div class="mt">HDUOJ/1029（水题）.cpp · 279 B</div></div>
+<div class="item"><a href="code/HDUOJ/1030.cpp"><span class="nm">1030.cpp</span></a><div class="mt">HDUOJ/1030.cpp · 768 B</div></div>
+<div class="item"><a href="code/HDUOJ/1032%EF%BC%88%E6%9A%B4%E5%8A%9B%EF%BC%89.cpp"><span class="nm">1032（暴力）.cpp</span></a><div class="mt">HDUOJ/1032（暴力）.cpp · 541 B</div></div>
+<div class="item"><a href="code/HDUOJ/1035.cpp"><span class="nm">1035.cpp</span></a><div class="mt">HDUOJ/1035.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1040%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1040（水题）.cpp</span></a><div class="mt">HDUOJ/1040（水题）.cpp · 486 B</div></div>
+<div class="item"><a href="code/HDUOJ/1048%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89.cpp"><span class="nm">1048（字符串）.cpp</span></a><div class="mt">HDUOJ/1048（字符串）.cpp · 445 B</div></div>
+<div class="item"><a href="code/HDUOJ/1051.cpp"><span class="nm">1051.cpp</span></a><div class="mt">HDUOJ/1051.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1056%EF%BC%88%E6%95%B0%E5%AD%A6%E9%A2%98%EF%BC%89.cpp"><span class="nm">1056（数学题）.cpp</span></a><div class="mt">HDUOJ/1056（数学题）.cpp · 330 B</div></div>
+<div class="item"><a href="code/HDUOJ/1058%EF%BC%88%E6%89%93%E8%A1%A8%2B%E6%9A%B4%E5%8A%9B%EF%BC%89.cpp"><span class="nm">1058（打表+暴力）.cpp</span></a><div class="mt">HDUOJ/1058（打表+暴力）.cpp · 839 B</div></div>
+<div class="item"><a href="code/HDUOJ/1060%EF%BC%88%E6%B1%82%E6%9C%80%E5%B7%A6%E4%BD%8D%E5%85%AC%E5%BC%8F%EF%BC%89.cpp"><span class="nm">1060（求最左位公式）.cpp</span></a><div class="mt">HDUOJ/1060（求最左位公式）.cpp · 276 B</div></div>
+<div class="item"><a href="code/HDUOJ/1061%EF%BC%88%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1061（快速幂）.cpp</span></a><div class="mt">HDUOJ/1061（快速幂）.cpp · 392 B</div></div>
+<div class="item"><a href="code/HDUOJ/1065.cpp"><span class="nm">1065.cpp</span></a><div class="mt">HDUOJ/1065.cpp · 443 B</div></div>
+<div class="item"><a href="code/HDUOJ/1070%EF%BC%88%E6%95%B0%E5%AD%A6%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">1070（数学水题）.cpp</span></a><div class="mt">HDUOJ/1070（数学水题）.cpp · 612 B</div></div>
+<div class="item"><a href="code/HDUOJ/1071.cpp"><span class="nm">1071.cpp</span></a><div class="mt">HDUOJ/1071.cpp · 585 B</div></div>
+<div class="item"><a href="code/HDUOJ/1072.cpp"><span class="nm">1072.cpp</span></a><div class="mt">HDUOJ/1072.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1075.cpp"><span class="nm">1075.cpp</span></a><div class="mt">HDUOJ/1075.cpp · 814 B</div></div>
+<div class="item"><a href="code/HDUOJ/1076%EF%BC%88%E6%95%B0%E5%AD%A6%E9%A2%98%EF%BC%89.cpp"><span class="nm">1076（数学题）.cpp</span></a><div class="mt">HDUOJ/1076（数学题）.cpp · 420 B</div></div>
+<div class="item"><a href="code/HDUOJ/1089.cpp"><span class="nm">1089.cpp</span></a><div class="mt">HDUOJ/1089.cpp · 146 B</div></div>
+<div class="item"><a href="code/HDUOJ/1090.cpp"><span class="nm">1090.cpp</span></a><div class="mt">HDUOJ/1090.cpp · 195 B</div></div>
+<div class="item"><a href="code/HDUOJ/1091.cpp"><span class="nm">1091.cpp</span></a><div class="mt">HDUOJ/1091.cpp · 203 B</div></div>
+<div class="item"><a href="code/HDUOJ/1092.cpp"><span class="nm">1092.cpp</span></a><div class="mt">HDUOJ/1092.cpp · 203 B</div></div>
+<div class="item"><a href="code/HDUOJ/1093.cpp"><span class="nm">1093.cpp</span></a><div class="mt">HDUOJ/1093.cpp · 368 B</div></div>
+<div class="item"><a href="code/HDUOJ/1094.cpp"><span class="nm">1094.cpp</span></a><div class="mt">HDUOJ/1094.cpp · 209 B</div></div>
+<div class="item"><a href="code/HDUOJ/1095.cpp"><span class="nm">1095.cpp</span></a><div class="mt">HDUOJ/1095.cpp · 145 B</div></div>
+<div class="item"><a href="code/HDUOJ/1096.cpp"><span class="nm">1096.cpp</span></a><div class="mt">HDUOJ/1096.cpp · 277 B</div></div>
+<div class="item"><a href="code/HDUOJ/1097%EF%BC%88%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">1097（快速幂）.cpp</span></a><div class="mt">HDUOJ/1097（快速幂）.cpp · 368 B</div></div>
+<div class="item"><a href="code/HDUOJ/1098%EF%BC%88%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%EF%BC%89.cpp"><span class="nm">1098（费马小定理）.cpp</span></a><div class="mt">HDUOJ/1098（费马小定理）.cpp · 404 B</div></div>
+<div class="item"><a href="code/HDUOJ/1106.cpp"><span class="nm">1106.cpp</span></a><div class="mt">HDUOJ/1106.cpp · 526 B</div></div>
+<div class="item"><a href="code/HDUOJ/1108.cpp"><span class="nm">1108.cpp</span></a><div class="mt">HDUOJ/1108.cpp · 328 B</div></div>
+<div class="item"><a href="code/HDUOJ/1115.cpp"><span class="nm">1115.cpp</span></a><div class="mt">HDUOJ/1115.cpp · 890 B</div></div>
+<div class="item"><a href="code/HDUOJ/1128.cpp"><span class="nm">1128.cpp</span></a><div class="mt">HDUOJ/1128.cpp · 272 B</div></div>
+<div class="item"><a href="code/HDUOJ/1134%EF%BC%88%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0%EF%BC%89.cpp"><span class="nm">1134（高精度卡特兰数）.cpp</span></a><div class="mt">HDUOJ/1134（高精度卡特兰数）.cpp · 6.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1141.cpp"><span class="nm">1141.cpp</span></a><div class="mt">HDUOJ/1141.cpp · 554 B</div></div>
+<div class="item"><a href="code/HDUOJ/1157.cpp"><span class="nm">1157.cpp</span></a><div class="mt">HDUOJ/1157.cpp · 337 B</div></div>
+<div class="item"><a href="code/HDUOJ/1162.cpp"><span class="nm">1162.cpp</span></a><div class="mt">HDUOJ/1162.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1163.cpp"><span class="nm">1163.cpp</span></a><div class="mt">HDUOJ/1163.cpp · 420 B</div></div>
+<div class="item"><a href="code/HDUOJ/1164.cpp"><span class="nm">1164.cpp</span></a><div class="mt">HDUOJ/1164.cpp · 620 B</div></div>
+<div class="item"><a href="code/HDUOJ/1165.cpp"><span class="nm">1165.cpp</span></a><div class="mt">HDUOJ/1165.cpp · 609 B</div></div>
+<div class="item"><a href="code/HDUOJ/1166%20%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%20%E5%8D%95%E7%82%B9%E5%A2%9E%E5%87%8F%E6%B1%82%E5%92%8C%29.cpp"><span class="nm">1166 （线段树 单点增减求和).cpp</span></a><div class="mt">HDUOJ/1166 （线段树 单点增减求和).cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1170.cpp"><span class="nm">1170.cpp</span></a><div class="mt">HDUOJ/1170.cpp · 750 B</div></div>
+<div class="item"><a href="code/HDUOJ/1174%EF%BC%88%E5%8F%89%E7%A7%AF%EF%BC%89.cpp"><span class="nm">1174（叉积）.cpp</span></a><div class="mt">HDUOJ/1174（叉积）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1175.cpp"><span class="nm">1175.cpp</span></a><div class="mt">HDUOJ/1175.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1180.cpp"><span class="nm">1180.cpp</span></a><div class="mt">HDUOJ/1180.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1181.cpp"><span class="nm">1181.cpp</span></a><div class="mt">HDUOJ/1181.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1194.cpp"><span class="nm">1194.cpp</span></a><div class="mt">HDUOJ/1194.cpp · 585 B</div></div>
+<div class="item"><a href="code/HDUOJ/1196.cpp"><span class="nm">1196.cpp</span></a><div class="mt">HDUOJ/1196.cpp · 441 B</div></div>
+<div class="item"><a href="code/HDUOJ/1197.cpp"><span class="nm">1197.cpp</span></a><div class="mt">HDUOJ/1197.cpp · 587 B</div></div>
+<div class="item"><a href="code/HDUOJ/1201.cpp"><span class="nm">1201.cpp</span></a><div class="mt">HDUOJ/1201.cpp · 793 B</div></div>
+<div class="item"><a href="code/HDUOJ/1202.cpp"><span class="nm">1202.cpp</span></a><div class="mt">HDUOJ/1202.cpp · 745 B</div></div>
+<div class="item"><a href="code/HDUOJ/1205.cpp"><span class="nm">1205.cpp</span></a><div class="mt">HDUOJ/1205.cpp · 720 B</div></div>
+<div class="item"><a href="code/HDUOJ/1209.cpp"><span class="nm">1209.cpp</span></a><div class="mt">HDUOJ/1209.cpp · 922 B</div></div>
+<div class="item"><a href="code/HDUOJ/1210.cpp"><span class="nm">1210.cpp</span></a><div class="mt">HDUOJ/1210.cpp · 458 B</div></div>
+<div class="item"><a href="code/HDUOJ/1212.cpp"><span class="nm">1212.cpp</span></a><div class="mt">HDUOJ/1212.cpp · 783 B</div></div>
+<div class="item"><a href="code/HDUOJ/1215.cpp"><span class="nm">1215.cpp</span></a><div class="mt">HDUOJ/1215.cpp · 290 B</div></div>
+<div class="item"><a href="code/HDUOJ/1219%EF%BC%88%E5%AD%97%E6%AF%8D%E7%BB%9F%E8%AE%A1%EF%BC%89.cpp"><span class="nm">1219（字母统计）.cpp</span></a><div class="mt">HDUOJ/1219（字母统计）.cpp · 481 B</div></div>
+<div class="item"><a href="code/HDUOJ/1220.cpp"><span class="nm">1220.cpp</span></a><div class="mt">HDUOJ/1220.cpp · 218 B</div></div>
+<div class="item"><a href="code/HDUOJ/1222.cpp"><span class="nm">1222.cpp</span></a><div class="mt">HDUOJ/1222.cpp · 315 B</div></div>
+<div class="item"><a href="code/HDUOJ/1228.cpp"><span class="nm">1228.cpp</span></a><div class="mt">HDUOJ/1228.cpp · 550 B</div></div>
+<div class="item"><a href="code/HDUOJ/1229.cpp"><span class="nm">1229.cpp</span></a><div class="mt">HDUOJ/1229.cpp · 434 B</div></div>
+<div class="item"><a href="code/HDUOJ/1230.cpp"><span class="nm">1230.cpp</span></a><div class="mt">HDUOJ/1230.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1233.cpp"><span class="nm">1233.cpp</span></a><div class="mt">HDUOJ/1233.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1234.cpp"><span class="nm">1234.cpp</span></a><div class="mt">HDUOJ/1234.cpp · 917 B</div></div>
+<div class="item"><a href="code/HDUOJ/1235.cpp"><span class="nm">1235.cpp</span></a><div class="mt">HDUOJ/1235.cpp · 526 B</div></div>
+<div class="item"><a href="code/HDUOJ/1236.cpp"><span class="nm">1236.cpp</span></a><div class="mt">HDUOJ/1236.cpp · 977 B</div></div>
+<div class="item"><a href="code/HDUOJ/1237.cpp"><span class="nm">1237.cpp</span></a><div class="mt">HDUOJ/1237.cpp · 774 B</div></div>
+<div class="item"><a href="code/HDUOJ/1238.cpp"><span class="nm">1238.cpp</span></a><div class="mt">HDUOJ/1238.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1239.cpp"><span class="nm">1239.cpp</span></a><div class="mt">HDUOJ/1239.cpp · 954 B</div></div>
+<div class="item"><a href="code/HDUOJ/1240.cpp"><span class="nm">1240.cpp</span></a><div class="mt">HDUOJ/1240.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1241.cpp"><span class="nm">1241.cpp</span></a><div class="mt">HDUOJ/1241.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1242.cpp"><span class="nm">1242.cpp</span></a><div class="mt">HDUOJ/1242.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1248.cpp"><span class="nm">1248.cpp</span></a><div class="mt">HDUOJ/1248.cpp · 598 B</div></div>
+<div class="item"><a href="code/HDUOJ/1253.cpp"><span class="nm">1253.cpp</span></a><div class="mt">HDUOJ/1253.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1254.cpp"><span class="nm">1254.cpp</span></a><div class="mt">HDUOJ/1254.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1259.cpp"><span class="nm">1259.cpp</span></a><div class="mt">HDUOJ/1259.cpp · 450 B</div></div>
+<div class="item"><a href="code/HDUOJ/1266.cpp"><span class="nm">1266.cpp</span></a><div class="mt">HDUOJ/1266.cpp · 749 B</div></div>
+<div class="item"><a href="code/HDUOJ/1276.cpp"><span class="nm">1276.cpp</span></a><div class="mt">HDUOJ/1276.cpp · 761 B</div></div>
+<div class="item"><a href="code/HDUOJ/1279.cpp"><span class="nm">1279.cpp</span></a><div class="mt">HDUOJ/1279.cpp · 640 B</div></div>
+<div class="item"><a href="code/HDUOJ/1282.cpp"><span class="nm">1282.cpp</span></a><div class="mt">HDUOJ/1282.cpp · 835 B</div></div>
+<div class="item"><a href="code/HDUOJ/1283.cpp"><span class="nm">1283.cpp</span></a><div class="mt">HDUOJ/1283.cpp · 804 B</div></div>
+<div class="item"><a href="code/HDUOJ/1286.cpp"><span class="nm">1286.cpp</span></a><div class="mt">HDUOJ/1286.cpp · 427 B</div></div>
+<div class="item"><a href="code/HDUOJ/1302.cpp"><span class="nm">1302.cpp</span></a><div class="mt">HDUOJ/1302.cpp · 833 B</div></div>
+<div class="item"><a href="code/HDUOJ/1303.cpp"><span class="nm">1303.cpp</span></a><div class="mt">HDUOJ/1303.cpp · 494 B</div></div>
+<div class="item"><a href="code/HDUOJ/1312.cpp"><span class="nm">1312.cpp</span></a><div class="mt">HDUOJ/1312.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1323.cpp"><span class="nm">1323.cpp</span></a><div class="mt">HDUOJ/1323.cpp · 818 B</div></div>
+<div class="item"><a href="code/HDUOJ/1326.cpp"><span class="nm">1326.cpp</span></a><div class="mt">HDUOJ/1326.cpp · 704 B</div></div>
+<div class="item"><a href="code/HDUOJ/1330.cpp"><span class="nm">1330.cpp</span></a><div class="mt">HDUOJ/1330.cpp · 547 B</div></div>
+<div class="item"><a href="code/HDUOJ/1334.cpp"><span class="nm">1334.cpp</span></a><div class="mt">HDUOJ/1334.cpp · 572 B</div></div>
+<div class="item"><a href="code/HDUOJ/1335.cpp"><span class="nm">1335.cpp</span></a><div class="mt">HDUOJ/1335.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1337.cpp"><span class="nm">1337.cpp</span></a><div class="mt">HDUOJ/1337.cpp · 123 B</div></div>
+<div class="item"><a href="code/HDUOJ/1339.cpp"><span class="nm">1339.cpp</span></a><div class="mt">HDUOJ/1339.cpp · 502 B</div></div>
+<div class="item"><a href="code/HDUOJ/1342.cpp"><span class="nm">1342.cpp</span></a><div class="mt">HDUOJ/1342.cpp · 485 B</div></div>
+<div class="item"><a href="code/HDUOJ/1370%EF%BC%88%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%EF%BC%89.cpp"><span class="nm">1370（中国剩余定理）.cpp</span></a><div class="mt">HDUOJ/1370（中国剩余定理）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1372.cpp"><span class="nm">1372.cpp</span></a><div class="mt">HDUOJ/1372.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1390.cpp"><span class="nm">1390.cpp</span></a><div class="mt">HDUOJ/1390.cpp · 543 B</div></div>
+<div class="item"><a href="code/HDUOJ/1391.cpp"><span class="nm">1391.cpp</span></a><div class="mt">HDUOJ/1391.cpp · 564 B</div></div>
+<div class="item"><a href="code/HDUOJ/1393.cpp"><span class="nm">1393.cpp</span></a><div class="mt">HDUOJ/1393.cpp · 556 B</div></div>
+<div class="item"><a href="code/HDUOJ/1394%20%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%E5%8D%95%E7%82%B9%E5%A2%9E%E5%87%8F%E6%B1%82%E5%92%8C.cpp"><span class="nm">1394 （线段树）单点增减求和.cpp</span></a><div class="mt">HDUOJ/1394 （线段树）单点增减求和.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1394%EF%BC%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%89.cpp"><span class="nm">1394（树状数组）.cpp</span></a><div class="mt">HDUOJ/1394（树状数组）.cpp · 895 B</div></div>
+<div class="item"><a href="code/HDUOJ/1402%28FFT%E6%A8%A1%E6%9D%BF%E9%A2%98%29.cpp"><span class="nm">1402(FFT模板题).cpp</span></a><div class="mt">HDUOJ/1402(FFT模板题).cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1405.cpp"><span class="nm">1405.cpp</span></a><div class="mt">HDUOJ/1405.cpp · 692 B</div></div>
+<div class="item"><a href="code/HDUOJ/1406.cpp"><span class="nm">1406.cpp</span></a><div class="mt">HDUOJ/1406.cpp · 798 B</div></div>
+<div class="item"><a href="code/HDUOJ/1407.cpp"><span class="nm">1407.cpp</span></a><div class="mt">HDUOJ/1407.cpp · 739 B</div></div>
+<div class="item"><a href="code/HDUOJ/1408.cpp"><span class="nm">1408.cpp</span></a><div class="mt">HDUOJ/1408.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1412.cpp"><span class="nm">1412.cpp</span></a><div class="mt">HDUOJ/1412.cpp · 728 B</div></div>
+<div class="item"><a href="code/HDUOJ/1418.cpp"><span class="nm">1418.cpp</span></a><div class="mt">HDUOJ/1418.cpp · 558 B</div></div>
+<div class="item"><a href="code/HDUOJ/1420.cpp"><span class="nm">1420.cpp</span></a><div class="mt">HDUOJ/1420.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1465.cpp"><span class="nm">1465.cpp</span></a><div class="mt">HDUOJ/1465.cpp · 632 B</div></div>
+<div class="item"><a href="code/HDUOJ/1491.cpp"><span class="nm">1491.cpp</span></a><div class="mt">HDUOJ/1491.cpp · 493 B</div></div>
+<div class="item"><a href="code/HDUOJ/1492.cpp"><span class="nm">1492.cpp</span></a><div class="mt">HDUOJ/1492.cpp · 636 B</div></div>
+<div class="item"><a href="code/HDUOJ/1500%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1500（dp）.cpp</span></a><div class="mt">HDUOJ/1500（dp）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1501%EF%BC%88dfs%EF%BC%89.cpp"><span class="nm">1501（dfs）.cpp</span></a><div class="mt">HDUOJ/1501（dfs）.cpp · 956 B</div></div>
+<div class="item"><a href="code/HDUOJ/1502%EF%BC%88dp%2B%E6%89%8B%E5%86%99%E5%A4%A7%E6%95%B0%EF%BC%89.cpp"><span class="nm">1502（dp+手写大数）.cpp</span></a><div class="mt">HDUOJ/1502（dp+手写大数）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1506.cpp"><span class="nm">1506.cpp</span></a><div class="mt">HDUOJ/1506.cpp · 948 B</div></div>
+<div class="item"><a href="code/HDUOJ/1509%EF%BC%88%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%89.cpp"><span class="nm">1509（优先队列）.cpp</span></a><div class="mt">HDUOJ/1509（优先队列）.cpp · 957 B</div></div>
+<div class="item"><a href="code/HDUOJ/1511%EF%BC%88dp%2B%E6%80%9D%E7%BB%B4%EF%BC%89.cpp"><span class="nm">1511（dp+思维）.cpp</span></a><div class="mt">HDUOJ/1511（dp+思维）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1512%EF%BC%88%E5%B7%A6%E5%81%8F%E6%A0%91%EF%BC%89.cpp"><span class="nm">1512（左偏树）.cpp</span></a><div class="mt">HDUOJ/1512（左偏树）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1515%EF%BC%88dfs%EF%BC%89.cpp"><span class="nm">1515（dfs）.cpp</span></a><div class="mt">HDUOJ/1515（dfs）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1518%EF%BC%88dfs%EF%BC%89.cpp"><span class="nm">1518（dfs）.cpp</span></a><div class="mt">HDUOJ/1518（dfs）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1539%EF%BC%88dfs%EF%BC%89.cpp"><span class="nm">1539（dfs）.cpp</span></a><div class="mt">HDUOJ/1539（dfs）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1544%EF%BC%88%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%E4%B8%AA%E6%95%B0%EF%BC%89.cpp"><span class="nm">1544（回文子串个数）.cpp</span></a><div class="mt">HDUOJ/1544（回文子串个数）.cpp · 813 B</div></div>
+<div class="item"><a href="code/HDUOJ/1548.cpp"><span class="nm">1548.cpp</span></a><div class="mt">HDUOJ/1548.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1555.cpp"><span class="nm">1555.cpp</span></a><div class="mt">HDUOJ/1555.cpp · 477 B</div></div>
+<div class="item"><a href="code/HDUOJ/1556%EF%BC%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%89%EF%BC%88%E5%8C%BA%E9%97%B4%E6%9B%B4%E6%96%B0%2B%E5%8D%95%E7%82%B9%E6%9F%A5%E8%AF%A2%EF%BC%89.cpp"><span class="nm">1556（树状数组）（区间更新+单点查询）.cpp</span></a><div class="mt">HDUOJ/1556（树状数组）（区间更新+单点查询）.cpp · 897 B</div></div>
+<div class="item"><a href="code/HDUOJ/1557.cpp"><span class="nm">1557.cpp</span></a><div class="mt">HDUOJ/1557.cpp · 795 B</div></div>
+<div class="item"><a href="code/HDUOJ/1562.cpp"><span class="nm">1562.cpp</span></a><div class="mt">HDUOJ/1562.cpp · 570 B</div></div>
+<div class="item"><a href="code/HDUOJ/1563.cpp"><span class="nm">1563.cpp</span></a><div class="mt">HDUOJ/1563.cpp · 827 B</div></div>
+<div class="item"><a href="code/HDUOJ/1576%EF%BC%88%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E6%B1%82%E9%80%86%E5%85%83%EF%BC%89.cpp"><span class="nm">1576（欧几里得求逆元）.cpp</span></a><div class="mt">HDUOJ/1576（欧几里得求逆元）.cpp · 803 B</div></div>
+<div class="item"><a href="code/HDUOJ/1576%EF%BC%88%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%E6%B1%82%E9%80%86%E5%85%83%EF%BC%89.cpp"><span class="nm">1576（费马小定理求逆元）.cpp</span></a><div class="mt">HDUOJ/1576（费马小定理求逆元）.cpp · 655 B</div></div>
+<div class="item"><a href="code/HDUOJ/1577.cpp"><span class="nm">1577.cpp</span></a><div class="mt">HDUOJ/1577.cpp · 516 B</div></div>
+<div class="item"><a href="code/HDUOJ/1587.cpp"><span class="nm">1587.cpp</span></a><div class="mt">HDUOJ/1587.cpp · 430 B</div></div>
+<div class="item"><a href="code/HDUOJ/1593.cpp"><span class="nm">1593.cpp</span></a><div class="mt">HDUOJ/1593.cpp · 819 B</div></div>
+<div class="item"><a href="code/HDUOJ/1597.cpp"><span class="nm">1597.cpp</span></a><div class="mt">HDUOJ/1597.cpp · 500 B</div></div>
+<div class="item"><a href="code/HDUOJ/1671.cpp"><span class="nm">1671.cpp</span></a><div class="mt">HDUOJ/1671.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1673.cpp"><span class="nm">1673.cpp</span></a><div class="mt">HDUOJ/1673.cpp · 437 B</div></div>
+<div class="item"><a href="code/HDUOJ/1677.cpp"><span class="nm">1677.cpp</span></a><div class="mt">HDUOJ/1677.cpp · 911 B</div></div>
+<div class="item"><a href="code/HDUOJ/1678.cpp"><span class="nm">1678.cpp</span></a><div class="mt">HDUOJ/1678.cpp · 529 B</div></div>
+<div class="item"><a href="code/HDUOJ/1695%20%28%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%29.cpp"><span class="nm">1695 (容斥原理).cpp</span></a><div class="mt">HDUOJ/1695 (容斥原理).cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1698%20%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%E6%88%90%E6%AE%B5%E6%9B%BF%E6%8D%A2.cpp"><span class="nm">1698 （线段树）成段替换.cpp</span></a><div class="mt">HDUOJ/1698 （线段树）成段替换.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1701.cpp"><span class="nm">1701.cpp</span></a><div class="mt">HDUOJ/1701.cpp · 563 B</div></div>
+<div class="item"><a href="code/HDUOJ/1702.cpp"><span class="nm">1702.cpp</span></a><div class="mt">HDUOJ/1702.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1708.cpp"><span class="nm">1708.cpp</span></a><div class="mt">HDUOJ/1708.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1716.cpp"><span class="nm">1716.cpp</span></a><div class="mt">HDUOJ/1716.cpp · 797 B</div></div>
+<div class="item"><a href="code/HDUOJ/1718.cpp"><span class="nm">1718.cpp</span></a><div class="mt">HDUOJ/1718.cpp · 576 B</div></div>
+<div class="item"><a href="code/HDUOJ/1720.cpp"><span class="nm">1720.cpp</span></a><div class="mt">HDUOJ/1720.cpp · 350 B</div></div>
+<div class="item"><a href="code/HDUOJ/1722.cpp"><span class="nm">1722.cpp</span></a><div class="mt">HDUOJ/1722.cpp · 199 B</div></div>
+<div class="item"><a href="code/HDUOJ/1727.cpp"><span class="nm">1727.cpp</span></a><div class="mt">HDUOJ/1727.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1728.cpp"><span class="nm">1728.cpp</span></a><div class="mt">HDUOJ/1728.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1754%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%20%E5%8D%95%E7%82%B9%E6%9B%BF%E6%8D%A2%E6%B1%82%E6%9C%80%E5%80%BC.cpp"><span class="nm">1754（线段树） 单点替换求最值.cpp</span></a><div class="mt">HDUOJ/1754（线段树） 单点替换求最值.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1785.cpp"><span class="nm">1785.cpp</span></a><div class="mt">HDUOJ/1785.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1798.cpp"><span class="nm">1798.cpp</span></a><div class="mt">HDUOJ/1798.cpp · 1000 B</div></div>
+<div class="item"><a href="code/HDUOJ/1799.cpp"><span class="nm">1799.cpp</span></a><div class="mt">HDUOJ/1799.cpp · 657 B</div></div>
+<div class="item"><a href="code/HDUOJ/1800%20%282%29.cpp"><span class="nm">1800 (2).cpp</span></a><div class="mt">HDUOJ/1800 (2).cpp · 496 B</div></div>
+<div class="item"><a href="code/HDUOJ/1800.cpp"><span class="nm">1800.cpp</span></a><div class="mt">HDUOJ/1800.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1840.cpp"><span class="nm">1840.cpp</span></a><div class="mt">HDUOJ/1840.cpp · 530 B</div></div>
+<div class="item"><a href="code/HDUOJ/1859.cpp"><span class="nm">1859.cpp</span></a><div class="mt">HDUOJ/1859.cpp · 608 B</div></div>
+<div class="item"><a href="code/HDUOJ/1862.cpp"><span class="nm">1862.cpp</span></a><div class="mt">HDUOJ/1862.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1868.cpp"><span class="nm">1868.cpp</span></a><div class="mt">HDUOJ/1868.cpp · 371 B</div></div>
+<div class="item"><a href="code/HDUOJ/1870.cpp"><span class="nm">1870.cpp</span></a><div class="mt">HDUOJ/1870.cpp · 265 B</div></div>
+<div class="item"><a href="code/HDUOJ/1877.cpp"><span class="nm">1877.cpp</span></a><div class="mt">HDUOJ/1877.cpp · 601 B</div></div>
+<div class="item"><a href="code/HDUOJ/1896.cpp"><span class="nm">1896.cpp</span></a><div class="mt">HDUOJ/1896.cpp · 742 B</div></div>
+<div class="item"><a href="code/HDUOJ/1898.cpp"><span class="nm">1898.cpp</span></a><div class="mt">HDUOJ/1898.cpp · 510 B</div></div>
+<div class="item"><a href="code/HDUOJ/1976.cpp"><span class="nm">1976.cpp</span></a><div class="mt">HDUOJ/1976.cpp · 831 B</div></div>
+<div class="item"><a href="code/HDUOJ/1977.cpp"><span class="nm">1977.cpp</span></a><div class="mt">HDUOJ/1977.cpp · 422 B</div></div>
+<div class="item"><a href="code/HDUOJ/1981.cpp"><span class="nm">1981.cpp</span></a><div class="mt">HDUOJ/1981.cpp · 784 B</div></div>
+<div class="item"><a href="code/HDUOJ/1983.cpp"><span class="nm">1983.cpp</span></a><div class="mt">HDUOJ/1983.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1984.cpp"><span class="nm">1984.cpp</span></a><div class="mt">HDUOJ/1984.cpp · 320 B</div></div>
+<div class="item"><a href="code/HDUOJ/1985.cpp"><span class="nm">1985.cpp</span></a><div class="mt">HDUOJ/1985.cpp · 707 B</div></div>
+<div class="item"><a href="code/HDUOJ/1986.cpp"><span class="nm">1986.cpp</span></a><div class="mt">HDUOJ/1986.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1987.cpp"><span class="nm">1987.cpp</span></a><div class="mt">HDUOJ/1987.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1988.cpp"><span class="nm">1988.cpp</span></a><div class="mt">HDUOJ/1988.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1990.cpp"><span class="nm">1990.cpp</span></a><div class="mt">HDUOJ/1990.cpp · 502 B</div></div>
+<div class="item"><a href="code/HDUOJ/1992%20%282%29%EF%BC%88%E7%8A%B6%E5%8E%8Bdp%EF%BC%89.cpp"><span class="nm">1992 (2)（状压dp）.cpp</span></a><div class="mt">HDUOJ/1992 (2)（状压dp）.cpp · 967 B</div></div>
+<div class="item"><a href="code/HDUOJ/1992%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">1992（dp）.cpp</span></a><div class="mt">HDUOJ/1992（dp）.cpp · 297 B</div></div>
+<div class="item"><a href="code/HDUOJ/1993.cpp"><span class="nm">1993.cpp</span></a><div class="mt">HDUOJ/1993.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1994.cpp"><span class="nm">1994.cpp</span></a><div class="mt">HDUOJ/1994.cpp · 606 B</div></div>
+<div class="item"><a href="code/HDUOJ/1997%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89.cpp"><span class="nm">1997（模拟）（汉诺塔）.cpp</span></a><div class="mt">HDUOJ/1997（模拟）（汉诺塔）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/1998%EF%BC%88Merzirac%E5%A5%87%E6%95%B0%E5%B9%BB%E6%96%B9%E7%94%9F%E6%88%90%E6%B3%95%E6%9E%84%E9%80%A0%EF%BC%89.cpp"><span class="nm">1998（Merzirac奇数幻方生成法构造）.cpp</span></a><div class="mt">HDUOJ/1998（Merzirac奇数幻方生成法构造）.cpp · 691 B</div></div>
+<div class="item"><a href="code/HDUOJ/1999.cpp"><span class="nm">1999.cpp</span></a><div class="mt">HDUOJ/1999.cpp · 565 B</div></div>
+<div class="item"><a href="code/HDUOJ/2000.cpp"><span class="nm">2000.cpp</span></a><div class="mt">HDUOJ/2000.cpp · 457 B</div></div>
+<div class="item"><a href="code/HDUOJ/2001.cpp"><span class="nm">2001.cpp</span></a><div class="mt">HDUOJ/2001.cpp · 416 B</div></div>
+<div class="item"><a href="code/HDUOJ/2002.cpp"><span class="nm">2002.cpp</span></a><div class="mt">HDUOJ/2002.cpp · 357 B</div></div>
+<div class="item"><a href="code/HDUOJ/2003.cpp"><span class="nm">2003.cpp</span></a><div class="mt">HDUOJ/2003.cpp · 310 B</div></div>
+<div class="item"><a href="code/HDUOJ/2004.cpp"><span class="nm">2004.cpp</span></a><div class="mt">HDUOJ/2004.cpp · 727 B</div></div>
+<div class="item"><a href="code/HDUOJ/2005.cpp"><span class="nm">2005.cpp</span></a><div class="mt">HDUOJ/2005.cpp · 603 B</div></div>
+<div class="item"><a href="code/HDUOJ/2006.cpp"><span class="nm">2006.cpp</span></a><div class="mt">HDUOJ/2006.cpp · 428 B</div></div>
+<div class="item"><a href="code/HDUOJ/2007.cpp"><span class="nm">2007.cpp</span></a><div class="mt">HDUOJ/2007.cpp · 474 B</div></div>
+<div class="item"><a href="code/HDUOJ/2008%20.cpp"><span class="nm">2008 .cpp</span></a><div class="mt">HDUOJ/2008 .cpp · 506 B</div></div>
+<div class="item"><a href="code/HDUOJ/2009.cpp"><span class="nm">2009.cpp</span></a><div class="mt">HDUOJ/2009.cpp · 408 B</div></div>
+<div class="item"><a href="code/HDUOJ/2010.cpp"><span class="nm">2010.cpp</span></a><div class="mt">HDUOJ/2010.cpp · 770 B</div></div>
+<div class="item"><a href="code/HDUOJ/2011.cpp"><span class="nm">2011.cpp</span></a><div class="mt">HDUOJ/2011.cpp · 522 B</div></div>
+<div class="item"><a href="code/HDUOJ/2012.cpp"><span class="nm">2012.cpp</span></a><div class="mt">HDUOJ/2012.cpp · 803 B</div></div>
+<div class="item"><a href="code/HDUOJ/2013.cpp"><span class="nm">2013.cpp</span></a><div class="mt">HDUOJ/2013.cpp · 428 B</div></div>
+<div class="item"><a href="code/HDUOJ/2014.cpp"><span class="nm">2014.cpp</span></a><div class="mt">HDUOJ/2014.cpp · 657 B</div></div>
+<div class="item"><a href="code/HDUOJ/2015.cpp"><span class="nm">2015.cpp</span></a><div class="mt">HDUOJ/2015.cpp · 729 B</div></div>
+<div class="item"><a href="code/HDUOJ/2016.cpp"><span class="nm">2016.cpp</span></a><div class="mt">HDUOJ/2016.cpp · 668 B</div></div>
+<div class="item"><a href="code/HDUOJ/2017.cpp"><span class="nm">2017.cpp</span></a><div class="mt">HDUOJ/2017.cpp · 469 B</div></div>
+<div class="item"><a href="code/HDUOJ/2018.cpp"><span class="nm">2018.cpp</span></a><div class="mt">HDUOJ/2018.cpp · 442 B</div></div>
+<div class="item"><a href="code/HDUOJ/2019.cpp"><span class="nm">2019.cpp</span></a><div class="mt">HDUOJ/2019.cpp · 571 B</div></div>
+<div class="item"><a href="code/HDUOJ/2020.cpp"><span class="nm">2020.cpp</span></a><div class="mt">HDUOJ/2020.cpp · 689 B</div></div>
+<div class="item"><a href="code/HDUOJ/2021.cpp"><span class="nm">2021.cpp</span></a><div class="mt">HDUOJ/2021.cpp · 627 B</div></div>
+<div class="item"><a href="code/HDUOJ/2022.cpp"><span class="nm">2022.cpp</span></a><div class="mt">HDUOJ/2022.cpp · 586 B</div></div>
+<div class="item"><a href="code/HDUOJ/2023.cpp"><span class="nm">2023.cpp</span></a><div class="mt">HDUOJ/2023.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2024.cpp"><span class="nm">2024.cpp</span></a><div class="mt">HDUOJ/2024.cpp · 846 B</div></div>
+<div class="item"><a href="code/HDUOJ/2025.cpp"><span class="nm">2025.cpp</span></a><div class="mt">HDUOJ/2025.cpp · 571 B</div></div>
+<div class="item"><a href="code/HDUOJ/2026.cpp"><span class="nm">2026.cpp</span></a><div class="mt">HDUOJ/2026.cpp · 555 B</div></div>
+<div class="item"><a href="code/HDUOJ/2027.cpp"><span class="nm">2027.cpp</span></a><div class="mt">HDUOJ/2027.cpp · 797 B</div></div>
+<div class="item"><a href="code/HDUOJ/2028.cpp"><span class="nm">2028.cpp</span></a><div class="mt">HDUOJ/2028.cpp · 649 B</div></div>
+<div class="item"><a href="code/HDUOJ/2029.cpp"><span class="nm">2029.cpp</span></a><div class="mt">HDUOJ/2029.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2030.cpp"><span class="nm">2030.cpp</span></a><div class="mt">HDUOJ/2030.cpp · 525 B</div></div>
+<div class="item"><a href="code/HDUOJ/2031.cpp"><span class="nm">2031.cpp</span></a><div class="mt">HDUOJ/2031.cpp · 738 B</div></div>
+<div class="item"><a href="code/HDUOJ/2032.cpp"><span class="nm">2032.cpp</span></a><div class="mt">HDUOJ/2032.cpp · 655 B</div></div>
+<div class="item"><a href="code/HDUOJ/2033.cpp"><span class="nm">2033.cpp</span></a><div class="mt">HDUOJ/2033.cpp · 614 B</div></div>
+<div class="item"><a href="code/HDUOJ/2034.cpp"><span class="nm">2034.cpp</span></a><div class="mt">HDUOJ/2034.cpp · 776 B</div></div>
+<div class="item"><a href="code/HDUOJ/2035.cpp"><span class="nm">2035.cpp</span></a><div class="mt">HDUOJ/2035.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2036.cpp"><span class="nm">2036.cpp</span></a><div class="mt">HDUOJ/2036.cpp · 624 B</div></div>
+<div class="item"><a href="code/HDUOJ/2037.cpp"><span class="nm">2037.cpp</span></a><div class="mt">HDUOJ/2037.cpp · 673 B</div></div>
+<div class="item"><a href="code/HDUOJ/2039.cpp"><span class="nm">2039.cpp</span></a><div class="mt">HDUOJ/2039.cpp · 454 B</div></div>
+<div class="item"><a href="code/HDUOJ/2040.cpp"><span class="nm">2040.cpp</span></a><div class="mt">HDUOJ/2040.cpp · 569 B</div></div>
+<div class="item"><a href="code/HDUOJ/2041.cpp"><span class="nm">2041.cpp</span></a><div class="mt">HDUOJ/2041.cpp · 496 B</div></div>
+<div class="item"><a href="code/HDUOJ/2042.cpp"><span class="nm">2042.cpp</span></a><div class="mt">HDUOJ/2042.cpp · 462 B</div></div>
+<div class="item"><a href="code/HDUOJ/2043.cpp"><span class="nm">2043.cpp</span></a><div class="mt">HDUOJ/2043.cpp · 951 B</div></div>
+<div class="item"><a href="code/HDUOJ/2044.cpp"><span class="nm">2044.cpp</span></a><div class="mt">HDUOJ/2044.cpp · 503 B</div></div>
+<div class="item"><a href="code/HDUOJ/2045.cpp"><span class="nm">2045.cpp</span></a><div class="mt">HDUOJ/2045.cpp · 282 B</div></div>
+<div class="item"><a href="code/HDUOJ/2046.cpp"><span class="nm">2046.cpp</span></a><div class="mt">HDUOJ/2046.cpp · 431 B</div></div>
+<div class="item"><a href="code/HDUOJ/2047.cpp"><span class="nm">2047.cpp</span></a><div class="mt">HDUOJ/2047.cpp · 456 B</div></div>
+<div class="item"><a href="code/HDUOJ/2048.cpp"><span class="nm">2048.cpp</span></a><div class="mt">HDUOJ/2048.cpp · 574 B</div></div>
+<div class="item"><a href="code/HDUOJ/2049.cpp"><span class="nm">2049.cpp</span></a><div class="mt">HDUOJ/2049.cpp · 649 B</div></div>
+<div class="item"><a href="code/HDUOJ/2051.cpp"><span class="nm">2051.cpp</span></a><div class="mt">HDUOJ/2051.cpp · 469 B</div></div>
+<div class="item"><a href="code/HDUOJ/2052.cpp"><span class="nm">2052.cpp</span></a><div class="mt">HDUOJ/2052.cpp · 456 B</div></div>
+<div class="item"><a href="code/HDUOJ/2053.cpp"><span class="nm">2053.cpp</span></a><div class="mt">HDUOJ/2053.cpp · 443 B</div></div>
+<div class="item"><a href="code/HDUOJ/2054.java"><span class="nm">2054.java</span></a><div class="mt">HDUOJ/2054.java · 592 B</div></div>
+<div class="item"><a href="code/HDUOJ/2055.cpp"><span class="nm">2055.cpp</span></a><div class="mt">HDUOJ/2055.cpp · 399 B</div></div>
+<div class="item"><a href="code/HDUOJ/2056.cpp"><span class="nm">2056.cpp</span></a><div class="mt">HDUOJ/2056.cpp · 759 B</div></div>
+<div class="item"><a href="code/HDUOJ/2058.cpp"><span class="nm">2058.cpp</span></a><div class="mt">HDUOJ/2058.cpp · 664 B</div></div>
+<div class="item"><a href="code/HDUOJ/2059.cpp"><span class="nm">2059.cpp</span></a><div class="mt">HDUOJ/2059.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2060.cpp"><span class="nm">2060.cpp</span></a><div class="mt">HDUOJ/2060.cpp · 781 B</div></div>
+<div class="item"><a href="code/HDUOJ/2061.cpp"><span class="nm">2061.cpp</span></a><div class="mt">HDUOJ/2061.cpp · 713 B</div></div>
+<div class="item"><a href="code/HDUOJ/2062.cpp"><span class="nm">2062.cpp</span></a><div class="mt">HDUOJ/2062.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2063%EF%BC%88%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D%EF%BC%89.cpp"><span class="nm">2063（二分图匹配）.cpp</span></a><div class="mt">HDUOJ/2063（二分图匹配）.cpp · 809 B</div></div>
+<div class="item"><a href="code/HDUOJ/2064%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89.cpp"><span class="nm">2064（汉诺塔）.cpp</span></a><div class="mt">HDUOJ/2064（汉诺塔）.cpp · 246 B</div></div>
+<div class="item"><a href="code/HDUOJ/2065.cpp"><span class="nm">2065.cpp</span></a><div class="mt">HDUOJ/2065.cpp · 507 B</div></div>
+<div class="item"><a href="code/HDUOJ/2066.cpp"><span class="nm">2066.cpp</span></a><div class="mt">HDUOJ/2066.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2067.cpp"><span class="nm">2067.cpp</span></a><div class="mt">HDUOJ/2067.cpp · 473 B</div></div>
+<div class="item"><a href="code/HDUOJ/2068.cpp"><span class="nm">2068.cpp</span></a><div class="mt">HDUOJ/2068.cpp · 542 B</div></div>
+<div class="item"><a href="code/HDUOJ/2069.cpp"><span class="nm">2069.cpp</span></a><div class="mt">HDUOJ/2069.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2070.cpp"><span class="nm">2070.cpp</span></a><div class="mt">HDUOJ/2070.cpp · 219 B</div></div>
+<div class="item"><a href="code/HDUOJ/2071.cpp"><span class="nm">2071.cpp</span></a><div class="mt">HDUOJ/2071.cpp · 463 B</div></div>
+<div class="item"><a href="code/HDUOJ/2073.cpp"><span class="nm">2073.cpp</span></a><div class="mt">HDUOJ/2073.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2074.cpp"><span class="nm">2074.cpp</span></a><div class="mt">HDUOJ/2074.cpp · 4.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2075.cpp"><span class="nm">2075.cpp</span></a><div class="mt">HDUOJ/2075.cpp · 229 B</div></div>
+<div class="item"><a href="code/HDUOJ/2076.cpp"><span class="nm">2076.cpp</span></a><div class="mt">HDUOJ/2076.cpp · 643 B</div></div>
+<div class="item"><a href="code/HDUOJ/2077%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89.cpp"><span class="nm">2077（汉诺塔）.cpp</span></a><div class="mt">HDUOJ/2077（汉诺塔）.cpp · 281 B</div></div>
+<div class="item"><a href="code/HDUOJ/2078.cpp"><span class="nm">2078.cpp</span></a><div class="mt">HDUOJ/2078.cpp · 475 B</div></div>
+<div class="item"><a href="code/HDUOJ/2079.cpp"><span class="nm">2079.cpp</span></a><div class="mt">HDUOJ/2079.cpp · 879 B</div></div>
+<div class="item"><a href="code/HDUOJ/2080.cpp"><span class="nm">2080.cpp</span></a><div class="mt">HDUOJ/2080.cpp · 718 B</div></div>
+<div class="item"><a href="code/HDUOJ/2081.cpp"><span class="nm">2081.cpp</span></a><div class="mt">HDUOJ/2081.cpp · 361 B</div></div>
+<div class="item"><a href="code/HDUOJ/2082%EF%BC%88%E6%99%AE%E9%80%9A%E6%AF%8D%E5%87%BD%E6%95%B0%EF%BC%89.cpp"><span class="nm">2082（普通母函数）.cpp</span></a><div class="mt">HDUOJ/2082（普通母函数）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2082%EF%BC%88%E6%AF%8D%E5%87%BD%E6%95%B0%EF%BC%89.cpp"><span class="nm">2082（母函数）.cpp</span></a><div class="mt">HDUOJ/2082（母函数）.cpp · 969 B</div></div>
+<div class="item"><a href="code/HDUOJ/2083.cpp"><span class="nm">2083.cpp</span></a><div class="mt">HDUOJ/2083.cpp · 376 B</div></div>
+<div class="item"><a href="code/HDUOJ/2084.cpp"><span class="nm">2084.cpp</span></a><div class="mt">HDUOJ/2084.cpp · 501 B</div></div>
+<div class="item"><a href="code/HDUOJ/2085.cpp"><span class="nm">2085.cpp</span></a><div class="mt">HDUOJ/2085.cpp · 341 B</div></div>
+<div class="item"><a href="code/HDUOJ/2086.cpp"><span class="nm">2086.cpp</span></a><div class="mt">HDUOJ/2086.cpp · 419 B</div></div>
+<div class="item"><a href="code/HDUOJ/2087.cpp"><span class="nm">2087.cpp</span></a><div class="mt">HDUOJ/2087.cpp · 501 B</div></div>
+<div class="item"><a href="code/HDUOJ/2088.cpp"><span class="nm">2088.cpp</span></a><div class="mt">HDUOJ/2088.cpp · 479 B</div></div>
+<div class="item"><a href="code/HDUOJ/2089%20%282%29.cpp"><span class="nm">2089 (2).cpp</span></a><div class="mt">HDUOJ/2089 (2).cpp · 978 B</div></div>
+<div class="item"><a href="code/HDUOJ/2089%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">2089（数位dp）.cpp</span></a><div class="mt">HDUOJ/2089（数位dp）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2090.cpp"><span class="nm">2090.cpp</span></a><div class="mt">HDUOJ/2090.cpp · 391 B</div></div>
+<div class="item"><a href="code/HDUOJ/2091.cpp"><span class="nm">2091.cpp</span></a><div class="mt">HDUOJ/2091.cpp · 536 B</div></div>
+<div class="item"><a href="code/HDUOJ/2092.cpp"><span class="nm">2092.cpp</span></a><div class="mt">HDUOJ/2092.cpp · 305 B</div></div>
+<div class="item"><a href="code/HDUOJ/2093.cpp"><span class="nm">2093.cpp</span></a><div class="mt">HDUOJ/2093.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2094.cpp"><span class="nm">2094.cpp</span></a><div class="mt">HDUOJ/2094.cpp · 565 B</div></div>
+<div class="item"><a href="code/HDUOJ/2095.cpp"><span class="nm">2095.cpp</span></a><div class="mt">HDUOJ/2095.cpp · 343 B</div></div>
+<div class="item"><a href="code/HDUOJ/2096.cpp"><span class="nm">2096.cpp</span></a><div class="mt">HDUOJ/2096.cpp · 415 B</div></div>
+<div class="item"><a href="code/HDUOJ/2097.cpp"><span class="nm">2097.cpp</span></a><div class="mt">HDUOJ/2097.cpp · 680 B</div></div>
+<div class="item"><a href="code/HDUOJ/2098.cpp"><span class="nm">2098.cpp</span></a><div class="mt">HDUOJ/2098.cpp · 775 B</div></div>
+<div class="item"><a href="code/HDUOJ/2099.cpp"><span class="nm">2099.cpp</span></a><div class="mt">HDUOJ/2099.cpp · 633 B</div></div>
+<div class="item"><a href="code/HDUOJ/2101.cpp"><span class="nm">2101.cpp</span></a><div class="mt">HDUOJ/2101.cpp · 160 B</div></div>
+<div class="item"><a href="code/HDUOJ/2102.cpp"><span class="nm">2102.cpp</span></a><div class="mt">HDUOJ/2102.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2103.cpp"><span class="nm">2103.cpp</span></a><div class="mt">HDUOJ/2103.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2104.cpp"><span class="nm">2104.cpp</span></a><div class="mt">HDUOJ/2104.cpp · 290 B</div></div>
+<div class="item"><a href="code/HDUOJ/2105.cpp"><span class="nm">2105.cpp</span></a><div class="mt">HDUOJ/2105.cpp · 344 B</div></div>
+<div class="item"><a href="code/HDUOJ/2106.cpp"><span class="nm">2106.cpp</span></a><div class="mt">HDUOJ/2106.cpp · 642 B</div></div>
+<div class="item"><a href="code/HDUOJ/2107.cpp"><span class="nm">2107.cpp</span></a><div class="mt">HDUOJ/2107.cpp · 256 B</div></div>
+<div class="item"><a href="code/HDUOJ/2108.cpp"><span class="nm">2108.cpp</span></a><div class="mt">HDUOJ/2108.cpp · 807 B</div></div>
+<div class="item"><a href="code/HDUOJ/2109.cpp"><span class="nm">2109.cpp</span></a><div class="mt">HDUOJ/2109.cpp · 777 B</div></div>
+<div class="item"><a href="code/HDUOJ/2113.cpp"><span class="nm">2113.cpp</span></a><div class="mt">HDUOJ/2113.cpp · 594 B</div></div>
+<div class="item"><a href="code/HDUOJ/2114.cpp"><span class="nm">2114.cpp</span></a><div class="mt">HDUOJ/2114.cpp · 521 B</div></div>
+<div class="item"><a href="code/HDUOJ/2115.cpp"><span class="nm">2115.cpp</span></a><div class="mt">HDUOJ/2115.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2116.cpp"><span class="nm">2116.cpp</span></a><div class="mt">HDUOJ/2116.cpp · 640 B</div></div>
+<div class="item"><a href="code/HDUOJ/2117.cpp"><span class="nm">2117.cpp</span></a><div class="mt">HDUOJ/2117.cpp · 249 B</div></div>
+<div class="item"><a href="code/HDUOJ/2123.cpp"><span class="nm">2123.cpp</span></a><div class="mt">HDUOJ/2123.cpp · 253 B</div></div>
+<div class="item"><a href="code/HDUOJ/2131.cpp"><span class="nm">2131.cpp</span></a><div class="mt">HDUOJ/2131.cpp · 585 B</div></div>
+<div class="item"><a href="code/HDUOJ/2132.cpp"><span class="nm">2132.cpp</span></a><div class="mt">HDUOJ/2132.cpp · 595 B</div></div>
+<div class="item"><a href="code/HDUOJ/2133.cpp"><span class="nm">2133.cpp</span></a><div class="mt">HDUOJ/2133.cpp · 961 B</div></div>
+<div class="item"><a href="code/HDUOJ/2134.cpp"><span class="nm">2134.cpp</span></a><div class="mt">HDUOJ/2134.cpp · 351 B</div></div>
+<div class="item"><a href="code/HDUOJ/2135.cpp"><span class="nm">2135.cpp</span></a><div class="mt">HDUOJ/2135.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2136.cpp"><span class="nm">2136.cpp</span></a><div class="mt">HDUOJ/2136.cpp · 704 B</div></div>
+<div class="item"><a href="code/HDUOJ/2137.cpp"><span class="nm">2137.cpp</span></a><div class="mt">HDUOJ/2137.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2138.cpp"><span class="nm">2138.cpp</span></a><div class="mt">HDUOJ/2138.cpp · 717 B</div></div>
+<div class="item"><a href="code/HDUOJ/2139.cpp"><span class="nm">2139.cpp</span></a><div class="mt">HDUOJ/2139.cpp · 517 B</div></div>
+<div class="item"><a href="code/HDUOJ/2141.cpp"><span class="nm">2141.cpp</span></a><div class="mt">HDUOJ/2141.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2143.cpp"><span class="nm">2143.cpp</span></a><div class="mt">HDUOJ/2143.cpp · 882 B</div></div>
+<div class="item"><a href="code/HDUOJ/2148.cpp"><span class="nm">2148.cpp</span></a><div class="mt">HDUOJ/2148.cpp · 669 B</div></div>
+<div class="item"><a href="code/HDUOJ/2153.cpp"><span class="nm">2153.cpp</span></a><div class="mt">HDUOJ/2153.cpp · 850 B</div></div>
+<div class="item"><a href="code/HDUOJ/2156.cpp"><span class="nm">2156.cpp</span></a><div class="mt">HDUOJ/2156.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2161.cpp"><span class="nm">2161.cpp</span></a><div class="mt">HDUOJ/2161.cpp · 513 B</div></div>
+<div class="item"><a href="code/HDUOJ/2162.cpp"><span class="nm">2162.cpp</span></a><div class="mt">HDUOJ/2162.cpp · 505 B</div></div>
+<div class="item"><a href="code/HDUOJ/2164.cpp"><span class="nm">2164.cpp</span></a><div class="mt">HDUOJ/2164.cpp · 796 B</div></div>
+<div class="item"><a href="code/HDUOJ/2175%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89.cpp"><span class="nm">2175（汉诺塔）.cpp</span></a><div class="mt">HDUOJ/2175（汉诺塔）.cpp · 429 B</div></div>
+<div class="item"><a href="code/HDUOJ/2178.cpp"><span class="nm">2178.cpp</span></a><div class="mt">HDUOJ/2178.cpp · 192 B</div></div>
+<div class="item"><a href="code/HDUOJ/2183%EF%BC%88%E6%9E%84%E9%80%A0%E5%B9%BB%E6%96%B9%EF%BC%89.cpp"><span class="nm">2183（构造幻方）.cpp</span></a><div class="mt">HDUOJ/2183（构造幻方）.cpp · 739 B</div></div>
+<div class="item"><a href="code/HDUOJ/2184%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89%EF%BC%88%E9%80%92%E5%BD%92%EF%BC%89.cpp"><span class="nm">2184（汉诺塔）（递归）.cpp</span></a><div class="mt">HDUOJ/2184（汉诺塔）（递归）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2186.cpp"><span class="nm">2186.cpp</span></a><div class="mt">HDUOJ/2186.cpp · 733 B</div></div>
+<div class="item"><a href="code/HDUOJ/2192.cpp"><span class="nm">2192.cpp</span></a><div class="mt">HDUOJ/2192.cpp · 725 B</div></div>
+<div class="item"><a href="code/HDUOJ/2197%EF%BC%88%E6%95%B0%E5%AD%A6%2B%E5%AE%B9%E6%96%A5%EF%BC%89.cpp"><span class="nm">2197（数学+容斥）.cpp</span></a><div class="mt">HDUOJ/2197（数学+容斥）.cpp · 746 B</div></div>
+<div class="item"><a href="code/HDUOJ/2200.cpp"><span class="nm">2200.cpp</span></a><div class="mt">HDUOJ/2200.cpp · 641 B</div></div>
+<div class="item"><a href="code/HDUOJ/2201.cpp"><span class="nm">2201.cpp</span></a><div class="mt">HDUOJ/2201.cpp · 349 B</div></div>
+<div class="item"><a href="code/HDUOJ/2212.cpp"><span class="nm">2212.cpp</span></a><div class="mt">HDUOJ/2212.cpp · 342 B</div></div>
+<div class="item"><a href="code/HDUOJ/2303%EF%BC%88%E7%B4%A0%E6%95%B0%E7%AD%9B%E9%80%89%2B%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86%EF%BC%89.cpp"><span class="nm">2303（素数筛选+同余定理）.cpp</span></a><div class="mt">HDUOJ/2303（素数筛选+同余定理）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2304.cpp"><span class="nm">2304.cpp</span></a><div class="mt">HDUOJ/2304.cpp · 509 B</div></div>
+<div class="item"><a href="code/HDUOJ/2309.cpp"><span class="nm">2309.cpp</span></a><div class="mt">HDUOJ/2309.cpp · 311 B</div></div>
+<div class="item"><a href="code/HDUOJ/2317.cpp"><span class="nm">2317.cpp</span></a><div class="mt">HDUOJ/2317.cpp · 323 B</div></div>
+<div class="item"><a href="code/HDUOJ/2368%EF%BC%88%E6%B0%B4%E9%A2%98%EF%BC%89.cpp"><span class="nm">2368（水题）.cpp</span></a><div class="mt">HDUOJ/2368（水题）.cpp · 362 B</div></div>
+<div class="item"><a href="code/HDUOJ/2370%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">2370（模拟）.cpp</span></a><div class="mt">HDUOJ/2370（模拟）.cpp · 587 B</div></div>
+<div class="item"><a href="code/HDUOJ/2374%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">2374（模拟）.cpp</span></a><div class="mt">HDUOJ/2374（模拟）.cpp · 415 B</div></div>
+<div class="item"><a href="code/HDUOJ/2393.cpp"><span class="nm">2393.cpp</span></a><div class="mt">HDUOJ/2393.cpp · 350 B</div></div>
+<div class="item"><a href="code/HDUOJ/2401.cpp"><span class="nm">2401.cpp</span></a><div class="mt">HDUOJ/2401.cpp · 473 B</div></div>
+<div class="item"><a href="code/HDUOJ/2438.cpp"><span class="nm">2438.cpp</span></a><div class="mt">HDUOJ/2438.cpp · 755 B</div></div>
+<div class="item"><a href="code/HDUOJ/2500.cpp"><span class="nm">2500.cpp</span></a><div class="mt">HDUOJ/2500.cpp · 462 B</div></div>
+<div class="item"><a href="code/HDUOJ/2502.cpp"><span class="nm">2502.cpp</span></a><div class="mt">HDUOJ/2502.cpp · 668 B</div></div>
+<div class="item"><a href="code/HDUOJ/2503.cpp"><span class="nm">2503.cpp</span></a><div class="mt">HDUOJ/2503.cpp · 588 B</div></div>
+<div class="item"><a href="code/HDUOJ/2504.cpp"><span class="nm">2504.cpp</span></a><div class="mt">HDUOJ/2504.cpp · 511 B</div></div>
+<div class="item"><a href="code/HDUOJ/2511%EF%BC%88%E6%B1%89%E8%AF%BA%E5%A1%94%EF%BC%89.cpp"><span class="nm">2511（汉诺塔）.cpp</span></a><div class="mt">HDUOJ/2511（汉诺塔）.cpp · 648 B</div></div>
+<div class="item"><a href="code/HDUOJ/2519.cpp"><span class="nm">2519.cpp</span></a><div class="mt">HDUOJ/2519.cpp · 583 B</div></div>
+<div class="item"><a href="code/HDUOJ/2520.cpp"><span class="nm">2520.cpp</span></a><div class="mt">HDUOJ/2520.cpp · 530 B</div></div>
+<div class="item"><a href="code/HDUOJ/2521.cpp"><span class="nm">2521.cpp</span></a><div class="mt">HDUOJ/2521.cpp · 683 B</div></div>
+<div class="item"><a href="code/HDUOJ/2522%EF%BC%88%E5%88%86%E6%95%B0%E5%BE%AA%E7%8E%AF%E8%8A%82%EF%BC%89.cpp"><span class="nm">2522（分数循环节）.cpp</span></a><div class="mt">HDUOJ/2522（分数循环节）.cpp · 545 B</div></div>
+<div class="item"><a href="code/HDUOJ/2523.cpp"><span class="nm">2523.cpp</span></a><div class="mt">HDUOJ/2523.cpp · 674 B</div></div>
+<div class="item"><a href="code/HDUOJ/2524.cpp"><span class="nm">2524.cpp</span></a><div class="mt">HDUOJ/2524.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2527%EF%BC%88%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%EF%BC%89.cpp"><span class="nm">2527（哈夫曼树）.cpp</span></a><div class="mt">HDUOJ/2527（哈夫曼树）.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2529.cpp"><span class="nm">2529.cpp</span></a><div class="mt">HDUOJ/2529.cpp · 323 B</div></div>
+<div class="item"><a href="code/HDUOJ/2535.cpp"><span class="nm">2535.cpp</span></a><div class="mt">HDUOJ/2535.cpp · 575 B</div></div>
+<div class="item"><a href="code/HDUOJ/2537.cpp"><span class="nm">2537.cpp</span></a><div class="mt">HDUOJ/2537.cpp · 804 B</div></div>
+<div class="item"><a href="code/HDUOJ/2539.cpp"><span class="nm">2539.cpp</span></a><div class="mt">HDUOJ/2539.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2544%EF%BC%88%E7%BB%8F%E5%85%B8%E6%9C%80%E7%9F%AD%E8%B7%AF%EF%BC%89.cpp"><span class="nm">2544（经典最短路）.cpp</span></a><div class="mt">HDUOJ/2544（经典最短路）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2547.cpp"><span class="nm">2547.cpp</span></a><div class="mt">HDUOJ/2547.cpp · 268 B</div></div>
+<div class="item"><a href="code/HDUOJ/2548.cpp"><span class="nm">2548.cpp</span></a><div class="mt">HDUOJ/2548.cpp · 205 B</div></div>
+<div class="item"><a href="code/HDUOJ/2549.cpp"><span class="nm">2549.cpp</span></a><div class="mt">HDUOJ/2549.cpp · 643 B</div></div>
+<div class="item"><a href="code/HDUOJ/2550.cpp"><span class="nm">2550.cpp</span></a><div class="mt">HDUOJ/2550.cpp · 775 B</div></div>
+<div class="item"><a href="code/HDUOJ/2551.cpp"><span class="nm">2551.cpp</span></a><div class="mt">HDUOJ/2551.cpp · 480 B</div></div>
+<div class="item"><a href="code/HDUOJ/2552.cpp"><span class="nm">2552.cpp</span></a><div class="mt">HDUOJ/2552.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2553.cpp"><span class="nm">2553.cpp</span></a><div class="mt">HDUOJ/2553.cpp · 1012 B</div></div>
+<div class="item"><a href="code/HDUOJ/2554.cpp"><span class="nm">2554.cpp</span></a><div class="mt">HDUOJ/2554.cpp · 270 B</div></div>
+<div class="item"><a href="code/HDUOJ/2555.cpp"><span class="nm">2555.cpp</span></a><div class="mt">HDUOJ/2555.cpp · 803 B</div></div>
+<div class="item"><a href="code/HDUOJ/2560.cpp"><span class="nm">2560.cpp</span></a><div class="mt">HDUOJ/2560.cpp · 375 B</div></div>
+<div class="item"><a href="code/HDUOJ/2561.cpp"><span class="nm">2561.cpp</span></a><div class="mt">HDUOJ/2561.cpp · 283 B</div></div>
+<div class="item"><a href="code/HDUOJ/2562.cpp"><span class="nm">2562.cpp</span></a><div class="mt">HDUOJ/2562.cpp · 498 B</div></div>
+<div class="item"><a href="code/HDUOJ/2563.cpp"><span class="nm">2563.cpp</span></a><div class="mt">HDUOJ/2563.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2566.cpp"><span class="nm">2566.cpp</span></a><div class="mt">HDUOJ/2566.cpp · 640 B</div></div>
+<div class="item"><a href="code/HDUOJ/2567.cpp"><span class="nm">2567.cpp</span></a><div class="mt">HDUOJ/2567.cpp · 446 B</div></div>
+<div class="item"><a href="code/HDUOJ/2568.cpp"><span class="nm">2568.cpp</span></a><div class="mt">HDUOJ/2568.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2600%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">2600（贪心）.cpp</span></a><div class="mt">HDUOJ/2600（贪心）.cpp · 799 B</div></div>
+<div class="item"><a href="code/HDUOJ/2601.cpp"><span class="nm">2601.cpp</span></a><div class="mt">HDUOJ/2601.cpp · 499 B</div></div>
+<div class="item"><a href="code/HDUOJ/2603.cpp"><span class="nm">2603.cpp</span></a><div class="mt">HDUOJ/2603.cpp · 781 B</div></div>
+<div class="item"><a href="code/HDUOJ/2605%EF%BC%88%E8%B4%AA%E9%A3%9F%E8%9B%87%EF%BC%89%EF%BC%88%E6%90%9C%E7%B4%A2%E9%9A%BE%E9%A2%98%EF%BC%89%EF%BC%88%E5%A5%BD%E9%A2%98%EF%BC%89.cpp"><span class="nm">2605（贪食蛇）（搜索难题）（好题）.cpp</span></a><div class="mt">HDUOJ/2605（贪食蛇）（搜索难题）（好题）.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2612.cpp"><span class="nm">2612.cpp</span></a><div class="mt">HDUOJ/2612.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2614.cpp"><span class="nm">2614.cpp</span></a><div class="mt">HDUOJ/2614.cpp · 721 B</div></div>
+<div class="item"><a href="code/HDUOJ/2615%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">2615（贪心）.cpp</span></a><div class="mt">HDUOJ/2615（贪心）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2665%28%E4%B8%BB%E5%B8%AD%E6%A0%91%29.cpp"><span class="nm">2665(主席树).cpp</span></a><div class="mt">HDUOJ/2665(主席树).cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2700.cpp"><span class="nm">2700.cpp</span></a><div class="mt">HDUOJ/2700.cpp · 745 B</div></div>
+<div class="item"><a href="code/HDUOJ/2701.cpp"><span class="nm">2701.cpp</span></a><div class="mt">HDUOJ/2701.cpp · 907 B</div></div>
+<div class="item"><a href="code/HDUOJ/2703%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">2703（dp）.cpp</span></a><div class="mt">HDUOJ/2703（dp）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2710.cpp"><span class="nm">2710.cpp</span></a><div class="mt">HDUOJ/2710.cpp · 745 B</div></div>
+<div class="item"><a href="code/HDUOJ/2711%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%EF%BC%88%E6%B1%82%E5%8C%BA%E9%97%B4%E7%AC%ACK%E5%A4%A7%EF%BC%89.cpp"><span class="nm">2711（线段树）（求区间第K大）.cpp</span></a><div class="mt">HDUOJ/2711（线段树）（求区间第K大）.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2714%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">2714（模拟）.cpp</span></a><div class="mt">HDUOJ/2714（模拟）.cpp · 664 B</div></div>
+<div class="item"><a href="code/HDUOJ/2715%EF%BC%88%E6%9A%B4%E5%8A%9B%EF%BC%89.cpp"><span class="nm">2715（暴力）.cpp</span></a><div class="mt">HDUOJ/2715（暴力）.cpp · 380 B</div></div>
+<div class="item"><a href="code/HDUOJ/2717.cpp"><span class="nm">2717.cpp</span></a><div class="mt">HDUOJ/2717.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2725%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">2725（模拟）.cpp</span></a><div class="mt">HDUOJ/2725（模拟）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2795%20%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%E5%8C%BA%E9%97%B4%E6%9F%A5%E8%AF%A2%E6%9C%80%E5%A4%A7%E5%80%BC.cpp"><span class="nm">2795 （线段树）区间查询最大值.cpp</span></a><div class="mt">HDUOJ/2795 （线段树）区间查询最大值.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/2993%EF%BC%88%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96%2Bfread%EF%BC%89.cpp"><span class="nm">2993（斜率优化+fread）.cpp</span></a><div class="mt">HDUOJ/2993（斜率优化+fread）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/3555%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">3555（数位dp）.cpp</span></a><div class="mt">HDUOJ/3555（数位dp）.cpp · 978 B</div></div>
+<div class="item"><a href="code/HDUOJ/3652.cpp"><span class="nm">3652.cpp</span></a><div class="mt">HDUOJ/3652.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/3652%EF%BC%88%E6%95%B0%E4%BD%8DDP%EF%BC%89.cpp"><span class="nm">3652（数位DP）.cpp</span></a><div class="mt">HDUOJ/3652（数位DP）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4003%20%282%29.cpp"><span class="nm">4003 (2).cpp</span></a><div class="mt">HDUOJ/4003 (2).cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4003%EF%BC%88%E6%A0%91%E5%BD%A2dp%EF%BC%89.cpp"><span class="nm">4003（树形dp）.cpp</span></a><div class="mt">HDUOJ/4003（树形dp）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4007%EF%BC%88%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%EF%BC%89.cpp"><span class="nm">4007（暴力枚举）.cpp</span></a><div class="mt">HDUOJ/4007（暴力枚举）.cpp · 806 B</div></div>
+<div class="item"><a href="code/HDUOJ/4093%EF%BC%88FFT%2B%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%EF%BC%89.cpp"><span class="nm">4093（FFT+容斥原理）.cpp</span></a><div class="mt">HDUOJ/4093（FFT+容斥原理）.cpp · 5.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4152.cpp"><span class="nm">4152.cpp</span></a><div class="mt">HDUOJ/4152.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4609%EF%BC%88FFT%EF%BC%89.cpp"><span class="nm">4609（FFT）.cpp</span></a><div class="mt">HDUOJ/4609（FFT）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/4820%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89.cpp"><span class="nm">4820（线段树）.cpp</span></a><div class="mt">HDUOJ/4820（线段树）.cpp · 4.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5452%EF%BC%88%E5%9C%A8%E7%BA%BFLCA%EF%BC%89.cpp"><span class="nm">5452（在线LCA）.cpp</span></a><div class="mt">HDUOJ/5452（在线LCA）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5462%EF%BC%88%E5%8D%8A%E5%B9%B3%E9%9D%A2%E4%BA%A4%EF%BC%89.cpp"><span class="nm">5462（半平面交）.cpp</span></a><div class="mt">HDUOJ/5462（半平面交）.cpp · 4.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5628%EF%BC%88Dirichlet%E5%8D%B7%E7%A7%AF%EF%BC%89%EF%BC%88%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%EF%BC%89.cpp"><span class="nm">5628（Dirichlet卷积）（狄利克雷卷积）.cpp</span></a><div class="mt">HDUOJ/5628（Dirichlet卷积）（狄利克雷卷积）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5690.cpp"><span class="nm">5690.cpp</span></a><div class="mt">HDUOJ/5690.cpp · 735 B</div></div>
+<div class="item"><a href="code/HDUOJ/5694.cpp"><span class="nm">5694.cpp</span></a><div class="mt">HDUOJ/5694.cpp · 823 B</div></div>
+<div class="item"><a href="code/HDUOJ/5695.cpp"><span class="nm">5695.cpp</span></a><div class="mt">HDUOJ/5695.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5718.cpp"><span class="nm">5718.cpp</span></a><div class="mt">HDUOJ/5718.cpp · 943 B</div></div>
+<div class="item"><a href="code/HDUOJ/5719.cpp"><span class="nm">5719.cpp</span></a><div class="mt">HDUOJ/5719.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5720.cpp"><span class="nm">5720.cpp</span></a><div class="mt">HDUOJ/5720.cpp · 775 B</div></div>
+<div class="item"><a href="code/HDUOJ/5721.cpp"><span class="nm">5721.cpp</span></a><div class="mt">HDUOJ/5721.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5722.cpp"><span class="nm">5722.cpp</span></a><div class="mt">HDUOJ/5722.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5723%EF%BC%88%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%2B%E6%9C%9F%E6%9C%9B%EF%BC%89.cpp"><span class="nm">5723（最小生成树+期望）.cpp</span></a><div class="mt">HDUOJ/5723（最小生成树+期望）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5724.cpp"><span class="nm">5724.cpp</span></a><div class="mt">HDUOJ/5724.cpp · 942 B</div></div>
+<div class="item"><a href="code/HDUOJ/5725.cpp"><span class="nm">5725.cpp</span></a><div class="mt">HDUOJ/5725.cpp · 942 B</div></div>
+<div class="item"><a href="code/HDUOJ/5726.cpp"><span class="nm">5726.cpp</span></a><div class="mt">HDUOJ/5726.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5727.cpp"><span class="nm">5727.cpp</span></a><div class="mt">HDUOJ/5727.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5728.cpp"><span class="nm">5728.cpp</span></a><div class="mt">HDUOJ/5728.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5729.cpp"><span class="nm">5729.cpp</span></a><div class="mt">HDUOJ/5729.cpp · 1021 B</div></div>
+<div class="item"><a href="code/HDUOJ/5733.cpp"><span class="nm">5733.cpp</span></a><div class="mt">HDUOJ/5733.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5747.cpp"><span class="nm">5747.cpp</span></a><div class="mt">HDUOJ/5747.cpp · 417 B</div></div>
+<div class="item"><a href="code/HDUOJ/5748.cpp"><span class="nm">5748.cpp</span></a><div class="mt">HDUOJ/5748.cpp · 1016 B</div></div>
+<div class="item"><a href="code/HDUOJ/5749%20.cpp"><span class="nm">5749 .cpp</span></a><div class="mt">HDUOJ/5749 .cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5750.cpp"><span class="nm">5750.cpp</span></a><div class="mt">HDUOJ/5750.cpp · 792 B</div></div>
+<div class="item"><a href="code/HDUOJ/5751%20%282%29.cpp"><span class="nm">5751 (2).cpp</span></a><div class="mt">HDUOJ/5751 (2).cpp · 3.8 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5751%EF%BC%88FFT%2B%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89.cpp"><span class="nm">5751（FFT+线段树）.cpp</span></a><div class="mt">HDUOJ/5751（FFT+线段树）.cpp · 3.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5776.cpp"><span class="nm">5776.cpp</span></a><div class="mt">HDUOJ/5776.cpp · 556 B</div></div>
+<div class="item"><a href="code/HDUOJ/5777.cpp"><span class="nm">5777.cpp</span></a><div class="mt">HDUOJ/5777.cpp · 520 B</div></div>
+<div class="item"><a href="code/HDUOJ/5778.cpp"><span class="nm">5778.cpp</span></a><div class="mt">HDUOJ/5778.cpp · 863 B</div></div>
+<div class="item"><a href="code/HDUOJ/5779.cpp"><span class="nm">5779.cpp</span></a><div class="mt">HDUOJ/5779.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5780.cpp"><span class="nm">5780.cpp</span></a><div class="mt">HDUOJ/5780.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5781.cpp"><span class="nm">5781.cpp</span></a><div class="mt">HDUOJ/5781.cpp · 629 B</div></div>
+<div class="item"><a href="code/HDUOJ/5782%28....%29.cpp"><span class="nm">5782(....).cpp</span></a><div class="mt">HDUOJ/5782(....).cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5783.cpp"><span class="nm">5783.cpp</span></a><div class="mt">HDUOJ/5783.cpp · 493 B</div></div>
+<div class="item"><a href="code/HDUOJ/5784%20%282%29.cpp"><span class="nm">5784 (2).cpp</span></a><div class="mt">HDUOJ/5784 (2).cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5784.cpp"><span class="nm">5784.cpp</span></a><div class="mt">HDUOJ/5784.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5785.cpp"><span class="nm">5785.cpp</span></a><div class="mt">HDUOJ/5785.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5791.cpp"><span class="nm">5791.cpp</span></a><div class="mt">HDUOJ/5791.cpp · 858 B</div></div>
+<div class="item"><a href="code/HDUOJ/5793.cpp"><span class="nm">5793.cpp</span></a><div class="mt">HDUOJ/5793.cpp · 451 B</div></div>
+<div class="item"><a href="code/HDUOJ/5794.cpp"><span class="nm">5794.cpp</span></a><div class="mt">HDUOJ/5794.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5795.cpp"><span class="nm">5795.cpp</span></a><div class="mt">HDUOJ/5795.cpp · 478 B</div></div>
+<div class="item"><a href="code/HDUOJ/5798%28....%29.cpp"><span class="nm">5798(....).cpp</span></a><div class="mt">HDUOJ/5798(....).cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5799.cpp"><span class="nm">5799.cpp</span></a><div class="mt">HDUOJ/5799.cpp · 5.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5804.cpp"><span class="nm">5804.cpp</span></a><div class="mt">HDUOJ/5804.cpp · 926 B</div></div>
+<div class="item"><a href="code/HDUOJ/5805.cpp"><span class="nm">5805.cpp</span></a><div class="mt">HDUOJ/5805.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5806.cpp"><span class="nm">5806.cpp</span></a><div class="mt">HDUOJ/5806.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5807%283%E7%BB%B4%29.cpp"><span class="nm">5807(3维).cpp</span></a><div class="mt">HDUOJ/5807(3维).cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5808.cpp"><span class="nm">5808.cpp</span></a><div class="mt">HDUOJ/5808.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5816%EF%BC%88%E7%8A%B6%E5%8E%8Bdp%EF%BC%89.cpp"><span class="nm">5816（状压dp）.cpp</span></a><div class="mt">HDUOJ/5816（状压dp）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5829%28NTT%29.cpp"><span class="nm">5829(NTT).cpp</span></a><div class="mt">HDUOJ/5829(NTT).cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5833%EF%BC%88%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">5833（高斯消元）.cpp</span></a><div class="mt">HDUOJ/5833（高斯消元）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5898%EF%BC%88%E6%95%B0%E4%BD%8Ddp%EF%BC%89.cpp"><span class="nm">5898（数位dp）.cpp</span></a><div class="mt">HDUOJ/5898（数位dp）.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5901%EF%BC%88Lehmer%E7%B4%A0%E6%95%B0%E8%AE%A1%E6%95%B0%EF%BC%89.cpp"><span class="nm">5901（Lehmer素数计数）.cpp</span></a><div class="mt">HDUOJ/5901（Lehmer素数计数）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5902.cpp"><span class="nm">5902.cpp</span></a><div class="mt">HDUOJ/5902.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5907.cpp"><span class="nm">5907.cpp</span></a><div class="mt">HDUOJ/5907.cpp · 468 B</div></div>
+<div class="item"><a href="code/HDUOJ/5908.cpp"><span class="nm">5908.cpp</span></a><div class="mt">HDUOJ/5908.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5909%EF%BC%88%E6%A0%91%E5%BD%A2dp%2BFWT%EF%BC%89.cpp"><span class="nm">5909（树形dp+FWT）.cpp</span></a><div class="mt">HDUOJ/5909（树形dp+FWT）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/HDUOJ/5976.cpp"><span class="nm">5976.cpp</span></a><div class="mt">HDUOJ/5976.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/HDUOJ/6202%EF%BC%88%E9%AD%94%E6%96%B9%E5%A4%A7%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">6202（魔方大模拟）.cpp</span></a><div class="mt">HDUOJ/6202（魔方大模拟）.cpp · 16.2 KB</div></div>
+<div class="item"><a href="code/HDUOJ/%E6%93%8D%E4%BD%9C%E6%A0%BC%E5%AD%90%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%89%28%E5%8D%95%E7%82%B9%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%8C%BA%E9%97%B4%E6%B1%82%E6%9C%80%E5%80%BC%EF%BC%8C%E5%8C%BA%E9%97%B4%E6%B1%82%E5%92%8C%29.cpp"><span class="nm">操作格子（线段树）(单点修改，区间求最值，区间求和).cpp</span></a><div class="mt">HDUOJ/操作格子（线段树）(单点修改，区间求最值，区间求和).cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/IOI/IOI2025/day1/code/souvenirs.cc"><span class="nm">souvenirs.cc</span></a><div class="mt">IOI/IOI2025/day1/code/souvenirs.cc · 2.7 KB</div></div>
+<div class="item"><a href="code/IOI/IOI2025/day1/code/triple.cc"><span class="nm">triple.cc</span></a><div class="mt">IOI/IOI2025/day1/code/triple.cc · 3.1 KB</div></div>
+<div class="item"><a href="code/IOI/IOI2025/day1/code/worldmap.cc"><span class="nm">worldmap.cc</span></a><div class="mt">IOI/IOI2025/day1/code/worldmap.cc · 1.9 KB</div></div>
+<div class="item"><a href="code/LibreOJ/100%EF%BC%88%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%EF%BC%89.cpp"><span class="nm">100（矩阵乘法）.cpp</span></a><div class="mt">LibreOJ/100（矩阵乘法）.cpp · 867 B</div></div>
+<div class="item"><a href="code/LibreOJ/101%EF%BC%88dinic%EF%BC%89.cpp"><span class="nm">101（dinic）.cpp</span></a><div class="mt">LibreOJ/101（dinic）.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/LibreOJ/102%EF%BC%88%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81%EF%BC%89.cpp"><span class="nm">102（最小费用最大流）.cpp</span></a><div class="mt">LibreOJ/102（最小费用最大流）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/LibreOJ/103%EF%BC%88KMP%EF%BC%89.cpp"><span class="nm">103（KMP）.cpp</span></a><div class="mt">LibreOJ/103（KMP）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/LibreOJ/104%EF%BC%88Splay%EF%BC%89.cpp"><span class="nm">104（Splay）.cpp</span></a><div class="mt">LibreOJ/104（Splay）.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/LibreOJ/104%EF%BC%88pb_ds%EF%BC%89.cpp"><span class="nm">104（pb_ds）.cpp</span></a><div class="mt">LibreOJ/104（pb_ds）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/LibreOJ/105%EF%BC%88Splay%EF%BC%89.cpp"><span class="nm">105（Splay）.cpp</span></a><div class="mt">LibreOJ/105（Splay）.cpp · 3.9 KB</div></div>
+<div class="item"><a href="code/LibreOJ/105%EF%BC%88rope%EF%BC%89%EF%BC%88%E5%8C%BA%E9%97%B4%E7%BF%BB%E8%BD%AC%EF%BC%89.cpp"><span class="nm">105（rope）（区间翻转）.cpp</span></a><div class="mt">LibreOJ/105（rope）（区间翻转）.cpp · 700 B</div></div>
+<div class="item"><a href="code/LibreOJ/106%EF%BC%88Splay%EF%BC%89%EF%BC%88104%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%8A%A0%E5%8C%BA%E9%97%B4%EF%BC%89.cpp"><span class="nm">106（Splay）（104基础上加区间）.cpp</span></a><div class="mt">LibreOJ/106（Splay）（104基础上加区间）.cpp · 4.6 KB</div></div>
+<div class="item"><a href="code/LibreOJ/106%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%A5%97Splay%EF%BC%89.cpp"><span class="nm">106（线段树套Splay）.cpp</span></a><div class="mt">LibreOJ/106（线段树套Splay）.cpp · 5.8 KB</div></div>
+<div class="item"><a href="code/LibreOJ/108%EF%BC%88FFT%EF%BC%89.cpp"><span class="nm">108（FFT）.cpp</span></a><div class="mt">LibreOJ/108（FFT）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/LibreOJ/108%EF%BC%88NTT%EF%BC%89.cpp"><span class="nm">108（NTT）.cpp</span></a><div class="mt">LibreOJ/108（NTT）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/LibreOJ/109%EF%BC%88%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%89.cpp"><span class="nm">109（并查集）.cpp</span></a><div class="mt">LibreOJ/109（并查集）.cpp · 736 B</div></div>
+<div class="item"><a href="code/LibreOJ/110%EF%BC%88exgcd%E6%B1%82%E9%80%86%E5%85%83%EF%BC%89.cpp"><span class="nm">110（exgcd求逆元）.cpp</span></a><div class="mt">LibreOJ/110（exgcd求逆元）.cpp · 423 B</div></div>
+<div class="item"><a href="code/LibreOJ/110%EF%BC%88%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%EF%BC%89%EF%BC%88%E5%A5%87%E8%91%A9%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">110（乘法逆元）（奇葩快速幂）.cpp</span></a><div class="mt">LibreOJ/110（乘法逆元）（奇葩快速幂）.cpp · 621 B</div></div>
+<div class="item"><a href="code/LibreOJ/118%EF%BC%88%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%89.cpp"><span class="nm">118（正则表达式）.cpp</span></a><div class="mt">LibreOJ/118（正则表达式）.cpp · 500 B</div></div>
+<div class="item"><a href="code/LibreOJ/119%EF%BC%88Spfa%EF%BC%89.cpp"><span class="nm">119（Spfa）.cpp</span></a><div class="mt">LibreOJ/119（Spfa）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/LibreOJ/1%EF%BC%88A%2BB%EF%BC%89.cpp"><span class="nm">1（A+B）.cpp</span></a><div class="mt">LibreOJ/1（A+B）.cpp · 150 B</div></div>
+<div class="item"><a href="code/LibreOJ/2000%EF%BC%88%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%EF%BC%89.cpp"><span class="nm">2000（莫比乌斯反演）.cpp</span></a><div class="mt">LibreOJ/2000（莫比乌斯反演）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/LibreOJ/2002%EF%BC%88%E5%AE%B9%E6%96%A5%2Bdp%2B%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89.cpp"><span class="nm">2002（容斥+dp+矩阵快速幂）.cpp</span></a><div class="mt">LibreOJ/2002（容斥+dp+矩阵快速幂）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/LibreOJ/2%EF%BC%88%E6%B0%B4%EF%BC%89.cpp"><span class="nm">2（水）.cpp</span></a><div class="mt">LibreOJ/2（水）.cpp · 118 B</div></div>
+<div class="item"><a href="code/LibreOJ/3%EF%BC%88%E6%B0%B4%EF%BC%89.cpp"><span class="nm">3（水）.cpp</span></a><div class="mt">LibreOJ/3（水）.cpp · 358 B</div></div>
+<div class="item"><a href="code/LibreOJ/4%EF%BC%88%E8%84%91%E6%B4%9E%E9%A2%98%EF%BC%89.py"><span class="nm">4（脑洞题）.py</span></a><div class="mt">LibreOJ/4（脑洞题）.py · 37 B</div></div>
+<div class="item"><a href="code/LibreOJ/6.cpp"><span class="nm">6.cpp</span></a><div class="mt">LibreOJ/6.cpp · 475 B</div></div>
+<div class="item"><a href="code/LibreOJ/6083%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">6083（数学）.cpp</span></a><div class="mt">LibreOJ/6083（数学）.cpp · 600 B</div></div>
+<div class="item"><a href="code/LibreOJ/6084%EF%BC%88dfs%EF%BC%89.cpp"><span class="nm">6084（dfs）.cpp</span></a><div class="mt">LibreOJ/6084（dfs）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6085%EF%BC%88%E6%A8%A1%E6%8B%9F%EF%BC%89.cpp"><span class="nm">6085（模拟）.cpp</span></a><div class="mt">LibreOJ/6085（模拟）.cpp · 742 B</div></div>
+<div class="item"><a href="code/LibreOJ/6086%EF%BC%88%E6%95%B0%E5%AD%A6%E9%A2%98%EF%BC%89.cpp"><span class="nm">6086（数学题）.cpp</span></a><div class="mt">LibreOJ/6086（数学题）.cpp · 662 B</div></div>
+<div class="item"><a href="code/LibreOJ/6090%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89.cpp"><span class="nm">6090（构造）.cpp</span></a><div class="mt">LibreOJ/6090（构造）.cpp · 630 B</div></div>
+<div class="item"><a href="code/LibreOJ/6091%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89.cpp"><span class="nm">6091（构造）.cpp</span></a><div class="mt">LibreOJ/6091（构造）.cpp · 817 B</div></div>
+<div class="item"><a href="code/LibreOJ/6092%EF%BC%88%E6%9E%84%E9%80%A0%EF%BC%89.cpp"><span class="nm">6092（构造）.cpp</span></a><div class="mt">LibreOJ/6092（构造）.cpp · 628 B</div></div>
+<div class="item"><a href="code/LibreOJ/6093_spj.cpp"><span class="nm">6093_spj.cpp</span></a><div class="mt">LibreOJ/6093_spj.cpp · 667 B</div></div>
+<div class="item"><a href="code/LibreOJ/6093%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">6093（贪心）.cpp</span></a><div class="mt">LibreOJ/6093（贪心）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6094%EF%BC%88DP%EF%BC%89%EF%BC%88%E5%A5%BD%E9%A2%98%EF%BC%89.cpp"><span class="nm">6094（DP）（好题）.cpp</span></a><div class="mt">LibreOJ/6094（DP）（好题）.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6159%EF%BC%88%E6%A0%91%E5%BD%A2dp%EF%BC%89.cpp"><span class="nm">6159（树形dp）.cpp</span></a><div class="mt">LibreOJ/6159（树形dp）.cpp · 937 B</div></div>
+<div class="item"><a href="code/LibreOJ/6160%EF%BC%88%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%2B%E9%80%92%E6%8E%A8%EF%BC%89.cpp"><span class="nm">6160（组合数学+递推）.cpp</span></a><div class="mt">LibreOJ/6160（组合数学+递推）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6161%EF%BC%88%E4%BA%8C%E5%88%86%EF%BC%89.cpp"><span class="nm">6161（二分）.cpp</span></a><div class="mt">LibreOJ/6161（二分）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6162%EF%BC%88%E6%9C%9F%E6%9C%9B%E4%B8%8E%E6%A6%82%E7%8E%87%EF%BC%89.cpp"><span class="nm">6162（期望与概率）.cpp</span></a><div class="mt">LibreOJ/6162（期望与概率）.cpp · 747 B</div></div>
+<div class="item"><a href="code/LibreOJ/6163%EF%BC%88%E5%8C%BA%E9%97%B4dp%EF%BC%89.cpp"><span class="nm">6163（区间dp）.cpp</span></a><div class="mt">LibreOJ/6163（区间dp）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6164%EF%BC%88%E8%8E%AB%E9%98%9F%E7%AE%97%E6%B3%95%EF%BC%89.cpp"><span class="nm">6164（莫队算法）.cpp</span></a><div class="mt">LibreOJ/6164（莫队算法）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6165%EF%BC%88%E7%BA%BF%E6%80%A7%E7%AD%9B%EF%BC%89.cpp"><span class="nm">6165（线性筛）.cpp</span></a><div class="mt">LibreOJ/6165（线性筛）.cpp · 742 B</div></div>
+<div class="item"><a href="code/LibreOJ/6175%EF%BC%88%E6%A0%91%E5%BD%A2dp%2B%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">6175（树形dp+贪心）.cpp</span></a><div class="mt">LibreOJ/6175（树形dp+贪心）.cpp · 798 B</div></div>
+<div class="item"><a href="code/LibreOJ/6176%EF%BC%88%E6%95%B0%E5%AD%A6%E9%A2%98%EF%BC%89%EF%BC%88%E9%9A%BE%EF%BC%89.cpp"><span class="nm">6176（数学题）（难）.cpp</span></a><div class="mt">LibreOJ/6176（数学题）（难）.cpp · 296 B</div></div>
+<div class="item"><a href="code/LibreOJ/6177%EF%BC%88%E7%8A%B6%E5%8E%8Bdp%EF%BC%89.cpp"><span class="nm">6177（状压dp）.cpp</span></a><div class="mt">LibreOJ/6177（状压dp）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6217%EF%BC%88%E8%83%8C%E5%8C%85dp%EF%BC%89.cpp"><span class="nm">6217（背包dp）.cpp</span></a><div class="mt">LibreOJ/6217（背包dp）.cpp · 392 B</div></div>
+<div class="item"><a href="code/LibreOJ/6220%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">6220（数学）.cpp</span></a><div class="mt">LibreOJ/6220（数学）.cpp · 539 B</div></div>
+<div class="item"><a href="code/LibreOJ/6229%EF%BC%88%E6%9D%9C%E6%95%99%E7%AD%9B%2BMoebius%EF%BC%89.cpp"><span class="nm">6229（杜教筛+Moebius）.cpp</span></a><div class="mt">LibreOJ/6229（杜教筛+Moebius）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/LibreOJ/6242%EF%BC%88%E6%8B%89%E9%A9%AC%E5%8A%AA%E9%87%91%E9%98%B6%E4%B9%98%E8%BF%91%E4%BC%BC%EF%BC%89.py"><span class="nm">6242（拉马努金阶乘近似）.py</span></a><div class="mt">LibreOJ/6242（拉马努金阶乘近似）.py · 1.4 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/51NOD%201376%20%EF%BC%88LIS%EF%BC%89%EF%BC%88%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">51NOD 1376 （LIS）（二维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/51NOD 1376 （LIS）（二维偏序）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/BZOJ%201176%EF%BC%88%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">BZOJ 1176（二维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/BZOJ 1176（二维偏序）.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/BZOJ%201935%20%28%E5%BC%BA%E8%A1%8Ccdq%E5%88%86%E6%B2%BB%29%20%28%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F%29.cpp"><span class="nm">BZOJ 1935 (强行cdq分治) (二维偏序).cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/BZOJ 1935 (强行cdq分治) (二维偏序).cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/BZOJ%203295%EF%BC%88%E5%8A%A8%E6%80%81%E9%80%86%E5%BA%8F%E5%AF%B9%EF%BC%89.cpp"><span class="nm">BZOJ 3295（动态逆序对）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/BZOJ 3295（动态逆序对）.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/HDU%204742%EF%BC%88%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">HDU 4742（三维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/HDU 4742（三维偏序）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/HDU%205126%EF%BC%88%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">HDU 5126（三维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/HDU 5126（三维偏序）.cpp · 3.9 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/HDU%205618%EF%BC%88%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">HDU 5618（三维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/HDU 5618（三维偏序）.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/bzoj%203262%EF%BC%88%E4%B8%89%E7%BB%B4%E5%81%8F%E5%BA%8F%EF%BC%89.cpp"><span class="nm">bzoj 3262（三维偏序）.cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/bzoj 3262（三维偏序）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Retired_code/CDQ%20Divide%20and%20Conquer/luogu%20P3374%20%28%E5%BC%BA%E8%A1%8Ccdq%E5%88%86%E6%B2%BB%29.cpp"><span class="nm">luogu P3374 (强行cdq分治).cpp</span></a><div class="mt">Retired_code/CDQ Divide and Conquer/luogu P3374 (强行cdq分治).cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Retired_code/Guass/BZOJ%201013%20%EF%BC%88%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">BZOJ 1013 （高斯消元）.cpp</span></a><div class="mt">Retired_code/Guass/BZOJ 1013 （高斯消元）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Retired_code/Guass/%E6%B4%9B%E8%B0%B7%20P3389%EF%BC%88%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">洛谷 P3389（高斯消元）.cpp</span></a><div class="mt">Retired_code/Guass/洛谷 P3389（高斯消元）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/Retired_code/Number-theory/BZOJ%201467%20%28EXBSGS%29.cpp"><span class="nm">BZOJ 1467 (EXBSGS).cpp</span></a><div class="mt">Retired_code/Number-theory/BZOJ 1467 (EXBSGS).cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/Retired_code/Number-theory/BZOJ%202242%EF%BC%88BSGS%EF%BC%89.cpp"><span class="nm">BZOJ 2242（BSGS）.cpp</span></a><div class="mt">Retired_code/Number-theory/BZOJ 2242（BSGS）.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/Retired_code/Number-theory/HDU%202815%20%28EXBSGS%29.cpp"><span class="nm">HDU 2815 (EXBSGS).cpp</span></a><div class="mt">Retired_code/Number-theory/HDU 2815 (EXBSGS).cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Retired_code/Polynomial/BZOJ%203456%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86%2BNTT%EF%BC%89.cpp"><span class="nm">BZOJ 3456（多项式求逆+NTT）.cpp</span></a><div class="mt">Retired_code/Polynomial/BZOJ 3456（多项式求逆+NTT）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/Retired_code/Polynomial/BZOJ%204555%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86%EF%BC%89.cpp"><span class="nm">BZOJ 4555（多项式求逆）.cpp</span></a><div class="mt">Retired_code/Polynomial/BZOJ 4555（多项式求逆）.cpp · 4.9 KB</div></div>
+<div class="item"><a href="code/Retired_code/Polynomial/%E6%B4%9B%E8%B0%B7%20P4238%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86%EF%BC%89.cpp"><span class="nm">洛谷 P4238（多项式求逆）.cpp</span></a><div class="mt">Retired_code/Polynomial/洛谷 P4238（多项式求逆）.cpp · 4.5 KB</div></div>
+<div class="item"><a href="code/Retired_code/Polynomial/%E6%B4%9B%E8%B0%B7%20P4245%EF%BC%88%E4%BB%BB%E6%84%8F%E6%A8%A1%E6%95%B0NTT%EF%BC%89%20.cpp"><span class="nm">洛谷 P4245（任意模数NTT） .cpp</span></a><div class="mt">Retired_code/Polynomial/洛谷 P4245（任意模数NTT） .cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/BZOJ1061%EF%BC%88%E5%AF%B9%E5%81%B6%E5%8E%9F%E5%88%99%2B%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89.cpp"><span class="nm">BZOJ1061（对偶原则+单纯形）.cpp</span></a><div class="mt">Retired_code/Simplex/BZOJ1061（对偶原则+单纯形）.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/BZOJ3112%EF%BC%88%E5%AF%B9%E5%81%B6%E5%8E%9F%E5%88%99%2B%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89.cpp"><span class="nm">BZOJ3112（对偶原则+单纯形）.cpp</span></a><div class="mt">Retired_code/Simplex/BZOJ3112（对偶原则+单纯形）.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/BZOJ3265%EF%BC%881061%E5%8A%A0%E5%BC%BA%E7%89%88%EF%BC%89.cpp"><span class="nm">BZOJ3265（1061加强版）.cpp</span></a><div class="mt">Retired_code/Simplex/BZOJ3265（1061加强版）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/BZOJ3550%EF%BC%88%E5%8D%95%E7%BA%AF%E5%BD%A2%EF%BC%89%EF%BC%88%E6%9D%83%E9%99%90%E9%A2%98%EF%BC%89.cpp"><span class="nm">BZOJ3550（单纯形）（权限题）.cpp</span></a><div class="mt">Retired_code/Simplex/BZOJ3550（单纯形）（权限题）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/POJ1275.cpp"><span class="nm">POJ1275.cpp</span></a><div class="mt">Retired_code/Simplex/POJ1275.cpp · 3.9 KB</div></div>
+<div class="item"><a href="code/Retired_code/Simplex/UOJ%23179.%20%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%EF%BC%88%E6%A8%A1%E6%9D%BF%E9%A2%98%EF%BC%89.cpp"><span class="nm">UOJ#179. 线性规划（模板题）.cpp</span></a><div class="mt">Retired_code/Simplex/UOJ#179. 线性规划（模板题）.cpp · 3.6 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/BZOJ%201009%20%EF%BC%88AC%E8%87%AA%E5%8A%A8%E6%9C%BA%2B%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%BC%98%E5%8C%96dp%EF%BC%89.cpp"><span class="nm">BZOJ 1009 （AC自动机+矩阵乘法优化dp）.cpp</span></a><div class="mt">Retired_code/String/BZOJ 1009 （AC自动机+矩阵乘法优化dp）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/BZOJ%201030%EF%BC%88AC%E8%87%AA%E5%8A%A8%E6%9C%BA%2Bdp%EF%BC%89.cpp"><span class="nm">BZOJ 1030（AC自动机+dp）.cpp</span></a><div class="mt">Retired_code/String/BZOJ 1030（AC自动机+dp）.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/BZOJ%203172%EF%BC%88AC%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%89.cpp"><span class="nm">BZOJ 3172（AC自动机）.cpp</span></a><div class="mt">Retired_code/String/BZOJ 3172（AC自动机）.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/%E6%B4%9B%E8%B0%B7%20P2292%EF%BC%88AC%E8%87%AA%E5%8A%A8%E6%9C%BA%2Bdp%EF%BC%89.cpp"><span class="nm">洛谷 P2292（AC自动机+dp）.cpp</span></a><div class="mt">Retired_code/String/洛谷 P2292（AC自动机+dp）.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/%E6%B4%9B%E8%B0%B7%20P2444%20%28AC%E8%87%AA%E5%8A%A8%E6%9C%BA%29.cpp"><span class="nm">洛谷 P2444 (AC自动机).cpp</span></a><div class="mt">Retired_code/String/洛谷 P2444 (AC自动机).cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/%E6%B4%9B%E8%B0%B7%20P3796%20%28AC%E8%87%AA%E5%8A%A8%E6%9C%BA%29.cpp"><span class="nm">洛谷 P3796 (AC自动机).cpp</span></a><div class="mt">Retired_code/String/洛谷 P3796 (AC自动机).cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/Retired_code/String/%E6%B4%9B%E8%B0%B7%20P3808%20%28AC%E8%87%AA%E5%8A%A8%E6%9C%BA%29.cpp"><span class="nm">洛谷 P3808 (AC自动机).cpp</span></a><div class="mt">Retired_code/String/洛谷 P3808 (AC自动机).cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1260%28A%29%EF%BC%88%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">1260(A)（高斯消元）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1260(A)（高斯消元）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1261%28B%29%EF%BC%88Kruskal%2B%E5%85%A8%E5%B1%80%E6%9C%80%E5%B0%8F%E5%89%B2%EF%BC%89.cpp"><span class="nm">1261(B)（Kruskal+全局最小割）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1261(B)（Kruskal+全局最小割）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1261%28B%29%EF%BC%88%E5%85%A8%E5%B1%80%E6%9C%80%E5%B0%8F%E5%89%B2%EF%BC%89.cpp"><span class="nm">1261(B)（全局最小割）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1261(B)（全局最小割）.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1262%28C%29%EF%BC%88%E5%BC%82%E6%88%96%E6%96%B9%E7%A8%8B%E7%BB%84%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%EF%BC%89.cpp"><span class="nm">1262(C)（异或方程组高斯消元）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1262(C)（异或方程组高斯消元）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1263%28D%29%EF%BC%88%E7%AD%BE%E5%88%B0%E9%A2%98%EF%BC%89.cpp"><span class="nm">1263(D)（签到题）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1263(D)（签到题）.cpp · 377 B</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1264%28E%29%EF%BC%88%E8%84%91%E6%B4%9E%E9%A2%98%EF%BC%89.cpp"><span class="nm">1264(E)（脑洞题）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1264(E)（脑洞题）.cpp · 525 B</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1265%28F%29%EF%BC%88%E7%A6%BB%E6%95%A3%E5%8C%96%2B%E5%8F%98%E5%BD%A2LCS%EF%BC%89.cpp"><span class="nm">1265(F)（离散化+变形LCS）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1265(F)（离散化+变形LCS）.cpp · 5.8 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1266%28G%29%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89.cpp"><span class="nm">1266(G)（贪心）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1266(G)（贪心）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1267%28H%29%EF%BC%88%E6%A0%91%E4%B8%8Adfs%EF%BC%89%EF%BC%88%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84%EF%BC%89.cpp"><span class="nm">1267(H)（树上dfs）（树的直径）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1267(H)（树上dfs）（树的直径）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1268%28I%29%EF%BC%88%E6%95%B0%E5%AD%A6%EF%BC%89.cpp"><span class="nm">1268(I)（数学）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1268(I)（数学）.cpp · 404 B</div></div>
+<div class="item"><a href="code/Xiangtan%20Invitation%20Contest%202017/1269%28J%29%EF%BC%88%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%2Bdp%EF%BC%89.cpp"><span class="nm">1269(J)（树状数组+dp）.cpp</span></a><div class="mt">Xiangtan Invitation Contest 2017/1269(J)（树状数组+dp）.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/hihocoder/1000%28A%2BB%29.CPP"><span class="nm">1000(A+B).CPP</span></a><div class="mt">hihocoder/1000(A+B).CPP · 173 B</div></div>
+<div class="item"><a href="code/hihocoder/1014%28tire%E6%A0%91%29.CPP"><span class="nm">1014(tire树).CPP</span></a><div class="mt">hihocoder/1014(tire树).CPP · 934 B</div></div>
+<div class="item"><a href="code/hihocoder/1015%28KMP%29.cpp"><span class="nm">1015(KMP).cpp</span></a><div class="mt">hihocoder/1015(KMP).cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/hihocoder/1032%28manacher%29.cpp"><span class="nm">1032(manacher).cpp</span></a><div class="mt">hihocoder/1032(manacher).cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/hihocoder/1033%28%E6%95%B0%E4%BD%8Ddp%29.cpp"><span class="nm">1033(数位dp).cpp</span></a><div class="mt">hihocoder/1033(数位dp).cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/hihocoder/1034%28%E7%A6%BB%E7%BA%BF%E5%B9%B3%E8%A1%A1%E6%A0%91%29.cpp"><span class="nm">1034(离线平衡树).cpp</span></a><div class="mt">hihocoder/1034(离线平衡树).cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/hihocoder/1035%28%E6%A0%91%E5%BD%A2dp%29.cpp"><span class="nm">1035(树形dp).cpp</span></a><div class="mt">hihocoder/1035(树形dp).cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/hihocoder/1036%28tire%E6%A0%91%29.cpp"><span class="nm">1036(tire树).cpp</span></a><div class="mt">hihocoder/1036(tire树).cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/hihocoder/1037%28dp%29.cpp"><span class="nm">1037(dp).cpp</span></a><div class="mt">hihocoder/1037(dp).cpp · 353 B</div></div>
+<div class="item"><a href="code/hihocoder/1038%28dp%29.cpp"><span class="nm">1038(dp).cpp</span></a><div class="mt">hihocoder/1038(dp).cpp · 330 B</div></div>
+<div class="item"><a href="code/hihocoder/1039%28%E5%AD%97%E7%AC%A6%E4%B8%B2%29.cpp"><span class="nm">1039(字符串).cpp</span></a><div class="mt">hihocoder/1039(字符串).cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/hihocoder/1040%28%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%29.cpp"><span class="nm">1040(计算几何).cpp</span></a><div class="mt">hihocoder/1040(计算几何).cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/hihocoder/1041%28%E6%A0%91%E4%B8%8Adfs%29.cpp"><span class="nm">1041(树上dfs).cpp</span></a><div class="mt">hihocoder/1041(树上dfs).cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/hihocoder/1042%28%E6%9E%9A%E4%B8%BE%29.cpp"><span class="nm">1042(枚举).cpp</span></a><div class="mt">hihocoder/1042(枚举).cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/hihocoder/1043%28dp%29.cpp"><span class="nm">1043(dp).cpp</span></a><div class="mt">hihocoder/1043(dp).cpp · 307 B</div></div>
+<div class="item"><a href="code/hihocoder/1044%28%E7%8A%B6%E5%8E%8Bdp%29.cpp"><span class="nm">1044(状压dp).cpp</span></a><div class="mt">hihocoder/1044(状压dp).cpp · 892 B</div></div>
+<div class="item"><a href="code/jisuanke/2018Game5/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">jisuanke/2018Game5/A.cpp · 683 B</div></div>
+<div class="item"><a href="code/jisuanke/2018Game5/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">jisuanke/2018Game5/B.cpp · 588 B</div></div>
+<div class="item"><a href="code/jisuanke/2018Game5/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">jisuanke/2018Game5/C.cpp · 924 B</div></div>
+<div class="item"><a href="code/jisuanke/2020%E8%AE%A1%E8%92%9C%E4%B9%8B%E9%81%93%E7%AC%AC%E4%B8%80%E5%9C%BA/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">jisuanke/2020计蒜之道第一场/A.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/jisuanke/2020%E8%AE%A1%E8%92%9C%E4%B9%8B%E9%81%93%E7%AC%AC%E4%B8%80%E5%9C%BA/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">jisuanke/2020计蒜之道第一场/B.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1001-All%20X.cpp"><span class="nm">1001-All X.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1001-All X.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1002-Sitting%20in%20Line.cpp"><span class="nm">1002-Sitting in Line.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1002-Sitting in Line.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1003-Snacks.cpp"><span class="nm">1003-Snacks.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1003-Snacks.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1004-D%20Game.cpp"><span class="nm">1004-D Game.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1004-D Game.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1005-BD%20String.cpp"><span class="nm">1005-BD String.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1005-BD String.cpp · 815 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202A/1006-Gym%20Class.cpp"><span class="nm">1006-Gym Class.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2A/1006-Gym Class.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1001-%E5%8C%BA%E9%97%B4%E7%9A%84%E4%BB%B7%E5%80%BC.cpp"><span class="nm">1001-区间的价值.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1001-区间的价值.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1002-%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92.cpp"><span class="nm">1002-刷题计划.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1002-刷题计划.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1003-%E7%9E%AC%E9%97%B4%E7%A7%BB%E5%8A%A8.cpp"><span class="nm">1003-瞬间移动.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1003-瞬间移动.cpp · 862 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1004-%E8%B4%A7%E7%89%A9%E8%BF%90%E8%BE%93.cpp"><span class="nm">1004-货物运输.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1004-货物运输.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1005-%E5%8C%BA%E9%97%B4%E4%BA%A4.cpp"><span class="nm">1005-区间交.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1005-区间交.cpp · 946 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%20Astar%20Contest%20-%20Round%202B/1006-%E4%B8%AD%E4%BD%8D%E6%95%B0%E8%AE%A1%E6%95%B0.cpp"><span class="nm">1006-中位数计数.cpp</span></a><div class="mt">百度之星/2016 Astar Contest - Round 2B/1006-中位数计数.cpp · 997 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1001.cpp"><span class="nm">1001.cpp</span></a><div class="mt">百度之星/2016复赛/1001.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1002.cpp"><span class="nm">1002.cpp</span></a><div class="mt">百度之星/2016复赛/1002.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1003.cpp"><span class="nm">1003.cpp</span></a><div class="mt">百度之星/2016复赛/1003.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1004.cpp"><span class="nm">1004.cpp</span></a><div class="mt">百度之星/2016复赛/1004.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1005.cpp"><span class="nm">1005.cpp</span></a><div class="mt">百度之星/2016复赛/1005.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2016%E5%A4%8D%E8%B5%9B/1006.cpp"><span class="nm">1006.cpp</span></a><div class="mt">百度之星/2016复赛/1006.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2018/2018-A-Round/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">百度之星/2018/2018-A-Round/A.cpp · 416 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2018/2018-A-Round/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">百度之星/2018/2018-A-Round/B.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2018/2018-A-Round/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">百度之星/2018/2018-A-Round/C.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2019/1001.cpp"><span class="nm">1001.cpp</span></a><div class="mt">百度之星/2019/1001.cpp · 835 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2019/1002.cpp"><span class="nm">1002.cpp</span></a><div class="mt">百度之星/2019/1002.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2019/1003.cpp"><span class="nm">1003.cpp</span></a><div class="mt">百度之星/2019/1003.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2019/1005.cpp"><span class="nm">1005.cpp</span></a><div class="mt">百度之星/2019/1005.cpp · 692 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E5%A4%8D%E8%B5%9B/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">百度之星/2020/复赛/A.cpp · 789 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E5%A4%8D%E8%B5%9B/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">百度之星/2020/复赛/B.cpp · 959 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E5%A4%8D%E8%B5%9B/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">百度之星/2020/复赛/C.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">百度之星/2020/第一场/A.cpp · 643 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">百度之星/2020/第一场/B.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">百度之星/2020/第一场/C.cpp · 1019 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/D.cpp"><span class="nm">D.cpp</span></a><div class="mt">百度之星/2020/第一场/D.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/E.cpp"><span class="nm">E.cpp</span></a><div class="mt">百度之星/2020/第一场/E.cpp · 719 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%80%E5%9C%BA/H.cpp"><span class="nm">H.cpp</span></a><div class="mt">百度之星/2020/第一场/H.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">百度之星/2020/第三场/A.cpp · 522 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">百度之星/2020/第三场/B.cpp · 438 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">百度之星/2020/第三场/C.cpp · 494 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/D.cpp"><span class="nm">D.cpp</span></a><div class="mt">百度之星/2020/第三场/D.cpp · 783 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/E.cpp"><span class="nm">E.cpp</span></a><div class="mt">百度之星/2020/第三场/E.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/F.cpp"><span class="nm">F.cpp</span></a><div class="mt">百度之星/2020/第三场/F.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2020/%E7%AC%AC%E4%B8%89%E5%9C%BA/G.cpp"><span class="nm">G.cpp</span></a><div class="mt">百度之星/2020/第三场/G.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2016-%E8%B5%84%E6%A0%BC%E8%B5%9B/A.cpp"><span class="nm">A.cpp</span></a><div class="mt">百度之星/百度之星2016-资格赛/A.cpp · 968 B</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2016-%E8%B5%84%E6%A0%BC%E8%B5%9B/B.cpp"><span class="nm">B.cpp</span></a><div class="mt">百度之星/百度之星2016-资格赛/B.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2016-%E8%B5%84%E6%A0%BC%E8%B5%9B/C.cpp"><span class="nm">C.cpp</span></a><div class="mt">百度之星/百度之星2016-资格赛/C.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2016-%E8%B5%84%E6%A0%BC%E8%B5%9B/D.cpp"><span class="nm">D.cpp</span></a><div class="mt">百度之星/百度之星2016-资格赛/D.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/02%EF%BC%88fib%E5%A0%86%E4%BC%98%E5%8C%96%2BSW%EF%BC%89.cpp"><span class="nm">02（fib堆优化+SW）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/02（fib堆优化+SW）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/02%EF%BC%88pairing%E5%A0%86%E4%BC%98%E5%8C%96%2BSW%EF%BC%89.cpp"><span class="nm">02（pairing堆优化+SW）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/02（pairing堆优化+SW）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/02%EF%BC%88pb_ds%EF%BC%89.cpp"><span class="nm">02（pb_ds）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/02（pb_ds）.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/02%EF%BC%88%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%89.cpp"><span class="nm">02（并查集）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/02（并查集）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/03%EF%BC%88%E8%83%8C%E5%8C%85dp%EF%BC%89.cpp"><span class="nm">03（背包dp）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/03（背包dp）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/04%EF%BC%88dp%EF%BC%89.cpp"><span class="nm">04（dp）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/04（dp）.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/05%EF%BC%88%E6%89%93%E8%A1%A8%2B%E7%BB%84%E5%90%88%E6%95%B0%EF%BC%89.cpp"><span class="nm">05（打表+组合数）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/05（打表+组合数）.cpp · 14.4 KB</div></div>
+<div class="item"><a href="code/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F2017-%E8%B5%84%E6%A0%BC%E8%B5%9B/1%EF%BC%88Floyd%E6%B1%82%E6%9C%80%E5%B0%8F%E7%8E%AF%EF%BC%89.cpp"><span class="nm">1（Floyd求最小环）.cpp</span></a><div class="mt">百度之星/百度之星2017-资格赛/1（Floyd求最小环）.cpp · 1.6 KB</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 0 张图片（含笔记配图），点击查看原图。</div>
+    <div class="empty">该仓库暂无图片</div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 12 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.DS_Store"><span class="nm">.DS_Store</span></a><div class="mt">.DS_Store · 8.0 KB</div></div>
+<div class="item"><a href="files/.gitignore"><span class="nm">.gitignore</span></a><div class="mt">.gitignore · 288 B</div></div>
+<div class="item"><a href="files/AtCoder/abc139/.vscode/settings.json"><span class="nm">settings.json</span></a><div class="mt">AtCoder/abc139/.vscode/settings.json · 62 B</div></div>
+<div class="item"><a href="files/AtCoder/abc139/main"><span class="nm">main</span></a><div class="mt">AtCoder/abc139/main · 13.3 KB</div></div>
+<div class="item"><a href="files/Codeforces/Math/main"><span class="nm">main</span></a><div class="mt">Codeforces/Math/main · 18.1 KB</div></div>
+<div class="item"><a href="files/LICENSE"><span class="nm">LICENSE</span></a><div class="mt">LICENSE · 11.1 KB</div></div>
+<div class="item"><a href="files/LibreOJ/1.zip"><span class="nm">1.zip</span></a><div class="mt">LibreOJ/1.zip · 12.4 KB</div></div>
+<div class="item"><a href="files/LibreOJ/5.zip"><span class="nm">5.zip</span></a><div class="mt">LibreOJ/5.zip · 720 B</div></div>
+<div class="item"><a href="files/LibreOJ/6.zip"><span class="nm">6.zip</span></a><div class="mt">LibreOJ/6.zip · 1.2 KB</div></div>
+<div class="item"><a href="files/Xiangtan%20Invitation%20Contest%202017/%E4%BA%A4%E9%A2%98%E7%BD%91%E5%9D%80.txt"><span class="nm">交题网址.txt</span></a><div class="mt">Xiangtan Invitation Contest 2017/交题网址.txt · 30 B</div></div>
+<div class="item"><a href="files/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/.DS_Store"><span class="nm">.DS_Store</span></a><div class="mt">百度之星/.DS_Store · 8.0 KB</div></div>
+<div class="item"><a href="files/%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F/2019/in.txt"><span class="nm">in.txt</span></a><div class="mt">百度之星/2019/in.txt · 20 B</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

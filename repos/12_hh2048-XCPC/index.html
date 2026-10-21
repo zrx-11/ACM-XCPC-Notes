@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>hh2048 · XCPC 笔记与模板 · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:16px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.rpage{max-width:1240px;margin:0 auto;padding:0 16px 70px}
+.rhead{padding:26px 0 8px}
+.rhead h1{font-family:var(--serif);font-size:clamp(22px,4vw,32px);font-weight:800}
+.rhead .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+.rhead .src{color:var(--teal);font-size:13px;margin-top:4px;word-break:break-all}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 20px;min-width:110px}
+.stat b{display:block;font-size:22px;color:var(--teal-deep);font-family:var(--mono)}
+.stat span{font-size:12.5px;color:var(--ink-soft)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin:26px 0 0;overflow-x:auto}
+.tabs button{border:none;background:none;padding:10px 16px;font-size:15px;font-weight:600;color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button.on{color:var(--teal-deep);border-bottom-color:var(--teal)}
+.panel{display:none;margin-top:18px}
+.panel.show{display:block}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.item .nm{font-weight:600;color:var(--ink);word-break:break-all;flex:1;min-width:200px}
+.item a:hover .nm{color:var(--teal-deep)}
+.item .mt{font-size:12.5px;color:var(--ink-soft);word-break:break-all;max-width:60%;text-align:right}
+@media(max-width:640px){.item .mt{max-width:100%;text-align:left;width:100%;padding-left:28px}}
+.item .tag{font-size:11px;background:var(--teal-soft);color:var(--teal-deep);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gimg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gimg a{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:block}
+.gimg img{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg)}
+.gimg .cap{font-size:11.5px;color:var(--ink-soft);padding:6px 8px;word-break:break-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:22px;color:var(--ink-soft);text-align:center;font-size:14px}
+.sec-note{color:var(--ink-soft);font-size:13px;margin:18px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap rpage">
+  <nav class="crumb"><a href="../../index.html">首页</a><span>/</span><span>12_hh2048-XCPC</span></nav>
+  <div class="rhead">
+    <h1>hh2048 · XCPC 笔记与模板</h1>
+    <div class="sub">打印稿模板汇总、算法笔记与题单、历年赛事补题链接整理</div>
+    <div class="src">来源：github.com/hh2048/XCPC（说明性文字，全部资料已站内收录）</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>41</b><span>笔记</span></div>
+    <div class="stat"><b>1</b><span>讲义 PDF</span></div>
+    <div class="stat"><b>139</b><span>代码</span></div>
+    <div class="stat"><b>4</b><span>图片</span></div>
+    <div class="stat"><b>2</b><span>其他文件</span></div>
+  </div>
+  <div class="tabs">
+    <button class="on" data-t="notes">笔记</button>
+    <button data-t="pdfs">讲义</button>
+    <button data-t="code">代码</button>
+    <button data-t="imgs">图片</button>
+    <button data-t="files">文件</button>
+  </div>
+
+  <div class="panel show" id="p-notes">
+    <div class="sec-note">共 41 篇笔记，点击打开站内阅读页。</div>
+    <div class="item"><a href="notes/01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.html"><span class="nm">03 - 对拍相关.md</span></a><div class="mt">12_hh2048-XCPC/01 - 常用在线模板汇总/01 - 初始与杂类/03 - 对拍相关.md · 1.9 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/01 - 基础算法.html"><span class="nm">01 - 基础算法.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/01 - 基础算法.md · 4.1 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/02 - 树上问题.html"><span class="nm">02 - 树上问题.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/02 - 树上问题.md · 13.8 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/03A - 图论.html"><span class="nm">03A - 图论.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/03A - 图论.md · 50.6 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/03B - 图论常见结论及例题.html"><span class="nm">03B - 图论常见结论及例题.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/03B - 图论常见结论及例题.md · 18.5 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/04 - 网络流.html"><span class="nm">04 - 网络流.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/04 - 网络流.md · 8.0 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/05A - 数论.html"><span class="nm">05A - 数论.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/05A - 数论.md · 32.9 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/05B - 数论常见结论及例题.html"><span class="nm">05B - 数论常见结论及例题.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/05B - 数论常见结论及例题.md · 17.7 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/06A - 几何.html"><span class="nm">06A - 几何.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/06A - 几何.md · 47.4 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/07 - 多项式.html"><span class="nm">07 - 多项式.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/07 - 多项式.md · 18.0 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/08 - 数据结构.html"><span class="nm">08 - 数据结构.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/08 - 数据结构.md · 67.7 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/09 - 动态规划.html"><span class="nm">09 - 动态规划.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/09 - 动态规划.md · 17.4 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/10 - 串.html"><span class="nm">10 - 串.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/10 - 串.md · 15.7 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/11 - 博弈论.html"><span class="nm">11 - 博弈论.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/11 - 博弈论.md · 10.4 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/12 - STL与库函数.html"><span class="nm">12 - STL与库函数.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/12 - STL与库函数.md · 17.8 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/13 - 卡常.html"><span class="nm">13 - 卡常.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/13 - 卡常.md · 9.1 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/14 - 杂类.html"><span class="nm">14 - 杂类.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/14 - 杂类.md · 32.0 KB</div></div>
+<div class="item"><a href="notes/02 - 打印稿模板汇总/README.html"><span class="nm">README.md</span></a><div class="mt">12_hh2048-XCPC/02 - 打印稿模板汇总/README.md · 25.7 KB</div></div>
+<div class="item"><a href="notes/03 - jiangly模板收集/04 - 数据结构/11 - Link-Cut Tree.html"><span class="nm">11 - Link-Cut Tree.md</span></a><div class="mt">12_hh2048-XCPC/03 - jiangly模板收集/04 - 数据结构/11 - Link-Cut Tree.md · 5.1 KB</div></div>
+<div class="item"><a href="notes/03 - jiangly模板收集/05 - 字符串/09A - 字典树 Trie.html"><span class="nm">09A - 字典树 Trie.md</span></a><div class="mt">12_hh2048-XCPC/03 - jiangly模板收集/05 - 字符串/09A - 字典树 Trie.md · 3.0 KB</div></div>
+<div class="item"><a href="notes/03 - jiangly模板收集/README.html"><span class="nm">README.md</span></a><div class="mt">12_hh2048-XCPC/03 - jiangly模板收集/README.md · 9.3 KB</div></div>
+<div class="item"><a href="notes/04 - 历年XCPC赛事补题链接整理/01 - 省赛与邀请赛.html"><span class="nm">01 - 省赛与邀请赛.md</span></a><div class="mt">12_hh2048-XCPC/04 - 历年XCPC赛事补题链接整理/01 - 省赛与邀请赛.md · 17.0 KB</div></div>
+<div class="item"><a href="notes/04 - 历年XCPC赛事补题链接整理/02 - ICPC.html"><span class="nm">02 - ICPC.md</span></a><div class="mt">12_hh2048-XCPC/04 - 历年XCPC赛事补题链接整理/02 - ICPC.md · 23.7 KB</div></div>
+<div class="item"><a href="notes/04 - 历年XCPC赛事补题链接整理/03 - CCPC.html"><span class="nm">03 - CCPC.md</span></a><div class="mt">12_hh2048-XCPC/04 - 历年XCPC赛事补题链接整理/03 - CCPC.md · 19.0 KB</div></div>
+<div class="item"><a href="notes/04 - 历年XCPC赛事补题链接整理/README.html"><span class="nm">README.md</span></a><div class="mt">12_hh2048-XCPC/04 - 历年XCPC赛事补题链接整理/README.md · 3.3 KB</div></div>
+<div class="item"><a href="notes/05 - 算法竞赛命题白皮书/README.html"><span class="nm">README.md</span></a><div class="mt">12_hh2048-XCPC/05 - 算法竞赛命题白皮书/README.md · 0 B</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记/01 - pb_ds库探究.html"><span class="nm">01 - pb_ds库探究.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/01 - pb_ds库探究.md · 8.7 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记/02 - 浮点数探究.html"><span class="nm">02 - 浮点数探究.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/02 - 浮点数探究.md · 11.2 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记/03 - 哈希表的复杂度探究.html"><span class="nm">03 - 哈希表的复杂度探究.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/03 - 哈希表的复杂度探究.md · 10.0 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记/05 - LLVM（代码自动格式化）探究.html"><span class="nm">05 - LLVM（代码自动格式化）探究.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/05 - LLVM（代码自动格式化）探究.md · 2.9 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记/06 - 本地编译器编译设置.html"><span class="nm">06 - 本地编译器编译设置.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/06 - 本地编译器编译设置.md · 3.1 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/01 - 博弈论.html"><span class="nm">01 - 博弈论.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/01 - 博弈论.md · 49.7 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/02 - 前缀和.html"><span class="nm">02 - 前缀和.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/02 - 前缀和.md · 6.9 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/03 - 二分与三分算法.html"><span class="nm">03 - 二分与三分算法.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/03 - 二分与三分算法.md · 8.1 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/04 - 莫队算法.html"><span class="nm">04 - 莫队算法.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/04 - 莫队算法.md · 7.8 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/06 - 位运算.html"><span class="nm">06 - 位运算.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/06 - 位运算.md · 9.6 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/07 - 树上分治.html"><span class="nm">07 - 树上分治.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/07 - 树上分治.md · 2.4 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/08 - Tarjan缩点.html"><span class="nm">08 - Tarjan缩点.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/08 - Tarjan缩点.md · 11.9 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/09 - 网络流.html"><span class="nm">09 - 网络流.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/09 - 网络流.md · 25.8 KB</div></div>
+<div class="item"><a href="notes/06 - 个人博客搬运/算法笔记与题单/10 - 字符串哈希.html"><span class="nm">10 - 字符串哈希.md</span></a><div class="mt">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记与题单/10 - 字符串哈希.md · 3.9 KB</div></div>
+<div class="item"><a href="notes/README.html"><span class="nm">README.md</span></a><div class="mt">12_hh2048-XCPC/README.md · 1.9 KB</div></div>
+  </div>
+  <div class="panel" id="p-pdfs">
+    <div class="sec-note">共 1 份讲义 PDF，浏览器直接预览（移动端可下载）。</div>
+    <div class="item"><a href="pdfs/07 - 论文与资料/【于纪平】C++的pb_ds库在OI中的应用.pdf"><span class="nm">【于纪平】C++的pb_ds库在OI中的应用.pdf</span></a><div class="mt">07 - 论文与资料/【于纪平】C++的pb_ds库在OI中的应用.pdf · 1.8 MB · 186页</div><span class="tag">可全文检索</span></div>
+  </div>
+  <div class="panel" id="p-code">
+    <div class="sec-note">共 139 段代码，点击查看原文。</div>
+    <div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/00 - wida.h"><span class="nm">00 - wida.h</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/00 - wida.h · 4.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件.cpp"><span class="nm">01 - 在线头文件.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件（简洁版）.cpp"><span class="nm">01 - 在线头文件（简洁版）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/01 - 在线头文件（简洁版）.cpp · 354 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/02 - 基础函数重载.cpp"><span class="nm">02 - 基础函数重载.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/02 - 基础函数重载.cpp · 961 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/04 - 手工随机哈希.cpp"><span class="nm">04 - 手工随机哈希.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/04 - 手工随机哈希.cpp · 799 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/05 - 全排列生成.cpp"><span class="nm">05 - 全排列生成.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/05 - 全排列生成.cpp · 273 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/06 - 快读（fread）.cpp"><span class="nm">06 - 快读（fread）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/06 - 快读（fread）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/07 - int128输入输出流控制.cpp"><span class="nm">07 - int128输入输出流控制.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/07 - int128输入输出流控制.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/01 - 初始与杂类/08 - 样例构造（随机数、树、图生成）.cpp"><span class="nm">08 - 样例构造（随机数、树、图生成）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/01 - 初始与杂类/08 - 样例构造（随机数、树、图生成）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/01 - 树的直径.cpp"><span class="nm">01 - 树的直径.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/01 - 树的直径.cpp · 929 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/02 - 点分治.cpp"><span class="nm">02 - 点分治.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/02 - 点分治.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/03 - HLD.cpp"><span class="nm">03 - HLD.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/03 - HLD.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（无权图树上倍增解）.cpp"><span class="nm">04 - LCA（无权图树上倍增解）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（无权图树上倍增解）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（有权图树上倍增解）.cpp"><span class="nm">04 - LCA（有权图树上倍增解）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（有权图树上倍增解）.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链剖分解）.cpp"><span class="nm">04 - LCA（树链剖分解）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/04 - LCA（树链剖分解）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp"><span class="nm">05 - Djikstra.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/05 - Djikstra.cpp · 548 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp"><span class="nm">06 - Floyd.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/06 - Floyd.cpp · 733 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp"><span class="nm">07 - MST (Kruskal).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/07 - MST (Kruskal).cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp"><span class="nm">08 - SCC (Tarjan).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/08 - SCC (Tarjan).cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp"><span class="nm">09 - EDCC (Tarjan)（新版）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（新版）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp"><span class="nm">09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/09 - EDCC (Tarjan)（链式前向星旧版，yxc版本）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/10 - VDCC (Tarjan).cpp"><span class="nm">10 - VDCC (Tarjan).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/10 - VDCC (Tarjan).cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（新版）.cpp"><span class="nm">11 - 一般图最大匹配（带花树算法）（新版）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（新版）.cpp · 3.4 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（旧版）.cpp"><span class="nm">11 - 一般图最大匹配（带花树算法）（旧版）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/11 - 一般图最大匹配（带花树算法）（旧版）.cpp · 3.8 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp"><span class="nm">12 - 一般图最大权匹配（带权带花树算法）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/12 - 一般图最大权匹配（带权带花树算法）.cpp · 9.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/13 - 二分图最大匹配 (HopcroftKarp).cpp"><span class="nm">13 - 二分图最大匹配 (HopcroftKarp).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/13 - 二分图最大匹配 (HopcroftKarp).cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/14 - 2-Sat.cpp"><span class="nm">14 - 2-Sat.cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/14 - 2-Sat.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp"><span class="nm">15 - 二分图最大权匹配 (KM).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/15 - 二分图最大权匹配 (KM).cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/16 - 最大流 (Dinic).cpp"><span class="nm">16 - 最大流 (Dinic).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/16 - 最大流 (Dinic).cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/17 - 最大流 (HLPP).cpp"><span class="nm">17 - 最大流 (HLPP).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/17 - 最大流 (HLPP).cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/02 - 图、树、网络流/18 - 费用流 (Djikstra).cpp"><span class="nm">18 - 费用流 (Djikstra).cpp</span></a><div class="mt">01 - 常用在线模板汇总/02 - 图、树、网络流/18 - 费用流 (Djikstra).cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/18 - 欧拉筛.cpp"><span class="nm">18 - 欧拉筛.cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/18 - 欧拉筛.cpp · 425 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/19 - Exgcd.cpp"><span class="nm">19 - Exgcd.cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/19 - Exgcd.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/20 - 组合数 (Lucas).cpp"><span class="nm">20 - 组合数 (Lucas).cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/20 - 组合数 (Lucas).cpp · 918 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/21 - Miller-Rabin + Pollard-Rho.cpp"><span class="nm">21 - Miller-Rabin + Pollard-Rho.cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/21 - Miller-Rabin + Pollard-Rho.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/22 - 平面几何.cpp"><span class="nm">22 - 平面几何.cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/22 - 平面几何.cpp · 4.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/03 - 数论、几何/23 - 立体几何.cpp"><span class="nm">23 - 立体几何.cpp</span></a><div class="mt">01 - 常用在线模板汇总/03 - 数论、几何/23 - 立体几何.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU++.cpp"><span class="nm">24 - DSU++.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU++.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU.cpp"><span class="nm">24 - DSU.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/24 - DSU.cpp · 713 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D++.cpp"><span class="nm">25 - Fenwick 1D++.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D++.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D.cpp"><span class="nm">25 - Fenwick 1D.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 1D.cpp · 576 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D++.cpp"><span class="nm">25 - Fenwick 2D++.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D++.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D.cpp"><span class="nm">25 - Fenwick 2D.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/25 - Fenwick 2D.cpp · 957 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt++.cpp"><span class="nm">26 - Segt++.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt++.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt.cpp"><span class="nm">26 - Segt.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/26 - Segt.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/27 - 坐标压缩.cpp"><span class="nm">27 - 坐标压缩.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/27 - 坐标压缩.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/29 - 分数四则运算.cpp"><span class="nm">29 - 分数四则运算.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/29 - 分数四则运算.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/30 - ST 表.cpp"><span class="nm">30 - ST 表.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/30 - ST 表.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/31 - 线性基（高斯消元法）.cpp"><span class="nm">31 - 线性基（高斯消元法）.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/31 - 线性基（高斯消元法）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/32 - 取模类.cpp"><span class="nm">32 - 取模类.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/32 - 取模类.cpp · 2.7 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/33 - 高精度大整数类.cpp"><span class="nm">33 - 高精度大整数类.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/33 - 高精度大整数类.cpp · 9.8 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/34 - KMP.cpp"><span class="nm">34 - KMP.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/34 - KMP.cpp · 574 B</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希++.cpp"><span class="nm">35 - 字符串双哈希++.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希++.cpp · 2.6 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希.cpp"><span class="nm">35 - 字符串双哈希.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串双哈希.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串哈希.cpp"><span class="nm">35 - 字符串哈希.cpp</span></a><div class="mt">01 - 常用在线模板汇总/04 - 串与数据结构/35 - 字符串哈希.cpp · 928 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/01 - int128 库函数自定义.cpp"><span class="nm">01 - int128 库函数自定义.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/01 - int128 库函数自定义.cpp · 1006 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/02 - 常用库函数重载.cpp"><span class="nm">02 - 常用库函数重载.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/02 - 常用库函数重载.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/03 - 字符调整.cpp"><span class="nm">03 - 字符调整.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/03 - 字符调整.cpp · 488 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/04A - 二分算法（整数域）.cpp"><span class="nm">04A - 二分算法（整数域）.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/04A - 二分算法（整数域）.cpp · 563 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/04B - 二分算法（实数域）.cpp"><span class="nm">04B - 二分算法（实数域）.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/04B - 二分算法（实数域）.cpp · 962 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/01 - 杂类/05 - 快读.cpp"><span class="nm">05 - 快读.cpp</span></a><div class="mt">03 - jiangly模板收集/01 - 杂类/05 - 快读.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/01 - 强连通分量缩点（SCC）.cpp"><span class="nm">01 - 强连通分量缩点（SCC）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/01 - 强连通分量缩点（SCC）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/02 - 割边与割边缩点（EBCC）.cpp"><span class="nm">02 - 割边与割边缩点（EBCC）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/02 - 割边与割边缩点（EBCC）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/03 - 二分图最大权匹配（MaxAssignment 基于KM）.cpp"><span class="nm">03 - 二分图最大权匹配（MaxAssignment 基于KM）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/03 - 二分图最大权匹配（MaxAssignment 基于KM）.cpp · 4.8 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/04 - 一般图最大匹配（Graph 带花树算法）【久远】.cpp"><span class="nm">04 - 一般图最大匹配（Graph 带花树算法）【久远】.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/04 - 一般图最大匹配（Graph 带花树算法）【久远】.cpp · 7.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/05 - TwoSat（2-Sat）.cpp"><span class="nm">05 - TwoSat（2-Sat）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/05 - TwoSat（2-Sat）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/06A - 最大流（Flow 旧版其一，整数应用）.cpp"><span class="nm">06A - 最大流（Flow 旧版其一，整数应用）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/06A - 最大流（Flow 旧版其一，整数应用）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/06B - 最大流（Flow 旧版其二，浮点数应用）.cpp"><span class="nm">06B - 最大流（Flow 旧版其二，浮点数应用）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/06B - 最大流（Flow 旧版其二，浮点数应用）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/06C - 最大流（MaxFlow 新版）.cpp"><span class="nm">06C - 最大流（MaxFlow 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/06C - 最大流（MaxFlow 新版）.cpp · 2.8 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/07A - 费用流（MCFGraph 旧版）.cpp"><span class="nm">07A - 费用流（MCFGraph 旧版）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/07A - 费用流（MCFGraph 旧版）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/07B - 费用流（MinCostFlow 新版）.cpp"><span class="nm">07B - 费用流（MinCostFlow 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/07B - 费用流（MinCostFlow 新版）.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/08 - 树链剖分（HLD）.cpp"><span class="nm">08 - 树链剖分（HLD）.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/08 - 树链剖分（HLD）.cpp · 2.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/02 - 图与网络/09 - 圆方树.cpp"><span class="nm">09 - 圆方树.cpp</span></a><div class="mt">03 - jiangly模板收集/02 - 图与网络/09 - 圆方树.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/01 - 快速幂.cpp"><span class="nm">01 - 快速幂.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/01 - 快速幂.cpp · 770 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/02 - 基姆拉尔森公式.cpp"><span class="nm">02 - 基姆拉尔森公式.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/02 - 基姆拉尔森公式.cpp · 579 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/03 - 欧拉筛.cpp"><span class="nm">03 - 欧拉筛.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/03 - 欧拉筛.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/04 - 莫比乌斯函数筛（莫比乌斯反演）.cpp"><span class="nm">04 - 莫比乌斯函数筛（莫比乌斯反演）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/04 - 莫比乌斯函数筛（莫比乌斯反演）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/05 - 扩展欧几里得（exgcd）.cpp"><span class="nm">05 - 扩展欧几里得（exgcd）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/05 - 扩展欧几里得（exgcd）.cpp · 970 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/06A - 欧拉函数（求解单个数的欧拉函数）.cpp"><span class="nm">06A - 欧拉函数（求解单个数的欧拉函数）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/06A - 欧拉函数（求解单个数的欧拉函数）.cpp · 451 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/06B - 欧拉函数（求解全部数的欧拉函数）.cpp"><span class="nm">06B - 欧拉函数（求解全部数的欧拉函数）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/06B - 欧拉函数（求解全部数的欧拉函数）.cpp · 675 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/07A - 取模运算类（Z）.cpp"><span class="nm">07A - 取模运算类（Z）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/07A - 取模运算类（Z）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/07B - 取模运算类（MLong & MInt）.cpp"><span class="nm">07B - 取模运算类（MLong &amp; MInt）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/07B - 取模运算类（MLong &amp; MInt）.cpp · 5.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/07C - 取模运算类（ModIntBase）.cpp"><span class="nm">07C - 取模运算类（ModIntBase）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/07C - 取模运算类（ModIntBase）.cpp · 3.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/07D - 快速取模运算类（MontgomeryModInt32 蒙哥马利模乘）.cpp"><span class="nm">07D - 快速取模运算类（MontgomeryModInt32 蒙哥马利模乘）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/07D - 快速取模运算类（MontgomeryModInt32 蒙哥马利模乘）.cpp · 6.6 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/07E - 大数快速取模运算类（Barrett & DynModInt, with ModIntBase 巴雷特约减模乘）.cpp"><span class="nm">07E - 大数快速取模运算类（Barrett &amp; DynModInt, with ModIntBase 巴雷特约减模乘）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/07E - 大数快速取模运算类（Barrett &amp; DynModInt, with ModIntBase 巴雷特约减模乘）.cpp · 7.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/08A - 组合数（小范围预处理，逆元+杨辉三角）.cpp"><span class="nm">08A - 组合数（小范围预处理，逆元+杨辉三角）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/08A - 组合数（小范围预处理，逆元+杨辉三角）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/08B - 组合数（Comb, with. ModIntBase）.cpp"><span class="nm">08B - 组合数（Comb, with. ModIntBase）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/08B - 组合数（Comb, with. ModIntBase）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/09A - 平面几何（Point）.cpp"><span class="nm">09A - 平面几何（Point）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/09A - 平面几何（Point）.cpp · 11.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/09B - 平面几何（with. complex）.cpp"><span class="nm">09B - 平面几何（with. complex）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/09B - 平面几何（with. complex）.cpp · 700 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/10 - 立体几何（Point）.cpp"><span class="nm">10 - 立体几何（Point）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/10 - 立体几何（Point）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/11A - 静态凸包（with. Point，旧版）.cpp"><span class="nm">11A - 静态凸包（with. Point，旧版）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/11A - 静态凸包（with. Point，旧版）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/11B - 静态凸包（with. Point，新版）.cpp"><span class="nm">11B - 静态凸包（with. Point，新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/11B - 静态凸包（with. Point，新版）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/11C - 静态凸包（with. complex）.cpp"><span class="nm">11C - 静态凸包（with. complex）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/11C - 静态凸包（with. complex）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/12A - 多项式（Poly 手写取模）.cpp"><span class="nm">12A - 多项式（Poly 手写取模）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/12A - 多项式（Poly 手写取模）.cpp · 8.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/12B - 多项式（Poly, with Z）.cpp"><span class="nm">12B - 多项式（Poly, with Z）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/12B - 多项式（Poly, with Z）.cpp · 9.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/12C - 多项式（Poly, with MontgomeryModInt32）.cpp"><span class="nm">12C - 多项式（Poly, with MontgomeryModInt32）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/12C - 多项式（Poly, with MontgomeryModInt32）.cpp · 25.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式乘法.cpp"><span class="nm">12D - 多项式乘法.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式乘法.cpp · 2.3 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式（Poly, with MInt）.cpp"><span class="nm">12D - 多项式（Poly, with MInt）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/12D - 多项式（Poly, with MInt）.cpp · 15.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/13A - 生成函数（q-int）.cpp"><span class="nm">13A - 生成函数（q-int）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/13A - 生成函数（q-int）.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/13B - 生成函数（q-Binomial）.cpp"><span class="nm">13B - 生成函数（q-Binomial）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/13B - 生成函数（q-Binomial）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/13C - 生成函数（Binomial 任意模数二项式）.cpp"><span class="nm">13C - 生成函数（Binomial 任意模数二项式）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/13C - 生成函数（Binomial 任意模数二项式）.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/14 - 自适应辛普森法（Simpson）.cpp"><span class="nm">14 - 自适应辛普森法（Simpson）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/14 - 自适应辛普森法（Simpson）.cpp · 953 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/15 - 矩阵（Matrix）.cpp"><span class="nm">15 - 矩阵（Matrix）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/15 - 矩阵（Matrix）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/16 - 高斯消元法 gaussian elimination（gauss）【久远】.cpp"><span class="nm">16 - 高斯消元法 gaussian elimination（gauss）【久远】.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/16 - 高斯消元法 gaussian elimination（gauss）【久远】.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/03 - 数论、几何与多项式/17 - 素数测试与因式分解（Miller-Rabin & Pollard-Rho）.cpp"><span class="nm">17 - 素数测试与因式分解（Miller-Rabin &amp; Pollard-Rho）.cpp</span></a><div class="mt">03 - jiangly模板收集/03 - 数论、几何与多项式/17 - 素数测试与因式分解（Miller-Rabin &amp; Pollard-Rho）.cpp · 2.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/01A - 树状数组（Fenwick 旧版）.cpp"><span class="nm">01A - 树状数组（Fenwick 旧版）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/01A - 树状数组（Fenwick 旧版）.cpp · 997 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/01B - 树状数组（Fenwick 新版）.cpp"><span class="nm">01B - 树状数组（Fenwick 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/01B - 树状数组（Fenwick 新版）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/02A - 并查集（DSU）.cpp"><span class="nm">02A - 并查集（DSU）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/02A - 并查集（DSU）.cpp · 854 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/02B - 可撤销并查集（DSU With Rollback）.cpp"><span class="nm">02B - 可撤销并查集（DSU With Rollback）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/02B - 可撤销并查集（DSU With Rollback）.cpp · 1.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/03A - 线段树（SegmentTree+Info 区间加+单点修改）.cpp"><span class="nm">03A - 线段树（SegmentTree+Info 区间加+单点修改）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/03A - 线段树（SegmentTree+Info 区间加+单点修改）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/03B - 线段树（SegmentTree 区间乘+单点加）.cpp"><span class="nm">03B - 线段树（SegmentTree 区间乘+单点加）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/03B - 线段树（SegmentTree 区间乘+单点加）.cpp · 1.8 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）.cpp"><span class="nm">03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/03C - 线段树（SegmentTree+Info 初始赋值+单点修改+查找前驱后继）.cpp · 3.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）.cpp"><span class="nm">03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/03D - 线段树（SegmentTree+Info+Merge 初始赋值+单点修改+区间合并）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/04 - 懒标记线段树（LazySegmentTree）.cpp"><span class="nm">04 - 懒标记线段树（LazySegmentTree）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/04 - 懒标记线段树（LazySegmentTree）.cpp · 6.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/05 - 高精度（BigInt）.cpp"><span class="nm">05 - 高精度（BigInt）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/05 - 高精度（BigInt）.cpp · 1.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp"><span class="nm">06 - 状压RMQ（RMQ）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/06 - 状压RMQ（RMQ）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp"><span class="nm">07A - Splay.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/07A - Splay.cpp · 3.7 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/07B - Splay.cpp"><span class="nm">07B - Splay.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/07B - Splay.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/07C - Splay.cpp"><span class="nm">07C - Splay.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/07C - Splay.cpp · 3.3 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/08A - 其他平衡树.cpp"><span class="nm">08A - 其他平衡树.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/08A - 其他平衡树.cpp · 1.6 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/08B - 其他平衡树.cpp"><span class="nm">08B - 其他平衡树.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/08B - 其他平衡树.cpp · 963 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/08C - 其他平衡树.cpp"><span class="nm">08C - 其他平衡树.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/08C - 其他平衡树.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/08D - 其他平衡树.cpp"><span class="nm">08D - 其他平衡树.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/08D - 其他平衡树.cpp · 2.2 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp"><span class="nm">09 - 分数四则运算（Frac）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/09 - 分数四则运算（Frac）.cpp · 2.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp"><span class="nm">10 - 线性基（Basis）.cpp</span></a><div class="mt">03 - jiangly模板收集/04 - 数据结构/10 - 线性基（Basis）.cpp · 749 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp"><span class="nm">01A - 马拉车（Manacher）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/01A - 马拉车（Manacher）.cpp · 1.4 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp"><span class="nm">02 - Z函数.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/02 - Z函数.cpp · 570 B</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp"><span class="nm">03A - 后缀数组（SuffixArray）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/03A - 后缀数组（SuffixArray）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp"><span class="nm">03B - 后缀数组（SA）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/03B - 后缀数组（SA）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp"><span class="nm">04A - 后缀自动机（SuffixAutomaton 旧版）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/04A - 后缀自动机（SuffixAutomaton 旧版）.cpp · 1.3 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp"><span class="nm">04B - 后缀自动机（SAM 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/04B - 后缀自动机（SAM 新版）.cpp · 1.9 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/05 - 回文自动机（PAM）.cpp"><span class="nm">05 - 回文自动机（PAM）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/05 - 回文自动机（PAM）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp"><span class="nm">06A - AC自动机（AC 旧版）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/06A - AC自动机（AC 旧版）.cpp · 2.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp"><span class="nm">06B - AC自动机（AhoCorasick, with vector 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/06B - AC自动机（AhoCorasick, with vector 新版）.cpp · 2.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp"><span class="nm">06C - AC自动机（AhoCorasick, with string 新版）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/06C - AC自动机（AhoCorasick, with string 新版）.cpp · 1.7 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/07 - 字符串哈希（随机底模例题）.cpp"><span class="nm">07 - 字符串哈希（随机底模例题）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/07 - 字符串哈希（随机底模例题）.cpp · 3.0 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/08 - 最长公共前缀 LCP（例题）.cpp"><span class="nm">08 - 最长公共前缀 LCP（例题）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/08 - 最长公共前缀 LCP（例题）.cpp · 1.5 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/09B - 字典树 Trie.cpp"><span class="nm">09B - 字典树 Trie.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/09B - 字典树 Trie.cpp · 1.1 KB</div></div>
+<div class="item"><a href="code/03 - jiangly模板收集/05 - 字符串/10 - 前缀函数（KMP）.cpp"><span class="nm">10 - 前缀函数（KMP）.cpp</span></a><div class="mt">03 - jiangly模板收集/05 - 字符串/10 - 前缀函数（KMP）.cpp · 434 B</div></div>
+  </div>
+  <div class="panel" id="p-imgs">
+    <div class="sec-note">共 4 张图片（含笔记配图），点击查看原图。</div>
+    <div class="gimg"><a href="images/06 - 个人博客搬运/算法笔记/06 - p01.png"><img src="images/06 - 个人博客搬运/算法笔记/06 - p01.png" alt="06 - p01.png"><div class="cap">06 - 个人博客搬运/算法笔记/06 - p01.png</div></a>
+<a href="images/06 - 个人博客搬运/算法笔记/06 - p02.png"><img src="images/06 - 个人博客搬运/算法笔记/06 - p02.png" alt="06 - p02.png"><div class="cap">06 - 个人博客搬运/算法笔记/06 - p02.png</div></a>
+<a href="images/06 - 个人博客搬运/算法笔记/06 - p03.png"><img src="images/06 - 个人博客搬运/算法笔记/06 - p03.png" alt="06 - p03.png"><div class="cap">06 - 个人博客搬运/算法笔记/06 - p03.png</div></a>
+<a href="images/07 - 论文与资料/图的偏心距示意图.png"><img src="images/07 - 论文与资料/图的偏心距示意图.png" alt="图的偏心距示意图.png"><div class="cap">07 - 论文与资料/图的偏心距示意图.png</div></a></div>
+  </div>
+  <div class="panel" id="p-files">
+    <div class="sec-note">共 2 个其他文件（md 原文、PPT/Word/TXT 等），点击下载原文。</div>
+    <div class="item"><a href="files/.gitignore"><span class="nm">.gitignore</span></a><div class="mt">.gitignore · 270 B</div></div>
+<div class="item"><a href="files/LICENSE"><span class="nm">LICENSE</span></a><div class="mt">LICENSE · 34.3 KB</div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button');
+  bs.forEach(function(b){
+    b.addEventListener('click',function(){
+      bs.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show')});
+      var t=document.getElementById('p-'+b.getAttribute('data-t'));
+      if(t){t.classList.add('show')};
+    });
+  });
+})();
+</script>
+</body>
+</html>

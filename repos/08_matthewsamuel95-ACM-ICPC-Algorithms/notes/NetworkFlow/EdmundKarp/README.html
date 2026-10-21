@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>README.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">matthewsamuel95 · 算法实现大全</a><span>/</span><span>README.md</span></nav>
+  <h1 class="page-title">README.md</h1>
+  <div class="page-meta">08_matthewsamuel95-ACM-ICPC-Algorithms/NetworkFlow/EdmundKarp/README.md · 1.4 KB</div>
+  <div class="prose"><h1>EDMUND KARP ALGORITHM</h1>
+<p>The Edmonds-Karp Algorithm is a specific implementation of the Ford-Fulkerson algorithm. Like Ford-Fulkerson, Edmonds-Karp is also an algorithm that deals with the max-flow min-cut problem.</p>
+<p>Ford-Fulkerson is sometimes called a method because some parts of its protocol are left unspecified. Edmonds-Karp, on the other hand, provides a full specification. Most importantly, it specifies that breadth-first search should be used to find the shortest paths during the intermediate stages of the program.</p>
+<p>Edmonds-Karp differs from Ford-Fulkerson in that it chooses the next augmenting path using breadth-first search (bfs). So, if there are multiple augmenting paths to choose from, Edmonds-Karp will be sure to choose the shortest augmenting path from the source to the sink.</p>
+<h2>PSEUDOCODE</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">inputs</span>
+<span class="w">    </span><span class="n">C</span><span class="o">[</span><span class="n">n x n</span><span class="o">]</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">Capacity</span><span class="w"> </span><span class="n">Matrix</span>
+<span class="w">    </span><span class="n">E</span><span class="o">[</span><span class="n">n x n</span><span class="o">]</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">Adjacency</span><span class="w"> </span><span class="n">Matrix</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">source</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">sink</span>
+<span class="k">output</span>
+<span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">flow</span>
+<span class="n">Edmonds</span><span class="o">-</span><span class="nl">Karp</span><span class="p">:</span>
+<span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="o">//</span><span class="w"> </span><span class="n">Flow</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">initially</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">n x n</span><span class="o">]</span><span class="w">       </span><span class="o">//</span><span class="w"> </span><span class="n">residual</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="k">array</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="k">true</span><span class="err">:</span>
+<span class="w">        </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Breadth</span><span class="o">-</span><span class="k">First</span><span class="o">-</span><span class="k">Search</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span>
+<span class="w">            </span><span class="k">break</span>
+<span class="w">        </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span>
+<span class="w">        </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nl">s</span><span class="p">:</span>
+<span class="w">            </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="o">[</span><span class="n">v</span><span class="o">]</span>
+<span class="w">            </span><span class="n">F</span><span class="o">[</span><span class="n">u, v</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="o">[</span><span class="n">u, v</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="w">       </span><span class="o">//</span><span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">reducing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">residual</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">augmenting</span><span class="w"> </span><span class="k">path</span>
+<span class="w">            </span><span class="n">F</span><span class="o">[</span><span class="n">v, u</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="o">[</span><span class="n">v, u</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="w">        </span><span class="o">//</span><span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">increasing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">residual</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="n">edges</span><span class="w"> </span>
+<span class="w">            </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">f</span>
+</code></pre></div></div>
+</div>
+</body>
+</html>

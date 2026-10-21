@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F766E'/><path d='M9 20.5 13 8h2.6L12 21.6 9 20.5Zm5.6-1.1L18.5 8h2.2l-4 11.4-3.1-1.1Z' fill='white'/></svg>">
+<title>02 - 浮点数探究.md · ACM/XCPC 学习资料库</title>
+<link rel="stylesheet" href="../../../../../assets/style.css">
+<style>
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin:14px 0 6px;flex-wrap:wrap}
+.crumb a{color:var(--teal);font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.page-title{font-family:var(--serif);font-size:clamp(20px,3.4vw,28px);font-weight:800;margin:4px 0 10px}
+.page-meta{color:var(--ink-soft);font-size:13px;margin-bottom:18px;word-break:break-all}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 60px}
+.prose img{max-width:100%;height:auto;border-radius:10px;margin:12px 0;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb"><a href="../../../../../index.html">首页</a><span>/</span><a href="../../../index.html">hh2048 · XCPC 笔记与模板</a><span>/</span><span>02 - 浮点数探究.md</span></nav>
+  <h1 class="page-title">02 - 浮点数探究.md</h1>
+  <div class="page-meta">12_hh2048-XCPC/06 - 个人博客搬运/算法笔记/02 - 浮点数探究.md · 11.2 KB</div>
+  <div class="prose"><h3>默认精度</h3>
+<p>C++ 默认有效位数为 $6$ 位，指数位和小数位共享。超过有效位数时，只输出前 $6$ 位，且第六位四舍五入运算。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">12345.54555</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 12345.5</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">12345.55555</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 12345.6，被四舍五入了</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.45555</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123456</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.55555</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123457，被四舍五入了</span>
+</code></pre></div>
+
+<p>当指数为超过有效位数后，自动变为科学计数法输出。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">1234567.12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 1.23457e+06</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">12345678901234567890.12345</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 1.23457e+19</span>
+</code></pre></div>
+
+<p>在使用浮点数的情况下，需要尽可能的使用 <code>fixed</code> 和 <code>setprecision</code> 函数控制输出，否则可能发生意想不到的错误。我个人的习惯是无论是否使用浮点数，都会将 <code>cout &lt;&lt; fixed &lt;&lt; setprecision(12);</code> 语句写到头文件中以防出现意外。</p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/2f9a71e52598.png" width="65%" /> 
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">https://codeforces.com/blog/entry/69899?#comment-544144</div>
+</center></p>
+<hr />
+<h3>科学计数法 <code>E</code></h3>
+<p>使用科学计数法时，本质上是将数字转变为了浮点数后再进行下一步计算，而浮点数存在精度问题，在大于 <code>1E16</code> 时超过有效位，会导致计算无效。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1E15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1E16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Ntt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1E16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">123456789</span><span class="p">;</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">N15</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 1000000000000001</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">N16</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 10000000000000000</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Ntt</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 10000000123456788</span>
+</code></pre></div>
+
+<hr />
+<h3><code>fixed</code> 函数</h3>
+<p>该函数用于切换有效位数的判断逻辑，未使用时指数位和小数位共享有效位数，使用后变为小数位独享。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.1234564</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123456.123456</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.1234565</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123457.123457，被四舍五入了</span>
+</code></pre></div>
+
+<hr />
+<h3><code>setprecision</code> 函数</h3>
+<p>该函数用于修改有效位数，单独使用时指数位和小数位共享<strong>修改后的</strong>有效位数，与 <code>fixed</code> 配合时变为小数位独享。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.123456</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123456.1235</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mf">123456.123456</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 123456.1234560000</span>
+</code></pre></div>
+
+<hr />
+<h3>范围与溢出错误</h3>
+<p>使用 <code>fixed</code> 和 <code>setprecision</code> 配合 <code>numeric_limits&lt;T&gt;::max()</code> 获取最大值时，我们能够得到一个长度为 $309$ 位的数字，约等于 <code>1.7976931348623157 * 10^308</code> ，这个数字表示的就是 <code>double</code> 类型能够表示的最大正实数；而事实上，虽然 <code>double</code> 类型的有效数字仅有 $16$ 位，但是其允许的范围是 $-308$ 到 $+308$ 的指数范围。当你试图用 <code>double</code> 类型表示一个比这个数字更大/更小的实数，就会发生溢出错误，务必注意这与整数类型完全不同。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 1.79769e+308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 1.797693135e+308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出完整数字</span>
+</code></pre></div>
+
+<hr />
+<h3>使用函数获取最小值</h3>
+<p>当我们想要获取整数类型的最小值时，通常会使用到 <code>numeric_limits&lt;T&gt;::min()</code> 语句，但是这个函数并不能获取浮点数的最小值，而是会返回浮点数的<strong>最小正规范化值</strong>，它是一个非常小的正数，约等于 <code>2.22507e-308</code> ，务必注意这与整数类型完全不同。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">();</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 2.22507e-308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 2.225073859e-308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 0.0000000000</span>
+</code></pre></div>
+
+<p>当我们真的想要使用函数得到浮点数的最小值时，需要使用 <code>numeric_limits&lt;T&gt;::lowest()</code> 函数。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">();</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 -1.79769e+308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 -1.797693135e+308</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出完整数字</span>
+</code></pre></div>
+
+<p>而整数类型没有非规范化值或者零的概念，所以它们的最小正规范化值和最小负有限值是相同的。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">i64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 -9223372036854775808</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;::</span><span class="n">lowest</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 -9223372036854775808</span>
+</code></pre></div>
+
+<hr />
+<h3>函数的返回类型与隐式转换（其一）</h3>
+<p>这一问题在 <code>pow</code> 函数的使用过程中非常常见。众所周知，<code>pow</code> 函数会返回一个浮点数类型的答案，这就导致令人头疼的精度问题会再次出现。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">216</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 2.000000000000</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 2.00000000000000000000</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 6.000000000000</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 5.99999999999999911182</span>
+</code></pre></div>
+
+<p>如果这一问题配合上隐式转换，就会产生灾难（备注：$\sqrt[3]{216}=6$，由于 <code>pow</code> 得到的是 $5.99999\dots$ ，隐式转换将小数部分全部舍去后输出 $5$ ）。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">216</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">q</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 5</span>
+</code></pre></div>
+
+<blockquote>
+<p>注：如果需要开立方根，C++库中自带函数 <code>cbrt</code> ，用法与 <code>sqrt</code> 一致，且两者都保证精确。</p>
+</blockquote>
+<hr />
+<h3>函数的返回类型与隐式转换（其二）</h3>
+<p>见下例，我们队伍曾在区域赛赛场上犯过这个错误，教训非常之惨痛！</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">num1</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">num2</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 49，答案错误！</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 10，答案正确</span>
+</code></pre></div>
+
+<hr />
+<h3>关于库函数的浮点数版本</h3>
+<p>我们都知道有一些库函数有专门针对浮点数的版本，例如：绝对值函数 <code>abs</code> 的浮点数版本 <code>fabs</code>、开根号函数 <code>sqrt</code> 的浮点数版本 <code>sqrtf</code>。首先要声明的是这些浮点数版本接受的是 <code>float</code> 类型的参数而不是精度更高的 <code>double</code> 类型，且由于浮点数存在精度问题，在不需要使用的情况下使用属于自讨没趣。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-12345678901234567</span><span class="p">;</span><span class="w">    </span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 12345678901234567</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 12345678901234568.000000，误差更大</span>
+</code></pre></div>
+
+<p>除此之外，由于接受的是 <code>float</code> 类型的参数，在大多情况下的计算精度都较低。下方例子中，精确计算的答案应当为 $\sqrt{1234567890.1234567} = 35136.418288201441$ ，显然 <code>sqrt</code> 计算得到的答案误差更小。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1234567890.1234567</span><span class="p">;</span><span class="w">    </span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">setprecision</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 35136.418288201443</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__builtin_sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 35136.418288201443</span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sqrtf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 35136.417968750000，误差更大</span>
+</code></pre></div>
+
+<p>综上，不要使用浮点数版本。</p>
+<hr />
+<h3>杂类</h3>
+<ol>
+<li>
+<p>某些函数并不支持浮点数传入，例如 <code>minmax</code> 函数，翻阅库之后我们可以发现，其只支持传入整数/字符串列表；</p>
+</li>
+<li>
+<p>由于 IEEE 754 规定 <code>long double</code> 的精度不少于 <code>double</code> 的精度，主流的编程竞赛平台$^{\text{注}}$也确实做到了这一点，故个人习惯使用 <code>long double</code> 代替 <code>double</code>；但是显然，<strong>更高的精度会导致运行时间变慢</strong>，请谨慎抉择。（$^{\text{注}}$：在现版本的杭电OJ，某些情况下 <code>long double</code> 的精度不如 <code>double</code>）。</p>
+</li>
+<li>
+<p>浮点数整数和小数部分共享精度，所以在计算时，整数部分越大，小数部分精度越差。一般我们默认在数据集超过 $10^6$ 时不再使用浮点数进行运算，否则会出现很严重的精度误差。</p>
+</li>
+<li>
+<p>读入浮点数的速度非常慢，<strong>在大量读入浮点数、需要卡常的情况下</strong>，为了加快读入速度，一般我们默认不直接读入浮点数：对于整数输入，我们一般采取先读入整数后转换成浮点数的方式；对于浮点数输入，我们一般采取先读入字符串后转换成浮点数的方式。当输入量在 $10^5$ 量级时，这样做可以快 $10$ 倍（使用 <a href="https://codeforces.com/contest/257/problem/C">例题</a> 进行测试）。</p>
+</li>
+<li>
+<p>读入浮点数会出现精度误差，我时常看到有人在代码中对某一些变量采取诸如 <code>+= 1E-14</code> 的调整操作，最终以极短的代码与误差过题（此处 <a href="https://atcoder.jp/contests/abc191/submissions/44365704">参考</a>，这一份代码对 <code>r</code> 变量进行了调整操作，但是经我测试将偏移量修改为 <code>+= 1E-15</code> 就无法过题），由于我实在是没能弄明白这究竟是基于数据集采取的卡精度手段还是能被广泛运用的编程技巧，故暂时我也没法给出一个合适的结论。</p>
+</li>
+</ol>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/612fc4c5b844.png" width="65%" /> 
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">这个样例中两者的答案输出应当都是 $0.0$ ，但是读入方式的不同最终造成了答案的误差</div>
+</center></p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/3c7c3bb37035.png" width="65%" /> 
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">较低的精度模式下不会出现问题，但这其实是四舍五入后的结果，高精度模式下问题会被完全暴露</div>
+</center></p>
+<ol start="5">
+<li>由于浮点数四则运算存在严重误差，故一般我们默认不直接对浮点数进行大小比较、也不直接对浮点数进行符号判断。</li>
+</ol>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/8137b2e62086.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">这个样例中两者的答案输出应当都是 $0.2$ ，但是浮点数的误差导致计算结果并不精确</div>
+</center></p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/e18faf1eab95.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">浮点数的误差是通病，哪怕是Python也无法直接处理</div>
+</center></p>
+<p><center>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="../../images/external/6e87e5dbb6f9.png" width="65%" />
+    <div style="border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999;">最终所有这些细小的误差可能导致非常严重的后果</div>
+</center></p></div>
+</div>
+</body>
+</html>
